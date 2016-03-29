@@ -25,7 +25,9 @@
     
     // For now I'm just faking the data
     self.itemsMenu = @{ @"Sofas" : @[@"#1 sofa"],
-                        @"Chairs": @[@"#1 chair"]
+                        @"Chairs": @[@"#1 chair"],
+                        @"Tables": @[@"#1 table"],
+                        @"Beds"  : @[@"#1 bed"]
                       };
     
     
