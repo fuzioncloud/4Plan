@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Items Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ItemsMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,86 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="433" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5nY-Kx-Zh4">
+                                <rect key="frame" x="0.0" y="40" width="600" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Item Cell" rowHeight="433" id="kbZ-A8-epG" customClass="FPCItemCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="433"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbZ-A8-epG" id="Jwl-fd-v7J">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalCompressionResistancePriority="250" image="Chairs" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-8y-HBi">
+                                                    <rect key="frame" x="20" y="0.0" width="560" height="304"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-2s-xhO">
+                                                    <rect key="frame" x="20" y="312" width="81" height="46"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Sofa">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="42" name="MarkerFelt-Thin"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SuJ-p0-CY0">
+                                                    <rect key="frame" x="20" y="366" width="560" height="48"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="W: 240cm   H: 98cm   L: 125cm">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="38" name="BradleyHandITCTT-Bold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z1c-8y-HBi" firstAttribute="top" secondItem="Jwl-fd-v7J" secondAttribute="top" id="2ah-ab-dNL"/>
+                                                <constraint firstItem="c9J-2s-xhO" firstAttribute="top" secondItem="Z1c-8y-HBi" secondAttribute="bottom" constant="8" symbolic="YES" id="2kK-xb-XFZ"/>
+                                                <constraint firstItem="c9J-2s-xhO" firstAttribute="leading" secondItem="Jwl-fd-v7J" secondAttribute="leadingMargin" constant="12" id="467-L6-dW5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SuJ-p0-CY0" secondAttribute="trailing" constant="12" id="G4q-yO-u8q"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="SuJ-p0-CY0" secondAttribute="bottom" constant="10" id="cCf-d4-Mzt"/>
+                                                <constraint firstItem="SuJ-p0-CY0" firstAttribute="top" secondItem="c9J-2s-xhO" secondAttribute="bottom" constant="8" id="vz8-h3-Lse"/>
+                                                <constraint firstItem="SuJ-p0-CY0" firstAttribute="leading" secondItem="Jwl-fd-v7J" secondAttribute="leadingMargin" constant="12" id="wZa-sR-jc7"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z1c-8y-HBi" secondAttribute="trailing" constant="20" symbolic="YES" id="ybG-u8-Bn4"/>
+                                                <constraint firstItem="Z1c-8y-HBi" firstAttribute="leading" secondItem="Jwl-fd-v7J" secondAttribute="leading" constant="20" symbolic="YES" id="zmi-tG-oMN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemDimensions" destination="SuJ-p0-CY0" id="ap7-OS-ntY"/>
+                                            <outlet property="itemImage" destination="Z1c-8y-HBi" id="utn-8b-oRH"/>
+                                            <outlet property="itemName" destination="c9J-2s-xhO" id="95f-pU-Wgl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5nY-Kx-Zh4" secondAttribute="trailing" id="9hr-zz-beg"/>
+                            <constraint firstItem="5nY-Kx-Zh4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q01-B0-hBG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5nY-Kx-Zh4" secondAttribute="bottom" id="UVm-oR-7ab"/>
+                            <constraint firstItem="5nY-Kx-Zh4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="40" id="kLf-LD-lyM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemsTableView" destination="5nY-Kx-Zh4" id="TU6-3f-xak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="540" y="277"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Chairs" width="380" height="585"/>
+    </resources>
 </document>
