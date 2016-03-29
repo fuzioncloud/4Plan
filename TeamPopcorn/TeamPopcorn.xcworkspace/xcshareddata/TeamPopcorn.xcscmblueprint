@@ -1,0 +1,28 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4886117FC2862C2C1B3DDF8C5FD90CE1DD84776A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4886117FC2862C2C1B3DDF8C5FD90CE1DD84776A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "92E4BA6C-893D-4A6B-B586-2784599246A1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4886117FC2862C2C1B3DDF8C5FD90CE1DD84776A" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TeamPopcorn",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TeamPopcorn\/TeamPopcorn.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:learn-co-students\/ios-0216-team-popcorn.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4886117FC2862C2C1B3DDF8C5FD90CE1DD84776A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:learn-co-students\/ios-0216-team-popcorn.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4886117FC2862C2C1B3DDF8C5FD90CE1DD84776A"
+    }
+  ]
+}
