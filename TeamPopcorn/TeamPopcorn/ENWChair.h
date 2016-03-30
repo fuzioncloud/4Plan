@@ -11,8 +11,6 @@
 @interface ENWChair : ENWFurniture
 
 
-
-
 -(instancetype)init;
 
 @end

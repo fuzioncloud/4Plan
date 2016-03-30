@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  FPCItemsMenuViewController.m
 //  TeamPopcorn
 //
 //  Created by Flatiron School on 3/29/16.
@@ -8,29 +8,24 @@
 
 #import "FPCItemsMenuViewController.h"
 #import "FPCItemCell.h"
-#import "Models.h"
+#import "FPCModelsGenerator.h"
 
 @interface FPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
-@property (strong, nonatomic) NSDictionary<NSString *,NSArray *> *itemsMenu;
+@property (strong, nonatomic) NSDictionary<FPCCatalogDescriber *,NSArray<ENWFurniture *> *> *itemsMenu;
 
 @end
 
-@implementation ItemsMenuViewController
+@implementation FPCItemsMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // For now I'm just faking the data
-    self.itemsMenu = @{ @"Sofas" : @[@"#1 sofa"],
-                        @"Chairs": @[@"#1 chair"],
-                        @"Tables": @[@"#1 table"],
-                        @"Beds"  : @[@"#1 bed"]
-                      };
-    ENWFurniture *f = [[ENWFurniture alloc] init];
-    NSLog(@"%@",f);
+    self.itemsMenu = [FPCModelsGenerator generateModels];
+    
     
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
@@ -46,25 +41,39 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *sectionKey = self.itemsMenu.allKeys[section];
+    FPCCatalogDescriber *sectionKey = [FPCCatalogDescriber describerForIndex:section];
     return self.itemsMenu[sectionKey].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FPCItemCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"Item Cell"];
-    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
-    itemCell.itemImage.image = [UIImage imageNamed:imageName];
-    NSString *sectionKey = self.itemsMenu.allKeys[indexPath.section];
-    itemCell.itemName.text = self.itemsMenu[sectionKey][indexPath.row];
+//    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
+//    itemCell.itemImage.image = [UIImage imageNamed:imageName];
+    
+    FPCCatalogDescriber *sectionKey = [FPCCatalogDescriber describerForIndex:indexPath.section];
+    
+    ENWFurniture *piece = self.itemsMenu[sectionKey][indexPath.row];
+    itemCell.itemImage.image = piece.image;
+#pragma TODO: add a name property on the furniture object
+    // like piece.name
+    itemCell.itemName.text = sectionKey.catalogName;
+    itemCell.itemDimensions.text =
+        [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
+                            piece.width, piece.height, piece.length];
     return itemCell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.itemsMenu.allKeys[section];
+    FPCCatalogDescriber *sectionKey = [FPCCatalogDescriber describerForIndex:section];
+    return sectionKey.catalogName;
 }
 
 -(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return self.itemsMenu.allKeys;
+    NSMutableArray<NSString *> *indexTitle = [NSMutableArray<NSString *> new];
+    for (FPCCatalogDescriber *key in self.itemsMenu.allKeys) {
+        [indexTitle addObject:key.catalogName];
+    }
+    return indexTitle;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {

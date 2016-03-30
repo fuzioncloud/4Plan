@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FPCModels.h"
 
 @interface FPCModelsGenerator : NSObject
+
++(NSDictionary<FPCCatalogDescriber *,NSArray<ENWFurniture *> *> *)generateModels;
 
 @end

@@ -10,7 +10,6 @@
 
 @interface ENWSofa : ENWFurniture
 
-
 -(instancetype)init;
 
 @end
