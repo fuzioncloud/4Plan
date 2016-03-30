@@ -11,21 +11,76 @@
 @implementation ENWTable
 
 -(instancetype)init {
-    self=[self initWithWidth:50 length:60 height:50 image:[UIImage imageNamed:@"basicTable.png"]];
+    self.name=@"basic";
+    self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+    self.tableStyle=basicTable;
     return self;
+    
 }
 
-//-(instancetype) initWithWidth:(NSUInteger)width length:(NSUInteger)length height:(NSUInteger)height image:(UIImage *)image {
-//    self=[super init];
-//    if(self) {
-//        _width=width;
-//        _length=length;
-//        _height=height;
-//        _image=image;
-//        
-//        
-//    }
-//}
+-(instancetype)initWithTableStlye:(tableStyle)tableStyle {
+    self.tableStyle=tableStyle;
+    if (tableStyle==basicTable) {
+        self.name=@"basic";
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    if (tableStyle==bedsideTable) {
+         self.name=@"bedside";
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"bedsideTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    if (tableStyle==coffeeTable) {
+        self.name=@"coffee";
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"coffeeTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    if (tableStyle==deskTable) {
+        self.name=@"desk";
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"deskTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    if (tableStyle==roundTable) {
+        self.name=@"round";
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"roundTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    else {
+        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+        self.tableStyle=tableStyle;
+        return self;
+    }
+    
+}
+
++(instancetype)basicTable {
+    return [[self alloc]initWithTableStlye:basicTable];
+}
+
++(instancetype)bedsideTable {
+    return [[self alloc]initWithTableStlye:bedsideTable];
+}
+
++(instancetype)coffeeTable {
+    return [[self alloc]initWithTableStlye:coffeeTable];
+}
+
++(instancetype)deskTable {
+    return [[self alloc]initWithTableStlye:deskTable];
+}
+
++(instancetype)roundTable {
+    return [[self alloc]initWithTableStlye:roundTable];
+}
+
+
+
+
 
 
 @end

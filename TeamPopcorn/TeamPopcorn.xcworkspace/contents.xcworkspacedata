@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Secrets.m">
+   </FileRef>
+   <FileRef
       location = "group:TeamPopcorn.xcodeproj">
    </FileRef>
    <FileRef

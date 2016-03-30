@@ -14,7 +14,7 @@
 @implementation ENWFurniture
 
 -(instancetype)init {
-    self=[self initWithWidth:0 length:0 height:0 image:nil];
+    self=[self initWithWidth:0 length:0 height:0 image:nil weight:0];
     return self;
 }
 
@@ -47,13 +47,14 @@
 //    return furniture;
 //}
 
--(instancetype)initWithWidth:(NSUInteger)width length:(NSUInteger)length height:(NSUInteger)height image:(UIImage *)image{
+-(instancetype)initWithWidth:(NSUInteger)width length:(NSUInteger)length height:(NSUInteger)height image:(UIImage *)image weight:(NSUInteger)weight{
     self=[super init];
     if(self) {
         _width=width;
         _length=length;
         _height=height;
         _image=image;
+        _weight=weight;
     }
     return self;
 }

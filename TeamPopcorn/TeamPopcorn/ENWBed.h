@@ -7,6 +7,7 @@
 //
 
 #import "ENWFurniture.h"
+#import "ENWconstants.h"
 
 typedef NS_ENUM(NSInteger, BedSize) {
     Twin=0,
@@ -21,10 +22,26 @@ typedef NS_ENUM(NSInteger, BedSize) {
 
 @interface ENWBed : ENWFurniture
 
+
+@property (nonatomic) NSString* name;
 @property (nonatomic) BedSize bedSize;
 
 -(instancetype)init;
 
 -(instancetype)initWithBedSize: (BedSize) bedSize;
+
++(instancetype)twinBed;
+
++(instancetype)fullBed;
+
++(instancetype)queenBed;
+
++(instancetype)kingBed;
+
++(instancetype)calforniaKingBed;
+
++(instancetype)cribBed;
+
++(instancetype)futonBed;
 
 @end

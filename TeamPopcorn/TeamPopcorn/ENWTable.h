@@ -7,14 +7,34 @@
 //
 
 #import "ENWFurniture.h"
+#import "ENWconstants.h"
+
+typedef NS_ENUM(NSInteger, tableStyle) {
+    basicTable,
+    bedsideTable,
+    coffeeTable,
+    deskTable,
+    roundTable
+};
 
 @interface ENWTable : ENWFurniture
 
+@property (nonatomic) NSString* name;
+@property(nonatomic) tableStyle tableStyle;
 
 -(instancetype)init;
-//-(instancetype)initWithWidth:(NSUInteger)width
-//                      length:(NSUInteger)length
-//                      height:(NSUInteger)height
-//                       image:(UIImage*)image;
+
+-(instancetype)initWithTableStlye: (tableStyle) tableStyle;
+
+
++(instancetype)basicTable;
+
++(instancetype)bedsideTable;
+
++(instancetype)coffeeTable;
+
++(instancetype)deskTable;
+
++(instancetype)roundTable;
 
 @end
