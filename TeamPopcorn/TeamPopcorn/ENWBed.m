@@ -87,7 +87,7 @@
     return [[self alloc]initWithBedSize:King];
 }
 
-+(instancetype)calforniaKingBed {
++(instancetype)californiaKingBed {
     return [[self alloc]initWithBedSize:CaliforniaKing];
 }
 

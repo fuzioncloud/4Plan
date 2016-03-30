@@ -309,7 +309,6 @@
 				1B9FCD9E1CAB1FA60041D2DB /* FPCItemCell.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
 				1B9FCD8A1CAAF3B40041D2DB /* FPCItemsMenuViewController.m in Sources */,
-				1B9FCD9B1CAAF56A0041D2DB /* Secrets.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
 				1B9FCD841CAAF3B40041D2DB /* main.m in Sources */,
@@ -431,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

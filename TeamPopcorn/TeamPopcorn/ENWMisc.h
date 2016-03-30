@@ -19,7 +19,6 @@ typedef NS_ENUM(NSInteger, miscStyle) {
 
 @interface ENWMisc : ENWFurniture
 
-@property (nonatomic) NSString* name;
 @property   (nonatomic) miscStyle miscStyle;
 
 -(instancetype)init;

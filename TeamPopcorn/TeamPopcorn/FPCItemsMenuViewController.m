@@ -54,9 +54,7 @@
     
     ENWFurniture *piece = self.itemsMenu[sectionKey][indexPath.row];
     itemCell.itemImage.image = piece.image;
-#pragma TODO: add a name property on the furniture object
-    // like piece.name
-    itemCell.itemName.text = sectionKey.catalogName;
+    itemCell.itemName.text = piece.name;
     itemCell.itemDimensions.text =
         [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
                             piece.width, piece.height, piece.length];

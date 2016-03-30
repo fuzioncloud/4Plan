@@ -23,7 +23,6 @@ typedef NS_ENUM(NSInteger, BedSize) {
 @interface ENWBed : ENWFurniture
 
 
-@property (nonatomic) NSString* name;
 @property (nonatomic) BedSize bedSize;
 
 -(instancetype)init;
@@ -38,7 +37,7 @@ typedef NS_ENUM(NSInteger, BedSize) {
 
 +(instancetype)kingBed;
 
-+(instancetype)calforniaKingBed;
++(instancetype)californiaKingBed;
 
 +(instancetype)cribBed;
 

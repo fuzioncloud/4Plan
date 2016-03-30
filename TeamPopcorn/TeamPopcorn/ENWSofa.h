@@ -19,7 +19,6 @@ typedef NS_ENUM(NSInteger, sofaStyle) {
 
 @interface ENWSofa : ENWFurniture
 
-@property (nonatomic) NSString* name;
 @property   (nonatomic) sofaStyle sofaStyle;
 
 -(instancetype)init;

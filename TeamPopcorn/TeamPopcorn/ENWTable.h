@@ -19,7 +19,6 @@ typedef NS_ENUM(NSInteger, tableStyle) {
 
 @interface ENWTable : ENWFurniture
 
-@property (nonatomic) NSString* name;
 @property(nonatomic) tableStyle tableStyle;
 
 -(instancetype)init;

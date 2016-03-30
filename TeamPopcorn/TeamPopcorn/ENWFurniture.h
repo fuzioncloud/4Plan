@@ -11,6 +11,8 @@
 
 @interface ENWFurniture : NSObject
 
+@property (strong, nonatomic) NSString* name;
+
 @property (atomic)NSUInteger width;
 @property (atomic)NSUInteger length;
 @property (atomic)NSUInteger height;

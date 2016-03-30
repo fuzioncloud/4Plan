@@ -17,24 +17,41 @@
     FPCCatalogDescriber *sofaKey = [FPCCatalogDescriber withName:@"Sofas" index:SofaIndex];
     FPCCatalogDescriber *tableKey = [FPCCatalogDescriber withName:@"Tables" index:TableIndex];
     
-    NSArray<ENWBed *> *beds = @[[[ENWBed alloc]initWithBedSize:Twin],
-                                [[ENWBed alloc]initWithBedSize:Full],
-                                [[ENWBed alloc]initWithBedSize:Queen],
-                                [[ENWBed alloc]initWithBedSize:King],
-                                [[ENWBed alloc]initWithBedSize:CaliforniaKing],
-                                [[ENWBed alloc]initWithBedSize:Futon],
-                                [[ENWBed alloc]initWithBedSize:Crib]
+    NSArray<ENWBed *> *beds = @[[ENWBed twinBed],
+                                [ENWBed fullBed],
+                                [ENWBed queenBed],
+                                [ENWBed kingBed],
+                                [ENWBed californiaKingBed],
+                                [ENWBed futonBed],
+                                [ENWBed cribBed]
                                 ];
-    NSArray<ENWChair*> *chairs = @[[[ENWChair alloc]init]
+    
+    NSArray<ENWChair*> *chairs = @[[ENWChair basicChair],
+                                   [ENWChair campingChair],
+                                   [ENWChair lazyboyChair],
+                                   [ENWChair officeChair],
+                                   [ENWChair rockingChair]
                                    ];
     
-    NSArray<ENWMisc*> *misc = @[[[ENWMisc alloc]init]
+    NSArray<ENWMisc*> *misc = @[[ENWMisc basicMisc],
+                                [ENWMisc bicycleMisc],
+                                [ENWMisc boxMisc],
+                                [ENWMisc randomMisc],
+                                [ENWMisc wardrobeMisc]
                                 ];
     
-    NSArray<ENWSofa *> *sofas = @[[[ENWSofa alloc]init]
+    NSArray<ENWSofa *> *sofas = @[[ENWSofa basicSofa],
+                                  [ENWSofa cornerSofa],
+                                  [ENWSofa highSofa],
+                                  [ENWSofa loveseatSofa],
+                                  [ENWSofa lowSofa]
                                   ];
 
-    NSArray<ENWTable*> *tables = @[[[ENWTable alloc]init]
+    NSArray<ENWTable*> *tables = @[[ENWTable basicTable],
+                                   [ENWTable bedsideTable],
+                                   [ENWTable coffeeTable],
+                                   [ENWTable deskTable],
+                                   [ENWTable roundTable]
                                    ];
     
     
