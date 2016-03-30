@@ -6,11 +6,11 @@
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
-#import "ItemsMenuViewController.h"
+#import "FPCItemsMenuViewController.h"
 #import "FPCItemCell.h"
+#import "Models.h"
 
-
-@interface ItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface FPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
@@ -29,7 +29,8 @@
                         @"Tables": @[@"#1 table"],
                         @"Beds"  : @[@"#1 bed"]
                       };
-    
+    ENWFurniture *f = [[ENWFurniture alloc] init];
+    NSLog(@"%@",f);
     
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
