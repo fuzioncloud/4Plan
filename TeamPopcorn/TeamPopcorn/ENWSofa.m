@@ -19,44 +19,50 @@
 }
 
 -(instancetype)initWithSofaStlye:(sofaStyle)sofaStyle {
-    self.sofaStyle=sofaStyle;
-    if (sofaStyle==basicSofa) {
-        self.name=@"basic";
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
-    }
-    if (sofaStyle==cornerSofa) {
-        self.name=@"corner";
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"cornerSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
-    }
-    if (sofaStyle==highSofa) {
-        self.name=@"high";
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"highSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
-    }
-    if (sofaStyle==loveseatSofa) {
-        self.name=@"loveseat";
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"loveseatSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
-    }
-    if (sofaStyle==lowSofa) {
-        self.name=@"low";
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"lowSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
-    }
-    else {
-        self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
-        self.sofaStyle=sofaStyle;
-        return self;
+    
+    switch (sofaStyle) {
+        case basicSofa:
+            self.name=@"basic";
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+        case cornerSofa:
+            self.name=@"corner";
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"cornerSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+        case highSofa:
+            self.name=@"high";
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"highSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+        case loveseatSofa:
+            self.name=@"loveseat";
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"loveseatSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+        case lowSofa:
+            self.name=@"low";
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"lowSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+        default:
+            
+            self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
+            self.sofaStyle=sofaStyle;
+            return self;
+            
+            
     }
     
 }
+
+
 
 +(instancetype)basicSofa{
     return [[self alloc]initWithSofaStlye:basicSofa];

@@ -19,44 +19,49 @@
 }
 
 -(instancetype)initWithTableStlye:(tableStyle)tableStyle {
-    self.tableStyle=tableStyle;
-    if (tableStyle==basicTable) {
-        self.name=@"basic";
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
-    }
-    if (tableStyle==bedsideTable) {
-         self.name=@"bedside";
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"bedsideTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
-    }
-    if (tableStyle==coffeeTable) {
-        self.name=@"coffee";
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"coffeeTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
-    }
-    if (tableStyle==deskTable) {
-        self.name=@"desk";
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"deskTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
-    }
-    if (tableStyle==roundTable) {
-        self.name=@"round";
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"roundTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
-    }
-    else {
-        self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
-        self.tableStyle=tableStyle;
-        return self;
+    
+    switch (tableStyle) {
+        case basicTable:
+            self.name=@"basic";
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+        case bedsideTable:
+            self.name=@"bedside";
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"bedsideTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+        case coffeeTable:
+            self.name=@"coffee";
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"coffeeTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+        case deskTable:
+            self.name=@"desk";
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"deskTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+        case roundTable:
+            self.name=@"round";
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"roundTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+        default:
+            
+            self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+            self.tableStyle=tableStyle;
+            return self;
+            
+            
     }
     
 }
+
 
 +(instancetype)basicTable {
     return [[self alloc]initWithTableStlye:basicTable];

@@ -16,46 +16,50 @@
     return self;
 }
 
-
 -(instancetype)initWithMiscStlye:(miscStyle)miscStyle {
-    self.miscStyle=miscStyle;
-    if (miscStyle==basicMisc) {
-        self.name=@"lamp";
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
-    }
-    if (miscStyle==bicycleMisc) {
-        self.name=@"bicycle";
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"bicycleMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
-    }
-    if (miscStyle==boxMisc) {
-        self.name=@"box";
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"boxMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
-    }
-    if (miscStyle==randomMisc) {
-        self.name=@"random";
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"randomMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
-    }
-    if (miscStyle==wardrobeMisc) {
-        self.name=@"wardrobe";
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"wardrobeMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
-    }
-    else {
-        self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
-        self.miscStyle=miscStyle;
-        return self;
+    
+    switch (miscStyle) {
+        case basicMisc:
+            self.name=@"lamp";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case bicycleMisc:
+            self.name=@"bicycle";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"bicycleMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case boxMisc:
+            self.name=@"box";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"boxMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case randomMisc:
+            self.name=@"random";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"randomMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case wardrobeMisc:
+            self.name=@"wardrobe";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"wardrobeMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        default:
+            
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+
+            
     }
     
 }
+
 
 +(instancetype)basicMisc {
     return [[self alloc]initWithMiscStlye:basicMisc];
