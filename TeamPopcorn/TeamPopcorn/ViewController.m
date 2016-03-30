@@ -38,7 +38,6 @@
     for (UIImageView *pieceOfFurniture in self.usersFurniture) {
         [self furnitureTouching:pieceOfFurniture];
     }
-    
 }
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
@@ -66,13 +65,13 @@
         
         if (touching && notCurrentFurniture){
             NSLog(@"it's touching something!");
-            pieceOfFurniture.backgroundColor = [UIColor redColor];
-            furniture.backgroundColor = [UIColor redColor];
+            pieceOfFurniture.tintColor = [UIColor redColor];
+            furniture.tintColor = [UIColor redColor];
             
         }else if(!touching && notCurrentFurniture){
             NSLog(@"not touchinganything!");
-            pieceOfFurniture.backgroundColor = nil;
-            furniture.backgroundColor = nil;
+            pieceOfFurniture.tintColor = [UIColor blackColor];
+            furniture.tintColor = [UIColor blackColor];
         }
     }
 }
