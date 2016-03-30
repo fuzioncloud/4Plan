@@ -15,6 +15,7 @@
 @property (atomic)NSUInteger length;
 @property (atomic)NSUInteger height;
 @property (strong, nonatomic) UIImage *image;
+@property (atomic)NSUInteger weight;
 
 
 
@@ -25,7 +26,8 @@
 -(instancetype)initWithWidth:(NSUInteger)width
                       length:(NSUInteger)length
                       height:(NSUInteger)height
-                       image:(UIImage*)image;
+                       image:(UIImage*)image
+                      weight:(NSUInteger)weight;
 
 
 @end
