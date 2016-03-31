@@ -21,8 +21,6 @@
 
 
 
-
-
 -(instancetype)init;
 
 -(instancetype)initWithWidth:(NSUInteger)width

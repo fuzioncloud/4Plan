@@ -22,6 +22,8 @@
 		1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169BB1CAC1C3700A4436A /* ENWTable.m */; };
 		1BA169D11CAC22C500A4436A /* FPCCatalogDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D01CAC22C500A4436A /* FPCCatalogDescriber.m */; };
 		1BA169D41CAC25B200A4436A /* FPCModelsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D31CAC25B200A4436A /* FPCModelsGenerator.m */; };
+		1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* FPCStateManager.m */; };
+		1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* FPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
 		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,10 @@
 		1BA169D01CAC22C500A4436A /* FPCCatalogDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCCatalogDescriber.m; sourceTree = "<group>"; };
 		1BA169D21CAC25B200A4436A /* FPCModelsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCModelsGenerator.h; sourceTree = "<group>"; };
 		1BA169D31CAC25B200A4436A /* FPCModelsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCModelsGenerator.m; sourceTree = "<group>"; };
+		1BA169D51CAD708E00A4436A /* FPCStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCStateManager.h; sourceTree = "<group>"; };
+		1BA169D61CAD708E00A4436A /* FPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCStateManager.m; sourceTree = "<group>"; };
+		1BA169D81CAD71AF00A4436A /* FPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCRoom.h; sourceTree = "<group>"; };
+		1BA169D91CAD71AF00A4436A /* FPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCRoom.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
 		7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWconstants.h; sourceTree = "<group>"; };
 		7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWconstants.m; sourceTree = "<group>"; };
@@ -122,6 +128,10 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				1BA169D81CAD71AF00A4436A /* FPCRoom.h */,
+				1BA169D91CAD71AF00A4436A /* FPCRoom.m */,
+				1BA169D51CAD708E00A4436A /* FPCStateManager.h */,
+				1BA169D61CAD708E00A4436A /* FPCStateManager.m */,
 				1BA169CE1CAC1FC600A4436A /* FPCModels.h */,
 				1BA169B01CAC1C3700A4436A /* ENWBed.h */,
 				1BA169B11CAC1C3700A4436A /* ENWBed.m */,
@@ -307,12 +317,14 @@
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,
 				1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */,
 				1B9FCD9E1CAB1FA60041D2DB /* FPCItemCell.m in Sources */,
+				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
 				1B9FCD8A1CAAF3B40041D2DB /* FPCItemsMenuViewController.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
 				1B9FCD841CAAF3B40041D2DB /* main.m in Sources */,
 				1BA169D41CAC25B200A4436A /* FPCModelsGenerator.m in Sources */,
+				1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */,
 				1BA169D11CAC22C500A4436A /* FPCCatalogDescriber.m in Sources */,
 				1BA169C51CAC1C3700A4436A /* ENWFurniture.m in Sources */,
 			);

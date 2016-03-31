@@ -9,6 +9,7 @@
 #ifndef FPCModels_h
 #define FPCModels_h
 
+#import "FPCRoom.h"
 #import "ENWFurniture.h"
 #import "ENWBed.h"
 #import "ENWChair.h"
