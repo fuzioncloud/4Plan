@@ -11,9 +11,15 @@
 
 @interface FPCStateManager : NSObject
 
-@property (strong, nonatomic) FPCRoom *room;
-@property (strong, nonatomic) NSMutableArray<ENWFurniture *> *arrangedFurniture;
+@property (strong, nonatomic, readonly) FPCRoom *room;
+@property (strong, nonatomic, readonly) NSMutableArray<ENWFurniture *> *arrangedFurniture;
 
 +(instancetype)currentState;
+
+-(void)setRoomOfWidth:(NSUInteger)w
+               height:(NSUInteger)h
+               length:(NSUInteger)l;
+
+-(void)placeFuriniture:(ENWFurniture *)furniturePiece;
 
 @end
