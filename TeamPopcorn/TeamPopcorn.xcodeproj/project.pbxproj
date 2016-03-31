@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* DimensionsViewController.m */; };
 		08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* SMLViewController.m */; };
 		08DC6D6A1CAC7F6B0084CF1D /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD891CAAF3B40041D2DB /* FPCItemsMenuViewController.m */; };
 		08F62DCC1CAB11E500070572 /* Furniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F62DCB1CAB11E500070572 /* Furniture.m */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		085612F81CADC2DB00452A49 /* DimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionsViewController.h; sourceTree = "<group>"; };
+		085612F91CADC2DB00452A49 /* DimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionsViewController.m; sourceTree = "<group>"; };
 		08DC6D671CAC7DD90084CF1D /* SMLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* SMLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLViewController.m; sourceTree = "<group>"; };
 		08F62DCA1CAB11E500070572 /* Furniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Furniture.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 			children = (
 				08DC6D671CAC7DD90084CF1D /* SMLViewController.h */,
 				08DC6D681CAC7DD90084CF1D /* SMLViewController.m */,
+				085612F81CADC2DB00452A49 /* DimensionsViewController.h */,
+				085612F91CADC2DB00452A49 /* DimensionsViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,
 				1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */,
+				085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */,
 				1B9FCD9E1CAB1FA60041D2DB /* FPCItemCell.m in Sources */,
 				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
