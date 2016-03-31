@@ -18,6 +18,9 @@
 @property (atomic)NSUInteger height;
 @property (strong, nonatomic) UIImage *image;
 @property (atomic)NSUInteger weight;
+@property (atomic) CGFloat scale;
+@property (atomic) NSUInteger horizontalDistanceFromOrigin;
+@property (atomic) NSUInteger verticalDistanceFromOrigin;
 
 
 
