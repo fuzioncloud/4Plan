@@ -6,22 +6,25 @@
 //  Copyright © 2016 susan lovaglio. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SMLViewController.h"
 
-@interface ViewController ()
+@interface SMLViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *sofa;
-@property (weak, nonatomic) IBOutlet UIImageView *table;
+@property (weak, nonatomic)  UIImageView *sofa;
+@property (weak, nonatomic)  UIImageView *table;
 @property (strong, nonatomic) NSArray *usersFurniture;
 
 @end
 
-@implementation ViewController
+@implementation SMLViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.usersFurniture = @[self.sofa, self.table];
+//    self.usersFurniture = @[self.sofa, self.table];
+    
+//    NSLog(@"I've passed back this piece: %@", self.selectedPiece);
+
     
     UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
     [self.sofa addGestureRecognizer:panGestureRecognizerSofa];
@@ -77,3 +80,4 @@
 }
 
 @end
+
