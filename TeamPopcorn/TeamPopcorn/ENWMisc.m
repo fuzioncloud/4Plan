@@ -93,4 +93,12 @@
     return [[self alloc]initWithMiscStlye:wardrobeMisc];
 }
 
++(instancetype)doorMisc {
+    return [[self alloc]initWithMiscStlye:doorMisc];
+}
+
++(instancetype)visibleDoorMisc {
+    return [[self alloc]initWithMiscStlye:visibleDoorMisc];
+}
+
 @end

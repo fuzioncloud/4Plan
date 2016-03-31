@@ -37,4 +37,8 @@ typedef NS_ENUM(NSInteger, miscStyle) {
 
 +(instancetype)wardrobeMisc;
 
++(instancetype)doorMisc;
+
++(instancetype)visibleDoorMisc;
+
 @end
