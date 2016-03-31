@@ -37,7 +37,9 @@
                                 [ENWMisc bicycleMisc],
                                 [ENWMisc boxMisc],
                                 [ENWMisc randomMisc],
-                                [ENWMisc wardrobeMisc]
+                                [ENWMisc wardrobeMisc],
+                                [ENWMisc doorMisc],
+                                [ENWMisc visibleDoorMisc]
                                 ];
     
     NSArray<ENWSofa *> *sofas = @[[ENWSofa basicSofa],
