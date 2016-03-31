@@ -49,6 +49,18 @@
             self.miscStyle=miscStyle;
             return self;
             
+        case doorMisc:
+            self.name=@"door";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"doorMisc"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case visibleDoorMisc:
+            self.name=@"visibleDoor";
+            self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"visibleDoorMisc"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
         default:
             
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
@@ -79,6 +91,14 @@
 
 +(instancetype)wardrobeMisc {
     return [[self alloc]initWithMiscStlye:wardrobeMisc];
+}
+
++(instancetype)doorMisc {
+    return [[self alloc]initWithMiscStlye:doorMisc];
+}
+
++(instancetype)visibleDoorMisc {
+    return [[self alloc]initWithMiscStlye:visibleDoorMisc];
 }
 
 @end

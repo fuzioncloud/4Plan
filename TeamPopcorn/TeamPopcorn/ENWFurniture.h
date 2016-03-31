@@ -13,14 +13,14 @@
 
 @property (strong, nonatomic) NSString* name;
 
-@property (atomic)NSUInteger width;
-@property (atomic)NSUInteger length;
-@property (atomic)NSUInteger height;
+@property (atomic) NSUInteger width, length, height, weight;
+
+@property (atomic) NSUInteger horizontalDistanceFromOrigin;
+@property (atomic) NSUInteger verticalDistanceFromOrigin;
+
+@property (atomic) CGFloat scale;
+
 @property (strong, nonatomic) UIImage *image;
-@property (atomic)NSUInteger weight;
-
-
-
 
 
 -(instancetype)init;

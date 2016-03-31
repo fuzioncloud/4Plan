@@ -14,7 +14,9 @@ typedef NS_ENUM(NSInteger, miscStyle) {
     bicycleMisc,
     boxMisc,
     randomMisc,
-    wardrobeMisc
+    wardrobeMisc,
+    doorMisc,
+    visibleDoorMisc
 };
 
 @interface ENWMisc : ENWFurniture
@@ -34,5 +36,9 @@ typedef NS_ENUM(NSInteger, miscStyle) {
 +(instancetype)randomMisc;
 
 +(instancetype)wardrobeMisc;
+
++(instancetype)doorMisc;
+
++(instancetype)visibleDoorMisc;
 
 @end
