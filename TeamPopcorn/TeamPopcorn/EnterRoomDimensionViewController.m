@@ -8,6 +8,7 @@
 
 #import "EnterRoomDimensionViewController.h"
 #import "roomLayoutViewController.h"
+#import "SMLViewController.h"
 
 @interface EnterRoomDimensionViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *widthText;
@@ -59,7 +60,7 @@
                        
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    roomLayoutViewController *vc = (roomLayoutViewController *)segue.destinationViewController;
+   SMLViewController  *vc = (SMLViewController *)segue.destinationViewController;
     vc.lengthField = self.lengthText.text;
     vc.widthField = self.widthText.text;
 }

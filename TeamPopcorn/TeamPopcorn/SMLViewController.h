@@ -11,6 +11,9 @@
 
 @interface SMLViewController : UIViewController
 
+@property (nonatomic, strong) NSString* widthField;
+@property (nonatomic, strong) NSString* lengthField;
+
 //@property (strong, nonatomic) ENWFurniture *selectedPiece;
 
 @end

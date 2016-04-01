@@ -27,6 +27,8 @@
 		1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* FPCStateManager.m */; };
 		1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* FPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
+		44200D271CAEE8D000479D0D /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */; };
+		44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* Main.storyboard */; };
 		44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */; };
 		44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */; };
 		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
@@ -71,6 +73,9 @@
 		1BA169D61CAD708E00A4436A /* FPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCStateManager.m; sourceTree = "<group>"; };
 		1BA169D81CAD71AF00A4436A /* FPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCRoom.h; sourceTree = "<group>"; };
 		1BA169D91CAD71AF00A4436A /* FPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCRoom.m; sourceTree = "<group>"; };
+		44200D251CAEE8D000479D0D /* FPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCItemsMenuViewController.h; sourceTree = "<group>"; };
+		44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCItemsMenuViewController.m; sourceTree = "<group>"; };
+		44200D281CAEEA3D00479D0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		44C6C8071CAB354F00F21662 /* EnterRoomDimensionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterRoomDimensionViewController.h; sourceTree = "<group>"; };
 		44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterRoomDimensionViewController.m; sourceTree = "<group>"; };
 		44C6C80A1CAB36F500F21662 /* roomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = roomLayoutViewController.h; sourceTree = "<group>"; };
@@ -115,6 +120,9 @@
 		1B9FCD811CAAF3B40041D2DB /* TeamPopcorn */ = {
 			isa = PBXGroup;
 			children = (
+				44200D251CAEE8D000479D0D /* FPCItemsMenuViewController.h */,
+				44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */,
+				44200D281CAEEA3D00479D0D /* Main.storyboard */,
 				1B9FCD991CAAF56A0041D2DB /* Secrets.h */,
 				1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */,
 				1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */,
@@ -275,6 +283,7 @@
 				1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */,
 				1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */,
 				1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */,
+				44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 			files = (
 				08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */,
 				08F62DCC1CAB11E500070572 /* Furniture.m in Sources */,
+				44200D271CAEE8D000479D0D /* FPCItemsMenuViewController.m in Sources */,
 				7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */,
 				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,

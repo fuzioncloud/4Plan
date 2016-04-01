@@ -59,7 +59,7 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPB-RZ-Vi5"/>
-                                    <segue destination="s4O-ik-syj" kind="push" identifier="roomLayoutSegue" id="fGc-U9-X9o"/>
+                                    <segue destination="1ra-jy-o0Z" kind="push" id="UJG-KX-UfV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -103,6 +103,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7e-FY-AwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1223" y="383"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="x5q-M6-ka9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="1ra-jy-o0Z" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QsR-Eg-keF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9Z-2C-5pC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1519.5" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J57-Dh-FRq">
