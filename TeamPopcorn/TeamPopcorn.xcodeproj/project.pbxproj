@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* DimensionsViewController.m */; };
 		08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* SMLViewController.m */; };
-		08DC6D6A1CAC7F6B0084CF1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD891CAAF3B40041D2DB /* ViewController.m */; };
 		08F62DCC1CAB11E500070572 /* Furniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F62DCB1CAB11E500070572 /* Furniture.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
 		1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */; };
@@ -44,7 +43,6 @@
 		1B9FCD831CAAF3B40041D2DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1B9FCD891CAAF3B40041D2DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "/Users/michellevargas/Desktop/developer/ios-0216-team-popcorn/TeamPopcorn/TeamPopcorn/ViewController.m"; sourceTree = "<absolute>"; };
 		1B9FCD8C1CAAF3B40041D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Floorplan.storyboard; sourceTree = "<group>"; };
 		1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B9FCD911CAAF3B40041D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			files = (
 				08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */,
 				08F62DCC1CAB11E500070572 /* Furniture.m in Sources */,
-				08DC6D6A1CAC7F6B0084CF1D /* ViewController.m in Sources */,
 				7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */,
 				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,

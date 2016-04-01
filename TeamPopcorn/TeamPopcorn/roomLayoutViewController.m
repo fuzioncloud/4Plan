@@ -49,15 +49,6 @@
         // ^BAD aspect ratio is now 0.561051011
     }
 
-    /*
-     roomLayoutView width <= self.view width * 0.8 (set priority to 1000?)
-     roomLayoutView width = roomLayoutView height * ASPECT RATIO (which we get earlier by doing input width / height)
-     no height constraint; this leaves the height to be defined by the two rules above...
-     roomLayoutView centerX = self.view centerX
-     roomLayoutView centerY = self.view centerY
-  */
-    
-    
     
     _roomLayoutView.frame = CGRectMake(xPosition, yPosition, width, height);
 
@@ -119,21 +110,6 @@
     
     [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y , w , h)];
     
-}
-
--(CGFloat)pointsToFeet:(CGFloat)ft {
-    CGFloat pointsPerInch = 72.0;
-    CGFloat scale = 1;
-    float pixelPerInch;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        pixelPerInch = 132*scale;
-    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        pixelPerInch = 163 * scale;
-    } else {
-        pixelPerInch = 160 * scale;
-    }
-    CGFloat result = ft * pointsPerInch / pixelPerInch;
-    return result;
 }
 
 
