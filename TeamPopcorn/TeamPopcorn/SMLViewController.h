@@ -11,6 +11,4 @@
 
 @interface SMLViewController : UIViewController
 
-//@property (strong, nonatomic) ENWFurniture *selectedPiece;
-
 @end

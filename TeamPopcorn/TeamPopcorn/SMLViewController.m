@@ -12,10 +12,6 @@
 #import "DimensionsViewController.h"
 @interface SMLViewController () <UIPopoverPresentationControllerDelegate>
 
-
-@property (weak, nonatomic)  UIImageView *sofa;
-@property (weak, nonatomic)  UIImageView *table;
-@property (strong, nonatomic) NSArray *usersFurniture;
 @property (strong, nonatomic) FPCStateManager *dataStore;
 @property (weak, nonatomic) IBOutlet UIView *scene;
 
@@ -32,17 +28,9 @@
     [self.scene.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
     [self.scene.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
     
-    
-    
-    
-//    self.usersFurniture = @[self.sofa, self.table];
-    
-//    NSLog(@"I've passed back this piece: %@", self.selectedPiece);
     for (UIButton *pieceOfFurniture in self.scene.subviews) {
         [self furnitureTouching:pieceOfFurniture];
-            }
-    
-
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -70,6 +58,11 @@
         
         UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
         [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
+        
+        UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
+        longPressGestureRecognizer.minimumPressDuration = .3;
+        [placedPiece addGestureRecognizer:longPressGestureRecognizer];
+        
         [self.scene addSubview:placedPiece];
         
         placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
@@ -81,7 +74,7 @@
         
         DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
         dimvc.preferredContentSize = CGSizeMake(160, 140);
-
+        
         dimvc.modalPresentationStyle = UIModalPresentationPopover;
         
         UIPopoverPresentationController *popov = dimvc.popoverPresentationController;
@@ -93,16 +86,9 @@
     }
 }
 
-
-
-
-
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
     return UIModalPresentationNone;
 }
-
-
-
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
     
@@ -120,21 +106,39 @@
     [self furnitureTouching:(UIButton*)rotateGestureRecognizer.view];
 }
 
+-(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
+    
+//    NSLog(@"someone is trying to delete me");
+//    
+//    UIImage *image = [UIImage imageNamed:@"delete"];
+//    
+//    UIButton *deleteButton = [[UIButton alloc]init];
+//    [self.scene addSubview:deleteButton];
+////    [deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.2].active = YES;
+////    [deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.2].active = YES;
+////    [deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+//    
+//    [deleteButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.5].active = YES;
+//    [deleteButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+//    [deleteButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.5].active = YES;
+//    [deleteButton.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+//    
+//    
+//    deleteButton.backgroundColor = [UIColor redColor];
+    
+    
+//    deleteButton.currentImage = image;
+}
+
 -(void)furnitureTouching:(UIButton*)furniture{
     
     for (UIView *view in self.scene.subviews) {
         
         UIButton *pieceOfFurniture = (UIButton*)view;
         
-        if(pieceOfFurniture && ![furniture isEqual:pieceOfFurniture])
-        {
+        if(pieceOfFurniture && ![furniture isEqual:pieceOfFurniture]){
             BOOL touching = CGRectIntersectsRect(furniture.frame, pieceOfFurniture.frame);
-    //        BOOL notCurrentFurniture = ![furniture isEqual:pieceOfFurniture];
             
-    //            if(self.dataStore.arrangedFurniture.count - 1 == 0){
-    //                notCurrentFurniture = NO;
-    //            }
-                
             if (touching){
                 NSLog(@"it's touching something!");
                 pieceOfFurniture.tintColor = [UIColor redColor];
