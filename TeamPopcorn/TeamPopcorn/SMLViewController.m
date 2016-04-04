@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) FPCStateManager *dataStore;
 @property (weak, nonatomic) IBOutlet UIView *scene;
+@property (strong, nonatomic) UIButton *deleteButton;
 
 @end
 
@@ -108,26 +109,31 @@
 
 -(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
     
-//    NSLog(@"someone is trying to delete me");
-//    
-//    UIImage *image = [UIImage imageNamed:@"delete"];
-//    
-//    UIButton *deleteButton = [[UIButton alloc]init];
-//    [self.scene addSubview:deleteButton];
-////    [deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.2].active = YES;
-////    [deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.2].active = YES;
-////    [deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
-//    
-//    [deleteButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.5].active = YES;
-//    [deleteButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-//    [deleteButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.5].active = YES;
-//    [deleteButton.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
-//    
-//    
-//    deleteButton.backgroundColor = [UIColor redColor];
+    NSLog(@"someone is trying to delete me");
+
+    UIImage *image = [UIImage imageNamed:@"delete"];
+
+    self.deleteButton = [[UIButton alloc]init];
+    [self.deleteButton setImage:image forState:UIControlStateNormal];
+    [self.scene addSubview:self.deleteButton];
     
+    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
+    [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
+    [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
+    [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+
+    UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
+    [self.deleteButton addGestureRecognizer:tappedTheX];
+}
+
+-(void)tappedTheXButton:(UITapGestureRecognizer*)item{
+        NSLog(@"hit the X");
     
-//    deleteButton.currentImage = image;
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        item.view.hidden = YES;
+//        [self loadViewIfNeeded];
+//    }];
 }
 
 -(void)furnitureTouching:(UIButton*)furniture{
