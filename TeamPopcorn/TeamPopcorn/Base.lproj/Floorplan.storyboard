@@ -8,7 +8,7 @@
         <!--Enter Room Dimension View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="EnterRoomDimensionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dimensionsVC" id="BYZ-38-t0r" customClass="EnterRoomDimensionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zEf-26-cmC"/>
+                    <navigationItem key="navigationItem" id="eEF-fV-Ixv">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ybD-gp-ie9">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="TnL-Ym-zlA" kind="push" id="h7S-Cm-17E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="lengthText" destination="yPd-C1-lSi" id="SAQ-xx-Z6p"/>
@@ -114,6 +121,16 @@
             </objects>
             <point key="canvasLocation" x="1519.5" y="295"/>
         </scene>
+        <!--floorplanpicker-->
+        <scene sceneID="ddZ-Bj-EqW">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="floorplanVC" storyboardName="floorplanpicker" id="TnL-Ym-zlA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iUZ-p6-NyM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3z9-PC-8GY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355.5" y="-34"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="J57-Dh-FRq">
             <objects>
@@ -130,7 +147,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fn-vB-Knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230.93333333333334" y="383.39999999999998"/>
+            <point key="canvasLocation" x="133" y="305"/>
         </scene>
     </scenes>
 </document>

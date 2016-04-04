@@ -31,6 +31,8 @@
 		44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* Main.storyboard */; };
 		44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */; };
 		44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */; };
+		7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */; };
+		7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */; };
 		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,9 @@
 		44C6C80A1CAB36F500F21662 /* roomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = roomLayoutViewController.h; sourceTree = "<group>"; };
 		44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = roomLayoutViewController.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
+		7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = floorplanpicker.storyboard; sourceTree = "<group>"; };
+		7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floorplanpickerVC.h; sourceTree = "<group>"; };
+		7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floorplanpickerVC.m; sourceTree = "<group>"; };
 		7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWconstants.h; sourceTree = "<group>"; };
 		7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWconstants.m; sourceTree = "<group>"; };
 		DBCD10CA7A0BCA1BBE2B8673 /* Pods-TeamPopcorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +203,9 @@
 				08DC6D681CAC7DD90084CF1D /* SMLViewController.m */,
 				085612F81CADC2DB00452A49 /* DimensionsViewController.h */,
 				085612F91CADC2DB00452A49 /* DimensionsViewController.m */,
+				7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */,
+				7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */,
+				7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */,
+				7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */,
 				1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */,
 				1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */,
 				44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */,
@@ -354,6 +363,7 @@
 				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
+				7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */,
 				44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */,
 				44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
