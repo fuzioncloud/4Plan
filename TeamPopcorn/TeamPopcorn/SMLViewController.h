@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "ENWFurniture.h"
 
-@interface SMLViewController : UIViewController
-
+@interface SMLViewController : UIViewController 
 @end

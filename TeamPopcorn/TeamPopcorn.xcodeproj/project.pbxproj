@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* DimensionsViewController.m */; };
+		0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* FurnitureButton.m */; };
 		08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* SMLViewController.m */; };
 		08DC6D6A1CAC7F6B0084CF1D /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD891CAAF3B40041D2DB /* FPCItemsMenuViewController.m */; };
-		08F62DCC1CAB11E500070572 /* Furniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F62DCB1CAB11E500070572 /* Furniture.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
 		1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */; };
 		1B9FCD8D1CAAF3B40041D2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8B1CAAF3B40041D2DB /* Main.storyboard */; };
@@ -34,10 +34,10 @@
 /* Begin PBXFileReference section */
 		085612F81CADC2DB00452A49 /* DimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionsViewController.h; sourceTree = "<group>"; };
 		085612F91CADC2DB00452A49 /* DimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionsViewController.m; sourceTree = "<group>"; };
+		0856133B1CB2DCA500452A49 /* FurnitureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FurnitureButton.h; sourceTree = "<group>"; };
+		0856133C1CB2DCA500452A49 /* FurnitureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FurnitureButton.m; sourceTree = "<group>"; };
 		08DC6D671CAC7DD90084CF1D /* SMLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* SMLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLViewController.m; sourceTree = "<group>"; };
-		08F62DCA1CAB11E500070572 /* Furniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Furniture.h; sourceTree = "<group>"; };
-		08F62DCB1CAB11E500070572 /* Furniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Furniture.m; sourceTree = "<group>"; };
 		1B9FCD7F1CAAF3B30041D2DB /* TeamPopcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPopcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9FCD831CAAF3B40041D2DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,8 +115,6 @@
 				1B9FCD991CAAF56A0041D2DB /* Secrets.h */,
 				1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */,
 				1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */,
-				08F62DCA1CAB11E500070572 /* Furniture.h */,
-				08F62DCB1CAB11E500070572 /* Furniture.m */,
 				1B9FCD881CAAF3B40041D2DB /* FPCItemsMenuViewController.h */,
 				1B9FCD891CAAF3B40041D2DB /* FPCItemsMenuViewController.m */,
 				1B9FCD8B1CAAF3B40041D2DB /* Main.storyboard */,
@@ -183,6 +181,8 @@
 			children = (
 				08DC6D671CAC7DD90084CF1D /* SMLViewController.h */,
 				08DC6D681CAC7DD90084CF1D /* SMLViewController.m */,
+				0856133B1CB2DCA500452A49 /* FurnitureButton.h */,
+				0856133C1CB2DCA500452A49 /* FurnitureButton.m */,
 				085612F81CADC2DB00452A49 /* DimensionsViewController.h */,
 				085612F91CADC2DB00452A49 /* DimensionsViewController.m */,
 			);
@@ -328,9 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */,
-				08F62DCC1CAB11E500070572 /* Furniture.m in Sources */,
 				08DC6D6A1CAC7F6B0084CF1D /* FPCItemsMenuViewController.m in Sources */,
 				7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */,
+				0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */,
 				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,
 				1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */,
@@ -460,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
