@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Eb-gz-x6Y">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--FloorplanpickerVC-->
+        <scene sceneID="x9K-ca-pkJ">
+            <objects>
+                <viewController storyboardIdentifier="floorplanVC" id="kic-mr-Kfq" customClass="floorplanpickerVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wQR-Ks-shP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q8R-kr-g8E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XV2-Gp-3y5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SF-Rb-3Qf">
+                                <rect key="frame" x="75" y="60" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320707473213" blue="0.90961653438447998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Custom"/>
+                                <connections>
+                                    <segue destination="SqT-ky-Hp9" kind="show" identifier="Custom" id="wjY-3V-j59"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skw-DR-gOV">
+                                <rect key="frame" x="375" y="60" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="2x2"/>
+                                <connections>
+                                    <segue destination="12N-yd-qQB" kind="show" identifier="2x2" id="5Wv-5j-jHy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-ZX-NFh">
+                                <rect key="frame" x="375" y="240" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="5x5"/>
+                                <connections>
+                                    <segue destination="12N-yd-qQB" kind="show" identifier="5x5" id="Ywi-fw-ebf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-Xf-Qqj">
+                                <rect key="frame" x="75" y="420" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="5x10"/>
+                                <connections>
+                                    <segue destination="12N-yd-qQB" kind="show" identifier="5x10" id="3g8-Y0-Bbx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woB-pi-fdk">
+                                <rect key="frame" x="375" y="420" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="10x10"/>
+                                <connections>
+                                    <segue destination="12N-yd-qQB" kind="show" identifier="10x10" id="DPM-UQ-s59"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cu-PR-bxe">
+                                <rect key="frame" x="75" y="240" width="150" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="2x4"/>
+                                <connections>
+                                    <segue destination="12N-yd-qQB" kind="show" identifier="2x4" id="AP6-93-jfW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SXX-Xf-Qqj" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="0I9-OJ-5eU"/>
+                            <constraint firstItem="lOe-ZX-NFh" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="3zw-tx-DVB"/>
+                            <constraint firstItem="woB-pi-fdk" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="5KB-oO-aAL"/>
+                            <constraint firstItem="lOe-ZX-NFh" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="B9A-93-eBp"/>
+                            <constraint firstItem="SXX-Xf-Qqj" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="CJS-Mw-MLY"/>
+                            <constraint firstItem="4cu-PR-bxe" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="JNF-Eo-SYX"/>
+                            <constraint firstItem="Skw-DR-gOV" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" multiplier="0.4" id="KAM-10-1dA"/>
+                            <constraint firstItem="1SF-Rb-3Qf" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="KoG-tE-kuJ"/>
+                            <constraint firstItem="woB-pi-fdk" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="QWv-q1-BAR"/>
+                            <constraint firstItem="woB-pi-fdk" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="1.5" id="Ra6-kZ-FAK"/>
+                            <constraint firstItem="Skw-DR-gOV" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="1.5" id="T9m-IT-MeQ"/>
+                            <constraint firstItem="SXX-Xf-Qqj" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" multiplier="1.6" id="cbJ-RE-cLU"/>
+                            <constraint firstItem="Skw-DR-gOV" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="dIB-Ns-CGP"/>
+                            <constraint firstItem="woB-pi-fdk" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" multiplier="1.6" id="dYE-zR-ZIm"/>
+                            <constraint firstItem="4cu-PR-bxe" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="0.5" id="dxy-4I-MAJ"/>
+                            <constraint firstItem="Skw-DR-gOV" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="g4d-57-0op"/>
+                            <constraint firstItem="lOe-ZX-NFh" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" id="gwZ-3M-gMg"/>
+                            <constraint firstItem="lOe-ZX-NFh" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="1.5" id="hYd-JH-iac"/>
+                            <constraint firstItem="1SF-Rb-3Qf" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="0.5" id="hrF-sK-UEh"/>
+                            <constraint firstItem="4cu-PR-bxe" firstAttribute="height" secondItem="XV2-Gp-3y5" secondAttribute="height" multiplier="0.2" id="mv1-f2-N65"/>
+                            <constraint firstItem="4cu-PR-bxe" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" id="nhV-oN-Pv9"/>
+                            <constraint firstItem="1SF-Rb-3Qf" firstAttribute="centerY" secondItem="XV2-Gp-3y5" secondAttribute="centerY" multiplier="0.4" id="p7d-fQ-vkz"/>
+                            <constraint firstItem="SXX-Xf-Qqj" firstAttribute="centerX" secondItem="XV2-Gp-3y5" secondAttribute="centerX" multiplier="0.5" id="r6P-xZ-F7R"/>
+                            <constraint firstItem="1SF-Rb-3Qf" firstAttribute="width" secondItem="XV2-Gp-3y5" secondAttribute="width" multiplier="0.25" id="uYX-uZ-blY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Opg-dB-w4Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFY-SZ-h3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="244"/>
+        </scene>
+        <!--dimensionsVC-->
+        <scene sceneID="C0N-Lb-cgY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="dimensionsVC" storyboardName="Floorplan" referencedIdentifier="dimensionsVC" id="SqT-ky-Hp9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ltK-yN-Xka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559.5" y="144"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="EKM-vL-d5y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="12N-yd-qQB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPa-uU-AaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="263"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QBJ-Rq-nLf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Eb-gz-x6Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vrT-mK-ZOD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kic-mr-Kfq" kind="relationship" relationship="rootViewController" id="msI-H5-oFj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGW-nR-lfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="244"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ywi-fw-ebf"/>
+    </inferredMetricsTieBreakers>
+</document>

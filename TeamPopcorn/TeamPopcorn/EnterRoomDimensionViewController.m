@@ -9,12 +9,14 @@
 #import "EnterRoomDimensionViewController.h"
 #import "roomLayoutViewController.h"
 #import "SMLViewController.h"
+#import "FPCStateManager.h"
 
 @interface EnterRoomDimensionViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *widthText;
 @property (weak, nonatomic) IBOutlet UITextField *lengthText;
 @property (weak, nonatomic) IBOutlet UIButton *submit;
 
+@property (strong, nonatomic) FPCStateManager* datastore;
 @property (strong,nonatomic) NSString *widthField;
 @property (strong, nonatomic) NSString *lengthField;
 
@@ -59,10 +61,8 @@
                        
                        
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-   SMLViewController  *vc = (SMLViewController *)segue.destinationViewController;
-    vc.lengthField = self.lengthText.text;
-    vc.widthField = self.widthText.text;
+    self.datastore=[FPCStateManager currentState];
+    [self.datastore setRoomOfWidth:self.lengthText.text.integerValue height:0 length:self.widthText.text.integerValue];
 }
 
 - (IBAction)submitButton:(id)sender {
