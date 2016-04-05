@@ -23,7 +23,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="center" minimumFontSize="17" id="1m6-W8-lyk">
                                 <rect key="frame" x="131" y="361" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="widthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="emz-wN-ObP"/>
@@ -46,7 +46,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="length" textAlignment="center" minimumFontSize="17" id="yPd-C1-lSi">
                                 <rect key="frame" x="230" y="361" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="lengthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="npR-zt-gte"/>
@@ -114,12 +114,12 @@
         <!--Main-->
         <scene sceneID="x5q-M6-ka9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9Z-2C-5pC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Main" id="1ra-jy-o0Z" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QsR-Eg-keF"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E9Z-2C-5pC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1519.5" y="295"/>
+            <point key="canvasLocation" x="1563" y="314"/>
         </scene>
         <!--floorplanpicker-->
         <scene sceneID="ddZ-Bj-EqW">

@@ -32,7 +32,6 @@
     NSInteger width = self.widthField.integerValue*35;
     NSInteger height = self.lengthField.integerValue*33;
     // aspect ratio = width / height
-    // for our example of 30 x 40, aspectRatio = 0.795454561;
     
     // check for overflow
     NSInteger widthPositionAndPadding = (width + xPosition + 16);
@@ -46,7 +45,6 @@
         CGFloat verticalDifference = heightPositionAndPadding - self.view.bounds.size.height;
         width -= horizontalDifference;
         height -= verticalDifference;
-        // ^BAD aspect ratio is now 0.561051011
     }
 
     
@@ -80,6 +78,8 @@
 }
 
 
+
+
 -(void) constrainForFloorPlan {
 
 
@@ -90,6 +90,7 @@
     
     [self.roomLayoutView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor multiplier:0.8].active = YES;
     [self.roomLayoutView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor multiplier:0.8].active = YES;
+    
 
     
 
