@@ -1,20 +1,20 @@
 //
-//  ViewController.h
+//  roomLayoutViewController.h
 //  TeamPopcorn
 //
-//  Created by susan lovaglio on 3/30/16.
+//  Created by michelle vargas on 3/29/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ENWFurniture.h"
 
-
-@interface SMLViewController : UIViewController
+@interface roomLayoutViewController : UIViewController
 
 @property (nonatomic, strong) NSString* widthField;
 @property (nonatomic, strong) NSString* lengthField;
 
-//@property (strong, nonatomic) ENWFurniture *selectedPiece;
+
+//-(void) resizeToFitSubviews;
+
 
 @end
