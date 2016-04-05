@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
     for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
@@ -123,10 +123,6 @@
     [self.roomLayoutView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-10].active = YES;
     [self.roomLayoutView.bottomAnchor constraintGreaterThanOrEqualToAnchor:self.view.bottomAnchor constant:-10].active = YES;
     
-    
-    
-    
-    
 }
 
 -(void) buttonAction: (id) sender {
@@ -134,8 +130,6 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
     [self presentViewController:newVC animated:YES completion:nil];
-    
-    
 }
 
 
@@ -158,16 +152,12 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
     
     self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
     self.roomLayoutView.layer.borderWidth = 1.0;
     
     self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-    
-
-    
     
     self.dataStore = [FPCStateManager currentState];
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
@@ -265,28 +255,35 @@
 
 -(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
     
-    if(longPressGestureRecognizer.state != UIGestureRecognizerStateBegan) {
-        return;
-    }
-    
     UIImage *image = [UIImage imageNamed:@"delete"];
     FurnitureButton *selectedButton = (FurnitureButton *)longPressGestureRecognizer.view;
-    self.furnitureButtonToDelete = selectedButton;
-    self.itemToDelete = selectedButton.furnitureItem;
-    self.deleteButton = [[FurnitureButton alloc]init];
-    [self.deleteButton setImage:image forState:UIControlStateNormal];
+    CGPoint touchLocation = [longPressGestureRecognizer locationInView:self.roomLayoutView];
     
-    [self.roomLayoutView addSubview:self.deleteButton];
-    
-    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
-    [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
-    [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
-    [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
-    
-    UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
-    [self.deleteButton addGestureRecognizer:tappedTheX];
+    if(longPressGestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
 
+        NSLog(@"i've ended the long press");
+        self.furnitureButtonToDelete = selectedButton;
+        self.itemToDelete = selectedButton.furnitureItem;
+        self.deleteButton = [[FurnitureButton alloc]init];
+        [self.deleteButton setImage:image forState:UIControlStateNormal];
+        [longPressGestureRecognizer.view addSubview:self.deleteButton];
+//        //    self.roomLayoutView.center = CGPointMake(centerOfLayoutView.x, centerOfLayoutView.y);
+//        //
+//
+        self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
+        [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
+
+        [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
+        [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+    
+        longPressGestureRecognizer.view.center = touchLocation;
+        self.deleteButton.center = longPressGestureRecognizer.view.center;
+        UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
+        [self.deleteButton addGestureRecognizer:tappedTheX];
+    
 }
 
 -(void)tappedTheXButton:(UITapGestureRecognizer*)theX {
