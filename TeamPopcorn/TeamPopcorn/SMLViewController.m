@@ -138,14 +138,6 @@ CGFloat roomLayoutBorder = 1.0;
 
 }
 
--(void) buttonAction: (id) sender {
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
-    [self presentViewController:newVC animated:YES completion:nil];
-    
-    
-}
 
 
 
