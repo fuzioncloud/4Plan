@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
     for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
@@ -36,7 +36,6 @@
     }
     NSLog(@"width entered %@", self.widthField);
     NSLog(@"length entered %@", self.lengthField);
-    
     
     CGFloat viewWidth = self.view.bounds.size.width;
     CGFloat viewHeight = self.view.bounds.size.height;
@@ -59,14 +58,12 @@
         floorHeight = viewHeight;
     }
     
-    
     float percentage = .50;
     int xPosition = _roomLayoutView.superview.frame.size.width * ((1 - percentage) / 8);
     int yPosition = _roomLayoutView.superview.frame.size.height * ((1 - percentage) / 3.0);
     NSInteger width = self.widthField.integerValue*20;
     NSInteger height = self.lengthField.integerValue*20;
-   
-
+    
     NSInteger widthPositionAndPadding = (width + xPosition + 20);
     NSInteger heightPositionAndPadding = (height + yPosition + 20);
     
@@ -80,38 +77,33 @@
         height -= verticalDifference;
     }
     
-    
     self.roomLayoutView.frame = CGRectMake(xPosition, yPosition, width, height);
     
- 
     [self.roomLayoutView sizeToFit];
     
     [self constrainForFloorPlan];
     
-
-//    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.roomLayoutView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:10].active = YES;
-//    [self.roomLayoutView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
-//    [self.roomLayoutView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
-//    [self.roomLayoutView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
-
+    //    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
+    //    [self.roomLayoutView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:10].active = YES;
+    //    [self.roomLayoutView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
+    //    [self.roomLayoutView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
+    //    [self.roomLayoutView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
     
-    
-  
-    
-
     UIImage *addSymbol = [UIImage imageNamed:@"addFurnitureButtonSmall"];
     UIBarButtonItem *furnitureBarButton = [[UIBarButtonItem alloc]initWithImage: addSymbol style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
     self.navigationItem.rightBarButtonItem = furnitureBarButton;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
-        furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
+    furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
     [self.navigationItem setRightBarButtonItem:furnitureBarButton];
+    
+    for (FurnitureButton *piece in self.roomLayoutView.subviews) {
+        [self furnitureTouching:piece];
+    }
 }
 
 
 
 -(void) constrainForFloorPlan {
-    
     
     [self.view removeConstraints:self.view.constraints];
     [self.roomLayoutView removeConstraints:self.view.constraints];
@@ -132,8 +124,6 @@
     [self presentViewController:newVC animated:YES completion:nil];
 }
 
-
-
 -(void) resizeToFitSubviews: (UIView *) view {
     
     float w = 0.0,h = 0.0;
@@ -149,9 +139,8 @@
     
 }
 
-
-
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
     
     self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
@@ -163,15 +152,13 @@
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
     
     if (newlyAddedPiece) {
-
-    
+        
         CGFloat centerX = self.roomLayoutView.center.x;
         CGFloat centerY = self.roomLayoutView.center.y;
         
         CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.width, newlyAddedPiece.length);
         
         FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
-        
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
         placedPiece.imageView.image = newlyAddedPiece.image;
         placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
@@ -184,7 +171,7 @@
         
         UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
         [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
-
+        
         
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
         longPressGestureRecognizer.minimumPressDuration = .3;
@@ -195,12 +182,12 @@
         
         [self.roomLayoutView addSubview:placedPiece];
         
-        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.frame.size.width].active = YES;
-        [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.frame.size.height].active = YES;
-        
-        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
-        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+        //        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+        //        [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.frame.size.width].active = YES;
+        //        [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.frame.size.height].active = YES;
+        //
+        //        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+        //        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
     }
     
     for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
@@ -262,27 +249,24 @@
     if(longPressGestureRecognizer.state != UIGestureRecognizerStateEnded) {
         return;
     }
-
-        NSLog(@"i've ended the long press");
-        self.furnitureButtonToDelete = selectedButton;
-        self.itemToDelete = selectedButton.furnitureItem;
-        self.deleteButton = [[FurnitureButton alloc]init];
-        [self.deleteButton setImage:image forState:UIControlStateNormal];
-        [longPressGestureRecognizer.view addSubview:self.deleteButton];
-//        //    self.roomLayoutView.center = CGPointMake(centerOfLayoutView.x, centerOfLayoutView.y);
-//        //
-//
-        self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
-        [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
-
-        [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
-        [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
     
-        longPressGestureRecognizer.view.center = touchLocation;
-        self.deleteButton.center = longPressGestureRecognizer.view.center;
-        UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
-        [self.deleteButton addGestureRecognizer:tappedTheX];
+    self.furnitureButtonToDelete = selectedButton;
+    self.itemToDelete = selectedButton.furnitureItem;
+    self.deleteButton = [[FurnitureButton alloc]init];
+    [self.deleteButton setImage:image forState:UIControlStateNormal];
+    [self.roomLayoutView addSubview:self.deleteButton];
+    
+    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
+    [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
+    
+    [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
+    [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+    
+    longPressGestureRecognizer.view.center = touchLocation;
+    self.deleteButton.center = longPressGestureRecognizer.view.center;
+    UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
+    [self.deleteButton addGestureRecognizer:tappedTheX];
     
 }
 
@@ -296,44 +280,32 @@
 }
 
 -(void)furnitureTouching:(FurnitureButton*)furniture {
-//    NSLog(@"array of pieces:  %@", self.dataStore.arrangedFurniture);
-//    NSLog(@"ive been kicked off");
     
     for (FurnitureButton *button in self.roomLayoutView.subviews) {
-//        NSLog(@"inside the loop");
-        if ([button isEqual:furniture]) {
-//            NSLog(@"continue on: %d", [button isEqual:furniture]);
-            continue;
-        }
-                
-        BOOL touching = (CGRectIntersectsRect(furniture.frame, button.frame));
         
-        if (touching) {
-            button.tintColor = [UIColor redColor];
-            furniture.tintColor = [UIColor redColor];
-//            NSLog(@"furniture touching");
-//            NSLog(@"%@", button.tintColor);
-//            NSLog(@"%@", furniture.tintColor);
+        NSMutableArray *buttonsThatAreTouchingButton = [NSMutableArray new];
+        
+        for (FurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
             
-        } else {
-//            NSLog(@"inside the else statement");
-            BOOL furnitureIsAlreadyTouchingAnotherView = NO;
+            if (button == buttonAgain) { continue; }
             
-            for (FurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
-                if ([buttonAgain isEqual:furniture]) { continue; }
-                
-                BOOL touchingAtLeastOneThing = (CGRectIntersectsRect(furniture.frame, buttonAgain.frame));
-                
-                if (touchingAtLeastOneThing) {
-                    furnitureIsAlreadyTouchingAnotherView = YES;
-                }
+            BOOL buttonButtonAgainTouching = CGRectIntersectsRect(button.frame, buttonAgain.frame);
+
+            if(buttonButtonAgainTouching){
+               
+                [buttonsThatAreTouchingButton addObject:buttonAgain];
             }
-//            NSLog(@"make it black");
-            furniture.tintColor = furnitureIsAlreadyTouchingAnotherView ? [UIColor redColor] : [UIColor blackColor];
+            else if (!buttonButtonAgainTouching){
+                
+            }
+        }
+        
+        if (buttonsThatAreTouchingButton.count > 0) {
+            button.tintColor = [UIColor redColor];
+        } else {
             button.tintColor = [UIColor blackColor];
         }
     }
 }
-
 @end
 

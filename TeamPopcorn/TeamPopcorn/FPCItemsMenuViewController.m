@@ -89,11 +89,11 @@
     
     ENWFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
     
-    NSLog(@"%@", selectedFurniture.name);
+//    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
     [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+//    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
 }
 
 
