@@ -27,13 +27,11 @@
 @implementation SMLViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
-        [self furnitureTouching:furniture];
-    }
     NSLog(@"width entered %@", self.widthField);
     NSLog(@"length entered %@", self.lengthField);
     
@@ -96,9 +94,8 @@
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
     [self.navigationItem setRightBarButtonItem:furnitureBarButton];
     
-    for (FurnitureButton *piece in self.roomLayoutView.subviews) {
-        [self furnitureTouching:piece];
-    }
+    [self furnitureTouching];
+    
 }
 
 
@@ -140,7 +137,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:animated];
+    
+    [self.deleteButton removeFromSuperview];
+    
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
     
     self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
@@ -190,10 +191,8 @@
         //        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
     }
     
-    for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
-        
-        [self furnitureTouching:furniture];
-    }
+    
+    [self furnitureTouching];
 }
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
@@ -203,6 +202,8 @@
 }
 
 -(void)showDimensionsPopOver: (UITapGestureRecognizer*)tapGesture{
+    
+    [self.deleteButton removeFromSuperview];
     
     DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
     dimvc.preferredContentSize = CGSizeMake(160, 140);
@@ -223,11 +224,14 @@
     
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
     panGestureRecognizer.view.center = touchLocation;
-    [self furnitureTouching:(FurnitureButton*)panGestureRecognizer.view];
+    
+    [self furnitureTouching];
     
 }
 
 -(void)rotateFurniture:(UIRotationGestureRecognizer*)rotateGestureRecognizer{
+    
+    [self.deleteButton removeFromSuperview];
     
     if (rotateGestureRecognizer.state != UIGestureRecognizerStateBegan){
         return;
@@ -237,7 +241,7 @@
     
     rotateGestureRecognizer.rotation = 0;
     
-    [self furnitureTouching:(FurnitureButton*)rotateGestureRecognizer.view];
+    [self furnitureTouching];
 }
 
 -(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
@@ -279,7 +283,7 @@
     [self.furnitureButtonToDelete removeFromSuperview];
 }
 
--(void)furnitureTouching:(FurnitureButton*)furniture {
+-(void)furnitureTouching{
     
     for (FurnitureButton *button in self.roomLayoutView.subviews) {
         
@@ -287,7 +291,7 @@
         
         for (FurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
             
-            if (button == buttonAgain) { continue; }
+            if (button == buttonAgain) { continue; }//if the button is itself, skip over it in the loop
             
             BOOL buttonButtonAgainTouching = CGRectIntersectsRect(button.frame, buttonAgain.frame);
 
@@ -295,17 +299,21 @@
                
                 [buttonsThatAreTouchingButton addObject:buttonAgain];
             }
+            
             else if (!buttonButtonAgainTouching){
-                
             }
         }
         
         if (buttonsThatAreTouchingButton.count > 0) {
+            
             button.tintColor = [UIColor redColor];
+            
         } else {
+            
             button.tintColor = [UIColor blackColor];
         }
     }
 }
+
 @end
 
