@@ -121,7 +121,7 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="Width:">
                                                         <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -133,6 +133,9 @@
                                                 <rect key="frame" x="180" y="72" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YLX-7c-BHf" id="wa5-g2-zXP"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -147,7 +150,7 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="Length:">
                                                         <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -159,6 +162,9 @@
                                                 <rect key="frame" x="180" y="72" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YLX-7c-BHf" id="ZJ4-tF-ShS"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -173,7 +179,7 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="Height:">
                                                         <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -185,6 +191,9 @@
                                                 <rect key="frame" x="180" y="73" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="YLX-7c-BHf" id="d8B-pW-NXU"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -212,6 +221,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="heightField" destination="aPl-rX-9Ux" id="JcD-mJ-Ufh"/>
+                        <outlet property="lengthField" destination="rcf-GP-IQ0" id="Yka-P0-jAJ"/>
+                        <outlet property="widthField" destination="vug-OE-gBS" id="1mW-hP-Wph"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJm-5d-YL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

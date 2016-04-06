@@ -13,7 +13,8 @@
 #import "FurnitureButton.h"
 #import "EnterRoomDimensionViewController.h"
 #import "FPCItemsMenuViewController.h"
-@interface SMLViewController () <UIPopoverPresentationControllerDelegate>
+
+@interface SMLViewController () <UIPopoverPresentationControllerDelegate, DimensionViewControllerDelegate>
 
 @property (strong, nonatomic) FPCStateManager *dataStore;
 @property (weak, nonatomic) IBOutlet UIView *roomLayoutView;
@@ -194,7 +195,7 @@
         
         UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
         [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
-
+        
         
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
         longPressGestureRecognizer.minimumPressDuration = .3;
@@ -227,17 +228,28 @@
 
 -(void)showDimensionsPopOver: (UITapGestureRecognizer*)tapGesture{
     
+    
+    FurnitureButton *button = (FurnitureButton *)tapGesture.view;
+    ENWFurniture *furniture = button.furnitureItem;
     DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
+    dimvc.furniture = furniture;
     dimvc.preferredContentSize = CGSizeMake(160, 140);
     
     dimvc.modalPresentationStyle = UIModalPresentationPopover;
-    
+    dimvc.delegate = self;
     UIPopoverPresentationController *popov = dimvc.popoverPresentationController;
     popov.delegate = self;
     popov.sourceView = tapGesture.view;
     popov.permittedArrowDirections = UIPopoverArrowDirectionDown;
     
+    
     [self presentViewController:dimvc animated:YES completion:nil];
+    
+}
+
+-(void)dimensionVCDidUpdateDimensions:(ENWFurniture*)furniture{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
