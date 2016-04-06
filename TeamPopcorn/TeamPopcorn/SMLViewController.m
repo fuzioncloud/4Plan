@@ -10,6 +10,7 @@
 #import "FPCStateManager.h"
 #import "ENWFurniture.h"
 #import "DimensionsViewController.h"
+#import "FPCItemsMenuViewController.h"
 @interface SMLViewController () <UIPopoverPresentationControllerDelegate>
 
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic)  UIImageView *table;
 @property (strong, nonatomic) NSArray *usersFurniture;
 @property (strong, nonatomic) FPCStateManager *dataStore;
-@property (weak, nonatomic) IBOutlet UIView *roomLayoutView;
+@property (strong, nonatomic) UIView *roomLayoutView;
 
 @end
 
@@ -26,76 +27,97 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints =NO;
-    
-    NSLog(@"width entered %@", self.widthField);
-    NSLog(@"length entered %@", self.lengthField);
-    
-    float percentage = .50;
-    int xPosition = _roomLayoutView.superview.frame.size.width * ((1 - percentage) / 8);
-    int yPosition = _roomLayoutView.superview.frame.size.height * ((1 - percentage) / 3.0);
-    NSInteger width = self.widthField.integerValue*35;
-    NSInteger height = self.lengthField.integerValue*33;
-    // aspect ratio = width / height
-    // for our example of 30 x 40, aspectRatio = 0.795454561;
-    
-    // check for overflow
-    NSInteger widthPositionAndPadding = (width + xPosition + 16);
-    NSInteger heightPositionAndPadding = (height + yPosition + 16);
-    
-    BOOL overflowsHorizontally = widthPositionAndPadding > self.view.bounds.size.width;
-    BOOL overflowsVertically = heightPositionAndPadding > self.view.bounds.size.height;
-    
-    if (overflowsHorizontally || overflowsVertically) {
-        CGFloat horizontalDifference = widthPositionAndPadding - self.view.bounds.size.width;
-        CGFloat verticalDifference = heightPositionAndPadding - self.view.bounds.size.height;
-        width -= horizontalDifference;
-        height -= verticalDifference;
-        // ^BAD aspect ratio is now 0.561051011
-    }
-    
-    
-    self.roomLayoutView.frame = CGRectMake(xPosition, yPosition, width, height);
-    
-    
-    [self.roomLayoutView sizeToFit];
-    
-    
+    [self constrainForFloorPlan]; //MV
+    [self barButtonItem]; //MV
 
-    
-    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.roomLayoutView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:200].active = YES;
-    [self.roomLayoutView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
-    [self.roomLayoutView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
-    [self.roomLayoutView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
-
-    
-//    self.usersFurniture = @[self.sofa, self.table];
-    
-//    NSLog(@"I've passed back this piece: %@", self.selectedPiece);
     for (UIButton *pieceOfFurniture in self.roomLayoutView.subviews) {
         [self furnitureTouching:pieceOfFurniture];
-            }
+    }
     
 
+ 
 }
 
 
 
+
+-(void) barButtonItem {
+    
+
+    
+    UIImage *addSymbol = [UIImage imageNamed:@"addFurnitureButtonSmall"];
+    UIBarButtonItem *furnitureBarButton = [[UIBarButtonItem alloc]initWithImage: addSymbol style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
+    self.navigationItem.rightBarButtonItem = furnitureBarButton;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+    furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
+    [self.navigationItem setRightBarButtonItem:furnitureBarButton];
+    
+}
+
+
+-(void) buttonAction: (id) sender {
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
+    [self presentViewController:newVC animated:YES completion:nil];
+    
+    
+}
+
 -(void) constrainForFloorPlan {
+    self.dataStore = [FPCStateManager currentState];
     
+    CGFloat roomLayoutBorder = 1.0;
+    CGFloat roomLayoutPadding = 20.0;
     
+    self.roomLayoutView = [[UIView alloc] init];
+    [self.view addSubview:self.roomLayoutView];
     
-    [self.view removeConstraints:self.view.constraints];
-    [self.roomLayoutView removeConstraints:self.view.constraints];
+    NSLog(@"width entered %lu", self.dataStore.room.w);
+    NSLog(@"length entered %lu", self.dataStore.room.l);
+    
+    CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    
+    CGFloat viewWidth = self.view.bounds.size.width;
+    CGFloat viewHeight = self.view.bounds.size.height - (navHeight + statusBarHeight);
+    
+    CGFloat enteredWidth = self.dataStore.room.w;
+    CGFloat enteredHeight = self.dataStore.room.l;
+    
+    CGFloat widthFactor = viewWidth / enteredWidth;
+    CGFloat heightFactor = viewHeight / enteredHeight;
+    
+    CGFloat scaleFactor;
+    
+    if (widthFactor < heightFactor) {
+        scaleFactor = widthFactor;
+    } else {
+        scaleFactor = heightFactor;
+    }
+    
+    CGFloat floorWidth = enteredWidth * scaleFactor;
+    CGFloat floorHeight = enteredHeight * scaleFactor;
+    
+    floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
+    floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
+
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self.roomLayoutView.widthAnchor constraintLessThanOrEqualToAnchor:self.view.widthAnchor multiplier:0.8].active = YES;
-    [self.roomLayoutView.heightAnchor constraintLessThanOrEqualToAnchor:self.view.heightAnchor multiplier:0.8].active = YES;
+    CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
+    [self.roomLayoutView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [self.roomLayoutView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active =YES;
+    [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
+    [self.roomLayoutView.widthAnchor constraintEqualToConstant:floorWidth].active = YES;
+    [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
     
+    [self.roomLayoutView layoutIfNeeded];
     
+    self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
+    self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
     
-    
+
 }
 
 
@@ -120,15 +142,6 @@
     
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
     
-    self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.roomLayoutView.layer.borderWidth = 1.0;
-    
-    self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-    
-
-    
-    
-    self.dataStore = [FPCStateManager currentState];
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
     
     if (newlyAddedPiece) {

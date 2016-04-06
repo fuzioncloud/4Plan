@@ -32,6 +32,10 @@
                length:(NSUInteger)l; {
     if (!self.room) {
         self.room = [FPCRoom roomOfWidth:w height:h length:l];
+    } else {
+        
+        self.room = [FPCRoom roomOfWidth:w height:h length:l];
+        
     }
 }
 
