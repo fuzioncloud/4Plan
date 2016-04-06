@@ -94,50 +94,6 @@
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
     [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
-//    
-//    UIAlertController *dimensions = [UIAlertController alertControllerWithTitle:@"Dimensions" message:@"Please Enter Dimensions" preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    [dimensions addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull lengthField) {
-//        lengthField.placeholder = NSLocalizedString(@"Length", @"Length");
-//    }];
-//    
-//    [dimensions addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull widthField) {
-//        widthField.placeholder = NSLocalizedString(@"Width", @"Width");
-//    }];
-//    
-//    [dimensions addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull heightField) {
-//        heightField.placeholder = NSLocalizedString(@"Height", @"Height");
-//    }];
-//    
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }];
-//    [dimensions addAction:cancel];
-//    
-//    UIAlertAction *submit = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        
-//        //add piece to datastore with user dims
-//
-//        selectedFurniture.length = dimensions.textFields.firstObject.text.integerValue;
-//        selectedFurniture.height = dimensions.textFields.lastObject.text.integerValue;
-//        UITextField *textField = dimensions.textFields[1];
-//        selectedFurniture.width = textField.text.integerValue;
-//        [self.arrangedFurniture placeFuriniture:selectedFurniture];
-//        NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }];
-//    [dimensions addAction:submit];
-//
-//    UIAlertAction *useStandard = [UIAlertAction actionWithTitle:@"Use Standard" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        //add piece to datastore with standard dims
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }];
-//    [dimensions addAction:useStandard];
-//    
-//    [self presentViewController:dimensions animated:YES completion:^{
-//
-//    }];
-    
 }
 
 

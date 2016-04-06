@@ -10,15 +10,22 @@
 #import "FPCStateManager.h"
 #import "ENWFurniture.h"
 #import "DimensionsViewController.h"
+
+
+#import "FurnitureButton.h"
+#import "EnterRoomDimensionViewController.h"
 #import "FPCItemsMenuViewController.h"
-@interface SMLViewController () <UIPopoverPresentationControllerDelegate>
 
 
-@property (weak, nonatomic)  UIImageView *sofa;
-@property (weak, nonatomic)  UIImageView *table;
-@property (strong, nonatomic) NSArray *usersFurniture;
+@interface SMLViewController () <UIPopoverPresentationControllerDelegate, DimensionViewControllerDelegate>
+
 @property (strong, nonatomic) FPCStateManager *dataStore;
 @property (strong, nonatomic) UIView *roomLayoutView;
+
+@property (strong, nonatomic) FurnitureButton *deleteButton;
+@property (strong, nonatomic) ENWFurniture *itemToDelete;
+@property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
+
 
 @end
 
@@ -26,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self constrainForFloorPlan]; //MV
     [self barButtonItem]; //MV
 
@@ -52,22 +59,30 @@
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
     [self.navigationItem setRightBarButtonItem:furnitureBarButton];
     
+    
 }
 
 
 -(void) buttonAction: (id) sender {
     
+ 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
     [self presentViewController:newVC animated:YES completion:nil];
+
     
     
 }
 
+
+
+
+
 -(void) constrainForFloorPlan {
+
     self.dataStore = [FPCStateManager currentState];
-    
-    CGFloat roomLayoutBorder = 1.0;
+
+CGFloat roomLayoutBorder = 1.0;
     CGFloat roomLayoutPadding = 20.0;
     
     self.roomLayoutView = [[UIView alloc] init];
@@ -89,6 +104,7 @@
     CGFloat heightFactor = viewHeight / enteredHeight;
     
     CGFloat scaleFactor;
+
     
     if (widthFactor < heightFactor) {
         scaleFactor = widthFactor;
@@ -96,6 +112,7 @@
         scaleFactor = heightFactor;
     }
     
+
     CGFloat floorWidth = enteredWidth * scaleFactor;
     CGFloat floorHeight = enteredHeight * scaleFactor;
     
@@ -110,6 +127,7 @@
     [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
     [self.roomLayoutView.widthAnchor constraintEqualToConstant:floorWidth].active = YES;
     [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
+
     
     [self.roomLayoutView layoutIfNeeded];
     
@@ -119,6 +137,16 @@
     
 
 }
+
+-(void) buttonAction: (id) sender {
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
+    [self presentViewController:newVC animated:YES completion:nil];
+    
+    
+}
+
 
 
 -(void) resizeToFitSubviews: (UIView *) view {
@@ -145,26 +173,36 @@
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
     
     if (newlyAddedPiece) {
+
     
         CGFloat centerX = self.roomLayoutView.center.x;
         CGFloat centerY = self.roomLayoutView.center.y;
         
         CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.width, newlyAddedPiece.length);
-        UIButton *placedPiece = [[UIButton alloc]initWithFrame:frame];
-
+        
+        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
         
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
         placedPiece.imageView.image = newlyAddedPiece.image;
         placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
         placedPiece.backgroundColor = [UIColor darkGrayColor];
         placedPiece.tintColor = [UIColor blackColor];
-        
+        placedPiece.furnitureItem = newlyAddedPiece;
         
         UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
         [placedPiece addGestureRecognizer:panGestureRecognizerSofa];
         
         UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
         [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
+        
+        
+        UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
+        longPressGestureRecognizer.minimumPressDuration = .3;
+        [placedPiece addGestureRecognizer:longPressGestureRecognizer];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
+        [placedPiece addGestureRecognizer: tapGestureRecognizer];
+        
         [self.roomLayoutView addSubview:placedPiece];
         
         placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
@@ -173,73 +211,140 @@
         
         [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
         [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+    }
+    
+    for (FurnitureButton *furniture in self.roomLayoutView.subviews) {
         
-        DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
-        dimvc.preferredContentSize = CGSizeMake(160, 140);
-
-        dimvc.modalPresentationStyle = UIModalPresentationPopover;
-        
-        UIPopoverPresentationController *popov = dimvc.popoverPresentationController;
-        popov.delegate = self;
-        popov.sourceView = placedPiece;
-        popov.permittedArrowDirections = UIPopoverArrowDirectionDown;
-        
-        [self presentViewController:dimvc animated:YES completion:nil];
+        [self furnitureTouching:furniture];
     }
 }
 
-
-
-
-
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
+    
     return UIModalPresentationNone;
+    
 }
 
+-(void)showDimensionsPopOver: (UITapGestureRecognizer*)tapGesture{
+    
+    
+    FurnitureButton *button = (FurnitureButton *)tapGesture.view;
+    ENWFurniture *furniture = button.furnitureItem;
+    DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
+    dimvc.furniture = furniture;
+    dimvc.preferredContentSize = CGSizeMake(160, 140);
+    
+    dimvc.modalPresentationStyle = UIModalPresentationPopover;
+    dimvc.delegate = self;
+    UIPopoverPresentationController *popov = dimvc.popoverPresentationController;
+    popov.delegate = self;
+    popov.sourceView = tapGesture.view;
+    popov.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    
+    
+    [self presentViewController:dimvc animated:YES completion:nil];
+    
+}
 
-
+-(void)dimensionVCDidUpdateDimensions:(ENWFurniture*)furniture{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
     
+    [self.deleteButton removeFromSuperview];
+    
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
     panGestureRecognizer.view.center = touchLocation;
-    [self furnitureTouching:(UIButton*)panGestureRecognizer.view];
+    [self furnitureTouching:(FurnitureButton*)panGestureRecognizer.view];
+    
 }
 
 -(void)rotateFurniture:(UIRotationGestureRecognizer*)rotateGestureRecognizer{
+    
+    if (rotateGestureRecognizer.state != UIGestureRecognizerStateBegan){
+        return;
+    }
     
     rotateGestureRecognizer.view.transform = CGAffineTransformRotate(rotateGestureRecognizer.view.transform, rotateGestureRecognizer.rotation);
     
     rotateGestureRecognizer.rotation = 0;
     
-    [self furnitureTouching:(UIButton*)rotateGestureRecognizer.view];
+    [self furnitureTouching:(FurnitureButton*)rotateGestureRecognizer.view];
 }
 
--(void)furnitureTouching:(UIButton*)furniture{
+-(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
     
-    for (UIView *view in self.roomLayoutView.subviews) {
-        
-        UIButton *pieceOfFurniture = (UIButton*)view;
-        
-        if(pieceOfFurniture && ![furniture isEqual:pieceOfFurniture])
-        {
-            BOOL touching = CGRectIntersectsRect(furniture.frame, pieceOfFurniture.frame);
-    //        BOOL notCurrentFurniture = ![furniture isEqual:pieceOfFurniture];
-            
-    //            if(self.dataStore.arrangedFurniture.count - 1 == 0){
-    //                notCurrentFurniture = NO;
-    //            }
+    if(longPressGestureRecognizer.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    
+    UIImage *image = [UIImage imageNamed:@"delete"];
+    FurnitureButton *selectedButton = (FurnitureButton *)longPressGestureRecognizer.view;
+    self.furnitureButtonToDelete = selectedButton;
+    self.itemToDelete = selectedButton.furnitureItem;
+    self.deleteButton = [[FurnitureButton alloc]init];
+    [self.deleteButton setImage:image forState:UIControlStateNormal];
+    
+    [self.roomLayoutView addSubview:self.deleteButton];
+    
+    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
+    [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
+    [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
+    [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+    
+    UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
+    [self.deleteButton addGestureRecognizer:tappedTheX];
+
+}
+
+-(void)tappedTheXButton:(UITapGestureRecognizer*)theX {
+    
+    [self.deleteButton removeFromSuperview];
+    
+    [self.dataStore.arrangedFurniture removeObject:self.itemToDelete];
+    
+    [self.furnitureButtonToDelete removeFromSuperview];
+}
+
+-(void)furnitureTouching:(FurnitureButton*)furniture {
+//    NSLog(@"array of pieces:  %@", self.dataStore.arrangedFurniture);
+//    NSLog(@"ive been kicked off");
+    
+    for (FurnitureButton *button in self.roomLayoutView.subviews) {
+//        NSLog(@"inside the loop");
+        if ([button isEqual:furniture]) {
+//            NSLog(@"continue on: %d", [button isEqual:furniture]);
+            continue;
+        }
                 
-            if (touching){
-                NSLog(@"it's touching something!");
-                pieceOfFurniture.tintColor = [UIColor redColor];
-                furniture.tintColor = [UIColor redColor];
+        BOOL touching = (CGRectIntersectsRect(furniture.frame, button.frame));
+        
+        if (touching) {
+            button.tintColor = [UIColor redColor];
+            furniture.tintColor = [UIColor redColor];
+//            NSLog(@"furniture touching");
+//            NSLog(@"%@", button.tintColor);
+//            NSLog(@"%@", furniture.tintColor);
+            
+        } else {
+//            NSLog(@"inside the else statement");
+            BOOL furnitureIsAlreadyTouchingAnotherView = NO;
+            
+            for (FurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
+                if ([buttonAgain isEqual:furniture]) { continue; }
+                
+                BOOL touchingAtLeastOneThing = (CGRectIntersectsRect(furniture.frame, buttonAgain.frame));
+                
+                if (touchingAtLeastOneThing) {
+                    furnitureIsAlreadyTouchingAnotherView = YES;
+                }
             }
-            else {
-                NSLog(@"not touchinganything!");
-                pieceOfFurniture.tintColor = [UIColor blackColor];
-                furniture.tintColor = [UIColor blackColor];
-            }
+//            NSLog(@"make it black");
+            furniture.tintColor = furnitureIsAlreadyTouchingAnotherView ? [UIColor redColor] : [UIColor blackColor];
+            button.tintColor = [UIColor blackColor];
         }
     }
 }

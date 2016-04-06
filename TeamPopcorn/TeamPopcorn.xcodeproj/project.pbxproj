@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081094DD1CB4587C004CDD1C /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */; };
 		085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* DimensionsViewController.m */; };
+		0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* FurnitureButton.m */; };
 		08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* SMLViewController.m */; };
-		08F62DCC1CAB11E500070572 /* Furniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F62DCB1CAB11E500070572 /* Furniture.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
 		1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */; };
 		1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8B1CAAF3B40041D2DB /* Floorplan.storyboard */; };
@@ -27,20 +28,22 @@
 		1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* FPCStateManager.m */; };
 		1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* FPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
-		44200D271CAEE8D000479D0D /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */; };
 		44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* Main.storyboard */; };
 		44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */; };
 		44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */; };
+		7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */; };
+		7BD33FBF1CB550F60075E4C2 /* popoverClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD33FBE1CB550F60075E4C2 /* popoverClass.m */; };
+		7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */; };
 		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		085612F81CADC2DB00452A49 /* DimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionsViewController.h; sourceTree = "<group>"; };
 		085612F91CADC2DB00452A49 /* DimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionsViewController.m; sourceTree = "<group>"; };
+		0856133B1CB2DCA500452A49 /* FurnitureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FurnitureButton.h; sourceTree = "<group>"; };
+		0856133C1CB2DCA500452A49 /* FurnitureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FurnitureButton.m; sourceTree = "<group>"; };
 		08DC6D671CAC7DD90084CF1D /* SMLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* SMLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLViewController.m; sourceTree = "<group>"; };
-		08F62DCA1CAB11E500070572 /* Furniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Furniture.h; sourceTree = "<group>"; };
-		08F62DCB1CAB11E500070572 /* Furniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Furniture.m; sourceTree = "<group>"; };
 		1B9FCD7F1CAAF3B30041D2DB /* TeamPopcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPopcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9FCD831CAAF3B40041D2DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +84,11 @@
 		44C6C80A1CAB36F500F21662 /* roomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = roomLayoutViewController.h; sourceTree = "<group>"; };
 		44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = roomLayoutViewController.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
+		7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = floorplanpicker.storyboard; sourceTree = "<group>"; };
+		7BD33FBD1CB550F60075E4C2 /* popoverClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popoverClass.h; sourceTree = "<group>"; };
+		7BD33FBE1CB550F60075E4C2 /* popoverClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popoverClass.m; sourceTree = "<group>"; };
+		7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floorplanpickerVC.h; sourceTree = "<group>"; };
+		7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floorplanpickerVC.m; sourceTree = "<group>"; };
 		7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWconstants.h; sourceTree = "<group>"; };
 		7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWconstants.m; sourceTree = "<group>"; };
 		DBCD10CA7A0BCA1BBE2B8673 /* Pods-TeamPopcorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,8 +134,6 @@
 				1B9FCD991CAAF56A0041D2DB /* Secrets.h */,
 				1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */,
 				1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */,
-				08F62DCA1CAB11E500070572 /* Furniture.h */,
-				08F62DCB1CAB11E500070572 /* Furniture.m */,
 				1BA169CB1CAC1CA200A4436A /* M */,
 				1BA169CC1CAC1CB600A4436A /* V */,
 				1BA169CD1CAC1E0C00A4436A /* C */,
@@ -155,6 +161,8 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				7BD33FBD1CB550F60075E4C2 /* popoverClass.h */,
+				7BD33FBE1CB550F60075E4C2 /* popoverClass.m */,
 				1BA169D81CAD71AF00A4436A /* FPCRoom.h */,
 				1BA169D91CAD71AF00A4436A /* FPCRoom.m */,
 				1BA169D51CAD708E00A4436A /* FPCStateManager.h */,
@@ -196,8 +204,13 @@
 			children = (
 				08DC6D671CAC7DD90084CF1D /* SMLViewController.h */,
 				08DC6D681CAC7DD90084CF1D /* SMLViewController.m */,
+				0856133B1CB2DCA500452A49 /* FurnitureButton.h */,
+				0856133C1CB2DCA500452A49 /* FurnitureButton.m */,
 				085612F81CADC2DB00452A49 /* DimensionsViewController.h */,
 				085612F91CADC2DB00452A49 /* DimensionsViewController.m */,
+				7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */,
+				7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */,
+				7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -281,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */,
+				7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */,
 				1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */,
 				1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */,
 				44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */,
@@ -342,10 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081094DD1CB4587C004CDD1C /* FPCItemsMenuViewController.m in Sources */,
 				08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */,
-				08F62DCC1CAB11E500070572 /* Furniture.m in Sources */,
-				44200D271CAEE8D000479D0D /* FPCItemsMenuViewController.m in Sources */,
 				7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */,
+				0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */,
 				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
 				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,
 				1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */,
@@ -354,6 +368,8 @@
 				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
+				7BD33FBF1CB550F60075E4C2 /* popoverClass.m in Sources */,
+				7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */,
 				44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */,
 				44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
