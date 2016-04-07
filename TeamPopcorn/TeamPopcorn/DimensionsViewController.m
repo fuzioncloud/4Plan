@@ -9,7 +9,7 @@
 #import "DimensionsViewController.h"
 #import "SMLViewController.h"
 #import "FPCStateManager.h"
-#import "FurnitureButton.h"
+
 
 @interface DimensionsViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *widthField;
@@ -53,6 +53,11 @@
             }
         }
     }
+    
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
     
 }
 

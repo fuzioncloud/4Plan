@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FPCModels.h"
+#import "FurnitureButton.h"
 
 @protocol DimensionViewControllerDelegate
 
--(void)dimensionVCDidUpdateDimensions:(NSDictionary*)dimensions;
+-(void)dimensionVCDidUpdateDimensions:(FurnitureButton*)placedpiece;
 
 @end
 

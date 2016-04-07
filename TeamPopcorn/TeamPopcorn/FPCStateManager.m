@@ -31,10 +31,10 @@
                height:(NSUInteger)h
                length:(NSUInteger)l; {
     if (!self.room) {
-        self.room = [FPCRoom roomOfWidth:w height:h length:l];
+        self.room = [FPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
     } else {
         
-        self.room = [FPCRoom roomOfWidth:w height:h length:l];
+        self.room = [FPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
         
     }
 }
@@ -50,11 +50,11 @@
 }
 
 -(CGFloat)scaleFurniture:(ENWFurniture *)furniturePiece inRoom:(FPCRoom *)room {
-    CGFloat widthScale = room.w / furniturePiece.width;
-    CGFloat lengthScale = room.l / furniturePiece.length;
+    furniturePiece.widthscale = room.w*12 / furniturePiece.width;
+    furniturePiece.lengthscale = room.l*12 / furniturePiece.length;
 //    CGFloat heightScale = room.h / furniturePiece.height;
     
-    return MIN(widthScale, lengthScale);
+    return MIN(furniturePiece.widthscale,furniturePiece.lengthscale);
 }
 
 @end

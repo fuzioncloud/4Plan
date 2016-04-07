@@ -18,7 +18,7 @@
 @property (atomic) NSUInteger horizontalDistanceFromOrigin;
 @property (atomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (atomic) CGFloat scale;
+@property (atomic) CGFloat scale, widthscale, lengthscale;
 
 @property (strong, nonatomic) UIImage *image;
 

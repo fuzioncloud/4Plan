@@ -32,7 +32,6 @@
 		44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */; };
 		44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */; };
 		7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */; };
-		7BD33FBF1CB550F60075E4C2 /* popoverClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD33FBE1CB550F60075E4C2 /* popoverClass.m */; };
 		7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */; };
 		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
 /* End PBXBuildFile section */
@@ -85,8 +84,6 @@
 		44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = roomLayoutViewController.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = floorplanpicker.storyboard; sourceTree = "<group>"; };
-		7BD33FBD1CB550F60075E4C2 /* popoverClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popoverClass.h; sourceTree = "<group>"; };
-		7BD33FBE1CB550F60075E4C2 /* popoverClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popoverClass.m; sourceTree = "<group>"; };
 		7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floorplanpickerVC.h; sourceTree = "<group>"; };
 		7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floorplanpickerVC.m; sourceTree = "<group>"; };
 		7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWconstants.h; sourceTree = "<group>"; };
@@ -161,8 +158,6 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
-				7BD33FBD1CB550F60075E4C2 /* popoverClass.h */,
-				7BD33FBE1CB550F60075E4C2 /* popoverClass.m */,
 				1BA169D81CAD71AF00A4436A /* FPCRoom.h */,
 				1BA169D91CAD71AF00A4436A /* FPCRoom.m */,
 				1BA169D51CAD708E00A4436A /* FPCStateManager.h */,
@@ -368,7 +363,6 @@
 				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
-				7BD33FBF1CB550F60075E4C2 /* popoverClass.m in Sources */,
 				7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */,
 				44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */,
 				44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */,

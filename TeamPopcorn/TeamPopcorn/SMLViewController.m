@@ -41,6 +41,7 @@
         [self furnitureTouching:pieceOfFurniture];
     }
     
+    
 
  
 }
@@ -160,9 +161,13 @@ CGFloat roomLayoutBorder = 1.0;
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    
+    
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
     
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+    
+    
     
     if (newlyAddedPiece) {
 
@@ -170,7 +175,7 @@ CGFloat roomLayoutBorder = 1.0;
         CGFloat centerX = self.roomLayoutView.center.x;
         CGFloat centerY = self.roomLayoutView.center.y;
         
-        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.width, newlyAddedPiece.length);
+        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
         
         FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
         
@@ -195,6 +200,7 @@ CGFloat roomLayoutBorder = 1.0;
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
         [placedPiece addGestureRecognizer: tapGestureRecognizer];
         
+        
         [self.roomLayoutView addSubview:placedPiece];
         
         placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
@@ -209,6 +215,45 @@ CGFloat roomLayoutBorder = 1.0;
         
         [self furnitureTouching:furniture];
     }
+}
+
+-(void) updateDisplayedFurniture {
+    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+    
+    
+    
+    if (newlyAddedPiece) {
+        
+        
+        CGFloat centerX = self.roomLayoutView.center.x;
+        CGFloat centerY = self.roomLayoutView.center.y;
+        
+        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+        
+        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
+        
+        [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
+        placedPiece.imageView.image = newlyAddedPiece.image;
+        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
+        placedPiece.backgroundColor = [UIColor darkGrayColor];
+        placedPiece.tintColor = [UIColor blackColor];
+        placedPiece.furnitureItem = newlyAddedPiece;
+        [self.roomLayoutView addSubview:placedPiece];
+        
+        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
+        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
+        
+        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+    }
+
+    
+}
+
+-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    NSLog(@"Dismissing popver");
+    [self updateDisplayedFurniture];
 }
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
@@ -236,11 +281,6 @@ CGFloat roomLayoutBorder = 1.0;
     
     [self presentViewController:dimvc animated:YES completion:nil];
     
-}
-
--(void)dimensionVCDidUpdateDimensions:(ENWFurniture*)furniture{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
