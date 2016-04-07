@@ -67,8 +67,12 @@
                        
                        
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    
     self.datastore=[FPCStateManager currentState];
-    [self.datastore setRoomOfWidth:self.lengthText.text.integerValue height:0 length:self.widthText.text.integerValue];
+    [self.datastore setRoomOfWidth:self.widthText.text.integerValue height:0 length:self.lengthText.text.integerValue];
+
+
 }
 
 - (IBAction)submitButton:(id)sender {

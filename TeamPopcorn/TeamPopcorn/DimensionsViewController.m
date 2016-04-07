@@ -7,8 +7,15 @@
 //
 
 #import "DimensionsViewController.h"
+#import "SMLViewController.h"
+#import "FPCStateManager.h"
 
-@interface DimensionsViewController ()
+
+@interface DimensionsViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *widthField;
+@property (weak, nonatomic) IBOutlet UITextField *lengthField;
+@property (weak, nonatomic) IBOutlet UITextField *heightField;
+
 
 @end
 
@@ -16,7 +23,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.widthField.delegate=self;
+    self.lengthField.delegate=self;
+    self.heightField.delegate=self;
+    
+    
+    
+    
+    
+    
     // Do any additional setup after loading the view.
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    UITextField *t = (UITextField *) textField;
+    
+    for (ENWFurniture *furniture in [FPCStateManager currentState].arrangedFurniture) {
+        if ([furniture isEqual:self.furniture]) {
+            
+            if (t == _widthField) {
+                furniture.width=t.text.doubleValue;
+            }
+            else if (t == _heightField) {
+                furniture.height=t.text.doubleValue;
+            }
+            else if (t == _lengthField) {
+                furniture.length=t.text.doubleValue;
+            }
+        }
+    }
+    
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +66,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+    
+   
+   
+    
+    
+
 
 @end

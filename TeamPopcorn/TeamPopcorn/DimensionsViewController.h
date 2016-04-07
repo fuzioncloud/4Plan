@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPCModels.h"
+#import "FurnitureButton.h"
+
+@protocol DimensionViewControllerDelegate
+
+-(void)dimensionVCDidUpdateDimensions:(FurnitureButton*)placedpiece;
+
+@end
 
 @interface DimensionsViewController : UIViewController
+
+@property (strong,nonatomic) ENWFurniture *furniture;
+@property (nonatomic) id<DimensionViewControllerDelegate> delegate;
 
 @end

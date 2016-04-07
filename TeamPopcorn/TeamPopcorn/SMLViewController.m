@@ -10,13 +10,18 @@
 #import "FPCStateManager.h"
 #import "ENWFurniture.h"
 #import "DimensionsViewController.h"
+
+
 #import "FurnitureButton.h"
 #import "EnterRoomDimensionViewController.h"
 #import "FPCItemsMenuViewController.h"
-@interface SMLViewController () <UIPopoverPresentationControllerDelegate>
+
+
+@interface SMLViewController () <UIPopoverPresentationControllerDelegate, DimensionViewControllerDelegate>
 
 @property (strong, nonatomic) FPCStateManager *dataStore;
-@property (weak, nonatomic) IBOutlet UIView *roomLayoutView;
+@property (strong, nonatomic) UIView *roomLayoutView;
+
 @property (strong, nonatomic) FurnitureButton *deleteButton;
 @property (strong, nonatomic) ENWFurniture *itemToDelete;
 @property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
@@ -28,63 +33,15 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+
+    [self constrainForFloorPlan]; //MV
+    [self barButtonItem]; //MV
+
+    [self furnitureTouching];
     
-    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    NSLog(@"width entered %@", self.widthField);
-    NSLog(@"length entered %@", self.lengthField);
-    
-    CGFloat viewWidth = self.view.bounds.size.width;
-    CGFloat viewHeight = self.view.bounds.size.height;
-    
-    CGFloat enteredWidth = [self.widthField floatValue];
-    CGFloat enteredHeight = [self.lengthField floatValue];
-    
-    CGFloat floorWidth;
-    CGFloat floorHeight;
-    
-    if (enteredWidth >= enteredHeight) {
-        // use view width
-        
-        floorHeight = (viewWidth * enteredHeight) / enteredWidth;
-        floorWidth = viewWidth;
-        
-    } else {
-        // use view height
-        floorWidth = (viewHeight * enteredWidth) / enteredHeight;
-        floorHeight = viewHeight;
-    }
-    
-    float percentage = .50;
-    int xPosition = _roomLayoutView.superview.frame.size.width * ((1 - percentage) / 8);
-    int yPosition = _roomLayoutView.superview.frame.size.height * ((1 - percentage) / 3.0);
-    NSInteger width = self.widthField.integerValue*20;
-    NSInteger height = self.lengthField.integerValue*20;
-    
-    NSInteger widthPositionAndPadding = (width + xPosition + 20);
-    NSInteger heightPositionAndPadding = (height + yPosition + 20);
-    
-    BOOL overflowsHorizontally = widthPositionAndPadding > self.view.bounds.size.width;
-    BOOL overflowsVertically = heightPositionAndPadding > self.view.bounds.size.height;
-    
-    if (overflowsHorizontally || overflowsVertically) {
-        CGFloat horizontalDifference = widthPositionAndPadding - self.view.bounds.size.width;
-        CGFloat verticalDifference = heightPositionAndPadding - self.view.bounds.size.height;
-        width -= horizontalDifference;
-        height -= verticalDifference;
-    }
-    
-    self.roomLayoutView.frame = CGRectMake(xPosition, yPosition, width, height);
-    
-    [self.roomLayoutView sizeToFit];
-    
-    [self constrainForFloorPlan];
-    
-    //    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
-    //    [self.roomLayoutView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:10].active = YES;
-    //    [self.roomLayoutView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
-    //    [self.roomLayoutView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
-    //    [self.roomLayoutView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
+}
+
+-(void) barButtonItem {
     
     UIImage *addSymbol = [UIImage imageNamed:@"addFurnitureButtonSmall"];
     UIBarButtonItem *furnitureBarButton = [[UIBarButtonItem alloc]initWithImage: addSymbol style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
@@ -93,31 +50,72 @@
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
     [self.navigationItem setRightBarButtonItem:furnitureBarButton];
     
-    [self furnitureTouching];
-    
-}
-
-
-
--(void) constrainForFloorPlan {
-    
-    [self.view removeConstraints:self.view.constraints];
-    [self.roomLayoutView removeConstraints:self.view.constraints];
-    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.roomLayoutView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:80].active= YES;
-    [self.roomLayoutView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.5].active = YES;
-    [self.roomLayoutView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor  constant:10].active = YES;
-    [self.roomLayoutView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-10].active = YES;
-    [self.roomLayoutView.bottomAnchor constraintGreaterThanOrEqualToAnchor:self.view.bottomAnchor constant:-10].active = YES;
-    
 }
 
 -(void) buttonAction: (id) sender {
-    
+ 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
-    [self presentViewController:newVC animated:YES completion:nil];
+    [self presentViewController:newVC animated:YES completion:nil];    
+}
+
+-(void) constrainForFloorPlan {
+
+    self.dataStore = [FPCStateManager currentState];
+
+    CGFloat roomLayoutBorder = 1.0;
+    CGFloat roomLayoutPadding = 20.0;
+    
+
+    self.roomLayoutView = [[UIView alloc] init];
+    [self.view addSubview:self.roomLayoutView];
+    
+    NSLog(@"width entered %lu", self.dataStore.room.w);
+    NSLog(@"length entered %lu", self.dataStore.room.l);
+    
+    CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    
+    CGFloat viewWidth = self.view.bounds.size.width;
+    CGFloat viewHeight = self.view.bounds.size.height - (navHeight + statusBarHeight);
+    
+    CGFloat enteredWidth = self.dataStore.room.w;
+    CGFloat enteredHeight = self.dataStore.room.l;
+    
+    CGFloat widthFactor = viewWidth / enteredWidth;
+    CGFloat heightFactor = viewHeight / enteredHeight;
+    
+    CGFloat scaleFactor;
+    
+    if (widthFactor < heightFactor) {
+        scaleFactor = widthFactor;
+    } else {
+        scaleFactor = heightFactor;
+    }
+    
+    CGFloat floorWidth = enteredWidth * scaleFactor;
+    CGFloat floorHeight = enteredHeight * scaleFactor;
+    
+    floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
+    floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
+
+    self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
+    [self.roomLayoutView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [self.roomLayoutView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active =YES;
+    [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
+    [self.roomLayoutView.widthAnchor constraintEqualToConstant:floorWidth].active = YES;
+    [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
+
+    
+    [self.roomLayoutView layoutIfNeeded];
+    
+    self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
+    self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    
+
 }
 
 -(void) resizeToFitSubviews: (UIView *) view {
@@ -136,17 +134,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     [super viewWillAppear:animated];
     
     [self.deleteButton removeFromSuperview];
     
     self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
-    
-    self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.roomLayoutView.layer.borderWidth = 1.0;
-    
-    self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
     
     self.dataStore = [FPCStateManager currentState];
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
@@ -156,7 +148,7 @@
         CGFloat centerX = self.roomLayoutView.center.x;
         CGFloat centerY = self.roomLayoutView.center.y;
         
-        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.width, newlyAddedPiece.length);
+        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
         
         FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
@@ -180,6 +172,7 @@
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
         [placedPiece addGestureRecognizer: tapGestureRecognizer];
         
+        
         [self.roomLayoutView addSubview:placedPiece];
         
         //        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
@@ -194,6 +187,45 @@
     [self furnitureTouching];
 }
 
+-(void) updateDisplayedFurniture {
+    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+    
+    
+    
+    if (newlyAddedPiece) {
+        
+        
+        CGFloat centerX = self.roomLayoutView.center.x;
+        CGFloat centerY = self.roomLayoutView.center.y;
+        
+        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+        
+        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
+        
+        [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
+        placedPiece.imageView.image = newlyAddedPiece.image;
+        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
+        placedPiece.backgroundColor = [UIColor darkGrayColor];
+        placedPiece.tintColor = [UIColor blackColor];
+        placedPiece.furnitureItem = newlyAddedPiece;
+        [self.roomLayoutView addSubview:placedPiece];
+        
+        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
+        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
+        
+        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+    }
+
+    
+}
+
+-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    NSLog(@"Dismissing popver");
+    [self updateDisplayedFurniture];
+}
+
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
     
     return UIModalPresentationNone;
@@ -201,20 +233,25 @@
 }
 
 -(void)showDimensionsPopOver: (UITapGestureRecognizer*)tapGesture{
-    
+
     [self.deleteButton removeFromSuperview];
     
+    FurnitureButton *button = (FurnitureButton *)tapGesture.view;
+    ENWFurniture *furniture = button.furnitureItem;
     DimensionsViewController *dimvc = [self.storyboard instantiateViewControllerWithIdentifier:@"dimensionVC"];
+    dimvc.furniture = furniture;
     dimvc.preferredContentSize = CGSizeMake(160, 140);
     
     dimvc.modalPresentationStyle = UIModalPresentationPopover;
-    
+    dimvc.delegate = self;
     UIPopoverPresentationController *popov = dimvc.popoverPresentationController;
     popov.delegate = self;
     popov.sourceView = tapGesture.view;
     popov.permittedArrowDirections = UIPopoverArrowDirectionDown;
     
+    
     [self presentViewController:dimvc animated:YES completion:nil];
+    
 }
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{

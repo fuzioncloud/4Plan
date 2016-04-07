@@ -75,7 +75,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="lengthText" destination="yPd-C1-lSi" id="SAQ-xx-Z6p"/>
+                        <outlet property="lengthText" destination="yPd-C1-lSi" id="aHd-jC-yBo"/>
                         <outlet property="submit" destination="IhC-SO-uJ6" id="c3d-H7-PKf"/>
                         <outlet property="widthText" destination="1m6-W8-lyk" id="uhB-El-jcx"/>
                     </connections>
