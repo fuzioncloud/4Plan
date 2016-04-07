@@ -87,7 +87,7 @@
         <!--Room Layout View Controller-->
         <scene sceneID="y3A-el-zWM">
             <objects>
-                <viewController id="s4O-ik-syj" customClass="roomLayoutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="floorPlan" id="s4O-ik-syj" customClass="roomLayoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sxt-yk-Bra">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,10 +114,10 @@
         <!--Main-->
         <scene sceneID="x5q-M6-ka9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E9Z-2C-5pC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Main" id="1ra-jy-o0Z" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QsR-Eg-keF"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9Z-2C-5pC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1563" y="314"/>
         </scene>

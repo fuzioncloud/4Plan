@@ -21,7 +21,6 @@
 @property (strong, nonatomic) ENWFurniture *itemToDelete;
 @property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
 
-
 @end
 
 @implementation SMLViewController
@@ -221,12 +220,31 @@
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
     
     [self.deleteButton removeFromSuperview];
-    
+    //location of the touch translated into
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
-    panGestureRecognizer.view.center = touchLocation;
+
+    CGPoint leadingEdgeofFurniture = CGPointMake(touchLocation.x - (panGestureRecognizer.view.bounds.size.width/2), 0);
     
+    CGPoint trailingEdgeOfFurniture = CGPointMake(touchLocation.x + (panGestureRecognizer.view.bounds.size.width/2), 0);
+    
+    CGPoint topOfFurniture = CGPointMake(0, touchLocation.y - (panGestureRecognizer.view.bounds.size.height/2));
+
+    CGPoint bottomOfFurniture = CGPointMake(0, touchLocation.y + (panGestureRecognizer.view.bounds.size.height/2));
+
+    CGPoint topBorder = self.roomLayoutView.bounds.origin;
+    
+    CGPoint bottomBorder = CGPointMake(self.roomLayoutView.bounds.origin.x + self.roomLayoutView.bounds.size.width, self.roomLayoutView.bounds.origin.y + self.roomLayoutView.bounds.size.height);
+    
+    BOOL outOfBounds = leadingEdgeofFurniture.x < topBorder.x || topOfFurniture.y < topBorder.y || trailingEdgeOfFurniture.x > bottomBorder.x || bottomOfFurniture.y > bottomBorder.y;
+    
+    if (outOfBounds) {
+        
+    }else{
+
+        panGestureRecognizer.view.center = touchLocation;
+    }
+
     [self furnitureTouching];
-    
 }
 
 -(void)rotateFurniture:(UIRotationGestureRecognizer*)rotateGestureRecognizer{
@@ -291,7 +309,7 @@
         
         for (FurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
             
-            if (button == buttonAgain) { continue; }//if the button is itself, skip over it in the loop
+            if (button == buttonAgain) { continue; }
             
             BOOL buttonButtonAgainTouching = CGRectIntersectsRect(button.frame, buttonAgain.frame);
 
