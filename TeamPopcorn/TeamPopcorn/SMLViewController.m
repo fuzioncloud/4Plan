@@ -145,12 +145,9 @@
     
     if (newlyAddedPiece) {
         
-        CGFloat centerX = self.roomLayoutView.center.x;
-        CGFloat centerY = self.roomLayoutView.center.y;
         
-        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
         
-        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
+        FurnitureButton *placedPiece = [[FurnitureButton alloc]init];
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
         placedPiece.imageView.image = newlyAddedPiece.image;
         placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
@@ -175,12 +172,14 @@
         
         [self.roomLayoutView addSubview:placedPiece];
         
-        //        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        //        [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.frame.size.width].active = YES;
-        //        [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.frame.size.height].active = YES;
-        //
-        //        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
-        //        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+        
+                placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active=YES;
+        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active=YES;
+        [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.furnitureItem.width].active=YES;
+        [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.furnitureItem.length].active=YES;
+        
+        
     }
     
     
