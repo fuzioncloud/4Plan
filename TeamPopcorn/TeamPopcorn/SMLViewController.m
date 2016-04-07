@@ -148,7 +148,7 @@
         CGFloat centerX = self.roomLayoutView.center.x;
         CGFloat centerY = self.roomLayoutView.center.y;
         
-        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.width, newlyAddedPiece.length);
         
         FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
@@ -175,56 +175,78 @@
         
         [self.roomLayoutView addSubview:placedPiece];
         
-        //        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        //        [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.frame.size.width].active = YES;
-        //        [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.frame.size.height].active = YES;
-        //
-        //        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
-        //        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+                placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+                [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.frame.size.width].active = YES;
+                [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.frame.size.height].active = YES;
+        
+                [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+                [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
     }
     
     
     [self furnitureTouching];
 }
 
--(void) updateDisplayedFurniture {
-    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
-    
-    
-    
-    if (newlyAddedPiece) {
-        
-        
-        CGFloat centerX = self.roomLayoutView.center.x;
-        CGFloat centerY = self.roomLayoutView.center.y;
-        
-        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
-        
-        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
-        
-        [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
-        placedPiece.imageView.image = newlyAddedPiece.image;
-        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
-        placedPiece.backgroundColor = [UIColor darkGrayColor];
-        placedPiece.tintColor = [UIColor blackColor];
-        placedPiece.furnitureItem = newlyAddedPiece;
-        [self.roomLayoutView addSubview:placedPiece];
-        
-        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
-        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
-        
-        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
-        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
-    }
+//-(void) updateDisplayedFurniture: (FurnitureButton*)furnitureButton {
+//    
+//    CGFloat centerX = self.roomLayoutView.center.x;
+//    CGFloat centerY = self.roomLayoutView.center.y;
+//    
+//    CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+//    
+//    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+//    
+//    
+//    
+//    if (newlyAddedPiece) {
+//        
+//        
+//        
+//        CGFloat centerX = self.roomLayoutView.center.x;
+//        CGFloat centerY = self.roomLayoutView.center.y;
+//        
+//        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+//        
+//        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
+//        
+//        [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
+//        placedPiece.imageView.image = newlyAddedPiece.image;
+//        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
+//        placedPiece.backgroundColor = [UIColor darkGrayColor];
+//        placedPiece.tintColor = [UIColor blackColor];
+//        placedPiece.furnitureItem = newlyAddedPiece;
+//        [self.roomLayoutView addSubview:placedPiece];
+//        
+//        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+//        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
+//        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
+//        
+//        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+//        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+//        
+//        UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
+//        [placedPiece addGestureRecognizer:panGestureRecognizerSofa];
+//        
+//        UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
+//        [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
+//        
+//        
+//        UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
+//        longPressGestureRecognizer.minimumPressDuration = .3;
+//        [placedPiece addGestureRecognizer:longPressGestureRecognizer];
+//        
+//        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
+//        [placedPiece addGestureRecognizer: tapGestureRecognizer];
+//
+//    }
+//
+//    
+//}
 
-    
-}
-
--(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
-    NSLog(@"Dismissing popver");
-    [self updateDisplayedFurniture];
-}
+//-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+//    NSLog(@"Dismissing popver");
+//    [self updateDisplayedFurniture];
+//}
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
     
