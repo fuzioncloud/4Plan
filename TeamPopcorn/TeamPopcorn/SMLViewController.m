@@ -151,8 +151,7 @@
         [placedPiece addGestureRecognizer: tapGestureRecognizer];
         
         [self.roomLayoutView addSubview:placedPiece];
-        
-        
+                
         CGFloat xConstant = (self.roomLayoutView.frame.size.width / 2) - (placedPiece.furnitureItem.width / 2);
         CGFloat yConstant = (self.roomLayoutView.frame.size.height / 2) - (placedPiece.furnitureItem.length / 2);
         
@@ -175,10 +174,20 @@
     [self furnitureTouching];
 }
 
-//-(void) updateDisplayedFurniture {
+//-(void) updateDisplayedFurniture: (FurnitureButton*)furnitureButton {
+//    
+//    CGFloat centerX = self.roomLayoutView.center.x;
+//    CGFloat centerY = self.roomLayoutView.center.y;
+//    
+//    CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
+//    
 //    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
 //    
+//    
+//    
 //    if (newlyAddedPiece) {
+//        
+//        
 //        
 //        CGFloat centerX = self.roomLayoutView.center.x;
 //        CGFloat centerY = self.roomLayoutView.center.y;
@@ -195,6 +204,13 @@
 //        placedPiece.furnitureItem = newlyAddedPiece;
 //        [self.roomLayoutView addSubview:placedPiece];
 //        
+//        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
+//        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
+//        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
+//        
+//        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
+//        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+//        
 //        UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
 //        [placedPiece addGestureRecognizer:panGestureRecognizerSofa];
 //        
@@ -208,20 +224,14 @@
 //        
 //        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
 //        [placedPiece addGestureRecognizer: tapGestureRecognizer];
-//        
-//        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-//        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
-//        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
-//        
-//        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
-//        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
+//
 //    }
 //
 //    
 //}
 
 //-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
-////    NSLog(@"Dismissing popver");
+//    NSLog(@"Dismissing popver");
 //    [self updateDisplayedFurniture];
 //}
 
