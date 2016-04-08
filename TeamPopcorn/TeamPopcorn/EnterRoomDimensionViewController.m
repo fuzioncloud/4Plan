@@ -22,6 +22,7 @@
 
 
 
+
 @end
 
 @implementation EnterRoomDimensionViewController
@@ -64,11 +65,11 @@
     
     
 }
-                       
+    
                        
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    
+   
     self.datastore=[FPCStateManager currentState];
     [self.datastore setRoomOfWidth:self.widthText.text.integerValue height:0 length:self.lengthText.text.integerValue];
 
@@ -76,7 +77,26 @@
 }
 
 - (IBAction)submitButton:(id)sender {
+    if (_lengthText.text.length<1||_widthText.text.length<1) {
+    [UIView animateWithDuration:1 animations:^{
+        _lengthText.backgroundColor=[UIColor redColor];
+        _widthText.backgroundColor=[UIColor redColor];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1 animations:^{
+        _lengthText.backgroundColor=[UIColor whiteColor];
+            _widthText.backgroundColor=[UIColor whiteColor];
+    }];
+    }];
+        
+        
        
+    }
+    
+    else {
+        [self performSegueWithIdentifier:@"validEntry" sender:self];
+    }
+    
+    
    
 }
 
