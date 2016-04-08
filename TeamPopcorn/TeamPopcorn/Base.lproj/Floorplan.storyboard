@@ -84,33 +84,6 @@
             </objects>
             <point key="canvasLocation" x="664" y="383"/>
         </scene>
-        <!--Room Layout View Controller-->
-        <scene sceneID="y3A-el-zWM">
-            <objects>
-                <viewController storyboardIdentifier="floorPlan" id="s4O-ik-syj" customClass="roomLayoutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Sxt-yk-Bra">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="LTL-YN-eck">
-                                <rect key="frame" x="18" y="77" width="376" height="629"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="insetFor6xAndEarlier" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="IJV-kg-fJc"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="roomLayoutView" destination="LTL-YN-eck" id="N5J-Gy-eNV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L7e-FY-AwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1223" y="383"/>
-        </scene>
         <!--Main-->
         <scene sceneID="x5q-M6-ka9">
             <objects>

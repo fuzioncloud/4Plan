@@ -104,7 +104,7 @@
         <!--dimensionsVC-->
         <scene sceneID="C0N-Lb-cgY">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="dimensionsVC" storyboardName="floorplanpicker" referencedIdentifier="dimensionsVC" id="SqT-ky-Hp9" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="dimensionsVC" storyboardName="Floorplan" referencedIdentifier="dimensionsVC" id="SqT-ky-Hp9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltK-yN-Xka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559.5" y="144"/>
