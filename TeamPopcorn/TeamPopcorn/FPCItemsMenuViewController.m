@@ -10,6 +10,7 @@
 #import "FPCItemCell.h"
 #import "FPCModelsGenerator.h"
 #import "FPCStateManager.h"
+#import "SMLViewController.h"
 
 @interface FPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -92,8 +93,11 @@
 //    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
-    [self dismissViewControllerAnimated:YES completion:nil];
-//    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+    SMLViewController *papa = (SMLViewController *)self.navigationController.parentViewController;
+    if (papa) {
+        [papa viewWillAppear:NO];
+        [papa showDismissMenu];
+    }
 }
 
 
