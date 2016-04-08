@@ -12,5 +12,9 @@
 @interface FurnitureButton : UIButton
 
 @property(nonatomic, strong) ENWFurniture *furnitureItem;
+@property(nonatomic, strong) NSLayoutConstraint *xPosition;
+@property(nonatomic, strong) NSLayoutConstraint *yPosition;
+@property(nonatomic, strong) NSLayoutConstraint *widthConstraint;
+@property(nonatomic, strong) NSLayoutConstraint *lengthConstraint;
 
 @end

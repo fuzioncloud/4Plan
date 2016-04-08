@@ -12,8 +12,6 @@
 
 @protocol DimensionViewControllerDelegate
 
--(void)dimensionVCDidUpdateDimensions:(FurnitureButton*)placedpiece;
-
 @end
 
 @interface DimensionsViewController : UIViewController
