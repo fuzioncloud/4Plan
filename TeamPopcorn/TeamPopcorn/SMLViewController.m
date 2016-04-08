@@ -10,7 +10,7 @@
 #import "FPCStateManager.h"
 #import "ENWFurniture.h"
 #import "DimensionsViewController.h"
-
+#import <Masonry.h>
 
 #import "FurnitureButton.h"
 #import "EnterRoomDimensionViewController.h"
@@ -121,7 +121,7 @@
     
     [self.deleteButton removeFromSuperview];
     
-    self.view.backgroundColor = [UIColor colorWithHue:0.256 saturation:0.35 brightness:1.0 alpha:1];
+    self.view.backgroundColor = [UIColor blackColor];
     
     self.dataStore = [FPCStateManager currentState];
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
@@ -268,40 +268,56 @@
     
     FurnitureButton *selectedFurniture = (FurnitureButton*)panGestureRecognizer.view;
     
-    CGPoint touchLocation = [panGestureRecognizer translationInView:self.roomLayoutView];
+    CGPoint touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
+    
+    NSInteger buffer = 3;
+    
+        CGPoint leadingEdgeofFurniture = CGPointMake(touchLocation.x - (selectedFurniture.bounds.size.width/2), 0);
+    
+        CGPoint trailingEdgeOfFurniture = CGPointMake(touchLocation.x + (selectedFurniture.bounds.size.width/2), 0);
+    
+        CGPoint topOfFurniture = CGPointMake(0, touchLocation.y - (selectedFurniture.bounds.size.height/2));
+    
+        CGPoint bottomOfFurniture = CGPointMake(0, touchLocation.y + (selectedFurniture.bounds.size.height/2));
+    
+        CGPoint topBorder = self.roomLayoutView.bounds.origin;
+    
+        CGPoint bottomBorder = CGPointMake(self.roomLayoutView.bounds.origin.x + self.roomLayoutView.bounds.size.width, self.roomLayoutView.bounds.origin.y + self.roomLayoutView.bounds.size.height);
+    
+        BOOL outOfBounds = leadingEdgeofFurniture.x < topBorder.x - buffer || topOfFurniture.y < topBorder.y - buffer || trailingEdgeOfFurniture.x > bottomBorder.x + buffer || bottomOfFurniture.y > bottomBorder.y + buffer;
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         
-    touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
+//    touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
         
-//    CGPoint leadingEdgeofFurniture = CGPointMake(touchLocation.x - (selectedFurniture.bounds.size.width/2), 0);
-//    
-//    CGPoint trailingEdgeOfFurniture = CGPointMake(touchLocation.x + (selectedFurniture.bounds.size.width/2), 0);
-//    
-//    CGPoint topOfFurniture = CGPointMake(0, touchLocation.y - (selectedFurniture.bounds.size.height/2));
 //
-//    CGPoint bottomOfFurniture = CGPointMake(0, touchLocation.y + (selectedFurniture.bounds.size.height/2));
-//
-//    CGPoint topBorder = self.roomLayoutView.bounds.origin;
-//    
-//    CGPoint bottomBorder = CGPointMake(self.roomLayoutView.bounds.origin.x + self.roomLayoutView.bounds.size.width, self.roomLayoutView.bounds.origin.y + self.roomLayoutView.bounds.size.height);
-//    
-//    BOOL outOfBounds = leadingEdgeofFurniture.x < topBorder.x - 3 || topOfFurniture.y < topBorder.y - 3 || trailingEdgeOfFurniture.x > bottomBorder.x + 3 || bottomOfFurniture.y > bottomBorder.y + 3;
-//    
-//    if (outOfBounds) {
-//        NSLog(@"out of bounds");
-//    }else{
+    if (outOfBounds) {
+        NSLog(@"out of bounds");
+    }else{
 
         selectedFurniture.center = touchLocation;
 //        selectedFurniture.xPosition.constant += touchLocation.x;
 //        selectedFurniture.yPosition.constant += touchLocation.y;
-//        }
+        }
 
     }
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         
-        selectedFurniture.xPosition.constant += touchLocation.x;
-        selectedFurniture.yPosition.constant += touchLocation.y;
+        CGRect oldfFrameOfMovingView = selectedFurniture.frame;
+        
+        CGFloat xOffset = selectedFurniture.bounds.size.width / 2;
+        CGFloat yOffset = selectedFurniture.bounds.size.height / 2;
+        
+
+        [selectedFurniture mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@(touchLocation.x- xOffset));
+            make.top.equalTo(@(touchLocation.y - yOffset));
+            make.size.equalTo([NSValue valueWithCGSize:oldfFrameOfMovingView.size]);
+        }];
+        
+//        touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
+//        selectedFurniture.xPosition.constant += touchLocation.x + xOffset;
+//        selectedFurniture.yPosition.constant += touchLocation.y - yOffset ;
         
     }
     [self furnitureTouching];

@@ -20,48 +20,90 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SF-Rb-3Qf">
                                 <rect key="frame" x="75" y="60" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320707473213" blue="0.90961653438447998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Custom"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Custom">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="SqT-ky-Hp9" kind="show" identifier="Custom" id="wjY-3V-j59"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skw-DR-gOV">
                                 <rect key="frame" x="375" y="60" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="2x2"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="2x2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="12N-yd-qQB" kind="show" identifier="2x2" id="5Wv-5j-jHy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-ZX-NFh">
                                 <rect key="frame" x="375" y="240" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="5x5"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="5x5">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="12N-yd-qQB" kind="show" identifier="5x5" id="Ywi-fw-ebf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-Xf-Qqj">
                                 <rect key="frame" x="75" y="420" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="5x10"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="5x10">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="12N-yd-qQB" kind="show" identifier="5x10" id="3g8-Y0-Bbx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woB-pi-fdk">
                                 <rect key="frame" x="375" y="420" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="10x10"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="10x10">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="12N-yd-qQB" kind="show" identifier="10x10" id="DPM-UQ-s59"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cu-PR-bxe">
                                 <rect key="frame" x="75" y="240" width="150" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.41698320709999998" blue="0.90961653440000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="2x4"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="2x4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="12N-yd-qQB" kind="show" identifier="2x4" id="AP6-93-jfW"/>
                                 </connections>
