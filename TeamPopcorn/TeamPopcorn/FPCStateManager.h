@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "FPCModelsGenerator.h"
+#import "FurnitureButton.h"
 
 @interface FPCStateManager : NSObject
 
 @property (strong, nonatomic, readonly) FPCRoom *room;
 @property (strong, nonatomic, readonly) NSMutableArray<ENWFurniture *> *arrangedFurniture;
+@property (strong, nonatomic, readwrite) NSMutableArray<FurnitureButton *>*arrangedButtons;
 
 +(instancetype)currentState;
 

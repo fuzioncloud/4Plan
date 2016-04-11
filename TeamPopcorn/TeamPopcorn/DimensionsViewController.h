@@ -15,7 +15,7 @@
 @end
 
 @interface DimensionsViewController : UIViewController
-
+@property (strong, nonatomic) FurnitureButton* furnitureButton;
 @property (strong,nonatomic) ENWFurniture *furniture;
 @property (nonatomic) id<DimensionViewControllerDelegate> delegate;
 

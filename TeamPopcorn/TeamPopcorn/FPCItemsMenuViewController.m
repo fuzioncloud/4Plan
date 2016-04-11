@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) FPCStateManager *arrangedFurniture;
 
+@property (strong, nonatomic) FPCStateManager *arrangedButtons;
+
 @end
 
 @implementation FPCItemsMenuViewController
@@ -38,6 +40,7 @@
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
     
     self.arrangedFurniture = [FPCStateManager currentState];
+    self.arrangedButtons = [FPCStateManager currentState];
     
 }
 
@@ -92,6 +95,7 @@
 //    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 //    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
 }

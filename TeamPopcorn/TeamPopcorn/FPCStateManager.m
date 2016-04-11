@@ -12,6 +12,7 @@
 @property (strong, nonatomic, readwrite) FPCRoom *room;
 @property (strong, nonatomic, readwrite) NSMutableArray<ENWFurniture *> *arrangedFurniture;
 
+
 @end
 
 
@@ -25,6 +26,7 @@
         staticState = [[self alloc]init];
     });
     return staticState;
+    
 }
 
 -(void)setRoomOfWidth:(NSUInteger)w
@@ -48,6 +50,7 @@
     furniturePiece.verticalDistanceFromOrigin = self.room.l / 2;
     [self.arrangedFurniture addObject:furniturePiece];
 }
+
 
 -(CGFloat)scaleFurniture:(ENWFurniture *)furniturePiece inRoom:(FPCRoom *)room {
     furniturePiece.widthscale = room.w*12 / furniturePiece.width;
