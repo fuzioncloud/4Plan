@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ENWFurniture.h"
+#import <Masonry/Masonry.h>
 
 @interface FurnitureButton : UIButton
 
 @property(nonatomic, strong) ENWFurniture *furnitureItem;
-@property(nonatomic, strong) NSLayoutConstraint *xPosition;
-@property(nonatomic, strong) NSLayoutConstraint *yPosition;
-@property(nonatomic, strong) NSLayoutConstraint *widthConstraint;
-@property(nonatomic, strong) NSLayoutConstraint *lengthConstraint;
+@property (strong, nonatomic) MASConstraint *leftConstraint;
+@property (strong, nonatomic) MASConstraint *topConstraint;
+@property (strong, nonatomic) MASConstraint *widthConstraint;
+@property (strong, nonatomic) MASConstraint *heightConstraint;
 
 @end

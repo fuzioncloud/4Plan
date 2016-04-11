@@ -21,9 +21,11 @@
 
 @property (strong, nonatomic) FPCStateManager *dataStore;
 @property (strong, nonatomic) UIView *roomLayoutView;
-@property (strong, nonatomic) FurnitureButton *deleteButton;
+@property (strong, nonatomic) UIButton *deleteButton;
 @property (strong, nonatomic) ENWFurniture *itemToDelete;
 @property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
+
+
 
 @end
 
@@ -32,10 +34,10 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
+    
     [self constrainForFloorPlan]; //MV
     [self barButtonItem]; //MV
-
+    
     [self furnitureTouching];
     
 }
@@ -52,20 +54,20 @@
 }
 
 -(void) buttonAction: (id) sender {
- 
+    
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
     [self presentViewController:newVC animated:YES completion:nil];
 }
 
 -(void) constrainForFloorPlan {
-
+    
     self.dataStore = [FPCStateManager currentState];
-
+    
     CGFloat roomLayoutBorder = 1.0;
     CGFloat roomLayoutPadding = 20.0;
     
-
+    
     self.roomLayoutView = [[UIView alloc] init];
     [self.view addSubview:self.roomLayoutView];
     
@@ -97,7 +99,7 @@
     
     floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
     floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
-
+    
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
     CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
@@ -106,11 +108,11 @@
     [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
     [self.roomLayoutView.widthAnchor constraintEqualToConstant:floorWidth].active = YES;
     [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
-
+    
     
     [self.roomLayoutView layoutIfNeeded];
     
-    self.roomLayoutView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.roomLayoutView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
     self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
@@ -121,7 +123,14 @@
     
     [self.deleteButton removeFromSuperview];
     
-    self.view.backgroundColor = [UIColor blackColor];
+    [self refreshRoomScene];
+}
+
+-(void)refreshRoomScene{
+    
+    [self.deleteButton removeFromSuperview];
+    
+    self.view.backgroundColor = [UIColor darkGrayColor];
     
     self.dataStore = [FPCStateManager currentState];
     ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
@@ -151,51 +160,49 @@
         [placedPiece addGestureRecognizer: tapGestureRecognizer];
         
         [self.roomLayoutView addSubview:placedPiece];
-                
-        CGFloat xConstant = (self.roomLayoutView.frame.size.width / 2) - (placedPiece.furnitureItem.width / 2);
-        CGFloat yConstant = (self.roomLayoutView.frame.size.height / 2) - (placedPiece.furnitureItem.length / 2);
         
-        
-        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        placedPiece.xPosition = [placedPiece.leftAnchor constraintEqualToAnchor:self.roomLayoutView.leftAnchor constant:xConstant];
-        placedPiece.yPosition = [placedPiece.topAnchor constraintEqualToAnchor:self.roomLayoutView.topAnchor constant:yConstant];
-        placedPiece.xPosition.active = YES;
-        placedPiece.yPosition.active = YES;
-        
-        placedPiece.widthConstraint = [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.furnitureItem.width];
-        placedPiece.lengthConstraint = [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.furnitureItem.length];
-        placedPiece.widthConstraint.active = YES;
-        placedPiece.lengthConstraint.active = YES;
-    
-//        NSLog(@"\n\nnewly added piece:\nx: %f\ny: %f\nwidth: %f\nheight: %f\n\n",placedPiece.xPosition.constant, placedPiece.yPosition.constant,placedPiece.widthConstraint.constant,placedPiece.lengthConstraint.constant);
-        
+        if (placedPiece.leftConstraint == nil) {
+            
+            [placedPiece mas_updateConstraints:^(MASConstraintMaker *make) {
+                placedPiece.leftConstraint = make.left.equalTo(self.roomLayoutView.mas_centerX);
+                placedPiece.topConstraint = make.top.equalTo(self.roomLayoutView.mas_centerY);
+                placedPiece.widthConstraint = make.width.equalTo(@(placedPiece.furnitureItem.width));
+                placedPiece.heightConstraint = make.height.equalTo(@(placedPiece.furnitureItem.height));
+            }];
+        }else{
+            [placedPiece mas_remakeConstraints:^(MASConstraintMaker *make) {
+                placedPiece.leftConstraint = make.left.equalTo(placedPiece.leftConstraint);
+                placedPiece.topConstraint = make.top.equalTo(placedPiece.topConstraint);
+                placedPiece.widthConstraint = make.width.equalTo(placedPiece.widthConstraint);
+                placedPiece.heightConstraint = make.height.equalTo(placedPiece.heightConstraint);
+            }];
+        }
     }
     [self furnitureTouching];
 }
 
 //-(void) updateDisplayedFurniture: (FurnitureButton*)furnitureButton {
-//    
+//
 //    CGFloat centerX = self.roomLayoutView.center.x;
 //    CGFloat centerY = self.roomLayoutView.center.y;
-//    
+//
 //    CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
-//    
+//
 //    ENWFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
-//    
-//    
-//    
+//
+//
+//
 //    if (newlyAddedPiece) {
-//        
-//        
-//        
+//
+//
+//
 //        CGFloat centerX = self.roomLayoutView.center.x;
 //        CGFloat centerY = self.roomLayoutView.center.y;
-//        
+//
 //        CGRect frame = CGRectMake(centerX, centerY, newlyAddedPiece.widthscale, newlyAddedPiece.lengthscale);
-//        
+//
 //        FurnitureButton *placedPiece = [[FurnitureButton alloc]initWithFrame:frame];
-//        
+//
 //        [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
 //        placedPiece.imageView.image = newlyAddedPiece.image;
 //        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
@@ -203,31 +210,31 @@
 //        placedPiece.tintColor = [UIColor blackColor];
 //        placedPiece.furnitureItem = newlyAddedPiece;
 //        [self.roomLayoutView addSubview:placedPiece];
-//        
+//
 //        placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
 //        [placedPiece.widthAnchor constraintEqualToConstant:newlyAddedPiece.width].active = YES;
 //        [placedPiece.heightAnchor constraintEqualToConstant:newlyAddedPiece.height].active = YES;
-//        
+//
 //        [placedPiece.centerXAnchor constraintEqualToAnchor:self.roomLayoutView.centerXAnchor].active = YES;
 //        [placedPiece.centerYAnchor constraintEqualToAnchor:self.roomLayoutView.centerYAnchor].active = YES;
-//        
+//
 //        UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
 //        [placedPiece addGestureRecognizer:panGestureRecognizerSofa];
-//        
+//
 //        UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
 //        [placedPiece addGestureRecognizer:rotationGestureRecognizerSofa];
-//        
-//        
+//
+//
 //        UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
 //        longPressGestureRecognizer.minimumPressDuration = .3;
 //        [placedPiece addGestureRecognizer:longPressGestureRecognizer];
-//        
+//
 //        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
 //        [placedPiece addGestureRecognizer: tapGestureRecognizer];
 //
 //    }
 //
-//    
+//
 //}
 
 //-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
@@ -242,7 +249,7 @@
 }
 
 -(void)showDimensionsPopOver: (UITapGestureRecognizer*)tapGesture{
-
+    
     [self.deleteButton removeFromSuperview];
     
     FurnitureButton *button = (FurnitureButton *)tapGesture.view;
@@ -272,56 +279,42 @@
     
     NSInteger buffer = 3;
     
-        CGPoint leadingEdgeofFurniture = CGPointMake(touchLocation.x - (selectedFurniture.bounds.size.width/2), 0);
+    CGPoint leadingEdgeofFurniture = CGPointMake(touchLocation.x - (selectedFurniture.bounds.size.width/2), 0);
     
-        CGPoint trailingEdgeOfFurniture = CGPointMake(touchLocation.x + (selectedFurniture.bounds.size.width/2), 0);
+    CGPoint trailingEdgeOfFurniture = CGPointMake(touchLocation.x + (selectedFurniture.bounds.size.width/2), 0);
     
-        CGPoint topOfFurniture = CGPointMake(0, touchLocation.y - (selectedFurniture.bounds.size.height/2));
+    CGPoint topOfFurniture = CGPointMake(0, touchLocation.y - (selectedFurniture.bounds.size.height/2));
     
-        CGPoint bottomOfFurniture = CGPointMake(0, touchLocation.y + (selectedFurniture.bounds.size.height/2));
+    CGPoint bottomOfFurniture = CGPointMake(0, touchLocation.y + (selectedFurniture.bounds.size.height/2));
     
-        CGPoint topBorder = self.roomLayoutView.bounds.origin;
+    CGPoint topBorder = self.roomLayoutView.bounds.origin;
     
-        CGPoint bottomBorder = CGPointMake(self.roomLayoutView.bounds.origin.x + self.roomLayoutView.bounds.size.width, self.roomLayoutView.bounds.origin.y + self.roomLayoutView.bounds.size.height);
+    CGPoint bottomBorder = CGPointMake(self.roomLayoutView.bounds.origin.x + self.roomLayoutView.bounds.size.width, self.roomLayoutView.bounds.origin.y + self.roomLayoutView.bounds.size.height);
     
-        BOOL outOfBounds = leadingEdgeofFurniture.x < topBorder.x - buffer || topOfFurniture.y < topBorder.y - buffer || trailingEdgeOfFurniture.x > bottomBorder.x + buffer || bottomOfFurniture.y > bottomBorder.y + buffer;
+    BOOL outOfBounds = leadingEdgeofFurniture.x < topBorder.x - buffer || topOfFurniture.y < topBorder.y - buffer || trailingEdgeOfFurniture.x > bottomBorder.x + buffer || bottomOfFurniture.y > bottomBorder.y + buffer;
     
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         
-//    touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
-        
-//
-    if (outOfBounds) {
-        NSLog(@"out of bounds");
-    }else{
-
-        selectedFurniture.center = touchLocation;
-//        selectedFurniture.xPosition.constant += touchLocation.x;
-//        selectedFurniture.yPosition.constant += touchLocation.y;
+        if (outOfBounds) {
+            NSLog(@"out of bounds");
+            
+        }else{
+            
+            CGRect oldfFrameOfMovingView = selectedFurniture.frame;
+            
+            CGFloat xOffset = selectedFurniture.bounds.size.width / 2;
+            CGFloat yOffset = selectedFurniture.bounds.size.height / 2;
+            
+            
+            [selectedFurniture mas_remakeConstraints:^(MASConstraintMaker *make) {
+                selectedFurniture.leftConstraint = make.left.equalTo(@(touchLocation.x- xOffset));
+                selectedFurniture.topConstraint = make.top.equalTo(@(touchLocation.y - yOffset));
+                make.size.equalTo([NSValue valueWithCGSize:oldfFrameOfMovingView.size]);
+            }];
         }
-
     }
-    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        
-        CGRect oldfFrameOfMovingView = selectedFurniture.frame;
-        
-        CGFloat xOffset = selectedFurniture.bounds.size.width / 2;
-        CGFloat yOffset = selectedFurniture.bounds.size.height / 2;
-        
-
-        [selectedFurniture mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(@(touchLocation.x- xOffset));
-            make.top.equalTo(@(touchLocation.y - yOffset));
-            make.size.equalTo([NSValue valueWithCGSize:oldfFrameOfMovingView.size]);
-        }];
-        
-//        touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
-//        selectedFurniture.xPosition.constant += touchLocation.x + xOffset;
-//        selectedFurniture.yPosition.constant += touchLocation.y - yOffset ;
-        
-    }
+    
     [self furnitureTouching];
-
 }
 
 -(void)rotateFurniture:(UIRotationGestureRecognizer*)rotateGestureRecognizer{
@@ -340,10 +333,9 @@
 }
 
 -(void)deleteFurniture:(UILongPressGestureRecognizer*)longPressGestureRecognizer{
-
+    
     UIImage *image = [UIImage imageNamed:@"delete"];
     FurnitureButton *selectedButton = (FurnitureButton *)longPressGestureRecognizer.view;
-    CGPoint touchLocation = [longPressGestureRecognizer locationInView:self.roomLayoutView];
     
     if(longPressGestureRecognizer.state != UIGestureRecognizerStateEnded) {
         return;
@@ -351,26 +343,25 @@
     
     self.furnitureButtonToDelete = selectedButton;
     self.itemToDelete = selectedButton.furnitureItem;
-    self.deleteButton = [[FurnitureButton alloc]init];
+    self.deleteButton = [[UIButton alloc]init];
     [self.deleteButton setImage:image forState:UIControlStateNormal];
     [self.roomLayoutView addSubview:self.deleteButton];
     
-    self.deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.deleteButton.widthAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.widthAnchor multiplier:.7].active = YES;
-    [self.deleteButton.heightAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.heightAnchor multiplier:.4].active = YES;
+    CGFloat heightCalculation = selectedButton.furnitureItem.length / 3.0;
     
-    [self.deleteButton.centerYAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.topAnchor].active = YES;
-    [self.deleteButton.centerXAnchor constraintEqualToAnchor:longPressGestureRecognizer.view.leadingAnchor].active = YES;
+    [self.deleteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(selectedButton.furnitureItem.width));
+        make.height.equalTo(@(heightCalculation));
+        make.centerX.equalTo(selectedButton.mas_leading);
+        make.centerY.equalTo(selectedButton.mas_top);
+    }];
     
-    longPressGestureRecognizer.view.center = touchLocation;
-    self.deleteButton.center = longPressGestureRecognizer.view.center;
     UITapGestureRecognizer *tappedTheX = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tappedTheXButton:)];
     [self.deleteButton addGestureRecognizer:tappedTheX];
-    
 }
 
 -(void)tappedTheXButton:(UITapGestureRecognizer*)theX {
-
+    
     [self.deleteButton removeFromSuperview];
     
     [self.dataStore.arrangedFurniture removeObject:self.itemToDelete];
