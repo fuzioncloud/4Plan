@@ -10,8 +10,7 @@
 #import "FPCStateManager.h"
 #import "ENWFurniture.h"
 #import "DimensionsViewController.h"
-#import <Masonry.h>
-
+#import <Masonry/Masonry.h>
 #import "FurnitureButton.h"
 #import "EnterRoomDimensionViewController.h"
 #import "FPCItemsMenuViewController.h"
@@ -293,14 +292,14 @@
                 placedPiece.leftConstraint = make.left.equalTo(self.roomLayoutView.mas_centerX);
                 placedPiece.topConstraint = make.top.equalTo(self.roomLayoutView.mas_centerY);
                 placedPiece.widthConstraint = make.width.equalTo(@(placedPiece.furnitureItem.width));
-                placedPiece.heightConstraint = make.height.equalTo(@(placedPiece.furnitureItem.height));
+                placedPiece.lengthConstraint = make.height.equalTo(@(placedPiece.furnitureItem.length));
             }];
         }else{
             [placedPiece mas_remakeConstraints:^(MASConstraintMaker *make) {
                 placedPiece.leftConstraint = make.left.equalTo(placedPiece.leftConstraint);
                 placedPiece.topConstraint = make.top.equalTo(placedPiece.topConstraint);
                 placedPiece.widthConstraint = make.width.equalTo(placedPiece.widthConstraint);
-                placedPiece.heightConstraint = make.height.equalTo(placedPiece.heightConstraint);
+                placedPiece.lengthConstraint = make.height.equalTo(placedPiece.lengthConstraint);
             }];
         }
     }
@@ -316,19 +315,26 @@
 
 -(void) doTheThing {
 
-    [self.tappedFurnitureButton removeConstraint:self.tappedFurnitureButton.widthConstraint];
-    [self.tappedFurnitureButton removeConstraint:self.tappedFurnitureButton.lengthConstraint];
+//    [self.tappedFurnitureButton removeConstraint:self.tappedFurnitureButton.widthConstraint];
+//    [self.tappedFurnitureButton removeConstraint:self.tappedFurnitureButton.lengthConstraint];
 
     CGFloat widthscale= self.view.bounds.size.width/self.dataStore.room.w;
     CGFloat lengthscale=self.view.bounds.size.height/self.dataStore.room.l;
-    self.tappedFurnitureButton.furnitureItem.width=self.tappedFurnitureButton.furnitureItem.width*widthscale;
-    self.tappedFurnitureButton.furnitureItem.length=self.tappedFurnitureButton.furnitureItem.length*lengthscale;
     
-    self.tappedFurnitureButton.widthConstraint = [self.tappedFurnitureButton.widthAnchor constraintEqualToConstant:self.tappedFurnitureButton.furnitureItem.width];
-    self.tappedFurnitureButton.lengthConstraint = [self.tappedFurnitureButton.heightAnchor constraintEqualToConstant:self.tappedFurnitureButton.furnitureItem.length];
+    self.tappedFurnitureButton.furnitureItem.width = self.tappedFurnitureButton.furnitureItem.width*widthscale;
+    self.tappedFurnitureButton.furnitureItem.length = self.tappedFurnitureButton.furnitureItem.length*lengthscale;
+
+    [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+       self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.width));
+       self.tappedFurnitureButton.lengthConstraint =  make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.length));
+    }];
     
-    self.tappedFurnitureButton.widthConstraint.active=YES;
-    self.tappedFurnitureButton.lengthConstraint.active=YES;
+//    self.tappedFurnitureButton.widthConstraint = [self.tappedFurnitureButton.widthAnchor constraintEqualToConstant:self.tappedFurnitureButton.furnitureItem.width];
+//    self.tappedFurnitureButton.lengthConstraint = [self.tappedFurnitureButton.heightAnchor constraintEqualToConstant:self.tappedFurnitureButton.furnitureItem.length];
+//    
+//    self.tappedFurnitureButton.widthConstraint.active=YES;
+//    self.tappedFurnitureButton.lengthConstraint.active=YES;
     [self.view layoutIfNeeded];
 }
 

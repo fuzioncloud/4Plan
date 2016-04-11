@@ -17,5 +17,5 @@
 @property (strong, nonatomic) MASConstraint *topConstraint;
 @property (strong, nonatomic) MASConstraint *widthConstraint;
 @property (strong, nonatomic) MASConstraint *heightConstraint;
-
+@property (strong, nonatomic) MASConstraint *lengthConstraint;
 @end
