@@ -11,6 +11,7 @@
 #import "FPCStateManager.h"
 
 
+
 @interface DimensionsViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *widthField;
 @property (weak, nonatomic) IBOutlet UITextField *lengthField;
@@ -30,7 +31,7 @@
     
     
     
-    
+
     
     // Do any additional setup after loading the view.
 }
@@ -39,20 +40,23 @@
     
     UITextField *t = (UITextField *) textField;
     
-    for (ENWFurniture *furniture in [FPCStateManager currentState].arrangedFurniture) {
-        if ([furniture isEqual:self.furniture]) {
+    for (FurnitureButton *fb in [FPCStateManager currentState].arrangedButtons) {
+        if ([fb isEqual:self.furnitureButton]) {
             
-            if (t == _widthField) {
-                furniture.width=t.text.doubleValue;
+            if (self.widthField.text.length>0 && t == self.widthField) {
+                fb.furnitureItem.width=t.text.doubleValue;
             }
-            else if (t == _heightField) {
-                furniture.height=t.text.doubleValue;
+            else if (self.heightField.text.length>0 && t == self.heightField) {
+                fb.furnitureItem.height=t.text.doubleValue;
             }
-            else if (t == _lengthField) {
-                furniture.length=t.text.doubleValue;
+            else if (self.lengthField.text.length>0 && t == self.lengthField) {
+                fb.furnitureItem.length=t.text.doubleValue;
             }
         }
+         NSLog(@"%lu\n\n\n\n\n\n\n\n%lu",fb.furnitureItem.width,fb.furnitureItem.length);
     }
+    
+  
     
     
 }

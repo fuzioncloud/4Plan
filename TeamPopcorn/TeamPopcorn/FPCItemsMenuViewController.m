@@ -10,6 +10,7 @@
 #import "FPCItemCell.h"
 #import "FPCModelsGenerator.h"
 #import "FPCStateManager.h"
+#import "SMLViewController.h"
 
 @interface FPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -18,6 +19,8 @@
 @property (strong, nonatomic) NSDictionary<FPCCatalogDescriber *,NSArray<ENWFurniture *> *> *itemsMenu;
 
 @property (strong, nonatomic) FPCStateManager *arrangedFurniture;
+
+@property (strong, nonatomic) FPCStateManager *arrangedButtons;
 
 @end
 
@@ -38,6 +41,7 @@
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
     
     self.arrangedFurniture = [FPCStateManager currentState];
+    self.arrangedButtons = [FPCStateManager currentState];
     
 }
 
@@ -92,8 +96,17 @@
 //    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
+
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 //    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+
+    SMLViewController *papa = (SMLViewController *)self.navigationController.parentViewController;
+    if (papa) {
+        [papa viewWillAppear:NO];
+        [papa showDismissMenu];
+    }
+
 }
 
 

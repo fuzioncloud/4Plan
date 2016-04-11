@@ -12,4 +12,6 @@
 
 @interface SMLViewController : UIViewController
 
+-(void)showDismissMenu;
+
 @end
