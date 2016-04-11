@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+    <entity name="TPCBed" representedClassName="TPCBed" syncable="YES">
+        <attribute name="bedSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCChair" representedClassName="TPCChair" syncable="YES">
+        <attribute name="chairStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCFurniture" representedClassName="TPCFurniture" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="horizontalDistanceFromOrigin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lengthScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="verticalDistanceFromOrigin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="widthScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="TPCFurnitureButton" representedClassName="TPCFurnitureButton" syncable="YES">
+        <attribute name="leftConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="lengthConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="topConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="widthConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="furnitureItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TPCFurniture" syncable="YES"/>
+    </entity>
+    <entity name="TPCMisc" representedClassName="TPCMisc" syncable="YES">
+        <attribute name="miscStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCRoom" representedClassName="TPCRoom" syncable="YES">
+        <attribute name="h" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="l" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="w" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCSofa" representedClassName="TPCSofa" syncable="YES">
+        <attribute name="sofaStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCTable" representedClassName="TPCTable" syncable="YES">
+        <attribute name="tableStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TPCBed" positionX="-18" positionY="-27" width="128" height="58"/>
+        <element name="TPCChair" positionX="-153" positionY="36" width="128" height="58"/>
+        <element name="TPCMisc" positionX="27" positionY="135" width="128" height="58"/>
+        <element name="TPCSofa" positionX="25" positionY="243" width="128" height="58"/>
+        <element name="TPCTable" positionX="-144" positionY="228" width="128" height="58"/>
+        <element name="TPCFurnitureButton" positionX="-182" positionY="135" width="128" height="118"/>
+        <element name="TPCFurniture" positionX="-378" positionY="0" width="128" height="208"/>
+        <element name="TPCRoom" positionX="-144" positionY="144" width="128" height="105"/>
+    </elements>
 </model>

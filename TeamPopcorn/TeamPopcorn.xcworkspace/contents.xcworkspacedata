@@ -2,6 +2,102 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TPCSofa+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCSofa+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCSofa.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCSofa.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCBed+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCBed+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCBed.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCBed.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCMisc+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCMisc+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCMisc.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCMisc.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCChair+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCChair+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCChair.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCChair.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurniture+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurniture+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurniture.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurniture.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCRoom+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCRoom+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCRoom.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCRoom.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurnitureButton+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurnitureButton+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurnitureButton.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCFurnitureButton.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCTable+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCTable+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
+      location = "group:TPCTable.h">
+   </FileRef>
+   <FileRef
+      location = "group:TPCTable.m">
+   </FileRef>
+   <FileRef
       location = "group:TeamPopcorn.xcodeproj">
    </FileRef>
    <FileRef

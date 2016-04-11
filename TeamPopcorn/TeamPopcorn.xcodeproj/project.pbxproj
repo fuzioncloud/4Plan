@@ -30,6 +30,7 @@
 		1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* TPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
 		44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* TPCMain.storyboard */; };
+		44200D401CBC3FEA00479D0D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44200D3E1CBC3FEA00479D0D /* Model.xcdatamodeld */; };
 		44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */; };
 		7BB860BC1CB2D4F600294763 /* TPCFloorplanPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */; };
 		7BD92E681CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */; };
@@ -79,6 +80,7 @@
 		44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemsMenuViewController.h; sourceTree = "<group>"; };
 		44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemsMenuViewController.m; sourceTree = "<group>"; };
 		44200D281CAEEA3D00479D0D /* TPCMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCMain.storyboard; sourceTree = "<group>"; };
+		44200D3F1CBC3FEA00479D0D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		44C6C8071CAB354F00F21662 /* TPCEnterRoomDimensionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCEnterRoomDimensionViewController.h; sourceTree = "<group>"; };
 		44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCEnterRoomDimensionViewController.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1B9FCD811CAAF3B40041D2DB /* TeamPopcorn */ = {
 			isa = PBXGroup;
 			children = (
+				44200D421CBC54E200479D0D /* coreData */,
 				1BA169CB1CAC1CA200A4436A /* M */,
 				1BA169CC1CAC1CB600A4436A /* V */,
 				1BA169CD1CAC1E0C00A4436A /* C */,
@@ -150,6 +153,7 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				44200D3E1CBC3FEA00479D0D /* Model.xcdatamodeld */,
 				1BA169CE1CAC1FC600A4436A /* TPCModels.h */,
 				1BA169B41CAC1C3700A4436A /* TPCFurniture.h */,
 				1BA169B51CAC1C3700A4436A /* TPCFurniture.m */,
@@ -215,6 +219,13 @@
 				DBCD10CA7A0BCA1BBE2B8673 /* Pods-TeamPopcorn.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		44200D421CBC54E200479D0D /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = coreData;
 			sourceTree = "<group>";
 		};
 		9B62C5A1E4A6A664923F4D56 /* Frameworks */ = {
@@ -357,6 +368,7 @@
 				1BA169C61CAC1C3700A4436A /* TPCMisc.m in Sources */,
 				085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */,
 				1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */,
+				44200D401CBC3FEA00479D0D /* Model.xcdatamodeld in Sources */,
 				1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */,
 				1BA169C71CAC1C3700A4436A /* TPCSofa.m in Sources */,
 				1BA169C41CAC1C3700A4436A /* TPCChair.m in Sources */,
@@ -532,6 +544,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		44200D3E1CBC3FEA00479D0D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				44200D3F1CBC3FEA00479D0D /* Model.xcdatamodel */,
+			);
+			currentVersion = 44200D3F1CBC3FEA00479D0D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1B9FCD771CAAF3B30041D2DB /* Project object */;
 }
