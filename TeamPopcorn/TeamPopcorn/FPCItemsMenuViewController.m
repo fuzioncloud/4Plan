@@ -96,17 +96,17 @@
 //    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
-<<<<<<< HEAD
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
 //    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
-=======
+
     SMLViewController *papa = (SMLViewController *)self.navigationController.parentViewController;
     if (papa) {
         [papa viewWillAppear:NO];
         [papa showDismissMenu];
     }
->>>>>>> master
+
 }
 
 

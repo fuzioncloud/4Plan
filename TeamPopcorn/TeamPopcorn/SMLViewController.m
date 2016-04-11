@@ -25,16 +25,16 @@
 @property (strong, nonatomic) FurnitureButton *deleteButton;
 @property (strong, nonatomic) ENWFurniture *itemToDelete;
 @property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
-<<<<<<< HEAD
+
 @property (strong, nonatomic) DimensionsViewController *dimensionsvc;
 
 @property (strong, nonatomic) FurnitureButton *tappedFurnitureButton;
-=======
+
 @property (strong, nonatomic) UIView *itemsMenuContainerView;
 @property (strong, nonatomic) UIView *recognizerLayerView;
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
 @property (assign, nonatomic) BOOL isMenuOut;
->>>>>>> master
+
 
 @end
 
