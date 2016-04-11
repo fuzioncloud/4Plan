@@ -7,89 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		081094DD1CB4587C004CDD1C /* FPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */; };
-		085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* DimensionsViewController.m */; };
-		0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* FurnitureButton.m */; };
-		08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* SMLViewController.m */; };
-		1B632DFA1CB8435900223CF4 /* Secrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632DF91CB8435900223CF4 /* Secrets.m */; };
+		081094DD1CB4587C004CDD1C /* TPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */; };
+		085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* TPCDimensionsViewController.m */; };
+		0856133D1CB2DCA500452A49 /* TPCFurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */; };
+		08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */; };
+		1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632DF91CB8435900223CF4 /* TPCSecrets.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
 		1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */; };
-		1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8B1CAAF3B40041D2DB /* Floorplan.storyboard */; };
+		1B9FCD8D1CAAF3B40041D2DB /* TPCFloorplan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */; };
 		1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */; };
 		1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD901CAAF3B40041D2DB /* LaunchScreen.storyboard */; };
-		1B9FCD9E1CAB1FA60041D2DB /* FPCItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD9D1CAB1FA60041D2DB /* FPCItemCell.m */; };
-		1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B11CAC1C3700A4436A /* ENWBed.m */; };
-		1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B31CAC1C3700A4436A /* ENWChair.m */; };
-		1BA169C51CAC1C3700A4436A /* ENWFurniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B51CAC1C3700A4436A /* ENWFurniture.m */; };
-		1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B71CAC1C3700A4436A /* ENWMisc.m */; };
-		1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B91CAC1C3700A4436A /* ENWSofa.m */; };
-		1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169BB1CAC1C3700A4436A /* ENWTable.m */; };
-		1BA169D11CAC22C500A4436A /* FPCCatalogDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D01CAC22C500A4436A /* FPCCatalogDescriber.m */; };
-		1BA169D41CAC25B200A4436A /* FPCModelsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D31CAC25B200A4436A /* FPCModelsGenerator.m */; };
-		1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* FPCStateManager.m */; };
-		1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* FPCRoom.m */; };
+		1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */; };
+		1BA169C31CAC1C3700A4436A /* TPCBed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B11CAC1C3700A4436A /* TPCBed.m */; };
+		1BA169C41CAC1C3700A4436A /* TPCChair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B31CAC1C3700A4436A /* TPCChair.m */; };
+		1BA169C51CAC1C3700A4436A /* TPCFurniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B51CAC1C3700A4436A /* TPCFurniture.m */; };
+		1BA169C61CAC1C3700A4436A /* TPCMisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B71CAC1C3700A4436A /* TPCMisc.m */; };
+		1BA169C71CAC1C3700A4436A /* TPCSofa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B91CAC1C3700A4436A /* TPCSofa.m */; };
+		1BA169C81CAC1C3700A4436A /* TPCTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169BB1CAC1C3700A4436A /* TPCTable.m */; };
+		1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */; };
+		1BA169D41CAC25B200A4436A /* TPCModelsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */; };
+		1BA169D71CAD708E00A4436A /* TPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* TPCStateManager.m */; };
+		1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* TPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
-		44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* Main.storyboard */; };
-		44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */; };
-		44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */; };
-		7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */; };
-		7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */; };
-		7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */; };
+		44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* TPCMain.storyboard */; };
+		44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */; };
+		7BB860BC1CB2D4F600294763 /* TPCFloorplanPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */; };
+		7BD92E681CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */; };
+		7BE73A5F1CAC39C6007BA5A1 /* TPCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		085612F81CADC2DB00452A49 /* DimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimensionsViewController.h; sourceTree = "<group>"; };
-		085612F91CADC2DB00452A49 /* DimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimensionsViewController.m; sourceTree = "<group>"; };
-		0856133B1CB2DCA500452A49 /* FurnitureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FurnitureButton.h; sourceTree = "<group>"; };
-		0856133C1CB2DCA500452A49 /* FurnitureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FurnitureButton.m; sourceTree = "<group>"; };
-		08DC6D671CAC7DD90084CF1D /* SMLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLViewController.h; sourceTree = "<group>"; };
-		08DC6D681CAC7DD90084CF1D /* SMLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLViewController.m; sourceTree = "<group>"; };
-		1B632DF91CB8435900223CF4 /* Secrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Secrets.m; sourceTree = "<group>"; };
+		085612F81CADC2DB00452A49 /* TPCDimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCDimensionsViewController.h; sourceTree = "<group>"; };
+		085612F91CADC2DB00452A49 /* TPCDimensionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCDimensionsViewController.m; sourceTree = "<group>"; };
+		0856133B1CB2DCA500452A49 /* TPCFurnitureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFurnitureButton.h; sourceTree = "<group>"; };
+		0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFurnitureButton.m; sourceTree = "<group>"; };
+		08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMainViewController.h; sourceTree = "<group>"; };
+		08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMainViewController.m; sourceTree = "<group>"; };
+		1B632DF91CB8435900223CF4 /* TPCSecrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSecrets.m; sourceTree = "<group>"; };
 		1B9FCD7F1CAAF3B30041D2DB /* TeamPopcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPopcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9FCD831CAAF3B40041D2DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1B9FCD8C1CAAF3B40041D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Floorplan.storyboard; sourceTree = "<group>"; };
+		1B9FCD8C1CAAF3B40041D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TPCFloorplan.storyboard; sourceTree = "<group>"; };
 		1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B9FCD911CAAF3B40041D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B9FCD931CAAF3B40041D2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B9FCD991CAAF56A0041D2DB /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
-		1B9FCD9C1CAB1FA60041D2DB /* FPCItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCItemCell.h; sourceTree = "<group>"; };
-		1B9FCD9D1CAB1FA60041D2DB /* FPCItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCItemCell.m; sourceTree = "<group>"; };
-		1BA169B01CAC1C3700A4436A /* ENWBed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWBed.h; sourceTree = "<group>"; };
-		1BA169B11CAC1C3700A4436A /* ENWBed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWBed.m; sourceTree = "<group>"; };
-		1BA169B21CAC1C3700A4436A /* ENWChair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWChair.h; sourceTree = "<group>"; };
-		1BA169B31CAC1C3700A4436A /* ENWChair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWChair.m; sourceTree = "<group>"; };
-		1BA169B41CAC1C3700A4436A /* ENWFurniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWFurniture.h; sourceTree = "<group>"; };
-		1BA169B51CAC1C3700A4436A /* ENWFurniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWFurniture.m; sourceTree = "<group>"; };
-		1BA169B61CAC1C3700A4436A /* ENWMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWMisc.h; sourceTree = "<group>"; };
-		1BA169B71CAC1C3700A4436A /* ENWMisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWMisc.m; sourceTree = "<group>"; };
-		1BA169B81CAC1C3700A4436A /* ENWSofa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWSofa.h; sourceTree = "<group>"; };
-		1BA169B91CAC1C3700A4436A /* ENWSofa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWSofa.m; sourceTree = "<group>"; };
-		1BA169BA1CAC1C3700A4436A /* ENWTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWTable.h; sourceTree = "<group>"; };
-		1BA169BB1CAC1C3700A4436A /* ENWTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWTable.m; sourceTree = "<group>"; };
-		1BA169CE1CAC1FC600A4436A /* FPCModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCModels.h; sourceTree = "<group>"; };
-		1BA169CF1CAC22C500A4436A /* FPCCatalogDescriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCCatalogDescriber.h; sourceTree = "<group>"; };
-		1BA169D01CAC22C500A4436A /* FPCCatalogDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCCatalogDescriber.m; sourceTree = "<group>"; };
-		1BA169D21CAC25B200A4436A /* FPCModelsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCModelsGenerator.h; sourceTree = "<group>"; };
-		1BA169D31CAC25B200A4436A /* FPCModelsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCModelsGenerator.m; sourceTree = "<group>"; };
-		1BA169D51CAD708E00A4436A /* FPCStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCStateManager.h; sourceTree = "<group>"; };
-		1BA169D61CAD708E00A4436A /* FPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCStateManager.m; sourceTree = "<group>"; };
-		1BA169D81CAD71AF00A4436A /* FPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCRoom.h; sourceTree = "<group>"; };
-		1BA169D91CAD71AF00A4436A /* FPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCRoom.m; sourceTree = "<group>"; };
-		44200D251CAEE8D000479D0D /* FPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCItemsMenuViewController.h; sourceTree = "<group>"; };
-		44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCItemsMenuViewController.m; sourceTree = "<group>"; };
-		44200D281CAEEA3D00479D0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		44C6C8071CAB354F00F21662 /* EnterRoomDimensionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterRoomDimensionViewController.h; sourceTree = "<group>"; };
-		44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterRoomDimensionViewController.m; sourceTree = "<group>"; };
-		44C6C80A1CAB36F500F21662 /* roomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = roomLayoutViewController.h; sourceTree = "<group>"; };
-		44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = roomLayoutViewController.m; sourceTree = "<group>"; };
+		1B9FCD991CAAF56A0041D2DB /* TPCSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSecrets.h; sourceTree = "<group>"; };
+		1B9FCD9C1CAB1FA60041D2DB /* TPCItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemCell.h; sourceTree = "<group>"; };
+		1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemCell.m; sourceTree = "<group>"; };
+		1BA169B01CAC1C3700A4436A /* TPCBed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCBed.h; sourceTree = "<group>"; };
+		1BA169B11CAC1C3700A4436A /* TPCBed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCBed.m; sourceTree = "<group>"; };
+		1BA169B21CAC1C3700A4436A /* TPCChair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCChair.h; sourceTree = "<group>"; };
+		1BA169B31CAC1C3700A4436A /* TPCChair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCChair.m; sourceTree = "<group>"; };
+		1BA169B41CAC1C3700A4436A /* TPCFurniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFurniture.h; sourceTree = "<group>"; };
+		1BA169B51CAC1C3700A4436A /* TPCFurniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFurniture.m; sourceTree = "<group>"; };
+		1BA169B61CAC1C3700A4436A /* TPCMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMisc.h; sourceTree = "<group>"; };
+		1BA169B71CAC1C3700A4436A /* TPCMisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMisc.m; sourceTree = "<group>"; };
+		1BA169B81CAC1C3700A4436A /* TPCSofa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSofa.h; sourceTree = "<group>"; };
+		1BA169B91CAC1C3700A4436A /* TPCSofa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSofa.m; sourceTree = "<group>"; };
+		1BA169BA1CAC1C3700A4436A /* TPCTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCTable.h; sourceTree = "<group>"; };
+		1BA169BB1CAC1C3700A4436A /* TPCTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCTable.m; sourceTree = "<group>"; };
+		1BA169CE1CAC1FC600A4436A /* TPCModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCModels.h; sourceTree = "<group>"; };
+		1BA169CF1CAC22C500A4436A /* TPCCatalogDescriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCCatalogDescriber.h; sourceTree = "<group>"; };
+		1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCCatalogDescriber.m; sourceTree = "<group>"; };
+		1BA169D21CAC25B200A4436A /* TPCModelsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCModelsGenerator.h; sourceTree = "<group>"; };
+		1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCModelsGenerator.m; sourceTree = "<group>"; };
+		1BA169D51CAD708E00A4436A /* TPCStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCStateManager.h; sourceTree = "<group>"; };
+		1BA169D61CAD708E00A4436A /* TPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCStateManager.m; sourceTree = "<group>"; };
+		1BA169D81CAD71AF00A4436A /* TPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCRoom.h; sourceTree = "<group>"; };
+		1BA169D91CAD71AF00A4436A /* TPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCRoom.m; sourceTree = "<group>"; };
+		44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemsMenuViewController.h; sourceTree = "<group>"; };
+		44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemsMenuViewController.m; sourceTree = "<group>"; };
+		44200D281CAEEA3D00479D0D /* TPCMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCMain.storyboard; sourceTree = "<group>"; };
+		44C6C8071CAB354F00F21662 /* TPCEnterRoomDimensionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCEnterRoomDimensionViewController.h; sourceTree = "<group>"; };
+		44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCEnterRoomDimensionViewController.m; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
-		7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = floorplanpicker.storyboard; sourceTree = "<group>"; };
-		7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floorplanpickerVC.h; sourceTree = "<group>"; };
-		7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floorplanpickerVC.m; sourceTree = "<group>"; };
-		7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENWconstants.h; sourceTree = "<group>"; };
-		7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENWconstants.m; sourceTree = "<group>"; };
+		7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCFloorplanPicker.storyboard; sourceTree = "<group>"; };
+		7BD92E661CB2E0B200E28D97 /* TPCFloorplanPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFloorplanPickerViewController.h; sourceTree = "<group>"; };
+		7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFloorplanPickerViewController.m; sourceTree = "<group>"; };
+		7BE73A5D1CAC39C6007BA5A1 /* TPCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCConstants.h; sourceTree = "<group>"; };
+		7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCConstants.m; sourceTree = "<group>"; };
 		DBCD10CA7A0BCA1BBE2B8673 /* Pods-TeamPopcorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.release.xcconfig"; sourceTree = "<group>"; };
 		E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TeamPopcorn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,22 +124,9 @@
 		1B9FCD811CAAF3B40041D2DB /* TeamPopcorn */ = {
 			isa = PBXGroup;
 			children = (
-				44200D251CAEE8D000479D0D /* FPCItemsMenuViewController.h */,
-				44200D261CAEE8D000479D0D /* FPCItemsMenuViewController.m */,
-				44200D281CAEEA3D00479D0D /* Main.storyboard */,
-				1B9FCD991CAAF56A0041D2DB /* Secrets.h */,
-				1B632DF91CB8435900223CF4 /* Secrets.m */,
-				1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */,
-				1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */,
 				1BA169CB1CAC1CA200A4436A /* M */,
 				1BA169CC1CAC1CB600A4436A /* V */,
 				1BA169CD1CAC1E0C00A4436A /* C */,
-				1B9FCD8B1CAAF3B40041D2DB /* Floorplan.storyboard */,
-				44C6C8071CAB354F00F21662 /* EnterRoomDimensionViewController.h */,
-				44C6C8081CAB354F00F21662 /* EnterRoomDimensionViewController.m */,
-				44C6C80A1CAB36F500F21662 /* roomLayoutViewController.h */,
-				44C6C80B1CAB36F500F21662 /* roomLayoutViewController.m */,
-				1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */,
 				1B9FCD821CAAF3B40041D2DB /* Supporting Files */,
 			);
 			path = TeamPopcorn;
@@ -151,9 +135,14 @@
 		1B9FCD821CAAF3B40041D2DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B9FCD991CAAF56A0041D2DB /* TPCSecrets.h */,
+				1B632DF91CB8435900223CF4 /* TPCSecrets.m */,
+				1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */,
+				1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */,
 				1B9FCD831CAAF3B40041D2DB /* main.m */,
 				1B9FCD901CAAF3B40041D2DB /* LaunchScreen.storyboard */,
 				1B9FCD931CAAF3B40041D2DB /* Info.plist */,
+				1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,29 +150,31 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
-				1BA169D81CAD71AF00A4436A /* FPCRoom.h */,
-				1BA169D91CAD71AF00A4436A /* FPCRoom.m */,
-				1BA169D51CAD708E00A4436A /* FPCStateManager.h */,
-				1BA169D61CAD708E00A4436A /* FPCStateManager.m */,
-				1BA169CE1CAC1FC600A4436A /* FPCModels.h */,
-				1BA169B01CAC1C3700A4436A /* ENWBed.h */,
-				1BA169B11CAC1C3700A4436A /* ENWBed.m */,
-				1BA169B21CAC1C3700A4436A /* ENWChair.h */,
-				1BA169B31CAC1C3700A4436A /* ENWChair.m */,
-				1BA169B41CAC1C3700A4436A /* ENWFurniture.h */,
-				1BA169B51CAC1C3700A4436A /* ENWFurniture.m */,
-				1BA169B61CAC1C3700A4436A /* ENWMisc.h */,
-				1BA169B71CAC1C3700A4436A /* ENWMisc.m */,
-				1BA169B81CAC1C3700A4436A /* ENWSofa.h */,
-				1BA169B91CAC1C3700A4436A /* ENWSofa.m */,
-				1BA169BA1CAC1C3700A4436A /* ENWTable.h */,
-				1BA169BB1CAC1C3700A4436A /* ENWTable.m */,
-				1BA169CF1CAC22C500A4436A /* FPCCatalogDescriber.h */,
-				1BA169D01CAC22C500A4436A /* FPCCatalogDescriber.m */,
-				1BA169D21CAC25B200A4436A /* FPCModelsGenerator.h */,
-				1BA169D31CAC25B200A4436A /* FPCModelsGenerator.m */,
-				7BE73A5D1CAC39C6007BA5A1 /* ENWconstants.h */,
-				7BE73A5E1CAC39C6007BA5A1 /* ENWconstants.m */,
+				1BA169CE1CAC1FC600A4436A /* TPCModels.h */,
+				1BA169B41CAC1C3700A4436A /* TPCFurniture.h */,
+				1BA169B51CAC1C3700A4436A /* TPCFurniture.m */,
+				0856133B1CB2DCA500452A49 /* TPCFurnitureButton.h */,
+				0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */,
+				1BA169D81CAD71AF00A4436A /* TPCRoom.h */,
+				1BA169D91CAD71AF00A4436A /* TPCRoom.m */,
+				1BA169B01CAC1C3700A4436A /* TPCBed.h */,
+				1BA169B11CAC1C3700A4436A /* TPCBed.m */,
+				1BA169B21CAC1C3700A4436A /* TPCChair.h */,
+				1BA169B31CAC1C3700A4436A /* TPCChair.m */,
+				1BA169B61CAC1C3700A4436A /* TPCMisc.h */,
+				1BA169B71CAC1C3700A4436A /* TPCMisc.m */,
+				1BA169B81CAC1C3700A4436A /* TPCSofa.h */,
+				1BA169B91CAC1C3700A4436A /* TPCSofa.m */,
+				1BA169BA1CAC1C3700A4436A /* TPCTable.h */,
+				1BA169BB1CAC1C3700A4436A /* TPCTable.m */,
+				7BE73A5D1CAC39C6007BA5A1 /* TPCConstants.h */,
+				7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */,
+				1BA169CF1CAC22C500A4436A /* TPCCatalogDescriber.h */,
+				1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */,
+				1BA169D21CAC25B200A4436A /* TPCModelsGenerator.h */,
+				1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */,
+				1BA169D51CAD708E00A4436A /* TPCStateManager.h */,
+				1BA169D61CAD708E00A4436A /* TPCStateManager.m */,
 			);
 			name = M;
 			sourceTree = "<group>";
@@ -191,8 +182,11 @@
 		1BA169CC1CAC1CB600A4436A /* V */ = {
 			isa = PBXGroup;
 			children = (
-				1B9FCD9C1CAB1FA60041D2DB /* FPCItemCell.h */,
-				1B9FCD9D1CAB1FA60041D2DB /* FPCItemCell.m */,
+				44200D281CAEEA3D00479D0D /* TPCMain.storyboard */,
+				1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */,
+				7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */,
+				1B9FCD9C1CAB1FA60041D2DB /* TPCItemCell.h */,
+				1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -200,15 +194,16 @@
 		1BA169CD1CAC1E0C00A4436A /* C */ = {
 			isa = PBXGroup;
 			children = (
-				08DC6D671CAC7DD90084CF1D /* SMLViewController.h */,
-				08DC6D681CAC7DD90084CF1D /* SMLViewController.m */,
-				0856133B1CB2DCA500452A49 /* FurnitureButton.h */,
-				0856133C1CB2DCA500452A49 /* FurnitureButton.m */,
-				085612F81CADC2DB00452A49 /* DimensionsViewController.h */,
-				085612F91CADC2DB00452A49 /* DimensionsViewController.m */,
-				7BB860BB1CB2D4F600294763 /* floorplanpicker.storyboard */,
-				7BD92E661CB2E0B200E28D97 /* floorplanpickerVC.h */,
-				7BD92E671CB2E0B200E28D97 /* floorplanpickerVC.m */,
+				44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */,
+				44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */,
+				08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */,
+				08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */,
+				085612F81CADC2DB00452A49 /* TPCDimensionsViewController.h */,
+				085612F91CADC2DB00452A49 /* TPCDimensionsViewController.m */,
+				7BD92E661CB2E0B200E28D97 /* TPCFloorplanPickerViewController.h */,
+				7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */,
+				44C6C8071CAB354F00F21662 /* TPCEnterRoomDimensionViewController.h */,
+				44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -291,10 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */,
-				7BB860BC1CB2D4F600294763 /* floorplanpicker.storyboard in Resources */,
+				7BB860BC1CB2D4F600294763 /* TPCFloorplanPicker.storyboard in Resources */,
 				1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */,
-				1B9FCD8D1CAAF3B40041D2DB /* Floorplan.storyboard in Resources */,
-				44200D291CAEEA3D00479D0D /* Main.storyboard in Resources */,
+				1B9FCD8D1CAAF3B40041D2DB /* TPCFloorplan.storyboard in Resources */,
+				44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,40 +348,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				081094DD1CB4587C004CDD1C /* FPCItemsMenuViewController.m in Sources */,
-				08DC6D691CAC7DD90084CF1D /* SMLViewController.m in Sources */,
-				7BE73A5F1CAC39C6007BA5A1 /* ENWconstants.m in Sources */,
-				0856133D1CB2DCA500452A49 /* FurnitureButton.m in Sources */,
-				1BA169C31CAC1C3700A4436A /* ENWBed.m in Sources */,
-				1BA169C81CAC1C3700A4436A /* ENWTable.m in Sources */,
-				1BA169C61CAC1C3700A4436A /* ENWMisc.m in Sources */,
-				085612FA1CADC2DB00452A49 /* DimensionsViewController.m in Sources */,
-				1B9FCD9E1CAB1FA60041D2DB /* FPCItemCell.m in Sources */,
-				1BA169DA1CAD71AF00A4436A /* FPCRoom.m in Sources */,
-				1BA169C71CAC1C3700A4436A /* ENWSofa.m in Sources */,
-				1BA169C41CAC1C3700A4436A /* ENWChair.m in Sources */,
-				7BD92E681CB2E0B200E28D97 /* floorplanpickerVC.m in Sources */,
-				44C6C8091CAB354F00F21662 /* EnterRoomDimensionViewController.m in Sources */,
-				44C6C80C1CAB36F500F21662 /* roomLayoutViewController.m in Sources */,
+				081094DD1CB4587C004CDD1C /* TPCItemsMenuViewController.m in Sources */,
+				08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */,
+				7BE73A5F1CAC39C6007BA5A1 /* TPCConstants.m in Sources */,
+				0856133D1CB2DCA500452A49 /* TPCFurnitureButton.m in Sources */,
+				1BA169C31CAC1C3700A4436A /* TPCBed.m in Sources */,
+				1BA169C81CAC1C3700A4436A /* TPCTable.m in Sources */,
+				1BA169C61CAC1C3700A4436A /* TPCMisc.m in Sources */,
+				085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */,
+				1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */,
+				1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */,
+				1BA169C71CAC1C3700A4436A /* TPCSofa.m in Sources */,
+				1BA169C41CAC1C3700A4436A /* TPCChair.m in Sources */,
+				7BD92E681CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m in Sources */,
+				44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
 				1B9FCD841CAAF3B40041D2DB /* main.m in Sources */,
-				1BA169D41CAC25B200A4436A /* FPCModelsGenerator.m in Sources */,
-				1BA169D71CAD708E00A4436A /* FPCStateManager.m in Sources */,
-				1B632DFA1CB8435900223CF4 /* Secrets.m in Sources */,
-				1BA169D11CAC22C500A4436A /* FPCCatalogDescriber.m in Sources */,
-				1BA169C51CAC1C3700A4436A /* ENWFurniture.m in Sources */,
+				1BA169D41CAC25B200A4436A /* TPCModelsGenerator.m in Sources */,
+				1BA169D71CAD708E00A4436A /* TPCStateManager.m in Sources */,
+				1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */,
+				1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */,
+				1BA169C51CAC1C3700A4436A /* TPCFurniture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1B9FCD8B1CAAF3B40041D2DB /* Floorplan.storyboard */ = {
+		1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1B9FCD8C1CAAF3B40041D2DB /* Base */,
 			);
-			name = Floorplan.storyboard;
+			name = TPCFloorplan.storyboard;
 			sourceTree = "<group>";
 		};
 		1B9FCD901CAAF3B40041D2DB /* LaunchScreen.storyboard */ = {
