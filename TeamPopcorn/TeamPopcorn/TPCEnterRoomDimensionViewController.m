@@ -7,7 +7,6 @@
 //
 
 #import "TPCEnterRoomDimensionViewController.h"
-#import "TPCRoomLayoutViewController.h"
 #import "TPCMainViewController.h"
 #import "TPCStateManager.h"
 
@@ -37,6 +36,9 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [[self view] endEditing:TRUE];
+    
+    
+    
     
 }
 
