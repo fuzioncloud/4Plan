@@ -16,6 +16,7 @@
 #import "EnterRoomDimensionViewController.h"
 #import "FPCItemsMenuViewController.h"
 
+#import <Masonry/Masonry.h>
 
 @interface SMLViewController () <UIPopoverPresentationControllerDelegate, DimensionViewControllerDelegate>
 
@@ -24,6 +25,10 @@
 @property (strong, nonatomic) FurnitureButton *deleteButton;
 @property (strong, nonatomic) ENWFurniture *itemToDelete;
 @property (strong, nonatomic) FurnitureButton *furnitureButtonToDelete;
+@property (strong, nonatomic) UIView *itemsMenuContainerView;
+@property (strong, nonatomic) UIView *recognizerLayerView;
+@property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
+@property (assign, nonatomic) BOOL isMenuOut;
 
 @end
 
@@ -36,6 +41,7 @@
     [self constrainForFloorPlan]; //MV
     [self barButtonItem]; //MV
 
+    [self constraintsForItemsMenu];
     [self furnitureTouching];
     
 }
@@ -53,9 +59,12 @@
 
 -(void) buttonAction: (id) sender {
  
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
-    [self presentViewController:newVC animated:YES completion:nil];
+
+    [self showDismissMenu];
+//    
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    FPCItemsMenuViewController *newVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"FPCItemsMenuViewController"];
+//    [self presentViewController:newVC animated:YES completion:nil];
 }
 
 -(void) constrainForFloorPlan {
@@ -114,6 +123,92 @@
     self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
     self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
+
+-(void)constraintsForItemsMenu {
+//    CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
+//    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    self.isMenuOut = NO;
+    self.recognizerLayerView = [[UIView alloc] init];
+    self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
+    self.recognizerLayerView.alpha = 0;
+    UITapGestureRecognizer *quitTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDismissMenu)];
+    [self.recognizerLayerView addGestureRecognizer:quitTap];
+    
+    self.itemsMenuContainerView = [[UIView alloc] init];
+    UINavigationController *menuNavC = [self.storyboard instantiateViewControllerWithIdentifier:@"Items Menu Navigation Controller"];
+
+    // Adding to [subviews]
+    [self.view addSubview:self.recognizerLayerView];
+    [self.view addSubview:self.itemsMenuContainerView];
+    
+    // Giving constraints
+    [self.recognizerLayerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [self.itemsMenuContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width).multipliedBy(0.75);
+        make.top.and.bottom.equalTo(self.view);
+    }];
+    CGFloat offset = self.view.frame.size.width * 0.75;
+    self.itemsMenuTrailing = [self.itemsMenuContainerView.trailingAnchor
+        constraintEqualToAnchor:self.view.trailingAnchor
+        constant:offset - 8];
+    self.itemsMenuTrailing.active = YES;
+
+    // Setting the embedded FPCItemsMenuViewController
+    [self setEmbeddedViewController:menuNavC];
+}
+
+-(void)setEmbeddedViewController:(UIViewController *)controller
+{
+    if([self.childViewControllers containsObject:controller]) {
+        return;
+    }
+    
+    for(UIViewController *vc in self.childViewControllers) {
+        [vc willMoveToParentViewController:nil];
+        
+        if(vc.isViewLoaded) {
+            [vc.view removeFromSuperview];
+        }
+        
+        [vc removeFromParentViewController];
+    }
+    
+    if(!controller) {
+        return;
+    }
+    
+    [self addChildViewController:controller];
+    [self.itemsMenuContainerView addSubview:controller.view];
+    [controller.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
+    [controller didMoveToParentViewController:self];
+}
+
+
+-(void)showDismissMenu {
+    CGFloat offset, alpha;
+    
+    if (self.isMenuOut) {
+        alpha = 0;
+        offset = self.itemsMenuContainerView.frame.size.width - 8;
+    }
+    else {
+        alpha = 0.6;
+        offset = 8;
+    }
+    
+    [UIView animateWithDuration:0.8 delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.recognizerLayerView.alpha = alpha;
+        self.itemsMenuTrailing.constant = offset;
+        [self.view layoutIfNeeded];
+        self.isMenuOut = !self.isMenuOut;
+    } completion:nil];
+
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
