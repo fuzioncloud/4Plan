@@ -300,14 +300,16 @@
                 NSLog(@"------- leftConstraint is NOT NIL (BEEN SET ALREADY) - about to do some stuff.");
                 NSLog(@"CENTER VALUE AFTER COMING BACK ROM THE VIEW: Cener Value: x: %f -- y: %f", buttonInDataStore.centerValues.x, buttonInDataStore.centerValues.y);
                 
-                
+                CGFloat xOffset = buttonInDataStore.bounds.size.width / 2;
+                CGFloat yOffset = buttonInDataStore.bounds.size.height / 2;
                 
                 [buttonInDataStore mas_remakeConstraints:^(MASConstraintMaker *make) {
                     
-                    
-                    
-                    make.centerX.equalTo(self.roomLayoutView.mas_centerX);
-                    make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+
+                   
+                
+                    make.left.equalTo(@(buttonInDataStore.frame.origin.x));
+                    make.top.equalTo(@(buttonInDataStore.frame.origin.y));
                     make.width.equalTo(@(buttonInDataStore.furnitureItem.widthscaled));
                     make.height.equalTo(@(buttonInDataStore.furnitureItem.lengthscaled));
                     
