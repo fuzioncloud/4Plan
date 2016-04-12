@@ -43,13 +43,13 @@
     for (TPCFurnitureButton *fb in [TPCStateManager currentState].arrangedButtons) {
         if ([fb isEqual:self.furnitureButton]) {
             
-            if (self.widthField.text.length>0 && t == self.widthField) {
+            if (t == self.widthField) {
                 fb.furnitureItem.width=t.text.doubleValue;
             }
-            else if (self.heightField.text.length>0 && t == self.heightField) {
+            else if (t == self.heightField) {
                 fb.furnitureItem.height=t.text.doubleValue;
             }
-            else if (self.lengthField.text.length>0 && t == self.lengthField) {
+            else if (t == self.lengthField) {
                 fb.furnitureItem.length=t.text.doubleValue;
             }
         }
@@ -57,8 +57,17 @@
     }
     
   
-    
-    
+//    if (self.widthField.text.length>0 && t == self.widthField) {
+//        fb.furnitureItem.width=t.text.doubleValue;
+//    }
+//    else if (self.heightField.text.length>0 && t == self.heightField) {
+//        fb.furnitureItem.height=t.text.doubleValue;
+//    }
+//    else if (self.lengthField.text.length>0 && t == self.lengthField) {
+//        fb.furnitureItem.length=t.text.doubleValue;
+//    }
+//}
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

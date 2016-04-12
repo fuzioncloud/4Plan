@@ -61,6 +61,31 @@
             self.miscStyle=miscStyle;
             return self;
             
+        case skateboardMisc:
+            self.name=@"skateboard";
+            self=[self initWithWidth:10 length:36 height:8 image:[UIImage imageNamed:@"skateboardMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case smallboxMisc:
+            self.name=@"smallbox";
+            self=[self initWithWidth:10 length:10 height:10 image:[UIImage imageNamed:@"smallboxMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case binderMisc:
+            self.name=@"binder";
+            self=[self initWithWidth:9 length:11 height:5 image:[UIImage imageNamed:@"binderMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+        case cameraMisc:
+            self.name=@"camera";
+            self=[self initWithWidth:7 length:6 height:5 image:[UIImage imageNamed:@"cameraMisc.png"] weight:miscWeight];
+            self.miscStyle=miscStyle;
+            return self;
+            
+            
         default:
             
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
@@ -99,6 +124,22 @@
 
 +(instancetype)visibleDoorMisc {
     return [[self alloc]initWithMiscStlye:visibleDoorMisc];
+}
+
++(instancetype)skateboardMisc {
+    return [[self alloc]initWithMiscStlye:skateboardMisc];
+}
+
++(instancetype)smallboxMisc {
+    return [[self alloc]initWithMiscStlye:smallboxMisc];
+}
+
++(instancetype)binderMisc {
+    return [[self alloc] initWithMiscStlye:binderMisc];
+}
+
++(instancetype)cameraMisc {
+    return [[self alloc] initWithMiscStlye:cameraMisc];
 }
 
 @end

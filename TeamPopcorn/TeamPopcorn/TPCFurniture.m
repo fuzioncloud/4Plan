@@ -18,6 +18,7 @@
     return self;
 }
 
+
 //+(NSArray *)furnitureFromJSON
 //{
 //    NSData *jsonFileData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"furniture" ofType:@"json"]];

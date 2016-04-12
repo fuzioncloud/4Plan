@@ -39,7 +39,11 @@
                                 [TPCMisc randomMisc],
                                 [TPCMisc wardrobeMisc],
                                 [TPCMisc doorMisc],
-                                [TPCMisc visibleDoorMisc]
+                                [TPCMisc visibleDoorMisc],
+                                [TPCMisc skateboardMisc],
+                                [TPCMisc smallboxMisc],
+                                [TPCMisc binderMisc],
+                                [TPCMisc cameraMisc]
                                 ];
     
     NSArray<TPCSofa *> *sofas = @[[TPCSofa basicSofa],

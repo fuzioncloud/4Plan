@@ -11,6 +11,8 @@
 @interface TPCStateManager ()
 @property (strong, nonatomic, readwrite) TPCRoom *room;
 @property (strong, nonatomic, readwrite) NSMutableArray<TPCFurniture *> *arrangedFurniture;
+@property (nonatomic) NSUInteger originalRoomW;
+@property (nonatomic) NSUInteger originalRoomL;
 
 
 @end
@@ -29,17 +31,33 @@
     
 }
 
+-(void)checkIfRoomHasChanged:(TPCRoom *)originalRoom {
+    if (!(self.room.w==self.originalRoomW)||!(self.room.l==self.originalRoomL)){
+        self.roomHasChanged=YES;
+        self.originalRoomW=self.room.w;
+        self.originalRoomL=self.room.l;
+    }
+    else {
+        self.roomHasChanged=NO;
+    }
+    
+}
+
 -(void)setRoomOfWidth:(NSUInteger)w
                height:(NSUInteger)h
                length:(NSUInteger)l; {
     if (!self.room) {
         self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
+        self.originalRoomL=self.room.l;
+        self.originalRoomW=self.room.w;
+        self.roomHasChanged=NO;
     } else {
-        
         self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
         
     }
 }
+
+
 
 -(void)placeFuriniture:(TPCFurniture *)furniturePiece {
     if (!self.arrangedFurniture) {
@@ -48,7 +66,25 @@
     furniturePiece.scale = [self scaleFurniture:furniturePiece inRoom:self.room];
     furniturePiece.horizontalDistanceFromOrigin = self.room.w / 2;
     furniturePiece.verticalDistanceFromOrigin = self.room.l / 2;
+    furniturePiece.hasScaled=NO;
     [self.arrangedFurniture addObject:furniturePiece];
+    
+    if (!self.arrangedButtons) {
+        self.arrangedButtons=[NSMutableArray<TPCFurnitureButton *> new];
+    }
+    
+    TPCFurnitureButton *placedPiece = [[TPCFurnitureButton alloc]init];
+    placedPiece.hasMoved = NO;
+    [placedPiece setBackgroundImage:furniturePiece.image forState:normal];
+    placedPiece.imageView.image = furniturePiece.image;
+    placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
+    placedPiece.backgroundColor = [UIColor darkGrayColor];
+    placedPiece.tintColor = [UIColor blackColor];
+    placedPiece.furnitureItem = furniturePiece;
+    
+    
+    [self.arrangedButtons addObject:placedPiece];
+    
 }
 
 

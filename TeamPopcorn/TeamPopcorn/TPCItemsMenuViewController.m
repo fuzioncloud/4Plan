@@ -12,7 +12,7 @@
 #import "TPCStateManager.h"
 #import "TPCMainViewController.h"
 
-@interface TPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface TPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate, TPCMainViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
@@ -22,6 +22,10 @@
 
 @property (strong, nonatomic) TPCStateManager *arrangedButtons;
 
+@property (strong, nonatomic) TPCStateManager *dataStore;
+
+@property (strong, nonatomic) TPCMainViewController *mainvc;
+
 @end
 
 @implementation TPCItemsMenuViewController
@@ -29,10 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mainvc.delegate=self;
     // For now I'm just faking the data
     self.itemsMenu = [TPCModelsGenerator generateModels];
     
-    
+    self.dataStore = [TPCStateManager currentState];
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
     
@@ -96,7 +101,6 @@
 //    NSLog(@"%@", selectedFurniture.name);
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
-
     
     [self dismissViewControllerAnimated:YES completion:nil];
 //    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
