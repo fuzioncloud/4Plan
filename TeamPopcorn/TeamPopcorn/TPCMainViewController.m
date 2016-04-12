@@ -227,12 +227,29 @@
     self.view.backgroundColor = [UIColor darkGrayColor];
     
     self.dataStore = [TPCStateManager currentState];
-    TPCFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+    
     if (!self.dataStore.arrangedButtons) {
-        self.dataStore.arrangedButtons=[NSMutableArray<TPCFurnitureButton *> new];
+        self.dataStore.arrangedButtons = [NSMutableArray new];
+    }
+
+    TPCFurniture *newlyAddedPiece = self.dataStore.arrangedFurniture.lastObject;
+    NSLog(@"newlyaddedpiece: %@", newlyAddedPiece);
+    BOOL inSubView = NO;
+    
+    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
+        NSLog(@"furniture: %@", furniture);
+        if (![newlyAddedPiece isEqual: furniture]) {
+            inSubView = NO;
+            NSLog(@"insubview: %d", inSubView);
+        }else{
+            inSubView = YES;
+            NSLog(@"insubview: %d", inSubView);
+        }
     }
     
-    if (newlyAddedPiece) {
+    NSLog(@"subviews: %@", self.dataStore.arrangedFurniture);
+    
+    if (!inSubView) {
         
         TPCFurnitureButton *placedPiece = [[TPCFurnitureButton alloc]init];
         [placedPiece setBackgroundImage:newlyAddedPiece.image forState:normal];
@@ -257,31 +274,8 @@
         [placedPiece addGestureRecognizer: tapGestureRecognizer];
         
         [self.roomLayoutView addSubview:placedPiece];
-                
-        // CGFloat xConstant = (self.roomLayoutView.frame.size.width / 2) - (placedPiece.furnitureItem.width / 2);
-        // CGFloat yConstant = (self.roomLayoutView.frame.size.height / 2) - (placedPiece.furnitureItem.length / 2);
-        
-        
-        // placedPiece.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        // placedPiece.xPosition = [placedPiece.leftAnchor constraintEqualToAnchor:self.roomLayoutView.leftAnchor constant:xConstant];
-        // placedPiece.yPosition = [placedPiece.topAnchor constraintEqualToAnchor:self.roomLayoutView.topAnchor constant:yConstant];
-        // placedPiece.xPosition.active = YES;
-        // placedPiece.yPosition.active = YES;
-        
-        
-        // CGFloat widthscale= self.view.bounds.size.width/self.dataStore.room.w;
-        // CGFloat lengthscale=self.view.bounds.size.height/self.dataStore.room.l;
-        // placedPiece.furnitureItem.width=placedPiece.furnitureItem.width*widthscale;
-        // placedPiece.furnitureItem.length=placedPiece.furnitureItem.length*lengthscale;
-        // placedPiece.widthConstraint = [placedPiece.widthAnchor constraintEqualToConstant:placedPiece.furnitureItem.width];
-        // placedPiece.lengthConstraint = [placedPiece.heightAnchor constraintEqualToConstant:placedPiece.furnitureItem.length];
-        
-        // placedPiece.widthConstraint.active = YES;
-        // placedPiece.lengthConstraint.active = YES;
-        
-        
-    [self.dataStore.arrangedButtons addObject:placedPiece];
+
+        [self.dataStore.arrangedButtons addObject:placedPiece];
                 
         if (placedPiece.leftConstraint == nil) {
             
@@ -291,6 +285,7 @@
                 placedPiece.widthConstraint = make.width.equalTo(@(placedPiece.furnitureItem.width));
                 placedPiece.lengthConstraint = make.height.equalTo(@(placedPiece.furnitureItem.height));
             }];
+            
         }else{
             [placedPiece mas_remakeConstraints:^(MASConstraintMaker *make) {
                 placedPiece.leftConstraint = make.left.equalTo(placedPiece.leftConstraint);
@@ -300,6 +295,7 @@
             }];
         }
     }
+    
     [self furnitureTouching];
 }
 
