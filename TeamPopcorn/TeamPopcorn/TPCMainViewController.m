@@ -306,8 +306,6 @@
                 [buttonInDataStore mas_remakeConstraints:^(MASConstraintMaker *make) {
                     
 
-                   
-                
                     make.left.equalTo(@(buttonInDataStore.frame.origin.x));
                     make.top.equalTo(@(buttonInDataStore.frame.origin.y));
                     make.width.equalTo(@(buttonInDataStore.furnitureItem.widthscaled));
