@@ -16,7 +16,11 @@ typedef NS_ENUM(NSInteger, TPCMiscStyle) {
     randomMisc,
     wardrobeMisc,
     doorMisc,
-    visibleDoorMisc
+    visibleDoorMisc,
+    skateboardMisc,
+    smallboxMisc,
+    binderMisc,
+    cameraMisc
 };
 
 @interface TPCMisc : TPCFurniture
@@ -40,5 +44,13 @@ typedef NS_ENUM(NSInteger, TPCMiscStyle) {
 +(instancetype)doorMisc;
 
 +(instancetype)visibleDoorMisc;
+
++(instancetype)skateboardMisc;
+
++(instancetype)smallboxMisc;
+
++(instancetype)binderMisc;
+
++(instancetype)cameraMisc;
 
 @end

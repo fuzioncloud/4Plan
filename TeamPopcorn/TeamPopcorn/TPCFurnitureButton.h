@@ -17,5 +17,10 @@
 @property (strong, nonatomic) MASConstraint *topConstraint;
 @property (strong, nonatomic) MASConstraint *widthConstraint;
 @property (strong, nonatomic) MASConstraint *lengthConstraint;
+@property (strong, nonatomic) MASConstraint *centerX;
+@property (strong, nonatomic) MASConstraint *centerY;
+
+@property (nonatomic) CGPoint centerValues;
+@property (nonatomic) BOOL hasMoved;
 
 @end

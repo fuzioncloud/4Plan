@@ -7,7 +7,6 @@
 //
 
 #import "TPCEnterRoomDimensionViewController.h"
-#import "TPCRoomLayoutViewController.h"
 #import "TPCMainViewController.h"
 #import "TPCStateManager.h"
 

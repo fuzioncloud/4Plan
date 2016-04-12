@@ -18,9 +18,10 @@
 @property (atomic) NSUInteger horizontalDistanceFromOrigin;
 @property (atomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (atomic) CGFloat scale, widthscale, lengthscale;
+@property (atomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
 
 @property (strong, nonatomic) UIImage *image;
+@property (nonatomic) BOOL hasScaled;
 
 
 -(instancetype)init;
