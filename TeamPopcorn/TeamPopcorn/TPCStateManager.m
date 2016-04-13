@@ -67,6 +67,7 @@
     furniturePiece.horizontalDistanceFromOrigin = self.room.w / 2;
     furniturePiece.verticalDistanceFromOrigin = self.room.l / 2;
     furniturePiece.hasScaled=NO;
+    furniturePiece.hasMoved=NO;
     [self.arrangedFurniture addObject:furniturePiece];
     
     

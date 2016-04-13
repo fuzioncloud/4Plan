@@ -253,10 +253,24 @@
     
     self.view.backgroundColor = [UIColor darkGrayColor];
     
+    [self clearSuperView];
+    
+    [self setButton];
+    
+    [self furnitureTouching];
+    
+    
+}
+
+-(void)clearSuperView {
     for (TPCFurnitureButton *button in self.furnitureButtonArray) {
         [button removeFromSuperview];
-    }
         
+    }
+}
+
+-(void)setButton {
+    
     for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
         
         TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
@@ -264,71 +278,72 @@
         furnitureButton.furnitureItem = furniture;
         
         NSLog(@"here is the array:%@",self.furnitureButtonArray);
-            
-            [self.furnitureButtonArray addObject:furnitureButton];
         
-            [furnitureButton setBackgroundImage:furniture.image forState:normal];
-            furnitureButton.imageView.image = furniture.image;
-            furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
-            furnitureButton.backgroundColor = [UIColor darkGrayColor];
-            furnitureButton.tintColor = [UIColor blackColor];
+        [self.furnitureButtonArray addObject:furnitureButton];
         
-            
-            CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
-            CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
-            furniture.widthscaled=furniture.width*widthscale;
-            furniture.lengthscaled=furniture.length*lengthscale;
+        [furnitureButton setBackgroundImage:furniture.image forState:normal];
+        furnitureButton.imageView.image = furniture.image;
+        furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
+        furnitureButton.backgroundColor = [UIColor darkGrayColor];
+        furnitureButton.tintColor = [UIColor blackColor];
         
+        
+        CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
+        CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
+        furniture.widthscaled=furniture.width*widthscale;
+        furniture.lengthscaled=furniture.length*lengthscale;
+        
+        
+        [self.roomLayoutView addSubview:furnitureButton];
+        
+        
+        UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
+        [furnitureButton addGestureRecognizer:panGestureRecognizerSofa];
+        
+        UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
+        [furnitureButton addGestureRecognizer:rotationGestureRecognizerSofa];
+        
+        
+        UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
+        longPressGestureRecognizer.minimumPressDuration = .3;
+        [furnitureButton addGestureRecognizer:longPressGestureRecognizer];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
+        [furnitureButton addGestureRecognizer: tapGestureRecognizer];
+        
+        if (!furniture.hasMoved) {
+            
+            
+            [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 
-            [self.roomLayoutView addSubview:furnitureButton];
-            
-            
-            UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
-            [furnitureButton addGestureRecognizer:panGestureRecognizerSofa];
-            
-            UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
-            [furnitureButton addGestureRecognizer:rotationGestureRecognizerSofa];
-            
-            
-            UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
-            longPressGestureRecognizer.minimumPressDuration = .3;
-            [furnitureButton addGestureRecognizer:longPressGestureRecognizer];
-            
-            UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
-            [furnitureButton addGestureRecognizer: tapGestureRecognizer];
-            
-            if (!furniture.hasMoved) {
+                make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+                make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+                make.width.equalTo(@(furniture.widthscaled));
+                make.height.equalTo(@(furniture.lengthscaled));
                 
-                
-                [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    
-                    make.centerX.equalTo(self.roomLayoutView.mas_centerX);
-                    make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
-                    
-                }];
-            }
-            else{
-            
-                
-                [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    
-
-                    make.left.equalTo(@(furniture.centerValues.x));
-                    make.top.equalTo(@(furniture.centerValues.y));
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
-                    
-
-                }];
-            }
-       
+            }];
         }
+        else{
+            
+            
+            [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                
+                
+                make.left.equalTo(@(furniture.centerValues.x));
+                make.top.equalTo(@(furniture.centerValues.y));
+                make.width.equalTo(@(furniture.widthscaled));
+                make.height.equalTo(@(furniture.lengthscaled));
+                
+                
+            }];
+        }
+        
+    }
     
     
     [self furnitureTouching];
     
+
     
 }
 
