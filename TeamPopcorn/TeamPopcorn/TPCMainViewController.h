@@ -16,6 +16,8 @@
 @interface TPCMainViewController : UIViewController
 
 @property (nonatomic) id<TPCMainViewControllerDelegate> delegate;
+@property (strong, nonatomic) UIView *roomLayoutView;
+
 
 -(void)showDismissMenu;
 

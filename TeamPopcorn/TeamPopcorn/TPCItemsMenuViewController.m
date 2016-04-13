@@ -61,8 +61,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TPCItemCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"Item Cell"];
-//    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
-//    itemCell.itemImage.image = [UIImage imageNamed:imageName];
+    //    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
+    //    itemCell.itemImage.image = [UIImage imageNamed:imageName];
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     
@@ -70,8 +70,8 @@
     itemCell.itemImage.image = piece.image;
     itemCell.itemName.text = piece.name;
     itemCell.itemDimensions.text =
-        [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
-                            piece.width, piece.height, piece.length];
+    [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
+     piece.width, piece.height, piece.length];
     return itemCell;
 }
 
@@ -95,20 +95,76 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
-    
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
+    TPCFurniture *itemTouse;
     
-//    NSLog(@"%@", selectedFurniture.name);
     
-    [self.arrangedFurniture placeFuriniture:selectedFurniture];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-//    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+    switch (sectionKey.catalogIndex) {
+        case BedIndex: {
+            TPCBed *bed = (TPCBed *)selectedFurniture;
+            itemTouse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
+        }
+            break;
+            
+        case ChairIndex: {
+            TPCChair *chair = (TPCChair *)selectedFurniture;
+            itemTouse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
+        }
+            break;
+            
+        case MiscIndex: {
+            TPCMisc *stuff = (TPCMisc *)selectedFurniture;
+            itemTouse = [[TPCMisc alloc] initWithMiscStlye:stuff.miscStyle];
+        }
+            break;
+            
+        case SofaIndex: {
+            TPCSofa *sofa = (TPCSofa *)selectedFurniture;
+            itemTouse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
+        }
+            break;
+            
+        case TableIndex: {
+            TPCTable *table = (TPCTable *)selectedFurniture;
+            itemTouse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    itemTouse.widthscaled=itemTouse.width*self.dataStore.room.scaleForFurnitureW;
+    itemTouse.lengthscaled=itemTouse.length*self.dataStore.room.scaleForFurnitureL;
+    
+    if ((itemTouse.widthscaled>self.dataStore.room.scaledWidth)||(itemTouse.lengthscaled>self.dataStore.room.scaledLength)) {
+        NSLog(@"helloooo");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             
+                                                         }];
+            [alert addAction:okay];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+    }
+    
+        else {
+            
+            [self.arrangedFurniture placeFuriniture:itemTouse];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            }
+    
 
+        NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+    
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {
         [papa viewWillAppear:NO];
         [papa showDismissMenu];
+    
     }
 
 }

@@ -26,6 +26,7 @@
 @property (nonatomic) BOOL hasMoved;
 
 
+
 -(instancetype)init;
 
 -(instancetype)initWithWidth:(NSUInteger)width
