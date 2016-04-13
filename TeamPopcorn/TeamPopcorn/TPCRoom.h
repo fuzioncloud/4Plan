@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic, readonly) NSString *shape;
 @property (assign,nonatomic) NSUInteger w, h, l;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSMutableArray *savedFurniture;
 
 +(instancetype)roomOfWidth:(NSUInteger)w
                     height:(NSUInteger)h

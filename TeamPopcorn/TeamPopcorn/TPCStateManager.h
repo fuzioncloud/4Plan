@@ -21,6 +21,7 @@
 @property (strong, nonatomic, readwrite) NSMutableArray<TPCFurnitureButton *>*arrangedButtons;
 @property (nonatomic) BOOL roomHasChanged;
 @property (nonatomic) id<TPCStateManagerDelegate> delegate;
+@property (strong, nonatomic) NSMutableArray<TPCRoom *> *savedRooms;
 
 +(instancetype)currentState;
 
