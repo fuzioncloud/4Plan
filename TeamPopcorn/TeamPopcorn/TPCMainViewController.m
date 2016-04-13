@@ -34,6 +34,7 @@
 @property (strong, nonatomic) UIView *recognizerLayerView;
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
 @property (assign, nonatomic) BOOL isMenuOut;
+@property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
 
 
 
@@ -44,9 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"lskdjflaksdjflkasdj flkadjslfk jasdlkfjad slkfj\n\n\n");
-    
+    self.furnitureButtonArray=[NSMutableArray new];
     [self constrainForFloorPlan]; // move
     [self barButtonItem]; // move
     
@@ -59,6 +58,7 @@
 
 -(void) barButtonItem {
     
+//    UIButton *blah = [UIButton buttonWithType:UIButtonTypeSystem];
     UIImage *addSymbol = [UIImage imageNamed:@"addFurnitureButtonSmall"];
     UIBarButtonItem *furnitureBarButton = [[UIBarButtonItem alloc]initWithImage: addSymbol style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
     self.navigationItem.rightBarButtonItem = furnitureBarButton;
@@ -75,6 +75,7 @@
 
 -(void) constrainForFloorPlan {
     
+    //GOOD
     self.dataStore = [TPCStateManager currentState];
     
     CGFloat roomLayoutBorder = 1.0;
@@ -131,8 +132,7 @@
 }
 
 -(void)constraintsForItemsMenu {
-    //    CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
-    //    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+
     self.isMenuOut = NO;
     self.recognizerLayerView = [[UIView alloc] init];
     self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
@@ -219,16 +219,19 @@
     for (TPCFurnitureButton *button in self.dataStore.arrangedButtons) {
         if ((button.furnitureItem.widthscaled>self.roomLayoutView.bounds.size.width)||(button.furnitureItem.lengthscaled>self.roomLayoutView.bounds.size.height)) {
             [self.dataStore.arrangedButtons removeObject:button];
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                             
-                                                         }];
-            [alert addAction:okay];
-            [self presentViewController:alert animated:YES completion:nil];
+            [button removeFromSuperview];
+           
             
         }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         
+                                                     }];
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
     }
+
 }
 
 
@@ -238,15 +241,10 @@
     
     [self.deleteButton removeFromSuperview];
     
-    [self checkIfItemTooBig];
-    
     [self refreshRoomScene];
     
-    NSLog(@"here is the furniture array: %@",self.dataStore.arrangedButtons);
-    
-    //    [self.dataStore checkIfRoomHasChanged:self.dataStore.room];
-    //
-    //    NSLog(@"room change status:%d",self.dataStore.roomHasChanged);
+     [self checkIfItemTooBig];
+
 }
 
 -(void)refreshRoomScene {
@@ -255,70 +253,79 @@
     
     self.view.backgroundColor = [UIColor darkGrayColor];
     
-    
-    for (TPCFurnitureButton *buttonInDataStore in self.dataStore.arrangedButtons) {
-        if (![self.roomLayoutView.subviews containsObject:buttonInDataStore]){
+    for (TPCFurnitureButton *button in self.furnitureButtonArray) {
+        [button removeFromSuperview];
+    }
+        
+    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
+        
+        TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
+        
+        furnitureButton.furnitureItem = furniture;
+        
+        NSLog(@"here is the array:%@",self.furnitureButtonArray);
             
+            [self.furnitureButtonArray addObject:furnitureButton];
+        
+            [furnitureButton setBackgroundImage:furniture.image forState:normal];
+            furnitureButton.imageView.image = furniture.image;
+            furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
+            furnitureButton.backgroundColor = [UIColor darkGrayColor];
+            furnitureButton.tintColor = [UIColor blackColor];
+        
             
             CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
             CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
-            buttonInDataStore.furnitureItem.widthscaled=buttonInDataStore.furnitureItem.width*widthscale;
-            buttonInDataStore.furnitureItem.lengthscaled=buttonInDataStore.furnitureItem.length*lengthscale;
-            
-            [self.roomLayoutView addSubview:buttonInDataStore];
+            furniture.widthscaled=furniture.width*widthscale;
+            furniture.lengthscaled=furniture.length*lengthscale;
+        
+                
+            [self.roomLayoutView addSubview:furnitureButton];
             
             
             UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
-            [buttonInDataStore addGestureRecognizer:panGestureRecognizerSofa];
+            [furnitureButton addGestureRecognizer:panGestureRecognizerSofa];
             
             UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
-            [buttonInDataStore addGestureRecognizer:rotationGestureRecognizerSofa];
+            [furnitureButton addGestureRecognizer:rotationGestureRecognizerSofa];
             
             
             UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(deleteFurniture:)];
             longPressGestureRecognizer.minimumPressDuration = .3;
-            [buttonInDataStore addGestureRecognizer:longPressGestureRecognizer];
+            [furnitureButton addGestureRecognizer:longPressGestureRecognizer];
             
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
-            [buttonInDataStore addGestureRecognizer: tapGestureRecognizer];
+            [furnitureButton addGestureRecognizer: tapGestureRecognizer];
             
-            if (!buttonInDataStore.hasMoved) {
+            if (!furniture.hasMoved) {
                 
-                NSLog(@"------- leftConstraint is nil- about to do some stuff.");
                 
-                [buttonInDataStore mas_makeConstraints:^(MASConstraintMaker *make) {
+                [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                     
                     make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                     make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                    make.width.equalTo(@(buttonInDataStore.furnitureItem.widthscaled));
-                    make.height.equalTo(@(buttonInDataStore.furnitureItem.lengthscaled));
+                    make.width.equalTo(@(furniture.widthscaled));
+                    make.height.equalTo(@(furniture.lengthscaled));
                     
                 }];
             }
             else{
+            
                 
-                NSLog(@"------- leftConstraint is NOT NIL (BEEN SET ALREADY) - about to do some stuff.");
-                NSLog(@"CENTER VALUE AFTER COMING BACK ROM THE VIEW: Cener Value: x: %f -- y: %f", buttonInDataStore.centerValues.x, buttonInDataStore.centerValues.y);
-                
-                CGFloat xOffset = buttonInDataStore.bounds.size.width / 2;
-                CGFloat yOffset = buttonInDataStore.bounds.size.height / 2;
-                
-                [buttonInDataStore mas_remakeConstraints:^(MASConstraintMaker *make) {
+                [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
                     
 
-                    make.left.equalTo(@(buttonInDataStore.frame.origin.x));
-                    make.top.equalTo(@(buttonInDataStore.frame.origin.y));
-                    make.width.equalTo(@(buttonInDataStore.furnitureItem.widthscaled));
-                    make.height.equalTo(@(buttonInDataStore.furnitureItem.lengthscaled));
+                    make.left.equalTo(@(furniture.centerValues.x));
+                    make.top.equalTo(@(furniture.centerValues.y));
+                    make.width.equalTo(@(furniture.widthscaled));
+                    make.height.equalTo(@(furniture.lengthscaled));
                     
 
                 }];
             }
-            
+       
         }
-    }
     
-    NSLog(@"here is the array of subviews: %@",self.roomLayoutView.subviews);
     
     [self furnitureTouching];
     
@@ -332,32 +339,6 @@
     
 }
 
-//-(void)newlyAddedPiece:(TPCFurniture*)selectedFurniture {
-//
-//    self.dataStore = [TPCStateManager currentState];
-//    if (!self.dataStore.arrangedButtons) {
-//        self.dataStore.arrangedButtons=[NSMutableArray<TPCFurnitureButton *> new];
-//    }
-//
-//
-//        TPCFurnitureButton *placedPiece = [[TPCFurnitureButton alloc]init];
-//        [placedPiece setBackgroundImage:selectedFurniture.image forState:normal];
-//        placedPiece.imageView.image = selectedFurniture.image;
-//        placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
-//        placedPiece.backgroundColor = [UIColor darkGrayColor];
-//        placedPiece.tintColor = [UIColor blackColor];
-//        placedPiece.furnitureItem = selectedFurniture;
-//
-//
-//        CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
-//        CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
-//        placedPiece.furnitureItem.widthscaled=placedPiece.furnitureItem.width*widthscale;
-//        placedPiece.furnitureItem.lengthscaled=placedPiece.furnitureItem.length*lengthscale;
-//
-//        [self.dataStore.arrangedButtons addObject:placedPiece];
-//
-//
-//}
 
 -(void) updateFurnitureSize {
     
@@ -369,10 +350,10 @@
     [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
         self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
-        make.centerX.equalTo(self.roomLayoutView.mas_centerX);
-        make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+        make.left.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.x));
+        make.top.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.y));
     }];
-    
+    [self checkIfItemTooBig];
     [self.view layoutIfNeeded];
 }
 
@@ -403,11 +384,6 @@
     
     [self presentViewController:dimvc animated:YES completion:nil];
     
-    NSLog(@"%@",self.dataStore.arrangedFurniture.lastObject);
-    NSLog(@"%@",self.dataStore.arrangedButtons.lastObject);
-    NSLog(@"%lu/n/n/n%lu",furniture.width,furniture.length);
-    
-    
 }
 
 -(void)moveFurniture:(UIPanGestureRecognizer*)panGestureRecognizer{
@@ -416,7 +392,7 @@
     
     TPCFurnitureButton *selectedFurniture = (TPCFurnitureButton*)panGestureRecognizer.view;
     
-    selectedFurniture.hasMoved = YES;
+    selectedFurniture.furnitureItem.hasMoved = YES;
     
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.roomLayoutView];
     
@@ -448,20 +424,23 @@
             CGFloat xOffset = selectedFurniture.bounds.size.width / 2;
             CGFloat yOffset = selectedFurniture.bounds.size.height / 2;
             
+            
             [selectedFurniture mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(@(touchLocation.x- xOffset));
                 make.top.equalTo(@(touchLocation.y - yOffset));
                 make.size.equalTo([NSValue valueWithCGSize:oldfFrameOfMovingView.size]);
             }];
             
-            selectedFurniture.centerValues = CGPointMake(selectedFurniture.center.x, selectedFurniture.center.y);
             
-            NSLog(@"Center Value: x: %f -- y: %f", selectedFurniture.centerValues.x, selectedFurniture.centerValues.y);
-            
+            selectedFurniture.furnitureItem.centerValues=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
             
             
             
             
+            
+            
+            
+    
             
         }
     }

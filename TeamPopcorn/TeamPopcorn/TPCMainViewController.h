@@ -18,6 +18,6 @@
 @property (nonatomic) id<TPCMainViewControllerDelegate> delegate;
 
 -(void)showDismissMenu;
--(void)newlyAddedPiece:(TPCFurniture*)selectedFurniture;
+
 
 @end

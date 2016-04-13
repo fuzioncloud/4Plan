@@ -22,6 +22,8 @@
 
 @property (strong, nonatomic) UIImage *image;
 @property (nonatomic) BOOL hasScaled;
+@property (nonatomic) CGPoint centerValues;
+@property (nonatomic) BOOL hasMoved;
 
 
 -(instancetype)init;

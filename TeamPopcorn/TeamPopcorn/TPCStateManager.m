@@ -69,23 +69,12 @@
     furniturePiece.hasScaled=NO;
     [self.arrangedFurniture addObject:furniturePiece];
     
-    if (!self.arrangedButtons) {
-        self.arrangedButtons=[NSMutableArray<TPCFurnitureButton *> new];
-    }
-    
-    TPCFurnitureButton *placedPiece = [[TPCFurnitureButton alloc]init];
-    placedPiece.hasMoved = NO;
-    [placedPiece setBackgroundImage:furniturePiece.image forState:normal];
-    placedPiece.imageView.image = furniturePiece.image;
-    placedPiece.imageView.contentMode = UIViewContentModeScaleToFill;
-    placedPiece.backgroundColor = [UIColor darkGrayColor];
-    placedPiece.tintColor = [UIColor blackColor];
-    placedPiece.furnitureItem = furniturePiece;
-    
-    
-    [self.arrangedButtons addObject:placedPiece];
     
 }
+    
+   
+    
+
 
 
 -(CGFloat)scaleFurniture:(TPCFurniture *)furniturePiece inRoom:(TPCRoom *)room {

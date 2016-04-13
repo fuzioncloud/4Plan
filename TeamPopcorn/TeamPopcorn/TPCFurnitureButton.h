@@ -20,7 +20,9 @@
 @property (strong, nonatomic) MASConstraint *centerX;
 @property (strong, nonatomic) MASConstraint *centerY;
 
-@property (nonatomic) CGPoint centerValues;
-@property (nonatomic) BOOL hasMoved;
-
 @end
+
+// move last two properties to furniture in model class.
+//keep constraints on button class.
+//populate constraints through magic done in view controller ....
+//for (furniture in self.datastore.arranged furniture) { create the button, give the button properties, create button constraints based on the datastore

@@ -38,22 +38,21 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    UITextField *t = (UITextField *) textField;
     
-    for (TPCFurnitureButton *fb in [TPCStateManager currentState].arrangedButtons) {
-        if ([fb isEqual:self.furnitureButton]) {
+    for (TPCFurniture *f in [TPCStateManager currentState].arrangedFurniture) {
+        if ([f isEqual:self.furniture]) {
             
-            if (t == self.widthField) {
-                fb.furnitureItem.width=t.text.doubleValue;
+            if (textField == self.widthField) {
+                f.width=textField.text.doubleValue;
             }
-            else if (t == self.heightField) {
-                fb.furnitureItem.height=t.text.doubleValue;
+            else if (textField == self.heightField) {
+                f.height=textField.text.doubleValue;
             }
-            else if (t == self.lengthField) {
-                fb.furnitureItem.length=t.text.doubleValue;
+            else if (textField == self.lengthField) {
+                f.length=textField.text.doubleValue;
             }
         }
-         NSLog(@"%lu\n\n\n\n\n\n\n\n%lu",fb.furnitureItem.width,fb.furnitureItem.length);
+        
     }
     
   
