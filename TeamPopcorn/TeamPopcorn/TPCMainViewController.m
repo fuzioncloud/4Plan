@@ -341,13 +341,13 @@
                     make.top.equalTo(@(furniture.centerValues.y));
                     make.width.equalTo(@(furniture.widthscaled));
                     make.height.equalTo(@(furniture.lengthscaled));
-                    
-                    if (![self isInBounds:furnitureButton]) {
-                        make.centerX.equalTo(self.roomLayoutView.mas_centerX);
-                        make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                        make.width.equalTo(@(furniture.widthscaled));
-                        make.height.equalTo(@(furniture.lengthscaled));
-                    }
+//                    
+//                    if (![self isInBounds:furnitureButton]) {
+//                        make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+//                        make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+//                        make.width.equalTo(@(furniture.widthscaled));
+//                        make.height.equalTo(@(furniture.lengthscaled));
+//                    }
                     
                 }];
             }
