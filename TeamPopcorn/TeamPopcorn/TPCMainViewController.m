@@ -89,8 +89,8 @@
     self.roomLayoutView = [[UIView alloc] init];
     [self.view addSubview:self.roomLayoutView];
     
-    NSLog(@"width entered %lu", self.dataStore.room.w);
-    NSLog(@"length entered %lu", self.dataStore.room.l);
+    NSLog(@"width entered %lld", self.dataStore.room.width);
+    NSLog(@"length entered %lld", self.dataStore.room.length);
     
     CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -98,8 +98,8 @@
     CGFloat viewWidth = self.view.bounds.size.width;
     CGFloat viewHeight = self.view.bounds.size.height - (navHeight + statusBarHeight);
     
-    CGFloat enteredWidth = self.dataStore.room.w;
-    CGFloat enteredHeight = self.dataStore.room.l;
+    CGFloat enteredWidth = self.dataStore.room.width;
+    CGFloat enteredHeight = self.dataStore.room.length;
     
     CGFloat widthFactor = viewWidth / enteredWidth;
     CGFloat heightFactor = viewHeight / enteredHeight;
@@ -400,7 +400,6 @@
     }
     
 }
-
 
 -(BOOL)isInBounds:(TPCFurnitureButton*)furnitureButton {
     return CGRectContainsRect(self.roomLayoutView.bounds, furnitureButton.frame);

@@ -2,31 +2,26 @@
 //  TPCFurniture.h
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Janet Lustgarten on 3/29/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@class TPCFurnitureButton;
+@interface TPCFurniture : NSObject
 
-NS_ASSUME_NONNULL_BEGIN
+@property (strong, nonatomic) NSString* name;
 
-@interface TPCFurniture : NSManagedObject
+@property (atomic) NSUInteger width, length, height, weight;
 
 @property (atomic) NSUInteger horizontalDistanceFromOrigin;
 @property (atomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (atomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
+@property (atomic) CGFloat scale, widthscale, lengthscale;
 
 @property (strong, nonatomic) UIImage *image;
-@property (nonatomic) BOOL hasScaled;
-@property (nonatomic) CGPoint centerValues;
-@property (nonatomic) BOOL hasMoved;
 
-// Insert code here to declare functionality of your managed object subclass
 
 -(instancetype)init;
 
@@ -36,8 +31,5 @@ NS_ASSUME_NONNULL_BEGIN
                        image:(UIImage*)image
                       weight:(NSUInteger)weight;
 
+
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "TPCFurniture+CoreDataProperties.h"

@@ -2,15 +2,13 @@
 //  TPCTable.m
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Janet Lustgarten on 3/29/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import "TPCTable.h"
 
 @implementation TPCTable
-
-// Insert code here to add functionality to your managed object subclass
 
 -(instancetype)init {
     self.name=@"basic";
@@ -84,5 +82,10 @@
 +(instancetype)roundTable {
     return [[self alloc]initWithTableStlye:roundTable];
 }
+
+
+
+
+
 
 @end

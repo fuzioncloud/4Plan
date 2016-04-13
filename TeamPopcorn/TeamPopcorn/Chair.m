@@ -2,7 +2,7 @@
 //  TPCChair.m
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Janet Lustgarten on 3/29/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
 
 @implementation TPCChair
 
-// Insert code here to add functionality to your managed object subclass
 
 -(instancetype)init {
     self.name=@"basic";
@@ -54,13 +53,13 @@
             return self;
             
         default:
-            
+        
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"basicChair.png"] weight:chairWeight];
             self.chairStyle=chairStyle;
             return self;
             
     }
-    
+      
 }
 
 +(instancetype)basicChair{

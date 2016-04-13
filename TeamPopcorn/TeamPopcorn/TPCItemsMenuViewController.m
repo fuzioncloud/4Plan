@@ -70,8 +70,8 @@
     itemCell.itemImage.image = piece.image;
     itemCell.itemName.text = piece.name;
     itemCell.itemDimensions.text =
-    [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
-     piece.width, piece.height, piece.length];
+        [NSString stringWithFormat:@"W: %lldcm  H:%lldcm  L: %lldcm",
+                            piece.width, piece.height, piece.length];
     return itemCell;
 }
 

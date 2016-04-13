@@ -79,11 +79,11 @@
 
 
 -(CGFloat)scaleFurniture:(TPCFurniture *)furniturePiece inRoom:(TPCRoom *)room {
-    furniturePiece.widthscale = room.w*12 / furniturePiece.width;
-    furniturePiece.lengthscale = room.l*12 / furniturePiece.length;
+    furniturePiece.widthScale = room.width*12 / furniturePiece.width;
+    furniturePiece.lengthScale = room.length*12 / furniturePiece.length;
 //    CGFloat heightScale = room.h / furniturePiece.height;
     
-    return MIN(furniturePiece.widthscale,furniturePiece.lengthscale);
+    return MIN(furniturePiece.widthScale,furniturePiece.lengthScale);
 }
 
 @end

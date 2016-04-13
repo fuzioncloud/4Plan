@@ -9,25 +9,34 @@
 /* Begin PBXBuildFile section */
 		081094DD1CB4587C004CDD1C /* TPCItemsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */; };
 		085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085612F91CADC2DB00452A49 /* TPCDimensionsViewController.m */; };
-		0856133D1CB2DCA500452A49 /* TPCFurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */; };
 		08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */; };
 		1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632DF91CB8435900223CF4 /* TPCSecrets.m */; };
+		1B632E0A1CBD705000223CF4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E081CBD705000223CF4 /* Model.xcdatamodeld */; };
+		1B632E2B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E0C1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m */; };
+		1B632E2C1CBD713100223CF4 /* TPCSofa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E0E1CBD713100223CF4 /* TPCSofa.m */; };
+		1B632E2D1CBD713100223CF4 /* TPCMisc+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E101CBD713100223CF4 /* TPCMisc+CoreDataProperties.m */; };
+		1B632E2E1CBD713100223CF4 /* TPCMisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E121CBD713100223CF4 /* TPCMisc.m */; };
+		1B632E2F1CBD713100223CF4 /* TPCChair+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E141CBD713100223CF4 /* TPCChair+CoreDataProperties.m */; };
+		1B632E301CBD713100223CF4 /* TPCChair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E161CBD713100223CF4 /* TPCChair.m */; };
+		1B632E311CBD713100223CF4 /* TPCBed+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E181CBD713100223CF4 /* TPCBed+CoreDataProperties.m */; };
+		1B632E321CBD713100223CF4 /* TPCBed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E1A1CBD713100223CF4 /* TPCBed.m */; };
+		1B632E351CBD713100223CF4 /* TPCTable+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E201CBD713100223CF4 /* TPCTable+CoreDataProperties.m */; };
+		1B632E361CBD713100223CF4 /* TPCTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E221CBD713100223CF4 /* TPCTable.m */; };
+		1B632E371CBD713100223CF4 /* TPCFurniture+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E241CBD713100223CF4 /* TPCFurniture+CoreDataProperties.m */; };
+		1B632E381CBD713100223CF4 /* TPCFurniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E261CBD713100223CF4 /* TPCFurniture.m */; };
+		1B632E391CBD713100223CF4 /* TPCRoom+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E281CBD713100223CF4 /* TPCRoom+CoreDataProperties.m */; };
+		1B632E3A1CBD713100223CF4 /* TPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E2A1CBD713100223CF4 /* TPCRoom.m */; };
+		1B632E3B1CBDA84500223CF4 /* _TPCFurnitureButton+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E1C1CBD713100223CF4 /* _TPCFurnitureButton+CoreDataProperties.m */; };
+		1B632E3C1CBDA84C00223CF4 /* TPCFurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
 		1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD861CAAF3B40041D2DB /* AppDelegate.m */; };
 		1B9FCD8D1CAAF3B40041D2DB /* TPCFloorplan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */; };
 		1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD8E1CAAF3B40041D2DB /* Assets.xcassets */; };
 		1B9FCD921CAAF3B40041D2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9FCD901CAAF3B40041D2DB /* LaunchScreen.storyboard */; };
 		1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */; };
-		1BA169C31CAC1C3700A4436A /* TPCBed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B11CAC1C3700A4436A /* TPCBed.m */; };
-		1BA169C41CAC1C3700A4436A /* TPCChair.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B31CAC1C3700A4436A /* TPCChair.m */; };
-		1BA169C51CAC1C3700A4436A /* TPCFurniture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B51CAC1C3700A4436A /* TPCFurniture.m */; };
-		1BA169C61CAC1C3700A4436A /* TPCMisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B71CAC1C3700A4436A /* TPCMisc.m */; };
-		1BA169C71CAC1C3700A4436A /* TPCSofa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169B91CAC1C3700A4436A /* TPCSofa.m */; };
-		1BA169C81CAC1C3700A4436A /* TPCTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169BB1CAC1C3700A4436A /* TPCTable.m */; };
 		1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */; };
 		1BA169D41CAC25B200A4436A /* TPCModelsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */; };
 		1BA169D71CAD708E00A4436A /* TPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* TPCStateManager.m */; };
-		1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D91CAD71AF00A4436A /* TPCRoom.m */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
 		44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* TPCMain.storyboard */; };
 		44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */; };
@@ -44,6 +53,39 @@
 		08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMainViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMainViewController.m; sourceTree = "<group>"; };
 		1B632DF91CB8435900223CF4 /* TPCSecrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSecrets.m; sourceTree = "<group>"; };
+		1B632E091CBD705000223CF4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1B632E0B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCSofa+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E0C1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCSofa+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E0D1CBD713100223CF4 /* TPCSofa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSofa.h; sourceTree = "<group>"; };
+		1B632E0E1CBD713100223CF4 /* TPCSofa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSofa.m; sourceTree = "<group>"; };
+		1B632E0F1CBD713100223CF4 /* TPCMisc+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCMisc+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E101CBD713100223CF4 /* TPCMisc+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCMisc+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E111CBD713100223CF4 /* TPCMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMisc.h; sourceTree = "<group>"; };
+		1B632E121CBD713100223CF4 /* TPCMisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMisc.m; sourceTree = "<group>"; };
+		1B632E131CBD713100223CF4 /* TPCChair+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCChair+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E141CBD713100223CF4 /* TPCChair+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCChair+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E151CBD713100223CF4 /* TPCChair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCChair.h; sourceTree = "<group>"; };
+		1B632E161CBD713100223CF4 /* TPCChair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCChair.m; sourceTree = "<group>"; };
+		1B632E171CBD713100223CF4 /* TPCBed+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCBed+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E181CBD713100223CF4 /* TPCBed+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCBed+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E191CBD713100223CF4 /* TPCBed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCBed.h; sourceTree = "<group>"; };
+		1B632E1A1CBD713100223CF4 /* TPCBed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCBed.m; sourceTree = "<group>"; };
+		1B632E1B1CBD713100223CF4 /* _TPCFurnitureButton+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "_TPCFurnitureButton+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E1C1CBD713100223CF4 /* _TPCFurnitureButton+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "_TPCFurnitureButton+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E1D1CBD713100223CF4 /* _TPCFurnitureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TPCFurnitureButton.h; sourceTree = "<group>"; };
+		1B632E1E1CBD713100223CF4 /* _TPCFurnitureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TPCFurnitureButton.m; sourceTree = "<group>"; };
+		1B632E1F1CBD713100223CF4 /* TPCTable+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCTable+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E201CBD713100223CF4 /* TPCTable+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCTable+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E211CBD713100223CF4 /* TPCTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCTable.h; sourceTree = "<group>"; };
+		1B632E221CBD713100223CF4 /* TPCTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCTable.m; sourceTree = "<group>"; };
+		1B632E231CBD713100223CF4 /* TPCFurniture+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCFurniture+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E241CBD713100223CF4 /* TPCFurniture+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCFurniture+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E251CBD713100223CF4 /* TPCFurniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFurniture.h; sourceTree = "<group>"; };
+		1B632E261CBD713100223CF4 /* TPCFurniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFurniture.m; sourceTree = "<group>"; };
+		1B632E271CBD713100223CF4 /* TPCRoom+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCRoom+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B632E281CBD713100223CF4 /* TPCRoom+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCRoom+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B632E291CBD713100223CF4 /* TPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCRoom.h; sourceTree = "<group>"; };
+		1B632E2A1CBD713100223CF4 /* TPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCRoom.m; sourceTree = "<group>"; };
 		1B9FCD7F1CAAF3B30041D2DB /* TeamPopcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamPopcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9FCD831CAAF3B40041D2DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B9FCD851CAAF3B40041D2DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,18 +97,18 @@
 		1B9FCD991CAAF56A0041D2DB /* TPCSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSecrets.h; sourceTree = "<group>"; };
 		1B9FCD9C1CAB1FA60041D2DB /* TPCItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemCell.h; sourceTree = "<group>"; };
 		1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemCell.m; sourceTree = "<group>"; };
-		1BA169B01CAC1C3700A4436A /* TPCBed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCBed.h; sourceTree = "<group>"; };
-		1BA169B11CAC1C3700A4436A /* TPCBed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCBed.m; sourceTree = "<group>"; };
-		1BA169B21CAC1C3700A4436A /* TPCChair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCChair.h; sourceTree = "<group>"; };
-		1BA169B31CAC1C3700A4436A /* TPCChair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCChair.m; sourceTree = "<group>"; };
-		1BA169B41CAC1C3700A4436A /* TPCFurniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFurniture.h; sourceTree = "<group>"; };
-		1BA169B51CAC1C3700A4436A /* TPCFurniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFurniture.m; sourceTree = "<group>"; };
-		1BA169B61CAC1C3700A4436A /* TPCMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMisc.h; sourceTree = "<group>"; };
-		1BA169B71CAC1C3700A4436A /* TPCMisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMisc.m; sourceTree = "<group>"; };
-		1BA169B81CAC1C3700A4436A /* TPCSofa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSofa.h; sourceTree = "<group>"; };
-		1BA169B91CAC1C3700A4436A /* TPCSofa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSofa.m; sourceTree = "<group>"; };
-		1BA169BA1CAC1C3700A4436A /* TPCTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCTable.h; sourceTree = "<group>"; };
-		1BA169BB1CAC1C3700A4436A /* TPCTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCTable.m; sourceTree = "<group>"; };
+		1BA169B01CAC1C3700A4436A /* Bed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bed.h; sourceTree = "<group>"; };
+		1BA169B11CAC1C3700A4436A /* Bed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bed.m; sourceTree = "<group>"; };
+		1BA169B21CAC1C3700A4436A /* Chair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chair.h; sourceTree = "<group>"; };
+		1BA169B31CAC1C3700A4436A /* Chair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chair.m; sourceTree = "<group>"; };
+		1BA169B41CAC1C3700A4436A /* Furniture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Furniture.h; sourceTree = "<group>"; };
+		1BA169B51CAC1C3700A4436A /* Furniture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Furniture.m; sourceTree = "<group>"; };
+		1BA169B61CAC1C3700A4436A /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Misc.h; sourceTree = "<group>"; };
+		1BA169B71CAC1C3700A4436A /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
+		1BA169B81CAC1C3700A4436A /* Sofa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sofa.h; sourceTree = "<group>"; };
+		1BA169B91CAC1C3700A4436A /* Sofa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sofa.m; sourceTree = "<group>"; };
+		1BA169BA1CAC1C3700A4436A /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
+		1BA169BB1CAC1C3700A4436A /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
 		1BA169CE1CAC1FC600A4436A /* TPCModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCModels.h; sourceTree = "<group>"; };
 		1BA169CF1CAC22C500A4436A /* TPCCatalogDescriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCCatalogDescriber.h; sourceTree = "<group>"; };
 		1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCCatalogDescriber.m; sourceTree = "<group>"; };
@@ -74,8 +116,8 @@
 		1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCModelsGenerator.m; sourceTree = "<group>"; };
 		1BA169D51CAD708E00A4436A /* TPCStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCStateManager.h; sourceTree = "<group>"; };
 		1BA169D61CAD708E00A4436A /* TPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCStateManager.m; sourceTree = "<group>"; };
-		1BA169D81CAD71AF00A4436A /* TPCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCRoom.h; sourceTree = "<group>"; };
-		1BA169D91CAD71AF00A4436A /* TPCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCRoom.m; sourceTree = "<group>"; };
+		1BA169D81CAD71AF00A4436A /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		1BA169D91CAD71AF00A4436A /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemsMenuViewController.h; sourceTree = "<group>"; };
 		44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemsMenuViewController.m; sourceTree = "<group>"; };
 		44200D281CAEEA3D00479D0D /* TPCMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCMain.storyboard; sourceTree = "<group>"; };
@@ -124,6 +166,20 @@
 		1B9FCD811CAAF3B40041D2DB /* TeamPopcorn */ = {
 			isa = PBXGroup;
 			children = (
+				1BA169B41CAC1C3700A4436A /* Furniture.h */,
+				1BA169B51CAC1C3700A4436A /* Furniture.m */,
+				1BA169D81CAD71AF00A4436A /* Room.h */,
+				1BA169D91CAD71AF00A4436A /* Room.m */,
+				1BA169B01CAC1C3700A4436A /* Bed.h */,
+				1BA169B11CAC1C3700A4436A /* Bed.m */,
+				1BA169B21CAC1C3700A4436A /* Chair.h */,
+				1BA169B31CAC1C3700A4436A /* Chair.m */,
+				1BA169B61CAC1C3700A4436A /* Misc.h */,
+				1BA169B71CAC1C3700A4436A /* Misc.m */,
+				1BA169B81CAC1C3700A4436A /* Sofa.h */,
+				1BA169B91CAC1C3700A4436A /* Sofa.m */,
+				1BA169BA1CAC1C3700A4436A /* Table.h */,
+				1BA169BB1CAC1C3700A4436A /* Table.m */,
 				1BA169CB1CAC1CA200A4436A /* M */,
 				1BA169CC1CAC1CB600A4436A /* V */,
 				1BA169CD1CAC1E0C00A4436A /* C */,
@@ -150,23 +206,42 @@
 		1BA169CB1CAC1CA200A4436A /* M */ = {
 			isa = PBXGroup;
 			children = (
-				1BA169CE1CAC1FC600A4436A /* TPCModels.h */,
-				1BA169B41CAC1C3700A4436A /* TPCFurniture.h */,
-				1BA169B51CAC1C3700A4436A /* TPCFurniture.m */,
+				1B632E081CBD705000223CF4 /* Model.xcdatamodeld */,
+				1B632E231CBD713100223CF4 /* TPCFurniture+CoreDataProperties.h */,
+				1B632E241CBD713100223CF4 /* TPCFurniture+CoreDataProperties.m */,
+				1B632E251CBD713100223CF4 /* TPCFurniture.h */,
+				1B632E261CBD713100223CF4 /* TPCFurniture.m */,
 				0856133B1CB2DCA500452A49 /* TPCFurnitureButton.h */,
 				0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */,
-				1BA169D81CAD71AF00A4436A /* TPCRoom.h */,
-				1BA169D91CAD71AF00A4436A /* TPCRoom.m */,
-				1BA169B01CAC1C3700A4436A /* TPCBed.h */,
-				1BA169B11CAC1C3700A4436A /* TPCBed.m */,
-				1BA169B21CAC1C3700A4436A /* TPCChair.h */,
-				1BA169B31CAC1C3700A4436A /* TPCChair.m */,
-				1BA169B61CAC1C3700A4436A /* TPCMisc.h */,
-				1BA169B71CAC1C3700A4436A /* TPCMisc.m */,
-				1BA169B81CAC1C3700A4436A /* TPCSofa.h */,
-				1BA169B91CAC1C3700A4436A /* TPCSofa.m */,
-				1BA169BA1CAC1C3700A4436A /* TPCTable.h */,
-				1BA169BB1CAC1C3700A4436A /* TPCTable.m */,
+				1B632E1B1CBD713100223CF4 /* _TPCFurnitureButton+CoreDataProperties.h */,
+				1B632E1C1CBD713100223CF4 /* _TPCFurnitureButton+CoreDataProperties.m */,
+				1B632E1D1CBD713100223CF4 /* _TPCFurnitureButton.h */,
+				1B632E1E1CBD713100223CF4 /* _TPCFurnitureButton.m */,
+				1B632E271CBD713100223CF4 /* TPCRoom+CoreDataProperties.h */,
+				1B632E281CBD713100223CF4 /* TPCRoom+CoreDataProperties.m */,
+				1B632E291CBD713100223CF4 /* TPCRoom.h */,
+				1B632E2A1CBD713100223CF4 /* TPCRoom.m */,
+				1B632E171CBD713100223CF4 /* TPCBed+CoreDataProperties.h */,
+				1B632E181CBD713100223CF4 /* TPCBed+CoreDataProperties.m */,
+				1B632E191CBD713100223CF4 /* TPCBed.h */,
+				1B632E1A1CBD713100223CF4 /* TPCBed.m */,
+				1B632E131CBD713100223CF4 /* TPCChair+CoreDataProperties.h */,
+				1B632E141CBD713100223CF4 /* TPCChair+CoreDataProperties.m */,
+				1B632E151CBD713100223CF4 /* TPCChair.h */,
+				1B632E161CBD713100223CF4 /* TPCChair.m */,
+				1B632E0F1CBD713100223CF4 /* TPCMisc+CoreDataProperties.h */,
+				1B632E101CBD713100223CF4 /* TPCMisc+CoreDataProperties.m */,
+				1B632E111CBD713100223CF4 /* TPCMisc.h */,
+				1B632E121CBD713100223CF4 /* TPCMisc.m */,
+				1B632E0B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.h */,
+				1B632E0C1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m */,
+				1B632E0D1CBD713100223CF4 /* TPCSofa.h */,
+				1B632E0E1CBD713100223CF4 /* TPCSofa.m */,
+				1B632E1F1CBD713100223CF4 /* TPCTable+CoreDataProperties.h */,
+				1B632E201CBD713100223CF4 /* TPCTable+CoreDataProperties.m */,
+				1B632E211CBD713100223CF4 /* TPCTable.h */,
+				1B632E221CBD713100223CF4 /* TPCTable.m */,
+				1BA169CE1CAC1FC600A4436A /* TPCModels.h */,
 				7BE73A5D1CAC39C6007BA5A1 /* TPCConstants.h */,
 				7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */,
 				1BA169CF1CAC22C500A4436A /* TPCCatalogDescriber.h */,
@@ -350,25 +425,34 @@
 			files = (
 				081094DD1CB4587C004CDD1C /* TPCItemsMenuViewController.m in Sources */,
 				08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */,
+				1B632E3C1CBDA84C00223CF4 /* TPCFurnitureButton.m in Sources */,
 				7BE73A5F1CAC39C6007BA5A1 /* TPCConstants.m in Sources */,
-				0856133D1CB2DCA500452A49 /* TPCFurnitureButton.m in Sources */,
-				1BA169C31CAC1C3700A4436A /* TPCBed.m in Sources */,
-				1BA169C81CAC1C3700A4436A /* TPCTable.m in Sources */,
-				1BA169C61CAC1C3700A4436A /* TPCMisc.m in Sources */,
+				1B632E2E1CBD713100223CF4 /* TPCMisc.m in Sources */,
+				1B632E2C1CBD713100223CF4 /* TPCSofa.m in Sources */,
+				1B632E381CBD713100223CF4 /* TPCFurniture.m in Sources */,
+				1B632E2B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m in Sources */,
 				085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */,
+				1B632E351CBD713100223CF4 /* TPCTable+CoreDataProperties.m in Sources */,
 				1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */,
-				1BA169DA1CAD71AF00A4436A /* TPCRoom.m in Sources */,
-				1BA169C71CAC1C3700A4436A /* TPCSofa.m in Sources */,
-				1BA169C41CAC1C3700A4436A /* TPCChair.m in Sources */,
+				1B632E0A1CBD705000223CF4 /* Model.xcdatamodeld in Sources */,
+				1B632E361CBD713100223CF4 /* TPCTable.m in Sources */,
 				7BD92E681CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m in Sources */,
 				44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */,
 				1B9FCD871CAAF3B40041D2DB /* AppDelegate.m in Sources */,
+				1B632E301CBD713100223CF4 /* TPCChair.m in Sources */,
 				1B9FCD841CAAF3B40041D2DB /* main.m in Sources */,
 				1BA169D41CAC25B200A4436A /* TPCModelsGenerator.m in Sources */,
+				1B632E2F1CBD713100223CF4 /* TPCChair+CoreDataProperties.m in Sources */,
+				1B632E3B1CBDA84500223CF4 /* _TPCFurnitureButton+CoreDataProperties.m in Sources */,
 				1BA169D71CAD708E00A4436A /* TPCStateManager.m in Sources */,
+				1B632E3A1CBD713100223CF4 /* TPCRoom.m in Sources */,
 				1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */,
 				1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */,
-				1BA169C51CAC1C3700A4436A /* TPCFurniture.m in Sources */,
+				1B632E391CBD713100223CF4 /* TPCRoom+CoreDataProperties.m in Sources */,
+				1B632E2D1CBD713100223CF4 /* TPCMisc+CoreDataProperties.m in Sources */,
+				1B632E321CBD713100223CF4 /* TPCBed.m in Sources */,
+				1B632E311CBD713100223CF4 /* TPCBed+CoreDataProperties.m in Sources */,
+				1B632E371CBD713100223CF4 /* TPCFurniture+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +616,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1B632E081CBD705000223CF4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B632E091CBD705000223CF4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1B632E091CBD705000223CF4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1B9FCD771CAAF3B30041D2DB /* Project object */;
 }

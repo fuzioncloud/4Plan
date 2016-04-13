@@ -2,61 +2,52 @@
 //  TPCFurniture.m
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import "TPCFurniture.h"
-#import "TPCChair.h"
-
-
+#import "TPCFurnitureButton.h"
+#import "TPCStateManager.h"
 
 @implementation TPCFurniture
 
+// Insert code here to add functionality to your managed object subclass
+
+-(UIImage *)image {
+    return [UIImage imageWithData:self.imageData];
+}
+
+-(void)setImage:(UIImage *)image {
+    self.imageData = UIImageJPEGRepresentation(image, 1);
+    self.image = image;
+}
+
+
 -(instancetype)init {
-    self=[self initWithWidth:0 length:0 height:0 image:nil weight:0];
+    self=[self initWithWidth:0 length:0 height:0 image:[UIImage new] weight:0];
+    
+    
     return self;
 }
 
 
-//+(NSArray *)furnitureFromJSON
-//{
-//    NSData *jsonFileData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"furniture" ofType:@"json"]];
-//    NSArray *arrayOfDictionaries = [NSJSONSerialization JSONObjectWithData:jsonFileData options:0 error:nil];
-//    
-//    NSMutableArray *furnitureObjects = [[NSMutableArray alloc] init];
-//    for(NSDictionary *dictionary in arrayOfDictionaries) {
-//        ENWFurniture *furniture = [self furnitureWithDictionary:dictionary];
-//        [furnitureObjects addObject:furniture];
-//    }
-//    
-//    return furnitureObjects;
-//}
-//
-//+(instancetype)furnitureWithDictionary:(NSDictionary *)dictionary
-//{
-//    NSString *furnitureType = dictionary[@"type"];
-//    Class klass = NSClassFromString(furnitureType);
-////    if([furnitureType isEqualToString:@"chair"]) {
-////        klass = [ENWChair class];
-////    }
-//    
-//    ENWFurniture *furniture = [[klass alloc] initWithWidth:[dictionary[@"width"] integerValue]  length:[dictionary[@"length"] integerValue] height:[dictionary[@"height"] integerValue] image:[UIImage imageNamed:dictionary[@"image"]]];
-//    
-//    // have to get the integer values of the strings no the strings themselves
-//    
-//    return furniture;
-//}
-
 -(instancetype)initWithWidth:(NSUInteger)width length:(NSUInteger)length height:(NSUInteger)height image:(UIImage *)image weight:(NSUInteger)weight{
-    self=[super init];
-    if(self) {
-        _width=width;
-        _length=length;
-        _height=height;
-        _image=image;
-        _weight=weight;
+   
+    NSManagedObjectContext *context = [TPCStateManager currentState].context;
+    
+    TPCFurniture *furniture = [NSEntityDescription
+                               insertNewObjectForEntityForName:@"TPCFurniture"
+                               inManagedObjectContext:context];
+    
+    if (furniture) {
+        furniture.width = width;
+        furniture.length = length;
+        furniture.height = height;
+        furniture.image = image;
+        furniture.weight = weight;
     }
+    
     return self;
 }
 

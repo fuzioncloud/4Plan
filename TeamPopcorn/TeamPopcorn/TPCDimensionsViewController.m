@@ -52,7 +52,7 @@
                 f.length=textField.text.doubleValue;
             }
         }
-        
+         NSLog(@"%lld\n\n\n\n\n\n\n\n%lld",f.width,f.length);
     }
     
   

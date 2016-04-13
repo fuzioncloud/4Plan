@@ -2,16 +2,13 @@
 //  TPCBed.m
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Janet Lustgarten on 3/29/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import "TPCBed.h"
 
 @implementation TPCBed
-
-// Insert code here to add functionality to your managed object subclass
-
 
 -(instancetype)init {
     self.name=@"basic";
@@ -24,6 +21,7 @@
     
     switch (bedSize) {
         case Twin:
+            
             self=[self initWithWidth:38 length:75 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
             self.name= @"twin";
             self.bedSize=bedSize;
@@ -59,10 +57,12 @@
             self=[self initWithWidth:38 length:75 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
             self.bedSize=bedSize;
             return self;
+
             
     }
     
 }
+
 
 
 +(instancetype)twinBed {
@@ -92,6 +92,13 @@
 +(instancetype)futonBed {
     return [[self alloc]initWithBedSize:Futon];
 }
+
+
+
+
+
+
+
 
 
 @end

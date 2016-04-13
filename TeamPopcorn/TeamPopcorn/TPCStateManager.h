@@ -22,6 +22,8 @@
 @property (nonatomic) BOOL roomHasChanged;
 @property (nonatomic) id<TPCStateManagerDelegate> delegate;
 
+@property (strong, nonatomic) NSManagedObjectContext *context;
+
 +(instancetype)currentState;
 
 -(void)setRoomOfWidth:(NSUInteger)w
