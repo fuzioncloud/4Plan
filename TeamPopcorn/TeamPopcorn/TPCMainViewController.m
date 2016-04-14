@@ -79,7 +79,6 @@
 
 -(void) constrainForFloorPlan {
     
-    //GOOD
     self.dataStore = [TPCStateManager currentState];
     
     CGFloat roomLayoutBorder = 1.0;
@@ -101,28 +100,29 @@
     CGFloat enteredWidth = self.dataStore.room.w;
     CGFloat enteredHeight = self.dataStore.room.l;
     
-    CGFloat widthFactor = viewWidth / enteredWidth;
-    CGFloat heightFactor = viewHeight / enteredHeight;
-    
     CGFloat scaleFactor;
+  
+    CGFloat widthScaleFactor= (viewWidth - (roomLayoutPadding*2))/enteredWidth;
+    CGFloat heightScaleFactor=(viewHeight - (roomLayoutPadding*2))/enteredHeight;
     
-    if (widthFactor < heightFactor) {
-        scaleFactor = widthFactor;
+    NSLog(@"here is the entered width: %f\n the entered height: %f\n the widthscalefactor: %f\n the heightscalefactor: %f",enteredWidth, enteredHeight, widthScaleFactor, heightScaleFactor);
+                                                                   
+    
+    if (enteredHeight>enteredWidth) {
+        scaleFactor = heightScaleFactor;
     } else {
-        scaleFactor = heightFactor;
+        scaleFactor = widthScaleFactor;
     }
     
     CGFloat floorWidth = enteredWidth * scaleFactor;
     CGFloat floorHeight = enteredHeight * scaleFactor;
+    
     self.dataStore.room.scaledWidth=floorWidth;
     self.dataStore.room.scaledLength=floorHeight;
     
-    floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
-    floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
-    
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
+    CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutBorder + roomLayoutPadding;
     [self.roomLayoutView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     [self.roomLayoutView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active =YES;
     [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
@@ -321,6 +321,9 @@
             
             if (!furniture.hasMoved) {
                 
+                NSLog(@"Furniture has NOT MOVED.");
+                
+                
                 
                 [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                     
@@ -333,30 +336,39 @@
             }
             else{
                 
+                NSLog(@"Furniture has moved.");
                 
-                [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                    
-                    
-                    make.left.equalTo(@(furniture.centerValues.x));
-                    make.top.equalTo(@(furniture.centerValues.y));
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
-                    
-                    if (![self isInBounds:furnitureButton]) {
+                CGRect furnitureRect=CGRectMake(furniture.topLeft.x, furniture.topLeft.y, furniture.widthscaled, furniture.lengthscaled);
+                
+                CGRect roomRect=CGRectMake(0, 0, self.dataStore.room.scaledWidth, self.dataStore.room.scaledLength);
+                
+                if (CGRectContainsRect(roomRect, furnitureRect)) {
+                    [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                        
+                        
+                        make.left.equalTo(@(furniture.topLeft.x));
+                        make.top.equalTo(@(furniture.topLeft.y));
+                        make.width.equalTo(@(furniture.widthscaled));
+                        make.height.equalTo(@(furniture.lengthscaled));
+                    }];
+                }
+                
+                else {
+                    [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                        
                         make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                         make.centerY.equalTo(self.roomLayoutView.mas_centerY);
                         make.width.equalTo(@(furniture.widthscaled));
                         make.height.equalTo(@(furniture.lengthscaled));
-                    }
-                    
-                }];
+                        
+                    }];
+                 }
             }
-            
-            
         }
     }
-    
+
     [self furnitureTouching];
+        
     
 
     
@@ -401,10 +413,6 @@
     
 }
 
-
--(BOOL)isInBounds:(TPCFurnitureButton*)furnitureButton {
-    return CGRectContainsRect(self.roomLayoutView.bounds, furnitureButton.frame);
-}
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
     
@@ -481,7 +489,7 @@
             }];
             
             
-            selectedFurniture.furnitureItem.centerValues=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
+            selectedFurniture.furnitureItem.topLeft=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
             
             
             
