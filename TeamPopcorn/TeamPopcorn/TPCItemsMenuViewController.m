@@ -97,20 +97,76 @@
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
+    TPCFurniture *itemTouse;
     
-//    NSLog(@"%@", selectedFurniture.name);
+    switch (sectionKey.catalogIndex) {
+        case BedIndex: {
+            TPCBed *bed = (TPCBed *)selectedFurniture;
+            itemTouse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
+        }
+            break;
+            
+        case ChairIndex: {
+            TPCChair *chair = (TPCChair *)selectedFurniture;
+            itemTouse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
+        }
+            break;
+            
+        case MiscIndex: {
+            TPCMisc *misc = (TPCMisc *)selectedFurniture;
+            itemTouse = [[TPCMisc alloc] initWithMiscStlye:misc.miscStyle];
+        }
+            break;
+            
+        case SofaIndex: {
+            TPCSofa *sofa = (TPCSofa *)selectedFurniture;
+            itemTouse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
+        }
+            break;
+            
+        case TableIndex: {
+            TPCTable *table = (TPCTable *)selectedFurniture;
+            itemTouse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
+        }
+            break;
+            
+        default:
+            break;
+    }
     
-    [self.arrangedFurniture placeFuriniture:selectedFurniture];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-//    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
 
+    itemTouse.widthscaled=itemTouse.width*self.dataStore.room.scaleForFurnitureW;
+    itemTouse.lengthscaled=itemTouse.length*self.dataStore.room.scaleForFurnitureL;
+
+    
+    if ((itemTouse.widthscaled>self.dataStore.room.scaledWidth)||(itemTouse.lengthscaled>self.dataStore.room.scaledLength)) {
+        NSLog(@"helloooo");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         
+                                                     }];
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
+    else {
+        
+        [self.arrangedFurniture placeFuriniture:itemTouse];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+    
+    
+    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
+    
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {
         [papa viewWillAppear:NO];
         [papa showDismissMenu];
+        
     }
-
 }
 
 
