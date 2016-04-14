@@ -8,6 +8,8 @@
 
 #import "TPCSavedListTableViewController.h"
 #import "TPCStateManager.h"
+#import "TPCModels.h"
+#import "TPCMainViewController.h"
 
 @interface TPCSavedListTableViewController ()
 @property (strong, nonatomic) TPCStateManager *dataStore;
@@ -20,7 +22,7 @@
     [super viewDidLoad];
     
     NSLog(@"count %li", self.dataStore.savedRooms.count);
-
+    self.dataStore = [TPCStateManager currentState];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,8 +47,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"savedCell" forIndexPath:indexPath];
-
-    cell.textLabel.text = self.dataStore.room.name;
+    
+    TPCRoom *currentRoom = self.dataStore.savedRooms[indexPath.row];
+    
+    cell.textLabel.text = currentRoom.name;
     cell.detailTextLabel.text = @"wooooo";
     // Configure the cell...
     
@@ -88,14 +92,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    TPCMainViewController *destinationVC = segue.destinationViewController;
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    TPCRoom *selectedRoom = self.dataStore.savedRooms[indexPath.row];
+    
+    destinationVC.currentRoom = selectedRoom;
+    
 }
-*/
+
+
 
 @end

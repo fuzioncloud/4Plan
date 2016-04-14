@@ -98,12 +98,9 @@
     
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
     
-//    NSLog(@"%@", selectedFurniture.name);
-    
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
-    
+    NSLog(@"selected furniture: %@", selectedFurniture);
     [self dismissViewControllerAnimated:YES completion:nil];
-//    NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
 
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TPCFurniture.h"
+#import "TPCStateManager.h"
 
 @protocol TPCMainViewControllerDelegate
 
@@ -16,6 +17,8 @@
 @interface TPCMainViewController : UIViewController
 
 @property (nonatomic) id<TPCMainViewControllerDelegate> delegate;
+@property (strong, nonatomic) TPCStateManager *dataStore;
+@property (strong, nonatomic) TPCRoom *currentRoom;
 
 -(void)showDismissMenu;
 

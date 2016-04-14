@@ -20,7 +20,7 @@
 
 @interface TPCMainViewController () <UIPopoverPresentationControllerDelegate, TPCDimensionViewControllerDelegate, TPCStateManagerDelegate>
 
-@property (strong, nonatomic) TPCStateManager *dataStore;
+//@property (strong, nonatomic) TPCStateManager *dataStore;
 @property (strong, nonatomic) UIView *roomLayoutView;
 @property (strong, nonatomic) UIButton *deleteButton;
 @property (strong, nonatomic) TPCFurniture *itemToDelete;
@@ -55,7 +55,7 @@
     [self furnitureTouching];
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
-    
+    self.dataStore.room = self.currentRoom;
 }
 
 -(void) barButtonItem {
@@ -91,32 +91,22 @@
 }
 
 -(void) saveButtonPressed{
+ 
+    if (!self.dataStore.savedRooms) {
+        self.dataStore.savedRooms = [NSMutableArray new];
+    }
     
     NSLog(@"save tapped");
     
     UIAlertController *saveButtonAlert = [UIAlertController alertControllerWithTitle:@"Save" message:@"Enter name of room" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *ction) {
+    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        if (!self.dataStore.room.savedFurniture) {
-            self.dataStore.room.savedFurniture = [NSMutableArray new];
-        }
-        if (!self.dataStore.savedRooms) {
-            self.dataStore.savedRooms = [NSMutableArray new];
-        }
         
-        self.dataStore.room.name = saveButtonAlert.textFields[0].text;
-        
-        [self.dataStore.room.savedFurniture addObject:self.dataStore.arrangedFurniture];
-        NSLog(@"saving furniture items: %@",self.dataStore.arrangedFurniture);
-        NSLog(@"in room saved furniture array: %@\n",self.dataStore.room.savedFurniture);
-
-        [self.dataStore.savedRooms addObject:self.dataStore.room];
-        NSLog(@"saving room named: %@  ",self.dataStore.room.name);
-        NSLog(@"in saved room array: %@\n", self.dataStore.savedRooms);
-        
-        NSLog(@"count %li", self.dataStore.savedRooms.count);
-
+        self.currentRoom.name = saveButtonAlert.textFields[0].text;
+//        self.currentRoom.savedFurniture = self.dataStore.arrangedFurniture;
+        [self.dataStore.savedRooms addObject:self.currentRoom];
+        NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
@@ -148,8 +138,8 @@
     self.roomLayoutView = [[UIView alloc] init];
     [self.view addSubview:self.roomLayoutView];
     
-    NSLog(@"width entered %lu", self.dataStore.room.w);
-    NSLog(@"length entered %lu", self.dataStore.room.l);
+    NSLog(@"width entered %lu", self.currentRoom.w);
+    NSLog(@"length entered %lu", self.currentRoom.l);
     
     CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -157,8 +147,8 @@
     CGFloat viewWidth = self.view.bounds.size.width;
     CGFloat viewHeight = self.view.bounds.size.height - (navHeight + statusBarHeight);
     
-    CGFloat enteredWidth = self.dataStore.room.w;
-    CGFloat enteredHeight = self.dataStore.room.l;
+    CGFloat enteredWidth = self.currentRoom.w;
+    CGFloat enteredHeight = self.currentRoom.l;
     
     CGFloat widthFactor = viewWidth / enteredWidth;
     CGFloat heightFactor = viewHeight / enteredHeight;
@@ -311,7 +301,7 @@
     
     self.dataStore = [TPCStateManager currentState];
     
-    [self clearSuperView];
+//    [self clearSuperView];
     
     [self setButton];
     
@@ -320,26 +310,26 @@
     
 }
 
--(void)clearSuperView {
-    for (TPCFurnitureButton *button in self.furnitureButtonArray) {
-        [button removeFromSuperview];
-        
-    }
-}
+//-(void)clearSuperView {
+//    for (TPCFurnitureButton *button in self.furnitureButtonArray) {
+//        [button removeFromSuperview];
+//        
+//    }
+//}
 
 -(void)setButton {
     
     [self checkIfItemTooBig];
     
-    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
+    NSLog(@"set button furniture in saved furniture: %@", self.currentRoom.savedFurniture);
+    
+    for (TPCFurniture *furniture in self.currentRoom.savedFurniture) {
         
         TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
         
         furnitureButton.furnitureItem = furniture;
-        
-        NSLog(@"here is the array:%@",self.furnitureButtonArray);
-        
-        [self.furnitureButtonArray addObject:furnitureButton];
+                
+//        [self.furnitureButtonArray addObject:furnitureButton];
         
         [furnitureButton setBackgroundImage:furniture.image forState:normal];
         furnitureButton.imageView.image = furniture.image;
@@ -348,8 +338,8 @@
         furnitureButton.tintColor = [UIColor blackColor];
         
         
-        CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
-        CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
+        CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.currentRoom.w;
+        CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.currentRoom.l;
         furniture.widthscaled=furniture.width*widthscale;
         furniture.lengthscaled=furniture.length*lengthscale;
         
@@ -409,8 +399,8 @@
 
 -(void) updateFurnitureSize {
     
-    CGFloat widthscale= self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
-    CGFloat lengthscale=self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
+    CGFloat widthscale= self.roomLayoutView.bounds.size.width/self.currentRoom.w;
+    CGFloat lengthscale=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
     self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*widthscale;
     self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*lengthscale;
     
@@ -551,7 +541,7 @@
     
     [self.deleteButton removeFromSuperview];
     
-    [self.dataStore.arrangedFurniture removeObject:self.itemToDelete];
+    [self.currentRoom.savedFurniture removeObject:self.itemToDelete];
     
 //    [self.dataStore.arrangedButtons removeObject:self.furnitureButtonToDelete];
     [self.furnitureButtonToDelete removeFromSuperview];

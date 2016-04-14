@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="-395" y="244"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="eR3-6F-HwS">
             <objects>
-                <viewController id="pGH-Td-mO8" sceneMemberID="viewController">
+                <viewController id="pGH-Td-mO8" customClass="TPCEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="izs-Rw-CeG"/>
                         <viewControllerLayoutGuide type="bottom" id="Lhn-ez-Olu"/>
@@ -193,13 +193,14 @@
                                 <rect key="frame" x="45" y="255" width="41" height="30"/>
                                 <state key="normal" title="saved"/>
                                 <connections>
-                                    <segue destination="dpl-ug-4se" kind="show" id="3ab-Zz-BT9"/>
+                                    <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
                                 <rect key="frame" x="169" y="255" width="68" height="30"/>
                                 <state key="normal" title="new room"/>
                                 <connections>
+                                    <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
                                     <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
                                 </connections>
                             </button>
@@ -207,6 +208,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yaZ-cT-sH5"/>
+                    <connections>
+                        <outlet property="roomButton" destination="fGQ-fE-5Hj" id="8jg-Oy-cT6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfV-dL-hqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -33,26 +33,29 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     self.datastore=[TPCStateManager currentState];
     
+    TPCMainViewController *destinationVC = segue.destinationViewController;
+    
     if ([[segue identifier] isEqualToString:@"2x2"]) {
-        [self.datastore setRoomOfWidth:2 height:0 length:2];
+        destinationVC.currentRoom = [self.datastore setRoomOfWidth:2 height:0 length:2];
     }
     
     if ([[segue identifier] isEqualToString:@"2x4"]) {
-        [self.datastore setRoomOfWidth:2 height:0 length:4];
+        destinationVC.currentRoom = [self.datastore setRoomOfWidth:2 height:0 length:4];
         
     }
     if ([[segue identifier] isEqualToString:@"5x5"]) {
-       [self.datastore setRoomOfWidth:5 height:0 length:5];
+        destinationVC.currentRoom = [self.datastore setRoomOfWidth:5 height:0 length:5];
         
     }
     if ([[segue identifier] isEqualToString:@"5x10"]) {
-        [self.datastore setRoomOfWidth:5 height:0 length:10];
+        destinationVC.currentRoom = [self.datastore setRoomOfWidth:5 height:0 length:10];
         
     }
     if ([[segue identifier] isEqualToString:@"10x10"]) {
-        [self.datastore setRoomOfWidth:10 height:0 length:10];
+        destinationVC.currentRoom = [self.datastore setRoomOfWidth:10 height:0 length:10];
         
     }
 }
+
 
 @end

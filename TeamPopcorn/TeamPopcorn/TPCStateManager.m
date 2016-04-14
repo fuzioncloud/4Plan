@@ -9,8 +9,8 @@
 #import "TPCStateManager.h"
 
 @interface TPCStateManager ()
-@property (strong, nonatomic, readwrite) TPCRoom *room;
-@property (strong, nonatomic, readwrite) NSMutableArray<TPCFurniture *> *arrangedFurniture;
+//@property (strong, nonatomic, readwrite) TPCRoom *room;
+//@property (strong, nonatomic) NSMutableArray<TPCFurniture *> *arrangedFurniture;
 @property (nonatomic) NSUInteger originalRoomW;
 @property (nonatomic) NSUInteger originalRoomL;
 
@@ -43,38 +43,35 @@
     
 }
 
--(void)setRoomOfWidth:(NSUInteger)w
+-(TPCRoom *)setRoomOfWidth:(NSUInteger)w
                height:(NSUInteger)h
                length:(NSUInteger)l; {
-    if (!self.room) {
-        self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
-        self.originalRoomL=self.room.l;
-        self.originalRoomW=self.room.w;
+    
+        TPCRoom *newRoom = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
+        self.originalRoomL=newRoom.l;
+        self.originalRoomW=newRoom.w;
         self.roomHasChanged=NO;
-    } else {
-        self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
-        
-    }
+
+    return newRoom;
 }
 
 
 
 -(void)placeFuriniture:(TPCFurniture *)furniturePiece {
-    if (!self.arrangedFurniture) {
-        self.arrangedFurniture = [NSMutableArray<TPCFurniture *> new];
+    NSLog(@"furniture: %@", furniturePiece);
+
+    if (!self.room.savedFurniture) {
+        self.room.savedFurniture = [NSMutableArray<TPCFurniture *> new];
     }
+    
     furniturePiece.scale = [self scaleFurniture:furniturePiece inRoom:self.room];
     furniturePiece.horizontalDistanceFromOrigin = self.room.w / 2;
     furniturePiece.verticalDistanceFromOrigin = self.room.l / 2;
     furniturePiece.hasScaled=NO;
     furniturePiece.hasMoved=NO;
-    [self.arrangedFurniture addObject:furniturePiece];
-    
+    [self.room.savedFurniture addObject:furniturePiece];
+    NSLog(@"furniture in place furniture: %@", self.room.savedFurniture);
 }
-
-
-
-
 
 
 -(CGFloat)scaleFurniture:(TPCFurniture *)furniturePiece inRoom:(TPCRoom *)room {

@@ -12,6 +12,7 @@
 		0856133D1CB2DCA500452A49 /* TPCFurnitureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856133C1CB2DCA500452A49 /* TPCFurnitureButton.m */; };
 		087D35F71CBEC12700C144CC /* TPCSavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087D35F61CBEC12700C144CC /* TPCSavedList.storyboard */; };
 		087D35FA1CBEC1A100C144CC /* TPCSavedListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087D35F91CBEC1A100C144CC /* TPCSavedListTableViewController.m */; };
+		087D35FD1CBFD4EB00C144CC /* TPCEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087D35FC1CBFD4EB00C144CC /* TPCEntryViewController.m */; };
 		08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */; };
 		1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632DF91CB8435900223CF4 /* TPCSecrets.m */; };
 		1B9FCD841CAAF3B40041D2DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FCD831CAAF3B40041D2DB /* main.m */; };
@@ -46,6 +47,8 @@
 		087D35F61CBEC12700C144CC /* TPCSavedList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCSavedList.storyboard; sourceTree = "<group>"; };
 		087D35F81CBEC1A100C144CC /* TPCSavedListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCSavedListTableViewController.h; sourceTree = "<group>"; };
 		087D35F91CBEC1A100C144CC /* TPCSavedListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSavedListTableViewController.m; sourceTree = "<group>"; };
+		087D35FB1CBFD4EB00C144CC /* TPCEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCEntryViewController.h; sourceTree = "<group>"; };
+		087D35FC1CBFD4EB00C144CC /* TPCEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCEntryViewController.m; sourceTree = "<group>"; };
 		08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMainViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMainViewController.m; sourceTree = "<group>"; };
 		1B632DF91CB8435900223CF4 /* TPCSecrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSecrets.m; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */,
 				087D35F81CBEC1A100C144CC /* TPCSavedListTableViewController.h */,
 				087D35F91CBEC1A100C144CC /* TPCSavedListTableViewController.m */,
+				087D35FB1CBFD4EB00C144CC /* TPCEntryViewController.h */,
+				087D35FC1CBFD4EB00C144CC /* TPCEntryViewController.m */,
 			);
 			name = C;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */,
 				087D35FA1CBEC1A100C144CC /* TPCSavedListTableViewController.m in Sources */,
 				1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */,
+				087D35FD1CBFD4EB00C144CC /* TPCEntryViewController.m in Sources */,
 				1BA169C51CAC1C3700A4436A /* TPCFurniture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

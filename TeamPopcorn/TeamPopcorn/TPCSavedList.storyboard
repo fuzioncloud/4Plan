@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sVO-LR-WVX" kind="show" id="txl-l3-ptz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,6 +51,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M5-uJ-bfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="620" y="315"/>
+        </scene>
+        <!--TPCMain-->
+        <scene sceneID="hYV-OX-3Fg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TPCMain" id="sVO-LR-WVX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYW-Aj-DL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="315"/>
         </scene>
     </scenes>
 </document>
