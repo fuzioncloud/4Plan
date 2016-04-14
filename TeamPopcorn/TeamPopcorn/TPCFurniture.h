@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) UIImage *image;
 @property (nonatomic) BOOL hasScaled;
-@property (nonatomic) CGPoint centerValues;
+@property (nonatomic) CGPoint topLeft;
 @property (nonatomic) BOOL hasMoved;
 
 

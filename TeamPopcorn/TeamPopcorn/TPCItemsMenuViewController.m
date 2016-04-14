@@ -114,8 +114,8 @@
             break;
             
         case MiscIndex: {
-            TPCMisc *stuff = (TPCMisc *)selectedFurniture;
-            itemTouse = [[TPCMisc alloc] initWithMiscStlye:stuff.miscStyle];
+            TPCMisc *misc = (TPCMisc *)selectedFurniture;
+            itemTouse = [[TPCMisc alloc] initWithMiscStlye:misc.miscStyle];
         }
             break;
             
@@ -137,6 +137,24 @@
     
     itemTouse.widthscaled=itemTouse.width*self.dataStore.room.scaleForFurnitureW;
     itemTouse.lengthscaled=itemTouse.length*self.dataStore.room.scaleForFurnitureL;
+    
+    NSLog(@"The width of the item is: %lu, the room's scaleForFurnitureW is %f", (unsigned long)itemTouse.width, self.dataStore.room.scaleForFurnitureW);
+    NSLog(@"The length of the item is: %lu, the room's scaleForFurnitureW is %f", (unsigned long)itemTouse.length, self.dataStore.room.scaleForFurnitureL);
+    
+    NSLog(@"Item To Use - the widthScaled is %f", itemTouse.widthscaled);
+    NSLog(@"Item to use - the lengthScaled is %f", itemTouse.widthscaled);
+    
+    NSLog(@"Scaled Width of Room is %f", self.dataStore.room.scaledWidth);
+    NSLog(@"Scaled Length of Room is %f", self.dataStore.room.scaledLength);
+    
+    
+    BOOL widthOfItemIsGreater = itemTouse.widthscaled > self.dataStore.room.scaledWidth;
+    BOOL lengthOfItemIsGreater = itemTouse.lengthscaled > self.dataStore.room.scaledLength;
+    
+    NSLog(@"itemWidthScaled > roomScaledWidth = %@", widthOfItemIsGreater ? @"YES" : @"NO");
+    NSLog(@"itemLengthScaled > roomScaledLength = %@", lengthOfItemIsGreater ? @"YES" : @"NO");
+
+
     
     if ((itemTouse.widthscaled>self.dataStore.room.scaledWidth)||(itemTouse.lengthscaled>self.dataStore.room.scaledLength)) {
         NSLog(@"helloooo");
