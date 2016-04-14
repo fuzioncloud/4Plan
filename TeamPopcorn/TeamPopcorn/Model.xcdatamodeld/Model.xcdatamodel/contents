@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
-    <entity name="NOFurnitureButton" representedClassName="TPCFurnitureButton" syncable="YES">
-        <attribute name="leftConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="lengthConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="topConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="widthConstraint" optional="YES" attributeType="Binary" syncable="YES"/>
-        <relationship name="furniture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TPCFurniture" inverseName="placedFurniture" inverseEntity="TPCFurniture" syncable="YES"/>
-        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TPCRoom" inverseName="placedFurniturePieces" inverseEntity="TPCRoom" syncable="YES"/>
-    </entity>
     <entity name="TPCBed" representedClassName="TPCBed" parentEntity="TPCFurniture" syncable="YES">
         <attribute name="bedSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -15,6 +7,10 @@
         <attribute name="chairStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="TPCFurniture" representedClassName="TPCFurniture" syncable="YES">
+        <attribute name="centerValuesX" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="centerValuesY" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="hasMoved" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasScaled" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="horizontalDistanceFromOrigin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -26,7 +22,7 @@
         <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="width" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="widthScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="placedFurniture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NOFurnitureButton" inverseName="furniture" inverseEntity="NOFurnitureButton" syncable="YES"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TPCRoom" inverseName="placedFurniturePieces" inverseEntity="TPCRoom" syncable="YES"/>
     </entity>
     <entity name="TPCMisc" representedClassName="TPCMisc" parentEntity="TPCFurniture" syncable="YES">
         <attribute name="miscStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -34,9 +30,13 @@
     <entity name="TPCRoom" representedClassName="TPCRoom" syncable="YES">
         <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="scaledLength" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaledWidth" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaleForFurnitureL" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaleForFurnitureW" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="width" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="placedFurniturePieces" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NOFurnitureButton" inverseName="room" inverseEntity="NOFurnitureButton" syncable="YES"/>
+        <relationship name="placedFurniturePieces" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TPCFurniture" inverseName="room" inverseEntity="TPCFurniture" syncable="YES"/>
     </entity>
     <entity name="TPCSofa" representedClassName="TPCSofa" parentEntity="TPCFurniture" syncable="YES">
         <attribute name="sofaStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -45,13 +45,12 @@
         <attribute name="tableStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TPCBed" positionX="16" positionY="-27" width="128" height="58"/>
-        <element name="TPCChair" positionX="9" positionY="59" width="128" height="58"/>
-        <element name="TPCFurniture" positionX="-218" positionY="53" width="128" height="223"/>
-        <element name="NOFurnitureButton" positionX="-479" positionY="65" width="128" height="133"/>
-        <element name="TPCMisc" positionX="9" positionY="140" width="128" height="58"/>
-        <element name="TPCRoom" positionX="-477" positionY="296" width="128" height="118"/>
-        <element name="TPCSofa" positionX="7" positionY="234" width="128" height="58"/>
+        <element name="TPCBed" positionX="-90" positionY="-81" width="128" height="58"/>
+        <element name="TPCChair" positionX="9" positionY="5" width="128" height="58"/>
+        <element name="TPCFurniture" positionX="-218" positionY="53" width="128" height="283"/>
+        <element name="TPCMisc" positionX="9" positionY="135" width="128" height="58"/>
+        <element name="TPCRoom" positionX="-405" positionY="297" width="128" height="178"/>
+        <element name="TPCSofa" positionX="7" positionY="248" width="128" height="58"/>
         <element name="TPCTable" positionX="-83" positionY="338" width="128" height="58"/>
     </elements>
 </model>

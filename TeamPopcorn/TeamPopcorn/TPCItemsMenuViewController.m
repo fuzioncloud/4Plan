@@ -18,11 +18,8 @@
 
 @property (strong, nonatomic) NSDictionary<TPCCatalogDescriber *,NSArray<TPCFurniture *> *> *itemsMenu;
 
-@property (strong, nonatomic) TPCStateManager *arrangedFurniture;
-
-@property (strong, nonatomic) TPCStateManager *arrangedButtons;
-
 @property (strong, nonatomic) TPCStateManager *dataStore;
+
 
 @property (strong, nonatomic) TPCMainViewController *mainvc;
 
@@ -38,6 +35,7 @@
     self.itemsMenu = [TPCModelsGenerator generateModels];
     
     self.dataStore = [TPCStateManager currentState];
+    
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
     
@@ -45,8 +43,6 @@
     self.itemsTableView.sectionIndexBackgroundColor = [UIColor lightGrayColor];
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
     
-    self.arrangedFurniture = [TPCStateManager currentState];
-    self.arrangedButtons = [TPCStateManager currentState];
     
 }
 
@@ -96,38 +92,38 @@
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
-    TPCFurniture *itemTouse;
+    TPCFurniture *itemToUse;
     
     
     
     switch (sectionKey.catalogIndex) {
         case BedIndex: {
             TPCBed *bed = (TPCBed *)selectedFurniture;
-            itemTouse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
+            itemToUse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
         }
             break;
             
         case ChairIndex: {
             TPCChair *chair = (TPCChair *)selectedFurniture;
-            itemTouse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
+            itemToUse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
         }
             break;
             
         case MiscIndex: {
             TPCMisc *stuff = (TPCMisc *)selectedFurniture;
-            itemTouse = [[TPCMisc alloc] initWithMiscStlye:stuff.miscStyle];
+            itemToUse = [[TPCMisc alloc] initWithMiscStlye:stuff.miscStyle];
         }
             break;
             
         case SofaIndex: {
             TPCSofa *sofa = (TPCSofa *)selectedFurniture;
-            itemTouse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
+            itemToUse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
         }
             break;
             
         case TableIndex: {
             TPCTable *table = (TPCTable *)selectedFurniture;
-            itemTouse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
+            itemToUse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
         }
             break;
             
@@ -135,10 +131,10 @@
             break;
     }
     
-    itemTouse.widthscaled=itemTouse.width*self.dataStore.room.scaleForFurnitureW;
-    itemTouse.lengthscaled=itemTouse.length*self.dataStore.room.scaleForFurnitureL;
+    itemToUse.widthScale = itemToUse.width*self.dataStore.room.scaleForFurnitureW;
+    itemToUse.lengthScale = itemToUse.length*self.dataStore.room.scaleForFurnitureL;
     
-    if ((itemTouse.widthscaled>self.dataStore.room.scaledWidth)||(itemTouse.lengthscaled>self.dataStore.room.scaledLength)) {
+    if ((itemToUse.widthScale > self.dataStore.room.scaledWidth)||(itemToUse.lengthScale > self.dataStore.room.scaledLength)) {
         NSLog(@"helloooo");
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
@@ -152,13 +148,11 @@
     
         else {
             
-            [self.arrangedFurniture placeFuriniture:itemTouse];
+            [self.dataStore placeFuriniture:itemToUse];
             [self dismissViewControllerAnimated:YES completion:nil];
             
             }
     
-
-        NSLog(@"%@", self.arrangedFurniture.arrangedFurniture);
     
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {

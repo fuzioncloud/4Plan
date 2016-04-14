@@ -2,7 +2,7 @@
 //  TPCMisc+CoreDataProperties.h
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Flatiron School on 4/14/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

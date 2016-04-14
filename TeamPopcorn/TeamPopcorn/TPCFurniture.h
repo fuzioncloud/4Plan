@@ -10,23 +10,21 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
+
 @class TPCFurnitureButton;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCFurniture : NSManagedObject
 
-@property (atomic) NSUInteger horizontalDistanceFromOrigin;
-@property (atomic) NSUInteger verticalDistanceFromOrigin;
-
-@property (atomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
-
-@property (strong, nonatomic) UIImage *image;
-@property (nonatomic) BOOL hasScaled;
-@property (nonatomic) CGPoint centerValues;
-@property (nonatomic) BOOL hasMoved;
-
 // Insert code here to declare functionality of your managed object subclass
+
+@property (nonatomic) CGPoint centerValues;
+
+//@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) UIImage *image;
+
+//@property (nullable, nonatomic, retain) TPCFurnitureButton *placedFurniture;
 
 -(instancetype)init;
 

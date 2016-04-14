@@ -17,12 +17,12 @@
 @interface TPCStateManager : NSObject
 
 @property (strong, nonatomic, readonly) TPCRoom *room;
-@property (strong, nonatomic, readonly) NSMutableArray<TPCFurniture *> *arrangedFurniture;
+//@property (strong, nonatomic, readonly) NSMutableArray<TPCFurniture *> *totalArrangedFurniture;
 @property (strong, nonatomic, readwrite) NSMutableArray<TPCFurnitureButton *>*arrangedButtons;
 @property (nonatomic) BOOL roomHasChanged;
 @property (nonatomic) id<TPCStateManagerDelegate> delegate;
 
-@property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 +(instancetype)currentState;
 

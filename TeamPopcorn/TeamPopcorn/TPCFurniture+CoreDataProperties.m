@@ -2,7 +2,7 @@
 //  TPCFurniture+CoreDataProperties.m
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Flatiron School on 4/14/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,6 +13,10 @@
 
 @implementation TPCFurniture (CoreDataProperties)
 
+@dynamic centerValuesX;
+@dynamic centerValuesY;
+@dynamic hasMoved;
+@dynamic hasScaled;
 @dynamic height;
 @dynamic horizontalDistanceFromOrigin;
 @dynamic imageData;
@@ -24,6 +28,7 @@
 @dynamic weight;
 @dynamic width;
 @dynamic widthScale;
-@dynamic placedFurniture;
+@dynamic room;
+
 
 @end

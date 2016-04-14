@@ -2,7 +2,7 @@
 //  TPCFurniture+CoreDataProperties.h
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Flatiron School on 4/14/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -10,11 +10,17 @@
 //
 
 #import "TPCFurniture.h"
+#import "TPCRoom.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCFurniture (CoreDataProperties)
 
+@property (nonatomic) float centerValuesX;
+@property (nonatomic) float centerValuesY;
+@property (nonatomic) BOOL hasMoved;
+@property (nonatomic) BOOL hasScaled;
 @property (nonatomic) int64_t height;
 @property (nonatomic) int64_t horizontalDistanceFromOrigin;
 @property (nullable, nonatomic, retain) NSData *imageData;
@@ -26,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t weight;
 @property (nonatomic) int64_t width;
 @property (nonatomic) float widthScale;
-@property (nullable, nonatomic, retain) TPCFurnitureButton *placedFurniture;
+@property (nullable, nonatomic, retain) TPCRoom *room;
 
 @end
 

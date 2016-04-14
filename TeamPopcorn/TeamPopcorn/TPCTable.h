@@ -10,7 +10,7 @@
 #import "TPCFurniture.h"
 #import "TPCConstants.h"
 
-typedef NS_ENUM(NSInteger, TPCTableStyle) {
+typedef NS_ENUM(int64_t, TPCTableStyle) {
     basicTable,
     bedsideTable,
     coffeeTable,

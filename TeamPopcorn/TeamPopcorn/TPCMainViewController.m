@@ -46,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self constrainForFloorPlan]; // move
     [self barButtonItem]; // move
     
@@ -54,8 +55,8 @@
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
     
-    self.dataStore.room.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
-    self.dataStore.room.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
+    self.dataStore.room.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.dataStore.room.length;
+    self.dataStore.room.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.dataStore.room.width;
     
     
 }
@@ -223,12 +224,15 @@
 
 -(void)checkIfItemsTooBig {
 
-    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
-        furniture.widthscaled=furniture.width*self.dataStore.room.scaleForFurnitureW;
-        furniture.lengthscaled=furniture.length*self.dataStore.room.scaleForFurnitureL;
-        if ((furniture.widthscaled>self.dataStore.room.scaledWidth)||(furniture.lengthscaled>self.dataStore.room.scaledLength)) {
-            NSLog(@"%flalalala%f", furniture.widthscaled, furniture.lengthscaled);
-            [self.dataStore.arrangedFurniture removeObject:furniture];
+    for (TPCFurniture *furniture in self.dataStore.room.savedFurniture) {
+        furniture.widthScale=furniture.width*self.dataStore.room.scaleForFurnitureW;
+        furniture.lengthScale=furniture.length*self.dataStore.room.scaleForFurnitureL;
+        if ((furniture.widthScale>self.dataStore.room.scaledWidth)||(furniture.lengthScale>self.dataStore.room.scaledLength)) {
+            NSLog(@"%flalalala%f", furniture.widthScale, furniture.lengthScale);
+            
+            NSMutableArray *mutableArray = [self.dataStore.room.savedFurniture mutableCopy];
+            [mutableArray removeObject:furniture];
+            self.dataStore.room.savedFurniture = mutableArray;
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
@@ -251,7 +255,7 @@
     [super viewWillAppear:animated];
     
     [self.deleteButton removeFromSuperview];
-    
+    [self.view layoutSubviews];
     [self refreshRoomScene];
     
 
@@ -276,8 +280,8 @@
 
 -(void)setButton {
     
-    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
-        NSLog(@"Data store furniture: %@", self.dataStore.arrangedFurniture);
+    for (TPCFurniture *furniture in self.dataStore.room.savedFurniture) {
+        NSLog(@"Data store furniture: %@", self.dataStore.room.savedFurniture);
         NSLog(@"Local furniture: %@", self.localFurnitureArray);
         if (!self.localFurnitureArray){
             self.localFurnitureArray=[NSMutableArray new];
@@ -298,8 +302,8 @@
             furnitureButton.tintColor = [UIColor blackColor];
             
             
-            furniture.widthscaled=furniture.width*self.dataStore.room.scaleForFurnitureW;
-            furniture.lengthscaled=furniture.length*self.dataStore.room.scaleForFurnitureL;
+            furniture.widthScale=furniture.width*self.dataStore.room.scaleForFurnitureW;
+            furniture.lengthScale=furniture.length*self.dataStore.room.scaleForFurnitureL;
             
             
             [self.roomLayoutView addSubview:furnitureButton];
@@ -326,8 +330,8 @@
                     
                     make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                     make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
+                    make.width.equalTo(@(furniture.widthScale));
+                    make.height.equalTo(@(furniture.lengthScale));
                     
                 }];
             }
@@ -339,14 +343,14 @@
                     
                     make.left.equalTo(@(furniture.centerValues.x));
                     make.top.equalTo(@(furniture.centerValues.y));
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
+                    make.width.equalTo(@(furniture.widthScale));
+                    make.height.equalTo(@(furniture.lengthScale));
                     
                     if (![self isInBounds:furnitureButton]) {
                         make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                         make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                        make.width.equalTo(@(furniture.widthscaled));
-                        make.height.equalTo(@(furniture.lengthscaled));
+                        make.width.equalTo(@(furniture.widthScale));
+                        make.height.equalTo(@(furniture.lengthScale));
                     }
                     
                 }];
@@ -372,12 +376,12 @@
 
 -(void) updateFurnitureSize {
     
-    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
-    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
+    self.tappedFurnitureButton.furnitureItem.widthScale=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
+    self.tappedFurnitureButton.furnitureItem.lengthScale=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
     
     
     
-    if (( self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||( self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
+    if (( self.tappedFurnitureButton.furnitureItem.widthScale>self.dataStore.room.scaledWidth)||( self.tappedFurnitureButton.furnitureItem.lengthScale>self.dataStore.room.scaledLength)) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your changes have made the item too large for the room. Reverted to previous size." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
@@ -390,8 +394,8 @@
     
     else {
         [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-            self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
-            self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
+            self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthScale));
+            self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthScale));
             make.centerX.equalTo(self.roomLayoutView.mas_centerX);
             make.centerY.equalTo(self.roomLayoutView.mas_centerY);
         }];
@@ -543,8 +547,11 @@
     
     [self.deleteButton removeFromSuperview];
     
-    [self.dataStore.arrangedFurniture removeObject:self.itemToDelete];
+    NSMutableArray *mutableArray = [self.dataStore.room.savedFurniture mutableCopy];
+    [mutableArray removeObject:self.itemToDelete];
+    self.dataStore.room.savedFurniture = mutableArray;
     
+
     [self.dataStore.arrangedButtons removeObject:self.furnitureButtonToDelete];
     [self.furnitureButtonToDelete removeFromSuperview];
     [self.localFurnitureArray removeObject:self.furnitureButtonToDelete.furnitureItem];

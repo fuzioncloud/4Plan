@@ -14,8 +14,8 @@
 
 
 -(instancetype)init {
-    self.name=@"basic";
     self=[self initWithWidth:bedWidth length:bedLength height:bedHeight image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
+    self.name=@"basic";
     self.bedSize = Twin;
     return self;
 }
@@ -25,38 +25,38 @@
     switch (bedSize) {
         case Twin:
             self=[self initWithWidth:38 length:75 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
-            self.name= @"twin";
-            self.bedSize=bedSize;
+            self.name = @"twin";
+            self.bedSize = bedSize;
             return self;
             
         case Full:
-            self.name=@"full";
             self=[self initWithWidth:53 length:75 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
+            self.name=@"full";
             self.bedSize=bedSize;
             return self;
             
         case Queen:
-            self.name=@"queen";
             self=[self initWithWidth:60 length:80 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
+            self.name=@"queen";
             self.bedSize=bedSize;
             return self;
             
         case King:
+            self=[self initWithWidth:76 length:80 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
             self.name=@"king";
-            self=[self initWithWidth:76 length:80 height:20 image:[UIImage imageNamed:@"basicBed.png"]
-                              weight:bedWeight];
             self.bedSize=bedSize;
             return self;
             
         case CaliforniaKing:
-            self.name=@"california king";
             self=[self initWithWidth:72 length:84 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
+            self.name=@"california king";
             self.bedSize=bedSize;
             return self;
             
         default:
             
             self=[self initWithWidth:38 length:75 height:20 image:[UIImage imageNamed:@"basicBed.png"] weight:bedWeight];
+            self.name = @"default bed";
             self.bedSize=bedSize;
             return self;
             

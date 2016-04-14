@@ -6,19 +6,24 @@
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
-#import "TPCRoom.h"
 #import "TPCFurnitureButton.h"
 #import "TPCStateManager.h"
 
 
 @implementation TPCRoom
 
-// Insert code here to add functionality to your managed object subclass
+-(NSArray<TPCFurniture *> *)savedFurniture {
+    return [self.placedFurniturePieces array];
+}
+
+-(void)setSavedFurniture:(NSArray *)savedFurniture {
+    self.placedFurniturePieces = [NSOrderedSet orderedSetWithArray:savedFurniture];
+}
 
 +(instancetype)roomOfWidth:(NSUInteger)w
                     height:(NSUInteger)h
                     length:(NSUInteger)l {
-    NSManagedObjectContext *context = [TPCStateManager currentState].context;
+    NSManagedObjectContext *context = [TPCStateManager currentState].managedObjectContext;
     
     TPCRoom *newRoom = [NSEntityDescription
         insertNewObjectForEntityForName:@"TPCRoom"

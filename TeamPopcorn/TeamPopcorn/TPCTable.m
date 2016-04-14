@@ -13,8 +13,8 @@
 // Insert code here to add functionality to your managed object subclass
 
 -(instancetype)init {
-    self.name=@"basic";
     self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+    self.name=@"basic";
     self.tableStyle=basicTable;
     return self;
     
@@ -24,38 +24,39 @@
     
     switch (tableStyle) {
         case basicTable:
-            self.name=@"basic";
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+            self.name=@"basic";
             self.tableStyle=tableStyle;
             return self;
             
         case bedsideTable:
-            self.name=@"bedside";
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"bedsideTable.png"] weight:tableWeight];
+            self.name=@"bedside";
             self.tableStyle=tableStyle;
             return self;
             
         case coffeeTable:
-            self.name=@"coffee";
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"coffeeTable.png"] weight:tableWeight];
+            self.name=@"coffee";
             self.tableStyle=tableStyle;
             return self;
             
         case deskTable:
-            self.name=@"desk";
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"deskTable.png"] weight:tableWeight];
+            self.name=@"desk";
             self.tableStyle=tableStyle;
             return self;
             
         case roundTable:
-            self.name=@"round";
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"roundTable.png"] weight:tableWeight];
+            self.name=@"round";
             self.tableStyle=tableStyle;
             return self;
             
         default:
             
             self=[self initWithWidth:tableWidth length:tableLength height:tableHeight image:[UIImage imageNamed:@"basicTable.png"] weight:tableWeight];
+            self.name = @"default table";
             self.tableStyle=tableStyle;
             return self;
             

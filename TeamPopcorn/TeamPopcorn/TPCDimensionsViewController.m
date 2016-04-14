@@ -38,8 +38,9 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
+    NSArray * arrangedFurniture = [TPCStateManager currentState].room.savedFurniture;
     
-    for (TPCFurniture *f in [TPCStateManager currentState].arrangedFurniture) {
+    for (TPCFurniture *f in arrangedFurniture) {
         if ([f isEqual:self.furniture]) {
             
             if (textField == self.widthField) {

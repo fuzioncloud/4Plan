@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TPCFurniture.h"
-#import "TPCFurniture.h"
 #import "TPCConstants.h"
+#import "TPCFurniture.h"
 
-typedef NS_ENUM(NSInteger, TPCBedSize) {
+typedef NS_ENUM(int64_t, TPCBedSize) {
     Twin=0,
     Full=1,
     Queen=2,

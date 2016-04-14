@@ -2,7 +2,7 @@
 //  TPCRoom+CoreDataProperties.h
 //  TeamPopcorn
 //
-//  Created by Flatiron School on 4/12/16.
+//  Created by Flatiron School on 4/14/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -10,32 +10,40 @@
 //
 
 #import "TPCRoom.h"
+#import "TPCFurniture.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class TPCFurnitureButton;
 @interface TPCRoom (CoreDataProperties)
 
 @property (nonatomic) int64_t height;
 @property (nonatomic) int64_t length;
+@property (nonatomic) float scaledLength;
+@property (nonatomic) float scaledWidth;
+@property (nonatomic) float scaleForFurnitureL;
+@property (nonatomic) float scaleForFurnitureW;
 @property (nullable, nonatomic, retain) NSString *shape;
 @property (nonatomic) int64_t width;
-@property (nullable, nonatomic, retain) NSOrderedSet<TPCFurnitureButton *> *placedFurniturePieces;
+
+@property (nullable, nonatomic, retain) NSOrderedSet<TPCFurniture *> *placedFurniturePieces;
 
 @end
 
+
 @interface TPCRoom (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(TPCFurnitureButton *)value inPlacedFurniturePiecesAtIndex:(NSUInteger)idx;
+
+- (void)insertObject:(TPCFurniture *)value inPlacedFurniturePiecesAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromPlacedFurniturePiecesAtIndex:(NSUInteger)idx;
-- (void)insertPlacedFurniturePieces:(NSArray<TPCFurnitureButton *> *)value atIndexes:(NSIndexSet *)indexes;
+- (void)insertPlacedFurniturePieces:(NSArray<TPCFurniture *> *)value atIndexes:(NSIndexSet *)indexes;
 - (void)removePlacedFurniturePiecesAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInPlacedFurniturePiecesAtIndex:(NSUInteger)idx withObject:(TPCFurnitureButton *)value;
-- (void)replacePlacedFurniturePiecesAtIndexes:(NSIndexSet *)indexes withPlacedFurniturePieces:(NSArray<TPCFurnitureButton *> *)values;
-- (void)addPlacedFurniturePiecesObject:(TPCFurnitureButton *)value;
-- (void)removePlacedFurniturePiecesObject:(TPCFurnitureButton *)value;
-- (void)addPlacedFurniturePieces:(NSOrderedSet<TPCFurnitureButton *> *)values;
-- (void)removePlacedFurniturePieces:(NSOrderedSet<TPCFurnitureButton *> *)values;
+- (void)replaceObjectInPlacedFurniturePiecesAtIndex:(NSUInteger)idx withObject:(TPCFurniture *)value;
+- (void)replacePlacedFurniturePiecesAtIndexes:(NSIndexSet *)indexes withPlacedFurniturePieces:(NSArray<TPCFurniture *> *)values;
+- (void)addPlacedFurniturePiecesObject:(TPCFurniture *)value;
+- (void)removePlacedFurniturePiecesObject:(TPCFurniture *)value;
+- (void)addPlacedFurniturePieces:(NSOrderedSet<TPCFurniture *> *)values;
+- (void)removePlacedFurniturePieces:(NSOrderedSet<TPCFurniture *> *)values;
+
 
 @end
 

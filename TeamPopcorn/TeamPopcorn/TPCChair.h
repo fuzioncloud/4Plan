@@ -11,7 +11,7 @@
 #import "TPCFurniture.h"
 #import "TPCConstants.h"
 
-typedef NS_ENUM(NSInteger, TPCChairStyle) {
+typedef NS_ENUM(int64_t, TPCChairStyle) {
     basicChair,
     campingChair,
     lazyboyChair,

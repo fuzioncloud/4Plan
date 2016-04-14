@@ -10,17 +10,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+#import "TPCRoom.h"
+//#import "TPCFurniture.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TPCFurniture;
+
 @interface TPCRoom : NSManagedObject
 
-@property (strong, nonatomic, readonly) NSString *shape;
-@property (assign,nonatomic) NSUInteger w, h, l;
-@property (atomic) CGFloat scaledWidth;
-@property (atomic) CGFloat scaledLength;
-@property (atomic) CGFloat scaleForFurnitureW;
-@property (atomic) CGFloat scaleForFurnitureL;
+@property (strong, nonatomic) NSArray<TPCFurniture *> *savedFurniture;
 
 // Insert code here to declare functionality of your managed object subclass
 
