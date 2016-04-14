@@ -133,13 +133,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oDO-Z1-yPy">
-                                <rect key="frame" x="30" y="30" width="540" height="540"/>
+                                <rect key="frame" x="30" y="15" width="540" height="480"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vA3-Cm-SE0">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="155"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-MQ-dxI">
-                                                <rect key="frame" x="0.0" y="74" width="180" height="26"/>
+                                                <rect key="frame" x="0.0" y="64" width="180" height="26"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Width:">
                                                         <attributes>
@@ -152,7 +152,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Width" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vug-OE-gBS">
-                                                <rect key="frame" x="180" y="72" width="360" height="30"/>
+                                                <rect key="frame" x="180" y="62" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
@@ -165,10 +165,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bj4-O7-ntM">
-                                        <rect key="frame" x="0.0" y="183" width="540" height="174"/>
+                                        <rect key="frame" x="0.0" y="163" width="540" height="154"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6R2-Tf-mcx">
-                                                <rect key="frame" x="0.0" y="74" width="180" height="26"/>
+                                                <rect key="frame" x="0.0" y="64" width="180" height="26"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Length:">
                                                         <attributes>
@@ -181,7 +181,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcf-GP-IQ0">
-                                                <rect key="frame" x="180" y="72" width="360" height="30"/>
+                                                <rect key="frame" x="180" y="62" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
@@ -194,10 +194,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fx9-SK-FLT">
-                                        <rect key="frame" x="0.0" y="365" width="540" height="175"/>
+                                        <rect key="frame" x="0.0" y="325" width="540" height="155"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BRH-H6-Qzc">
-                                                <rect key="frame" x="0.0" y="75" width="180" height="26"/>
+                                                <rect key="frame" x="0.0" y="65" width="180" height="26"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Height:">
                                                         <attributes>
@@ -210,7 +210,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPl-rX-9Ux">
-                                                <rect key="frame" x="180" y="73" width="360" height="30"/>
+                                                <rect key="frame" x="180" y="63" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
@@ -228,14 +228,25 @@
                                     <constraint firstItem="6R2-Tf-mcx" firstAttribute="width" secondItem="cKh-MQ-dxI" secondAttribute="width" id="f5Q-N3-1sj"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7u0-d0-nlU">
+                                <rect key="frame" x="210" y="510" width="180" height="60"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="YLX-7c-BHf" eventType="touchUpInside" id="ePV-Wx-WrE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="width" secondItem="DDA-TD-rTv" secondAttribute="width" multiplier="0.9" id="12e-zb-S9G"/>
-                            <constraint firstItem="oDO-Z1-yPy" firstAttribute="centerY" secondItem="DDA-TD-rTv" secondAttribute="centerY" id="LV6-kb-jmm"/>
+                            <constraint firstItem="7u0-d0-nlU" firstAttribute="width" secondItem="DDA-TD-rTv" secondAttribute="width" multiplier="0.3" id="AjQ-QL-AHF"/>
+                            <constraint firstItem="7u0-d0-nlU" firstAttribute="centerY" secondItem="DDA-TD-rTv" secondAttribute="centerY" multiplier="1.8" id="BKr-Tg-Agb"/>
+                            <constraint firstItem="oDO-Z1-yPy" firstAttribute="centerY" secondItem="DDA-TD-rTv" secondAttribute="centerY" multiplier="0.85" id="LV6-kb-jmm"/>
+                            <constraint firstItem="7u0-d0-nlU" firstAttribute="centerX" secondItem="DDA-TD-rTv" secondAttribute="centerX" id="Oeb-uV-X7B"/>
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="centerX" secondItem="DDA-TD-rTv" secondAttribute="centerX" id="Pij-Q9-HuJ"/>
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="leading" secondItem="DDA-TD-rTv" secondAttribute="leadingMargin" constant="-20" id="eDL-fV-LRq"/>
-                            <constraint firstItem="oDO-Z1-yPy" firstAttribute="height" secondItem="DDA-TD-rTv" secondAttribute="height" multiplier="0.9" id="hVY-er-y5z"/>
+                            <constraint firstItem="oDO-Z1-yPy" firstAttribute="height" secondItem="DDA-TD-rTv" secondAttribute="height" multiplier="0.8" id="hVY-er-y5z"/>
+                            <constraint firstItem="7u0-d0-nlU" firstAttribute="height" secondItem="DDA-TD-rTv" secondAttribute="height" multiplier="0.1" id="hvH-EM-0yP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -246,6 +257,7 @@
                     <connections>
                         <outlet property="heightField" destination="aPl-rX-9Ux" id="JcD-mJ-Ufh"/>
                         <outlet property="lengthField" destination="rcf-GP-IQ0" id="Yka-P0-jAJ"/>
+                        <outlet property="saveButton" destination="7u0-d0-nlU" id="s1F-Qs-3Qh"/>
                         <outlet property="widthField" destination="vug-OE-gBS" id="1mW-hP-Wph"/>
                     </connections>
                 </viewController>

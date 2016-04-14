@@ -138,6 +138,7 @@
     itemTouse.widthscaled=itemTouse.width*self.dataStore.room.scaleForFurnitureW;
     itemTouse.lengthscaled=itemTouse.length*self.dataStore.room.scaleForFurnitureL;
     
+    
     NSLog(@"The width of the item is: %lu, the room's scaleForFurnitureW is %f", (unsigned long)itemTouse.width, self.dataStore.room.scaleForFurnitureW);
     NSLog(@"The length of the item is: %lu, the room's scaleForFurnitureW is %f", (unsigned long)itemTouse.length, self.dataStore.room.scaleForFurnitureL);
     

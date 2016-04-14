@@ -35,6 +35,8 @@
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *localFurnitureArray;
+@property (nonatomic) BOOL itemsTooBig;
+
 
 
 
@@ -57,6 +59,10 @@
     self.dataStore.room.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
     self.dataStore.room.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateFurnitureSize) name:@"updateFurnitureNotification"
+                                               object:nil];
+    self.itemsTooBig=NO;
     
 }
 
@@ -222,29 +228,38 @@
 }
 
 -(void)checkIfItemsTooBig {
-
+    NSMutableArray *furnitureToDelete = [[NSMutableArray alloc] init];
+    
     for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
         furniture.widthscaled=furniture.width*self.dataStore.room.scaleForFurnitureW;
         furniture.lengthscaled=furniture.length*self.dataStore.room.scaleForFurnitureL;
         if ((furniture.widthscaled>self.dataStore.room.scaledWidth)||(furniture.lengthscaled>self.dataStore.room.scaledLength)) {
             NSLog(@"%flalalala%f", furniture.widthscaled, furniture.lengthscaled);
-            [self.dataStore.arrangedFurniture removeObject:furniture];
-            
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                             
-                                                         }];
-            [alert addAction:okay];
-            [self presentViewController:alert animated:YES completion:nil];
-            
+            [furnitureToDelete addObject:furniture];
+            self.itemsTooBig=YES;
         }
         
     }
-
+    
+    [self.dataStore.arrangedFurniture removeObjectsInArray:furnitureToDelete];
 }
 
 
+-(void)itemTooBigAlert {
+    if (self.itemsTooBig) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted"preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                     
+                                                 }];
+      
+                                   
+    [alert addAction:okay];
+    [self presentViewController:alert animated:YES completion:nil];
+    }
+    self.itemsTooBig=NO;
+    
+}
 -(void)viewWillAppear:(BOOL)animated{
     
     
@@ -259,7 +274,10 @@
 
 -(void)refreshRoomScene {
     
+    
     [self checkIfItemsTooBig];
+    
+    [self itemTooBigAlert];
     
     [self.deleteButton removeFromSuperview];
     
@@ -377,13 +395,13 @@
 
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
-    [self updateFurnitureSize];
+    
     
     
 }
 
 
--(void) updateFurnitureSize {
+-(void)updateFurnitureSize {
     
     self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
     self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;

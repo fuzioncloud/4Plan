@@ -12,10 +12,13 @@
 
 
 
-@interface TPCDimensionsViewController () <UITextFieldDelegate>
+@interface TPCDimensionsViewController () <UITextFieldDelegate,TPCMainViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *widthField;
 @property (weak, nonatomic) IBOutlet UITextField *lengthField;
 @property (weak, nonatomic) IBOutlet UITextField *heightField;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong,nonatomic) TPCMainViewController *mainvc;
+
 
 
 @end
@@ -24,50 +27,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.widthField.delegate=self;
-    self.lengthField.delegate=self;
-    self.heightField.delegate=self;
+    self.mainvc.delegate=self;
     
     
+    NSArray *textfields = @[self.widthField, self.lengthField, self.heightField];
+    
+    for (UITextField *textField in textfields) {
+        textField.delegate = self;
+        [textField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
+    }
     
     
 
     
     // Do any additional setup after loading the view.
 }
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (IBAction)saveButtonTapped:(id)sender {
     
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateFurnitureNotification" object:nil];
+    
+}
+
+-(void)editingChanged:(UITextField *)textField {
     
     for (TPCFurniture *f in [TPCStateManager currentState].arrangedFurniture) {
         if ([f isEqual:self.furniture]) {
-            
-            if (textField == self.widthField) {
+            if ([textField isEqual:self.widthField]) {
                 f.width=textField.text.doubleValue;
             }
-            else if (textField == self.heightField) {
-                f.height=textField.text.doubleValue;
-            }
-            else if (textField == self.lengthField) {
+            if ([textField isEqual:self.lengthField]) {
                 f.length=textField.text.doubleValue;
+            }
+            if ([textField isEqual:self.heightField]) {
+                f.height=textField.text.doubleValue;
             }
         }
         
     }
     
-  
-//    if (self.widthField.text.length>0 && t == self.widthField) {
-//        fb.furnitureItem.width=t.text.doubleValue;
-//    }
-//    else if (self.heightField.text.length>0 && t == self.heightField) {
-//        fb.furnitureItem.height=t.text.doubleValue;
-//    }
-//    else if (self.lengthField.text.length>0 && t == self.lengthField) {
-//        fb.furnitureItem.length=t.text.doubleValue;
-//    }
-//}
-
 }
+
+
 
 -(void)viewWillDisappear:(BOOL)animated {
     
