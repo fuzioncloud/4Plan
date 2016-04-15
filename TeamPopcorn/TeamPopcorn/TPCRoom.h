@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface TPCRoom : NSObject
 
@@ -14,6 +15,7 @@
 @property (assign,nonatomic) NSUInteger w, h, l;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *savedFurniture;
+@property (nonatomic) CGFloat scaledWidth, scaledLength, scaleForFurnitureW, scaleForFurnitureL;
 
 +(instancetype)roomOfWidth:(NSUInteger)w
                     height:(NSUInteger)h

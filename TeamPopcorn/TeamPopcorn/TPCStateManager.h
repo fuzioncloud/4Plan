@@ -22,6 +22,7 @@
 @property (nonatomic) BOOL roomHasChanged;
 @property (nonatomic) id<TPCStateManagerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray<TPCRoom *> *savedRooms;
+@property (strong, nonatomic) TPCRoom *currentRoom;
 
 +(instancetype)currentState;
 

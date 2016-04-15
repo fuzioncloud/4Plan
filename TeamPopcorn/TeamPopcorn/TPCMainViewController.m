@@ -26,12 +26,16 @@
 @property (strong, nonatomic) TPCFurniture *itemToDelete;
 @property (strong, nonatomic) TPCFurnitureButton *furnitureButtonToDelete;
 @property (strong, nonatomic) TPCDimensionsViewController *dimensionsvc;
+@property (strong, nonatomic) TPCItemsMenuViewController *itemsvc;
+
+
 @property (strong, nonatomic) TPCFurnitureButton *tappedFurnitureButton;
 @property (strong, nonatomic) UIView *itemsMenuContainerView;
 @property (strong, nonatomic) UIView *recognizerLayerView;
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
+@property (strong, nonatomic) NSMutableArray *localFurnitureArray;
 
 
 
@@ -44,7 +48,7 @@
     [super viewDidLoad];
     
     self.furnitureButtonArray = [NSMutableArray new];
-    [self constrainForFloorPlan]; // move
+    [self constrainForFloorPlan];
     [self barButtonItem]; // move
     [self createSaveButton];
     [self constraintsForItemsMenu];
@@ -53,6 +57,9 @@
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
     self.dataStore.room = self.currentRoom;
+    
+    self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
+    self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.w;
 }
 
 -(void) barButtonItem {
@@ -125,7 +132,6 @@
 
 -(void) constrainForFloorPlan {
     
-    //GOOD
     self.dataStore = [TPCStateManager currentState];
     
     CGFloat roomLayoutBorder = 1.0;
@@ -147,23 +153,24 @@
     CGFloat enteredWidth = self.currentRoom.w;
     CGFloat enteredHeight = self.currentRoom.l;
     
-    CGFloat widthFactor = viewWidth / enteredWidth;
-    CGFloat heightFactor = viewHeight / enteredHeight;
+    CGFloat widthScaleFactor = (viewWidth-(roomLayoutPadding*2))/enteredWidth;
+    CGFloat heightScaleFactor = (viewHeight-(roomLayoutPadding*2))/enteredHeight;
     
     CGFloat scaleFactor;
-    
-    if (widthFactor < heightFactor) {
-        scaleFactor = widthFactor;
+   
+    if (enteredHeight > enteredWidth) {
+        scaleFactor = heightScaleFactor;
     } else {
-        scaleFactor = heightFactor;
+        scaleFactor = widthScaleFactor;
     }
     
     CGFloat floorWidth = enteredWidth * scaleFactor;
     CGFloat floorHeight = enteredHeight * scaleFactor;
     
-    floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
-    floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
     
+    self.currentRoom.scaledWidth=floorWidth;
+    self.currentRoom.scaledLength=floorHeight;
+    NSLog(@"%f",self.currentRoom.scaledWidth);
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
     CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
@@ -321,12 +328,15 @@
     NSLog(@"set button furniture in saved furniture: %@", self.currentRoom.savedFurniture);
     
     for (TPCFurniture *furniture in self.currentRoom.savedFurniture) {
+        if (!self.localFurnitureArray) {
+            self.localFurnitureArray=[NSMutableArray new];
+        }
+        if (![self.localFurnitureArray containsObject:furniture]) {
+            [self.localFurnitureArray addObject:furniture];
         
         TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
         
         furnitureButton.furnitureItem = furniture;
-                
-//        [self.furnitureButtonArray addObject:furnitureButton];
         
         [furnitureButton setBackgroundImage:furniture.image forState:normal];
         furnitureButton.imageView.image = furniture.image;
@@ -335,10 +345,8 @@
         furnitureButton.tintColor = [UIColor blackColor];
         
         
-        CGFloat widthscale = self.roomLayoutView.bounds.size.width/self.currentRoom.w;
-        CGFloat lengthscale =self.roomLayoutView.bounds.size.height/self.currentRoom.l;
-        furniture.widthscaled=furniture.width*widthscale;
-        furniture.lengthscaled=furniture.length*lengthscale;
+            furniture.widthscaled=furniture.width*self.dataStore.room.scaleForFurnitureW;
+            furniture.lengthscaled=furniture.length*self.dataStore.room.scaleForFurnitureL;
         
         [self.roomLayoutView addSubview:furnitureButton];
         NSLog(@"subviews: %@", self.roomLayoutView.subviews);
@@ -371,6 +379,11 @@
         }
         else{
             
+
+            CGRect furnitureRect = CGRectMake(furniture.centerValues.x, furniture.centerValues.y, furniture.widthscaled, furniture.lengthscaled);
+            CGRect roomRect = CGRectMake(0, 0, self.dataStore.room.scaledWidth, self.dataStore.room.scaledLength);
+            
+            if (CGRectContainsRect(roomRect, furnitureRect)) {
             [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
                 
                 make.left.equalTo(@(furniture.centerValues.x));
@@ -387,34 +400,59 @@
                 
             }];
         }
+            else {
+                
+                [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    
+                    make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+                    make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+                    make.width.equalTo(@(furniture.widthscaled));
+                    make.height.equalTo(@(furniture.lengthscaled));
+                    
+                }];
+            }
+        }
     }
-
+    }
     [self furnitureTouching];
     
 }
 
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
-    [self updateFurnitureSize];
-    
     
 }
 
 
--(void) updateFurnitureSize {
+-(void) didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
-    CGFloat widthscale= self.roomLayoutView.bounds.size.width/self.currentRoom.w;
-    CGFloat lengthscale=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
-    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*widthscale;
-    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*lengthscale;
+    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
+    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
     
-    [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
-        self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
-        make.left.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.x));
-        make.top.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.y));
-    }];
-    [self checkIfItemTooBig];
+    if ((self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||(self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your changes have made the item too large for the room. Reverted to previous size." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
+    else {
+        
+        
+        
+        [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+            make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+            make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
+            make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
+        }];
+        
+        
+    }
     [self.view layoutIfNeeded];
 }
 

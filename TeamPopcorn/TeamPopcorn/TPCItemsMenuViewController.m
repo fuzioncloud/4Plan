@@ -11,6 +11,7 @@
 #import "TPCModelsGenerator.h"
 #import "TPCStateManager.h"
 #import "TPCMainViewController.h"
+#import "TPCRoom.h"
 
 @interface TPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate, TPCMainViewControllerDelegate>
 
@@ -26,13 +27,14 @@
 
 @property (strong, nonatomic) TPCMainViewController *mainvc;
 
+
 @end
 
 @implementation TPCItemsMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.mainvc.delegate=self;
     // For now I'm just faking the data
     self.itemsMenu = [TPCModelsGenerator generateModels];
@@ -41,12 +43,15 @@
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
     
+
+    
     self.itemsTableView.sectionIndexColor = [UIColor blackColor];
     self.itemsTableView.sectionIndexBackgroundColor = [UIColor lightGrayColor];
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
     
     self.arrangedFurniture = [TPCStateManager currentState];
     self.arrangedButtons = [TPCStateManager currentState];
+    
     
 }
 
@@ -94,13 +99,67 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
-    
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
+    TPCFurniture*itemToUse;
     
+    switch (sectionKey.catalogIndex) {
+        case BedIndex: {
+            TPCBed*bed = (TPCBed*)selectedFurniture;
+            itemToUse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
+        }
+            break;
+        case ChairIndex: {
+            TPCChair*chair = (TPCChair*)selectedFurniture;
+            itemToUse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
+        }
+            break;
+        case MiscIndex: {
+            TPCMisc*misc = (TPCMisc*)selectedFurniture;
+            itemToUse = [[TPCMisc alloc] initWithMiscStlye:misc.miscStyle];
+        }
+            break;
+        case SofaIndex: {
+            TPCSofa*sofa = (TPCSofa*)selectedFurniture;
+            itemToUse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
+        }
+            break;
+        case TableIndex: {
+            TPCTable*table = (TPCTable*)selectedFurniture;
+            itemToUse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
+        }
+            break;
+        default:
+            break;
+            
+            }
+    
+    itemToUse.widthscaled=itemToUse.width*self.dataStore.room.scaleForFurnitureW;
+    itemToUse.lengthscaled=itemToUse.length*self.dataStore.room.scaleForFurnitureL;
+    
+  
+    
+    
+    if ((itemToUse.widthscaled>self.dataStore.room.scaledWidth)||(itemToUse.lengthscaled>self.dataStore.room.scaledLength)) {
+        
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
+    else {
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
 
     [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {
