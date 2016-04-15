@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TPCMainViewController.h"
+#import "TPCRoom.h"
 
 //to pass data back to smlviewcontroller before the datastore is made
 
