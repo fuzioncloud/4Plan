@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFY-SZ-h3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="244"/>
+            <point key="canvasLocation" x="1092" y="244"/>
         </scene>
         <!--TPCDimensionsVC-->
         <scene sceneID="C0N-Lb-cgY">
@@ -170,12 +170,59 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kic-mr-Kfq" kind="relationship" relationship="rootViewController" id="msI-H5-oFj"/>
+                        <segue destination="pGH-Td-mO8" kind="relationship" relationship="rootViewController" id="5yP-5l-pe8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGW-nR-lfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="244"/>
+            <point key="canvasLocation" x="-395" y="244"/>
+        </scene>
+        <!--Entry View Controller-->
+        <scene sceneID="eR3-6F-HwS">
+            <objects>
+                <viewController id="pGH-Td-mO8" customClass="TPCEntryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="izs-Rw-CeG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lhn-ez-Olu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WuA-vW-8l2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-H3-8Gb">
+                                <rect key="frame" x="45" y="255" width="41" height="30"/>
+                                <state key="normal" title="saved"/>
+                                <connections>
+                                    <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
+                                <rect key="frame" x="169" y="255" width="68" height="30"/>
+                                <state key="normal" title="new room"/>
+                                <connections>
+                                    <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
+                                    <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yaZ-cT-sH5"/>
+                    <connections>
+                        <outlet property="roomButton" destination="fGQ-fE-5Hj" id="8jg-Oy-cT6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfV-dL-hqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386" y="244"/>
+        </scene>
+        <!--TPCSavedList-->
+        <scene sceneID="svh-6j-bPe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TPCSavedList" referencedIdentifier="savedListStoryBoard" id="dpl-ug-4se" userLabel="TPCSavedList" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ci-Dm-6Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386" y="714"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -11,6 +11,7 @@
 #import "TPCModelsGenerator.h"
 #import "TPCStateManager.h"
 #import "TPCMainViewController.h"
+#import "TPCRoom.h"
 
 @interface TPCItemsMenuViewController ()<UITableViewDataSource, UITableViewDelegate, TPCMainViewControllerDelegate>
 
@@ -23,13 +24,14 @@
 
 @property (strong, nonatomic) TPCMainViewController *mainvc;
 
+
 @end
 
 @implementation TPCItemsMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.mainvc.delegate=self;
     // For now I'm just faking the data
     self.itemsMenu = [TPCModelsGenerator generateModels];
@@ -39,9 +41,12 @@
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
     
+
+    
     self.itemsTableView.sectionIndexColor = [UIColor blackColor];
     self.itemsTableView.sectionIndexBackgroundColor = [UIColor lightGrayColor];
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
+    
     
     
 }
@@ -57,8 +62,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TPCItemCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"Item Cell"];
-    //    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
-    //    itemCell.itemImage.image = [UIImage imageNamed:imageName];
+//    NSString *imageName = [self tableView:tableView titleForHeaderInSection:indexPath.section];
+//    itemCell.itemImage.image = [UIImage imageNamed:imageName];
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     
@@ -66,7 +71,11 @@
     itemCell.itemImage.image = piece.image;
     itemCell.itemName.text = piece.name;
     itemCell.itemDimensions.text =
+//<<<<<<< HEAD
         [NSString stringWithFormat:@"W: %lldcm  H:%lldcm  L: %lldcm",
+//=======
+//        [NSString stringWithFormat:@"W: %lucm  H:%lucm  L: %lucm",
+//>>>>>>> master
                             piece.width, piece.height, piece.length];
     return itemCell;
 }
@@ -90,8 +99,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
+//<<<<<<< HEAD
     TPCFurniture *itemToUse;
     
     
@@ -99,36 +110,56 @@
     switch (sectionKey.catalogIndex) {
         case BedIndex: {
             TPCBed *bed = (TPCBed *)selectedFurniture;
+//=======
+//    TPCFurniture*itemToUse;
+//    
+//    switch (sectionKey.catalogIndex) {
+//        case BedIndex: {
+//            TPCBed*bed = (TPCBed*)selectedFurniture;
+//>>>>>>> master
             itemToUse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
         }
             break;
-            
         case ChairIndex: {
+//<<<<<<< HEAD
             TPCChair *chair = (TPCChair *)selectedFurniture;
+////=======
+//            TPCChair*chair = (TPCChair*)selectedFurniture;
+//>>>>>>> master
             itemToUse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
         }
             break;
-            
         case MiscIndex: {
+//<<<<<<< HEAD
             TPCMisc *stuff = (TPCMisc *)selectedFurniture;
             itemToUse = [[TPCMisc alloc] initWithMiscStlye:stuff.miscStyle];
+//=======
+//            TPCMisc*misc = (TPCMisc*)selectedFurniture;
+//            itemToUse = [[TPCMisc alloc] initWithMiscStlye:misc.miscStyle];
+//>>>>>>> master
         }
             break;
-            
         case SofaIndex: {
-            TPCSofa *sofa = (TPCSofa *)selectedFurniture;
+//<<<<<<< HEAD
+//            TPCSofa *sofa = (TPCSofa *)selectedFurniture;
+//=======
+            TPCSofa*sofa = (TPCSofa*)selectedFurniture;
+//>>>>>>> master
             itemToUse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
         }
             break;
-            
         case TableIndex: {
-            TPCTable *table = (TPCTable *)selectedFurniture;
+//<<<<<<< HEAD
+//            TPCTable *table = (TPCTable *)selectedFurniture;
+//=======
+            TPCTable*table = (TPCTable*)selectedFurniture;
+//>>>>>>> master
             itemToUse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
         }
             break;
-            
         default:
             break;
+//<<<<<<< HEAD
     }
     
     itemToUse.widthScale = itemToUse.width*self.dataStore.room.scaleForFurnitureW;
@@ -143,24 +174,53 @@
                                                          }];
             [alert addAction:okay];
             [self presentViewController:alert animated:YES completion:nil];
-            
-    }
+//=======
+//>>>>>>> master
+        
+            }
     
+//<<<<<<< HEAD
         else {
             
             [self.dataStore placeFuriniture:itemToUse];
             [self dismissViewControllerAnimated:YES completion:nil];
+//=======
+    itemToUse.widthScale=itemToUse.width*self.dataStore.room.scaleForFurnitureW;
+    itemToUse.lengthScale=itemToUse.length*self.dataStore.room.scaleForFurnitureL;
+    
+  
+    
+    
+    if ((itemToUse.widthScale>self.dataStore.room.scaledWidth)||(itemToUse.lengthScale>self.dataStore.room.scaledLength)) {
+        
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//>>>>>>> master
             
-            }
+        }];
+        
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
     
+//<<<<<<< HEAD
+//=======
+//    else {
+//    [self.arrangedFurniture placeFuriniture:selectedFurniture];
+
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//>>>>>>> master
     
+
     TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
     if (papa) {
         [papa viewWillAppear:NO];
         [papa showDismissMenu];
-    
     }
-
+        }
 }
 
 

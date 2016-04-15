@@ -10,8 +10,13 @@
 #import "TPCModels.h"
 
 @interface TPCStateManager ()
-@property (strong, nonatomic, readwrite) TPCRoom *room;
+//<<<<<<< HEAD
+//@property (strong, nonatomic, readwrite) TPCRoom *room;
 //@property (strong, nonatomic, readwrite) NSMutableArray<TPCFurniture *> *arrangedFurniture;
+//=======
+//@property (strong, nonatomic, readwrite) TPCRoom *room;
+//@property (strong, nonatomic) NSMutableArray<TPCFurniture *> *arrangedFurniture;
+//>>>>>>> master
 @property (nonatomic) NSUInteger originalRoomW;
 @property (nonatomic) NSUInteger originalRoomL;
 
@@ -45,34 +50,52 @@
     
 }
 
--(void)setRoomOfWidth:(NSUInteger)w
+-(TPCRoom *)setRoomOfWidth:(NSUInteger)w
                height:(NSUInteger)h
                length:(NSUInteger)l; {
-    if (!self.room) {
-        self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
-    }
-    else {
-        self.room.width = w;
-        self.room.height = h;
-        self.room.length = l;
-    }
+//<<<<<<< HEAD
+//    if (!self.room) {
+//        self.room = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
+//    }
+//    else {
+//        self.room.width = w;
+//        self.room.height = h;
+//        self.room.length = l;
+//    }
+//    
+//    self.originalRoomL = self.room.length;
+//    self.originalRoomW = self.room.width;
+//    self.roomHasChanged = NO;
+//=======
     
-    self.originalRoomL = self.room.length;
-    self.originalRoomW = self.room.width;
-    self.roomHasChanged = NO;
+        TPCRoom *newRoom = [TPCRoom roomOfWidth:w*12 height:h*12 length:l*12];
+        self.originalRoomL=newRoom.length;
+        self.originalRoomW=newRoom.width;
+        self.roomHasChanged=NO;
+
+    return newRoom;
+//>>>>>>> master
 }
 
 
 
 -(void)placeFuriniture:(TPCFurniture *)furniturePiece {
+//<<<<<<< HEAD
     if (!self.room.savedFurniture) {
         self.room.savedFurniture = [NSArray<TPCFurniture *> new];
+//=======
+//
+//    if (!self.room.savedFurniture) {
+//        self.room.savedFurniture = [NSMutableArray<TPCFurniture *> new];
+//>>>>>>> master
     }
+    
     furniturePiece.scale = [self scaleFurniture:furniturePiece inRoom:self.room];
     furniturePiece.horizontalDistanceFromOrigin = self.room.width / 2;
     furniturePiece.verticalDistanceFromOrigin = self.room.length / 2;
     furniturePiece.hasScaled=NO;
     furniturePiece.hasMoved=NO;
+//<<<<<<< HEAD
     NSMutableArray *arrangedFurniture = [self.room.savedFurniture mutableCopy];
     [arrangedFurniture addObject:furniturePiece];
     self.room.savedFurniture = arrangedFurniture;
@@ -102,6 +125,10 @@
         }
     }
 }
+//=======
+//    [self.room.savedFurniture addObject:furniturePiece];
+//}
+//>>>>>>> master
 
 #pragma mark - Core Data stack
 

@@ -10,8 +10,6 @@
 
 @implementation TPCModelsGenerator
 
-
-
 +(NSDictionary<TPCCatalogDescriber *,NSArray<TPCFurniture *> *> *)generateModels{
     TPCCatalogDescriber *bedKey = [TPCCatalogDescriber withName:@"Beds" index:BedIndex];
     TPCCatalogDescriber *chairKey = [TPCCatalogDescriber withName:@"Chairs" index:ChairIndex];

@@ -13,6 +13,7 @@
 #import "TPCRoom.h"
 //#import "TPCFurniture.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @class TPCFurniture;
@@ -22,6 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray<TPCFurniture *> *savedFurniture;
 
 // Insert code here to declare functionality of your managed object subclass
+=======
+@property (strong, nonatomic, readonly) NSString *shape;
+@property (assign,nonatomic) NSUInteger w, h, l;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSMutableArray *savedFurniture;
+@property (nonatomic) CGFloat scaledWidth, scaledLength, scaleForFurnitureW, scaleForFurnitureL;
+>>>>>>> master
 
 +(instancetype)roomOfWidth:(NSUInteger)w
                     height:(NSUInteger)h
