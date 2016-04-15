@@ -59,9 +59,9 @@
     self.dataStore.room.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.dataStore.room.l;
     self.dataStore.room.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.dataStore.room.w;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateFurnitureSize) name:@"updateFurnitureNotification"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(updateFurnitureSize) name:@"updateFurnitureNotification"
+//                                               object:nil];
     self.itemsTooBig=NO;
     
 }
@@ -384,9 +384,10 @@
 
             }
         }
+        [self furnitureTouching];
     }
 
-    [self furnitureTouching];
+  
         
     
 
@@ -401,7 +402,7 @@
 }
 
 
--(void)updateFurnitureSize {
+-(void)didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
     self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
     self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;

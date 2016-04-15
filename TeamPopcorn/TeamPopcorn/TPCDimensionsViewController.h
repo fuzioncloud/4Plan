@@ -10,16 +10,18 @@
 #import "TPCModels.h"
 #import "TPCFurnitureButton.h"
 
+@class TPCDimensionsViewController;
+
 @protocol TPCDimensionViewControllerDelegate
 
-
+-(void)didUpdateFurnitureSize:(TPCDimensionsViewController*)dimvc;
 
 @end
 
 @interface TPCDimensionsViewController : UIViewController
 @property (strong, nonatomic) TPCFurnitureButton* furnitureButton;
 @property (strong,nonatomic) TPCFurniture *furniture;
-@property (nonatomic) id<TPCDimensionViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<TPCDimensionViewControllerDelegate> delegate;
 
 
 

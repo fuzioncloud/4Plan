@@ -45,9 +45,13 @@
 - (IBAction)saveButtonTapped:(id)sender {
     
     [self dismissViewControllerAnimated:NO completion:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateFurnitureNotification" object:nil];
+    [self.delegate didUpdateFurnitureSize:self];
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateFurnitureNotification" object:nil];
     
 }
+
+
 
 -(void)editingChanged:(UITextField *)textField {
     
