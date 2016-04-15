@@ -412,27 +412,38 @@
 
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
-    [self updateFurnitureSize];
-    
     
 }
 
 
--(void) updateFurnitureSize {
+-(void) didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
-    CGFloat widthscale= self.roomLayoutView.bounds.size.width/self.currentRoom.w;
-    CGFloat lengthscale=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
-    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*widthscale;
-    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*lengthscale;
+  
+    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
+    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
     
+    
+    if ((self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||(self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your changes have made the item too large for the room. Reverted to previous size." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction*okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
+    else {
+        
     [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
         self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
         make.left.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.x));
         make.top.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.y));
     }];
-    [self checkIfItemTooBig];
     [self.view layoutIfNeeded];
+        
+    }
 }
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {

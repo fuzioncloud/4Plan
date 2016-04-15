@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *widthField;
 @property (weak, nonatomic) IBOutlet UITextField *lengthField;
 @property (weak, nonatomic) IBOutlet UITextField *heightField;
-
+@property (strong, nonatomic) TPCMainViewController *mainvc;
 
 @end
 
@@ -27,6 +27,13 @@
     self.widthField.delegate=self;
     self.lengthField.delegate=self;
     self.heightField.delegate=self;
+    self.mainvc.delegate=self;
+    
+    NSArray *textfields = @[self.widthField, self.lengthField, self.heightField];
+    for (UITextField *textfield in textfields) {
+        textfield.delegate=self;
+        [textfield addTarget:self action:@selector(editingChanged) forControlEvents:UIControlEventEditingChanged];
+    }
     
     
     
@@ -35,8 +42,12 @@
     
     // Do any additional setup after loading the view.
 }
+- (IBAction)saveButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.delegate didUpdateFurnitureSize:self];
+}
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)editingChanged:(UITextField *)textField {
     
     
     for (TPCFurniture *f in [TPCStateManager currentState].arrangedFurniture) {
@@ -55,18 +66,6 @@
         
     }
     
-  
-//    if (self.widthField.text.length>0 && t == self.widthField) {
-//        fb.furnitureItem.width=t.text.doubleValue;
-//    }
-//    else if (self.heightField.text.length>0 && t == self.heightField) {
-//        fb.furnitureItem.height=t.text.doubleValue;
-//    }
-//    else if (self.lengthField.text.length>0 && t == self.lengthField) {
-//        fb.furnitureItem.length=t.text.doubleValue;
-//    }
-//}
-
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

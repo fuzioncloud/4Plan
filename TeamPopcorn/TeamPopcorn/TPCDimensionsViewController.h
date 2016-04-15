@@ -10,7 +10,11 @@
 #import "TPCModels.h"
 #import "TPCFurnitureButton.h"
 
+@class TPCDimensionsViewController;
+
 @protocol TPCDimensionViewControllerDelegate
+
+-(void)didUpdateFurnitureSize:(TPCDimensionsViewController*)dimvc;
 
 @end
 
