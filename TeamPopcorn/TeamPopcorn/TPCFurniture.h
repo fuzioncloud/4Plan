@@ -13,12 +13,14 @@
 
 @property (strong, nonatomic) NSString* name;
 
-@property (atomic) NSUInteger width, length, height, weight;
+@property (nonatomic) NSUInteger width, length, height, weight;
 
-@property (atomic) NSUInteger horizontalDistanceFromOrigin;
-@property (atomic) NSUInteger verticalDistanceFromOrigin;
+@property (nonatomic) NSUInteger horizontalDistanceFromOrigin;
+@property (nonatomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (atomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
+@property (nonatomic) CGFloat angle;
+
+@property (nonatomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
 
 @property (strong, nonatomic) UIImage *image;
 @property (nonatomic) BOOL hasScaled;

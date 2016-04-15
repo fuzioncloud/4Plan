@@ -58,7 +58,6 @@
 
 
 -(void)placeFuriniture:(TPCFurniture *)furniturePiece {
-    NSLog(@"furniture: %@", furniturePiece);
 
     if (!self.room.savedFurniture) {
         self.room.savedFurniture = [NSMutableArray<TPCFurniture *> new];
@@ -70,7 +69,6 @@
     furniturePiece.hasScaled=NO;
     furniturePiece.hasMoved=NO;
     [self.room.savedFurniture addObject:furniturePiece];
-    NSLog(@"furniture in place furniture: %@", self.room.savedFurniture);
 }
 
 

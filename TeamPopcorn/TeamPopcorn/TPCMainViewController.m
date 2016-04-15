@@ -26,10 +26,7 @@
 @property (strong, nonatomic) TPCFurniture *itemToDelete;
 @property (strong, nonatomic) TPCFurnitureButton *furnitureButtonToDelete;
 @property (strong, nonatomic) TPCDimensionsViewController *dimensionsvc;
-
-
 @property (strong, nonatomic) TPCFurnitureButton *tappedFurnitureButton;
-
 @property (strong, nonatomic) UIView *itemsMenuContainerView;
 @property (strong, nonatomic) UIView *recognizerLayerView;
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
@@ -45,14 +42,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.furnitureButtonArray = [NSMutableArray new];
     [self constrainForFloorPlan]; // move
     [self barButtonItem]; // move
-    
     [self createSaveButton];
-    
     [self constraintsForItemsMenu];
     [self furnitureTouching];
+    
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
     self.dataStore.room = self.currentRoom;
@@ -104,8 +101,8 @@
         
         
         self.currentRoom.name = saveButtonAlert.textFields[0].text;
-//        self.currentRoom.savedFurniture = self.dataStore.arrangedFurniture;
         [self.dataStore.savedRooms addObject:self.currentRoom];
+        
         NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
     }];
     
@@ -306,7 +303,7 @@
     [self setButton];
     
     [self furnitureTouching];
-    
+    [self.view layoutIfNeeded];
     
 }
 
@@ -344,6 +341,7 @@
         furniture.lengthscaled=furniture.length*lengthscale;
         
         [self.roomLayoutView addSubview:furnitureButton];
+        NSLog(@"subviews: %@", self.roomLayoutView.subviews);
         
         UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
         [furnitureButton addGestureRecognizer:panGestureRecognizerSofa];
@@ -361,7 +359,6 @@
         
         if (!furniture.hasMoved) {
             
-            
             [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 
                 make.centerX.equalTo(self.roomLayoutView.mas_centerX);
@@ -370,18 +367,25 @@
                 make.height.equalTo(@(furniture.lengthscaled));
                 
             }];
+            furnitureButton.furnitureItem.angle = 0;
         }
         else{
             
-            
             [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-                
                 
                 make.left.equalTo(@(furniture.centerValues.x));
                 make.top.equalTo(@(furniture.centerValues.y));
                 make.width.equalTo(@(furniture.widthscaled));
                 make.height.equalTo(@(furniture.lengthscaled));
                 }];
+            
+            
+            [UIView animateWithDuration:.1 animations:^{
+                NSLog(@"furniture button furniture item angle: %f", furnitureButton.furnitureItem.angle);
+                
+                [furnitureButton setTransform:CGAffineTransformMakeRotation(furnitureButton.furnitureItem.angle)];
+                
+            }];
         }
     }
 
@@ -476,7 +480,6 @@
             
         }else{
             
-            CGRect oldfFrameOfMovingView = selectedFurniture.frame;
             
             CGFloat xOffset = selectedFurniture.bounds.size.width / 2;
             CGFloat yOffset = selectedFurniture.bounds.size.height / 2;
@@ -485,7 +488,7 @@
             [selectedFurniture mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(@(touchLocation.x- xOffset));
                 make.top.equalTo(@(touchLocation.y - yOffset));
-                make.size.equalTo([NSValue valueWithCGSize:oldfFrameOfMovingView.size]);
+                make.size.equalTo([NSValue valueWithCGSize:selectedFurniture.bounds.size]);
             }];
             
             
@@ -500,11 +503,17 @@
     
     [self.deleteButton removeFromSuperview];
     
-    if (rotateGestureRecognizer.state != UIGestureRecognizerStateBegan){
-        return;
-    }
-    
     rotateGestureRecognizer.view.transform = CGAffineTransformRotate(rotateGestureRecognizer.view.transform, rotateGestureRecognizer.rotation);
+    
+    TPCFurnitureButton *selectedFurnitureButton = (TPCFurnitureButton *)rotateGestureRecognizer.view;
+    TPCFurniture *selectedFurniture = selectedFurnitureButton.furnitureItem;
+    
+    if (rotateGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+    
+    selectedFurniture.angle = atan2(rotateGestureRecognizer.view.transform.b, rotateGestureRecognizer.view.transform.a);
+    NSLog(@"furniture button furniture item angle: %f", selectedFurniture.angle);
+
+    }
     
     rotateGestureRecognizer.rotation = 0;
     
