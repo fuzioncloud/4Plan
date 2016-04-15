@@ -418,12 +418,11 @@
 
 -(void) didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
-  
     self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
     self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
     
-    
     if ((self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||(self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
+        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your changes have made the item too large for the room. Reverted to previous size." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction*okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -435,15 +434,18 @@
     
     else {
         
-    [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
-        self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
-        make.left.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.x));
-        make.top.equalTo(@(self.tappedFurnitureButton.furnitureItem.centerValues.y));
-    }];
-    [self.view layoutIfNeeded];
+        
+        
+        [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+            make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+            make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
+            make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
+        }];
+        
         
     }
+    [self.view layoutIfNeeded];
 }
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
