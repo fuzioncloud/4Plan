@@ -95,8 +95,42 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
-    
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
+    TPCFurniture*itemToUse;
+    
+    switch (sectionKey.catalogIndex) {
+        case BedIndex: {
+            TPCBed*bed = (TPCBed*)selectedFurniture;
+            itemToUse = [[TPCBed alloc] initWithBedSize:bed.bedSize];
+        }
+            break;
+        case ChairIndex: {
+            TPCChair*chair = (TPCChair*)selectedFurniture;
+            itemToUse = [[TPCChair alloc] initWithChairstlye:chair.chairStyle];
+        }
+            break;
+        case MiscIndex: {
+            TPCMisc*misc = (TPCMisc*)selectedFurniture;
+            itemToUse = [[TPCMisc alloc] initWithMiscStlye:misc.miscStyle];
+        }
+            break;
+        case SofaIndex: {
+            TPCSofa*sofa = (TPCSofa*)selectedFurniture;
+            itemToUse = [[TPCSofa alloc] initWithSofaStlye:sofa.sofaStyle];
+        }
+            break;
+        case TableIndex: {
+            TPCTable*table = (TPCTable*)selectedFurniture;
+            itemToUse = [[TPCTable alloc] initWithTableStlye:table.tableStyle];
+        }
+            break;
+        default:
+            break;
+            
+            }
+    
+    itemToUse.widthscaled=itemToUse.width*self.dataStore.room.scaleForFurnitureW;
+    itemToUse.lengthscaled=itemToUse.length*self.dataStore.room.scaleForFurnitureL;
     
     [self.arrangedFurniture placeFuriniture:selectedFurniture];
     NSLog(@"selected furniture: %@", selectedFurniture);

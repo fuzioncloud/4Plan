@@ -128,7 +128,6 @@
 
 -(void) constrainForFloorPlan {
     
-    //GOOD
     self.dataStore = [TPCStateManager currentState];
     
     CGFloat roomLayoutBorder = 1.0;
@@ -150,22 +149,22 @@
     CGFloat enteredWidth = self.currentRoom.w;
     CGFloat enteredHeight = self.currentRoom.l;
     
-    CGFloat widthFactor = viewWidth / enteredWidth;
-    CGFloat heightFactor = viewHeight / enteredHeight;
+    CGFloat widthScaleFactor = (viewWidth-(roomLayoutPadding*2)/enteredWidth);
+    CGFloat heightScaleFactor = (viewHeight-(roomLayoutPadding*2)/enteredHeight);
     
     CGFloat scaleFactor;
-    
-    if (widthFactor < heightFactor) {
-        scaleFactor = widthFactor;
+   
+    if (enteredHeight < enteredWidth) {
+        scaleFactor = heightScaleFactor;
     } else {
-        scaleFactor = heightFactor;
+        scaleFactor = widthScaleFactor;
     }
     
     CGFloat floorWidth = enteredWidth * scaleFactor;
     CGFloat floorHeight = enteredHeight * scaleFactor;
     
-    floorWidth = floorWidth - roomLayoutBorder - (roomLayoutPadding * 2);
-    floorHeight = floorHeight - roomLayoutBorder - (roomLayoutPadding * 2);
+    self.dataStore.room.scaledWidth=floorWidth;
+    self.dataStore.room.scaledHeight=floorHeight;
     
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
