@@ -640,7 +640,10 @@
             
             selectedFurniture.furnitureItem.centerValues=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
         }
+        
     }
+    
+   
     
     [self furnitureTouching];
 }
@@ -725,6 +728,7 @@
             if(buttonButtonAgainTouching){
                 shouldBeRed = YES;
                 break;
+                
             }
         }
         button.tintColor = shouldBeRed ? [UIColor redColor] : [UIColor blackColor];
