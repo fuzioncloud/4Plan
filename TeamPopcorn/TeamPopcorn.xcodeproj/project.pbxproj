@@ -195,11 +195,8 @@
 				44200D281CAEEA3D00479D0D /* TPCMain.storyboard */,
 				1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */,
 				7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */,
-<<<<<<< Updated upstream
 				087D35F61CBEC12700C144CC /* TPCSavedList.storyboard */,
-=======
 				44E86A641CC1783E005FE526 /* Launch Screen.storyboard */,
->>>>>>> Stashed changes
 				1B9FCD9C1CAB1FA60041D2DB /* TPCItemCell.h */,
 				1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */,
 			);
