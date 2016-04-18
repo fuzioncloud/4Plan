@@ -16,14 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCRoom (CoreDataProperties)
 
+@property (strong, nonatomic) NSString *name;
+
+@property (nonatomic) int64_t width;
 @property (nonatomic) int64_t height;
 @property (nonatomic) int64_t length;
-@property (nonatomic) float scaledLength;
-@property (nonatomic) float scaledWidth;
-@property (nonatomic) float scaleForFurnitureL;
-@property (nonatomic) float scaleForFurnitureW;
+
 @property (nullable, nonatomic, retain) NSString *shape;
-@property (nonatomic) int64_t width;
 
 @property (nullable, nonatomic, retain) NSOrderedSet<TPCFurniture *> *placedFurniturePieces;
 

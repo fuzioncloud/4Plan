@@ -17,7 +17,8 @@
 //@synthesize name = _name;
 @synthesize image = _image;
 @synthesize centerValues = _centerValues;
-//@synthesize placedFurniture;
+@synthesize lengthscaled = _lengthscaled;
+@synthesize widthscaled = _widthscaled;
 
 //-(NSString*)name {
 //    return _name;

@@ -13,14 +13,11 @@
 
 @implementation TPCRoom (CoreDataProperties)
 
+@dynamic name;
 @dynamic height;
 @dynamic length;
-@dynamic scaledLength;
-@dynamic scaledWidth;
-@dynamic scaleForFurnitureL;
-@dynamic scaleForFurnitureW;
-@dynamic shape;
 @dynamic width;
+@dynamic shape;
 @dynamic placedFurniturePieces;
 
 @end

@@ -13,33 +13,34 @@
 
 @class TPCFurnitureButton;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCFurniture : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
-=======
-@property (nonatomic) NSUInteger width, length, height, weight;
+//=======
+//@property (nonatomic) NSUInteger width, length, height, weight;
 
-@property (nonatomic) NSUInteger horizontalDistanceFromOrigin;
-@property (nonatomic) NSUInteger verticalDistanceFromOrigin;
+//@property (nonatomic) NSUInteger horizontalDistanceFromOrigin;
+//@property (nonatomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (nonatomic) CGFloat angle;
+//@property (nonatomic) CGFloat angle;
 
-@property (nonatomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
->>>>>>> master
+//@property (nonatomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
+@property (nonatomic) CGFloat lengthscaled, widthscaled;
+//>>>>>>> master
 
 @property (nonatomic) CGPoint centerValues;
 
 //@property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) UIImage *image;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //@property (nullable, nonatomic, retain) TPCFurnitureButton *placedFurniture;
 
-=======
->>>>>>> master
+//=======
+//>>>>>>> master
 -(instancetype)init;
 
 -(instancetype)initWithWidth:(NSUInteger)width
