@@ -165,4 +165,14 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (void)doSomethingWithRoom:(TPCRoom *)room {
+    [self saveContext];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TPCRoom"];
+    self.savedRooms = [[self.managedObjectContext executeFetchRequest:request
+                                                                error:nil] mutableCopy];
+    
+    
+}
+
 @end

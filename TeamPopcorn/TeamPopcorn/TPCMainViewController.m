@@ -123,6 +123,7 @@
         self.currentRoom.name = saveButtonAlert.textFields[0].text;
         [self.dataStore.savedRooms addObject:self.currentRoom];
         
+        
         NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
     }];
     

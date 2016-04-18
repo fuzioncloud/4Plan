@@ -1,36 +1,34 @@
 //
 //  TPCRoom+CoreDataProperties.h
-//  TeamPopcorn
+//  
 //
-//  Created by Flatiron School on 4/14/16.
-//  Copyright © 2016 Popcorn. All rights reserved.
+//  Created by Janet Lustgarten on 4/18/16.
+//
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
 //
 
 #import "TPCRoom.h"
-#import "TPCFurniture.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCRoom (CoreDataProperties)
 
-@property (strong, nonatomic) NSString *name;
-
-@property (nonatomic) int64_t width;
 @property (nonatomic) int64_t height;
 @property (nonatomic) int64_t length;
-
+@property (nonatomic) float scaledLength;
+@property (nonatomic) float scaledWidth;
+@property (nonatomic) float scaleForFurnitureL;
+@property (nonatomic) float scaleForFurnitureW;
 @property (nullable, nonatomic, retain) NSString *shape;
-
+@property (nonatomic) int64_t width;
+@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSOrderedSet<TPCFurniture *> *placedFurniturePieces;
 
 @end
 
-
 @interface TPCRoom (CoreDataGeneratedAccessors)
-
 
 - (void)insertObject:(TPCFurniture *)value inPlacedFurniturePiecesAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromPlacedFurniturePiecesAtIndex:(NSUInteger)idx;
@@ -42,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePlacedFurniturePiecesObject:(TPCFurniture *)value;
 - (void)addPlacedFurniturePieces:(NSOrderedSet<TPCFurniture *> *)values;
 - (void)removePlacedFurniturePieces:(NSOrderedSet<TPCFurniture *> *)values;
-
 
 @end
 
