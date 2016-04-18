@@ -67,10 +67,10 @@
     
                        
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
-   
+    
     self.datastore=[TPCStateManager currentState];
-    [self.datastore setRoomOfWidth:self.widthText.text.integerValue height:0 length:self.lengthText.text.integerValue];
+   TPCMainViewController *destinationVC = segue.destinationViewController;
+    destinationVC.currentRoom=[self.datastore setRoomOfWidth:self.widthText.text.integerValue height:0 length:self.lengthText.text.integerValue];
 
 
 }

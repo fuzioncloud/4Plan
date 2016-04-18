@@ -664,6 +664,8 @@
 
     }
     
+    
+    
     rotateGestureRecognizer.rotation = 0;
     
     [self furnitureTouching];
