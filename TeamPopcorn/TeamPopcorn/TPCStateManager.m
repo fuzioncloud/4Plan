@@ -26,6 +26,8 @@
 
 @implementation TPCStateManager
 
+@synthesize savedRooms = _savedRooms;
+
 +(instancetype)currentState {
     static TPCStateManager *staticState = nil;
     static dispatch_once_t onceToken;
@@ -168,11 +170,30 @@
 - (void)doSomethingWithRoom:(TPCRoom *)room {
     [self saveContext];
     
+    NSError *error=nil;
+    if ([[self managedObjectContext] save:&error]==NO) {
+        
+    }
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TPCRoom"];
     self.savedRooms = [[self.managedObjectContext executeFetchRequest:request
                                                                 error:nil] mutableCopy];
     
     
+}
+
+-(NSArray<TPCRoom *> *)savedRooms {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TPCRoom"];
+    _savedRooms = [self.managedObjectContext executeFetchRequest:request
+                                                                error:nil];
+    
+
+    return _savedRooms;
+}
+
+-(void)setSavedRooms:(NSArray<TPCRoom *> *)savedRooms {
+    _savedRooms = savedRooms;
+    [self saveContext];
 }
 
 @end

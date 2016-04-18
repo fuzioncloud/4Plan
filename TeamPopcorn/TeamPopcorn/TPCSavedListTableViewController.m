@@ -21,8 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"count %li", self.dataStore.savedRooms.count);
     self.dataStore = [TPCStateManager currentState];
+    NSLog(@"count %li", self.dataStore.savedRooms.count);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -48,6 +48,9 @@
             newRoom.shape = @"Rectangle";
         }
     }
+    
+    [[TPCStateManager currentState] saveContext];
+    
     return newRoom;
 }
 @end

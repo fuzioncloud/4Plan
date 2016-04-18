@@ -26,7 +26,7 @@
 @property (strong, nonatomic, readwrite) NSMutableArray<TPCFurnitureButton *>*arrangedButtons;
 @property (nonatomic) BOOL roomHasChanged;
 @property (nonatomic) id<TPCStateManagerDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray<TPCRoom *> *savedRooms;
+@property (strong, nonatomic) NSArray<TPCRoom *> *savedRooms;
 @property (strong, nonatomic) TPCRoom *currentRoom;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -37,8 +37,11 @@
                height:(NSUInteger)h
                length:(NSUInteger)l;
 
+
 -(void)placeFuriniture:(TPCFurniture *)furniturePiece;
 
 -(void)checkIfRoomHasChanged:(TPCRoom*) originalRoom;
+
+-(void)saveContext;
 
 @end

@@ -110,7 +110,7 @@
 -(void) saveButtonPressed{
  
     if (!self.dataStore.savedRooms) {
-        self.dataStore.savedRooms = [NSMutableArray new];
+        self.dataStore.savedRooms = [NSArray new];
     }
     
     NSLog(@"save tapped");
@@ -121,9 +121,12 @@
         
         
         self.currentRoom.name = saveButtonAlert.textFields[0].text;
-        [self.dataStore.savedRooms addObject:self.currentRoom];
         
+        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
+        [rooms addObject:self.currentRoom];
+        self.dataStore.savedRooms = rooms;
         
+       
         NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
     }];
     
