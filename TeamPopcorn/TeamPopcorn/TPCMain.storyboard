@@ -30,35 +30,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-2s-xhO">
-                                                    <rect key="frame" x="20" y="20" width="560" height="46"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Sofa">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="42" name="MarkerFelt-Thin"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SuJ-p0-CY0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SuJ-p0-CY0">
                                                     <rect key="frame" x="20" y="366" width="560" height="48"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="W: 240cm   H: 98cm   L: 125cm">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="38" name="BradleyHandITCTT-Bold"/>
+                                                                <font key="NSFont" size="24" name="Avenir-Medium"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalCompressionResistancePriority="250" image="Chairs" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-8y-HBi">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalCompressionResistancePriority="250" misplaced="YES" image="Chairs" translatesAutoresizingMaskIntoConstraints="NO" id="Z1c-8y-HBi">
                                                     <rect key="frame" x="20" y="78" width="560" height="276"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c9J-2s-xhO">
+                                                    <rect key="frame" x="20" y="24" width="560" height="46"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Sofa">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="42" name="Avenir-Light"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="c9J-2s-xhO" firstAttribute="leading" secondItem="Jwl-fd-v7J" secondAttribute="leadingMargin" constant="12" id="467-L6-dW5"/>
@@ -139,21 +139,31 @@
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="155"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-MQ-dxI">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="0.0" y="64" width="180" height="26"/>
+=======
+                                                <rect key="frame" x="0.0" y="73" width="180" height="29"/>
+>>>>>>> Stashed changes
                                                 <attributedString key="attributedText">
                                                     <fragment content="Width:">
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
+                                                            <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
+<<<<<<< Updated upstream
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Width" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vug-OE-gBS">
                                                 <rect key="frame" x="180" y="62" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+=======
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Width" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vug-OE-gBS">
+                                                <rect key="frame" x="180" y="77" width="360" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+>>>>>>> Stashed changes
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="YLX-7c-BHf" id="wa5-g2-zXP"/>
@@ -168,12 +178,16 @@
                                         <rect key="frame" x="0.0" y="163" width="540" height="154"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6R2-Tf-mcx">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="0.0" y="64" width="180" height="26"/>
+=======
+                                                <rect key="frame" x="0.0" y="73" width="180" height="29"/>
+>>>>>>> Stashed changes
                                                 <attributedString key="attributedText">
                                                     <fragment content="Length:">
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
+                                                            <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -181,8 +195,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Length" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcf-GP-IQ0">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="180" y="62" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+=======
+                                                <rect key="frame" x="180" y="72" width="360" height="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+>>>>>>> Stashed changes
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="YLX-7c-BHf" id="ZJ4-tF-ShS"/>
@@ -197,12 +216,16 @@
                                         <rect key="frame" x="0.0" y="325" width="540" height="155"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BRH-H6-Qzc">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="0.0" y="65" width="180" height="26"/>
+=======
+                                                <rect key="frame" x="0.0" y="73" width="180" height="29"/>
+>>>>>>> Stashed changes
                                                 <attributedString key="attributedText">
                                                     <fragment content="Height:">
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="18" name="ChalkboardSE-Regular"/>
+                                                            <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -210,8 +233,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Height" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPl-rX-9Ux">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="180" y="63" width="360" height="30"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+=======
+                                                <rect key="frame" x="180" y="73" width="360" height="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+>>>>>>> Stashed changes
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="YLX-7c-BHf" id="d8B-pW-NXU"/>

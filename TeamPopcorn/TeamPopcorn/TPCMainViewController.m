@@ -185,7 +185,8 @@
     
     self.roomLayoutView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
-    self.roomLayoutView.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;
+    
 }
 
 -(void)constraintsForItemsMenu {
@@ -301,7 +302,7 @@
     
     [self.deleteButton removeFromSuperview];
     
-    self.view.backgroundColor = [UIColor darkGrayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.76 blue:0.20 alpha:1.0];
     
     self.dataStore = [TPCStateManager currentState];
     
