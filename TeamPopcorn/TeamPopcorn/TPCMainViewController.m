@@ -536,7 +536,8 @@
     
     else {
         
-        
+        self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.currentRoom.scaleForFurnitureW;
+        self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.currentRoom.scaleForFurnitureL;
         
         [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
 //<<<<<<< HEAD
@@ -550,7 +551,7 @@
             make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
         }];
         
-        
+        [self.roomLayoutView layoutIfNeeded];
     }
 //<<<<<<< HEAD
     
