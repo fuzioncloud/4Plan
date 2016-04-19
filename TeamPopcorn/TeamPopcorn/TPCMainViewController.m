@@ -60,6 +60,11 @@
     
     self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
     self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.w;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:175.0f/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
+
+    
+    
 }
 
 -(void) barButtonItem {
@@ -80,7 +85,7 @@
     [saveButton addTarget:self action:@selector(saveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [saveButton setTitle:@"save" forState:UIControlStateNormal];
-    saveButton.titleLabel.textColor = [UIColor whiteColor];
+    [saveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [self.view addSubview:saveButton];
     
@@ -301,8 +306,6 @@
 -(void)refreshRoomScene {
     
     [self.deleteButton removeFromSuperview];
-    
-    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.76 blue:0.20 alpha:1.0];
     
     self.dataStore = [TPCStateManager currentState];
     

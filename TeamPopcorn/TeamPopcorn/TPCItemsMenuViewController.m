@@ -45,9 +45,10 @@
     
 
     
-    self.itemsTableView.sectionIndexColor = [UIColor blackColor];
-    self.itemsTableView.sectionIndexBackgroundColor = [UIColor lightGrayColor];
-    self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor whiteColor];
+    self.itemsTableView.sectionIndexColor = [UIColor whiteColor];
+    
+    self.itemsTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:175.0/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f]; //blue-teal color
+    self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor colorWithRed:250.0f/255.0f green:242.0f/255.0f blue:198.0f/255.0f alpha:1.0]; //off white color
     
     self.arrangedFurniture = [TPCStateManager currentState];
     self.arrangedButtons = [TPCStateManager currentState];
@@ -62,6 +63,8 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:section];
     return self.itemsMenu[sectionKey].count;
+    
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,6 +98,12 @@
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     return index;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *v = (UITableViewHeaderFooterView *)view;
+    v.backgroundView.backgroundColor = [UIColor colorWithRed:175.0/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f]; 
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

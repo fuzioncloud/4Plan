@@ -22,12 +22,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SF-Rb-3Qf">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="230"/>
-                                        <color key="backgroundColor" red="0.17772126677852343" green="0.66421979865771807" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.68627450980392157" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.14999999999999999" y="0.25" width="1" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="230" id="u2w-fN-YAQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="40"/>
                                         <state key="normal" title="Custom">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -37,12 +37,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skw-DR-gOV">
                                         <rect key="frame" x="207" y="0.0" width="207" height="230"/>
-                                        <color key="backgroundColor" red="0.74478392694134454" green="1" blue="0.44669543342835638" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.84705882352941175" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="5f2-15-pgq"/>
                                             <constraint firstAttribute="height" constant="230" id="WMJ-xc-Z0t"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                                         <state key="normal" title="2x2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -62,11 +62,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-Xf-Qqj">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="220"/>
-                                        <color key="backgroundColor" red="0.87524145645186546" green="1" blue="0.34524740099646778" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.23921568627450979" green="0.61176470588235299" blue="0.6588235294117647" alpha="0.67669719827586206" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="bBM-uC-7lh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                                         <state key="normal" title="5x10">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -76,8 +76,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woB-pi-fdk">
                                         <rect key="frame" x="207" y="0.0" width="207" height="220"/>
-                                        <color key="backgroundColor" red="1" green="0.74003567587233188" blue="0.064939498236630477" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <color key="backgroundColor" red="0.85490196078431369" green="0.84705882352941175" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                                         <state key="normal" title="10x10">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -92,11 +92,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cu-PR-bxe">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="220"/>
-                                        <color key="backgroundColor" red="0.87247323694715462" green="1" blue="0.50735407840486779" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.73725490196078436" green="0.83921568627450982" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="RuB-ga-aX5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                                         <state key="normal" title="2x4">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -106,8 +106,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-ZX-NFh">
                                         <rect key="frame" x="207" y="0.0" width="207" height="220"/>
-                                        <color key="backgroundColor" red="0.98190476238856983" green="1" blue="0.38248766229213704" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
+                                        <color key="backgroundColor" red="0.68627450980392157" green="0.84313725490196079" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                                         <state key="normal" title="5x5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -121,14 +121,26 @@
                         <color key="backgroundColor" red="0.90997892618179321" green="0.95594161748886108" blue="0.83037173748016357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QJW-JV-eR1" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="1Ek-DX-pjB"/>
+                            <constraint firstItem="caf-Nf-g6r" firstAttribute="top" secondItem="et3-xd-zzP" secondAttribute="bottom" id="1ai-iN-bPo"/>
+                            <constraint firstItem="caf-Nf-g6r" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="3mp-k8-NW0"/>
                             <constraint firstItem="caf-Nf-g6r" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="5PY-no-16l"/>
+                            <constraint firstItem="QJW-JV-eR1" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="5hW-w5-JgQ"/>
+                            <constraint firstItem="caf-Nf-g6r" firstAttribute="top" secondItem="et3-xd-zzP" secondAttribute="bottom" id="7RI-Tt-Ygc"/>
                             <constraint firstItem="caf-Nf-g6r" firstAttribute="top" secondItem="et3-xd-zzP" secondAttribute="bottom" id="A1w-v8-4nl"/>
+                            <constraint firstItem="QJW-JV-eR1" firstAttribute="top" secondItem="caf-Nf-g6r" secondAttribute="bottom" id="IYb-aK-IqM"/>
+                            <constraint firstItem="QJW-JV-eR1" firstAttribute="top" secondItem="caf-Nf-g6r" secondAttribute="bottom" id="JFq-BH-u1l"/>
+                            <constraint firstAttribute="trailing" secondItem="QJW-JV-eR1" secondAttribute="trailing" id="MdA-wC-VfN"/>
                             <constraint firstItem="QJW-JV-eR1" firstAttribute="top" secondItem="caf-Nf-g6r" secondAttribute="bottom" id="Q5l-PT-s4v"/>
+                            <constraint firstAttribute="trailing" secondItem="caf-Nf-g6r" secondAttribute="trailing" id="YsR-Ua-qeZ"/>
                             <constraint firstItem="et3-xd-zzP" firstAttribute="top" secondItem="wQR-Ks-shP" secondAttribute="bottom" id="awl-rW-vqP"/>
                             <constraint firstAttribute="trailing" secondItem="QJW-JV-eR1" secondAttribute="trailing" id="dEs-kw-2fG"/>
+                            <constraint firstItem="et3-xd-zzP" firstAttribute="top" secondItem="wQR-Ks-shP" secondAttribute="bottom" id="dFP-xv-xdG"/>
                             <constraint firstItem="et3-xd-zzP" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="g2v-7B-Xjf"/>
+                            <constraint firstAttribute="trailing" secondItem="et3-xd-zzP" secondAttribute="trailing" id="mWQ-ZP-Nq0"/>
                             <constraint firstAttribute="trailing" secondItem="caf-Nf-g6r" secondAttribute="trailing" id="nRf-Uf-YZg"/>
                             <constraint firstAttribute="trailing" secondItem="et3-xd-zzP" secondAttribute="trailing" id="sYh-Ye-MUb"/>
+                            <constraint firstItem="et3-xd-zzP" firstAttribute="leading" secondItem="XV2-Gp-3y5" secondAttribute="leading" id="u23-44-OI7"/>
+                            <constraint firstItem="Q8R-kr-g8E" firstAttribute="top" secondItem="QJW-JV-eR1" secondAttribute="bottom" constant="2" id="yKv-sx-hAs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Opg-dB-w4Z"/>
@@ -181,28 +193,62 @@
                         <viewControllerLayoutGuide type="bottom" id="Lhn-ez-Olu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WuA-vW-8l2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-mB-pqb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-H3-8Gb">
-                                <rect key="frame" x="45" y="255" width="41" height="30"/>
-                                <state key="normal" title="saved"/>
+                                <rect key="frame" x="69" y="283" width="277" height="64"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <state key="normal" title="Go to your saved rooms">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
-                                <rect key="frame" x="169" y="255" width="68" height="30"/>
-                                <state key="normal" title="new room"/>
+                                <rect key="frame" x="69" y="184" width="277" height="69"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <state key="normal" title="Create a new room">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
                                     <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLANit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-O3-VhW">
+                                <rect key="frame" x="85" y="72" width="224" height="56"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create your ideal room layout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-IJ-J7X">
+                                <rect key="frame" x="47" y="109" width="320" height="67"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKj-Lu-h9c">
+                                <rect key="frame" x="181" y="261" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Eze-mB-pqb" secondAttribute="trailing" id="Blg-d7-RzF"/>
+                            <constraint firstAttribute="bottom" secondItem="Eze-mB-pqb" secondAttribute="bottom" id="GKY-9S-9IM"/>
+                            <constraint firstItem="Eze-mB-pqb" firstAttribute="top" secondItem="WuA-vW-8l2" secondAttribute="top" id="H78-q3-QOL"/>
+                            <constraint firstItem="Eze-mB-pqb" firstAttribute="leading" secondItem="WuA-vW-8l2" secondAttribute="leading" id="KLH-8G-TlW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yaZ-cT-sH5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="roomButton" destination="fGQ-fE-5Hj" id="8jg-Oy-cT6"/>
                     </connections>
@@ -220,6 +266,9 @@
             <point key="canvasLocation" x="386" y="714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="welcome" width="3500" height="2333"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3g8-Y0-Bbx"/>
     </inferredMetricsTieBreakers>
