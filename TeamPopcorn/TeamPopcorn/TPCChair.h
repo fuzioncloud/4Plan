@@ -2,14 +2,16 @@
 //  TPCChair.h
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import "TPCFurniture.h"
 #import "TPCFurniture.h"
 #import "TPCConstants.h"
 
-typedef NS_ENUM(NSInteger, TPCChairStyle) {
+typedef NS_ENUM(int64_t, TPCChairStyle) {
     basicChair,
     campingChair,
     lazyboyChair,
@@ -17,9 +19,11 @@ typedef NS_ENUM(NSInteger, TPCChairStyle) {
     rockingChair
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TPCChair : TPCFurniture
 
-@property   (nonatomic) TPCChairStyle chairStyle;
+// Insert code here to declare functionality of your managed object subclass
 
 -(instancetype)init;
 
@@ -37,7 +41,6 @@ typedef NS_ENUM(NSInteger, TPCChairStyle) {
 
 @end
 
+NS_ASSUME_NONNULL_END
 
-
-
-
+#import "TPCChair+CoreDataProperties.h"

@@ -2,7 +2,7 @@
 //  TPCMisc.m
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
@@ -10,9 +10,10 @@
 
 @implementation TPCMisc
 
+// Insert code here to add functionality to your managed object subclass
 -(instancetype)init {
-    self.name=@"lamp";
     self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
+    self.name=@"lamp";
     return self;
 }
 
@@ -20,68 +21,68 @@
     
     switch (miscStyle) {
         case basicMisc:
-            self.name=@"lamp";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
+            self.name=@"lamp";
             self.miscStyle=miscStyle;
             return self;
             
         case bicycleMisc:
-            self.name=@"bicycle";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"bicycleMisc.png"] weight:miscWeight];
+            self.name=@"bicycle";
             self.miscStyle=miscStyle;
             return self;
             
         case boxMisc:
-            self.name=@"box";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"boxMisc.png"] weight:miscWeight];
+            self.name=@"box";
             self.miscStyle=miscStyle;
             return self;
             
         case randomMisc:
-            self.name=@"random";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"randomMisc.png"] weight:miscWeight];
+            self.name=@"random";
             self.miscStyle=miscStyle;
             return self;
             
         case wardrobeMisc:
-            self.name=@"wardrobe";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"wardrobeMisc.png"] weight:miscWeight];
+            self.name=@"wardrobe";
             self.miscStyle=miscStyle;
             return self;
             
         case doorMisc:
-            self.name=@"door";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"doorMisc"] weight:miscWeight];
+            self.name=@"door";
             self.miscStyle=miscStyle;
             return self;
             
         case visibleDoorMisc:
-            self.name=@"visibleDoor";
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"visibleDoorMisc"] weight:miscWeight];
+            self.name=@"visibleDoor";
             self.miscStyle=miscStyle;
             return self;
             
         case skateboardMisc:
-            self.name=@"skateboard";
             self=[self initWithWidth:10 length:36 height:8 image:[UIImage imageNamed:@"skateboardMisc.png"] weight:miscWeight];
+            self.name=@"skateboard";
             self.miscStyle=miscStyle;
             return self;
             
         case smallboxMisc:
-            self.name=@"smallbox";
             self=[self initWithWidth:10 length:10 height:10 image:[UIImage imageNamed:@"smallboxMisc.png"] weight:miscWeight];
+            self.name=@"smallbox";
             self.miscStyle=miscStyle;
             return self;
             
         case binderMisc:
-            self.name=@"binder";
             self=[self initWithWidth:9 length:11 height:5 image:[UIImage imageNamed:@"binderMisc.png"] weight:miscWeight];
+            self.name=@"binder";
             self.miscStyle=miscStyle;
             return self;
             
         case cameraMisc:
-            self.name=@"camera";
             self=[self initWithWidth:7 length:6 height:5 image:[UIImage imageNamed:@"cameraMisc.png"] weight:miscWeight];
+            self.name=@"camera";
             self.miscStyle=miscStyle;
             return self;
             
@@ -89,9 +90,10 @@
         default:
             
             self=[self initWithWidth:miscWidth length:miscLength height:miscHeight image:[UIImage imageNamed:@"basicMisc.png"] weight:miscWeight];
+            self.name = @"default misc";
             self.miscStyle=miscStyle;
             return self;
-
+            
             
     }
     

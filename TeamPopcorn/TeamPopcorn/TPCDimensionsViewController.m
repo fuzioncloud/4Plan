@@ -49,8 +49,13 @@
 
 - (void)editingChanged:(UITextField *)textField {
     
+//    NSArray * arrangedFurniture = [TPCStateManager currentState].room.savedFurniture;
     
+//<<<<<<< HEAD
+//    for (TPCFurniture *f in arrangedFurniture) {
+//=======
     for (TPCFurniture *f in self.dataStore.room.savedFurniture) {
+//>>>>>>> master
         if ([f isEqual:self.furniture]) {
             
             if (textField == self.widthField) {
@@ -63,7 +68,7 @@
                 f.length=textField.text.doubleValue;
             }
         }
-        
+         NSLog(@"%lld\n\n\n\n\n\n\n\n%lld",f.width,f.length);
     }
     
 }

@@ -2,7 +2,7 @@
 //  TPCChair.m
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
@@ -10,10 +10,11 @@
 
 @implementation TPCChair
 
+// Insert code here to add functionality to your managed object subclass
 
 -(instancetype)init {
-    self.name=@"basic";
     self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"basicChair.png"] weight:chairWeight];
+    self.name=@"basic";
     self.chairStyle=basicChair;
     return self;
     
@@ -23,43 +24,44 @@
     
     switch (chairStyle) {
         case basicChair:
-            self.name=@"basic";
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"basicChair.png"] weight:chairWeight];
+            self.name=@"basic";
             self.chairStyle=chairStyle;
             return self;
             
         case campingChair:
-            self.name=@"camping";
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"campingChair.png"] weight:chairWeight];
+            self.name=@"camping";
             self.chairStyle=chairStyle;
             return self;
             
         case lazyboyChair:
-            self.name=@"lazyboy";
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"lazyboyChair.png"] weight:chairWeight];
+            self.name=@"lazyboy";
             self.chairStyle=chairStyle;
             return self;
             
         case officeChair:
-            self.name=@"office";
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"officeChair.png"] weight:chairWeight];
+            self.name=@"office";
             self.chairStyle=chairStyle;
             return self;
             
         case rockingChair:
-            self.name=@"rocking";
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"rockingChair.png"] weight:chairWeight];
+            self.name=@"rocking";
             self.chairStyle=chairStyle;
             return self;
             
         default:
-        
+            
             self=[self initWithWidth:chairWidth length:chairLength height:chairHeight image:[UIImage imageNamed:@"basicChair.png"] weight:chairWeight];
+            self.name = @"default cair";
             self.chairStyle=chairStyle;
             return self;
             
     }
-      
+    
 }
 
 +(instancetype)basicChair{

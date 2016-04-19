@@ -2,7 +2,7 @@
 //  TPCSofa.m
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
@@ -10,9 +10,10 @@
 
 @implementation TPCSofa
 
+// Insert code here to add functionality to your managed object subclass
 -(instancetype)init {
-    self.name=@"basic";
     self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
+    self.name=@"basic";
     self.sofaStyle=basicSofa;
     return self;
     
@@ -22,38 +23,39 @@
     
     switch (sofaStyle) {
         case basicSofa:
-            self.name=@"basic";
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
+            self.name=@"basic";
             self.sofaStyle=sofaStyle;
             return self;
             
         case cornerSofa:
-            self.name=@"corner";
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"cornerSofa.png"] weight:sofaWeight];
+            self.name=@"corner";
             self.sofaStyle=sofaStyle;
             return self;
             
         case highSofa:
-            self.name=@"high";
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"highSofa.png"] weight:sofaWeight];
+            self.name=@"high";
             self.sofaStyle=sofaStyle;
             return self;
             
         case loveseatSofa:
-            self.name=@"loveseat";
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"loveseatSofa.png"] weight:sofaWeight];
+            self.name=@"loveseat";
             self.sofaStyle=sofaStyle;
             return self;
             
         case lowSofa:
-            self.name=@"low";
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"lowSofa.png"] weight:sofaWeight];
+            self.name=@"low";
             self.sofaStyle=sofaStyle;
             return self;
             
         default:
             
             self=[self initWithWidth:sofaWidth length:sofaLength height:sofaHeight image:[UIImage imageNamed:@"basicSofa.png"] weight:sofaWeight];
+            self.name = @"default sofa";
             self.sofaStyle=sofaStyle;
             return self;
             

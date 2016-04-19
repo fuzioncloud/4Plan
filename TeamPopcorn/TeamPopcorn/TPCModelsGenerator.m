@@ -70,4 +70,35 @@
              };
 }
 
+
+/*
+ 
+ acknowledgements
+ 
+ Nick Kinling
+ Parma
+ Renee Ramsey-Passmore
+ Martin Vanco
+ Raul Inc
+ Creative Stall
+ Edward Boatman
+ Patrick Snyder
+ Michael Wallner
+ Edward Boatman
+ Hermine Blanquart
+ Johannes Thielen
+ Mister Pixel
+ Arthur Slain
+ Oliviu Stoian
+ Melvin Salas
+ Ed Harrison
+ Maximilian Becker
+ Maria De la Riva
+ Stefan Parnarov
+ Andrew Fortnum
+ useiconic.com
+ Rafael Farias Leao
+ 
+ */
+
 @end

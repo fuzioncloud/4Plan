@@ -2,14 +2,15 @@
 //  TPCBed.h
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
-#import "TPCFurniture.h"
+#import <Foundation/Foundation.h>
 #import "TPCConstants.h"
+#import "TPCFurniture.h"
 
-typedef NS_ENUM(NSInteger, TPCBedSize) {
+typedef NS_ENUM(int64_t, TPCBedSize) {
     Twin=0,
     Full=1,
     Queen=2,
@@ -19,15 +20,15 @@ typedef NS_ENUM(NSInteger, TPCBedSize) {
     Crib=6
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCBed : TPCFurniture
 
-
-@property (nonatomic) TPCBedSize bedSize;
+// Insert code here to declare functionality of your managed object subclass
 
 -(instancetype)init;
 
--(instancetype)initWithBedSize: (TPCBedSize) bedSize;
+-(instancetype)initWithBedSize:(TPCBedSize)bedSize;
 
 +(instancetype)twinBed;
 
@@ -43,4 +44,9 @@ typedef NS_ENUM(NSInteger, TPCBedSize) {
 
 +(instancetype)futonBed;
 
+
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "TPCBed+CoreDataProperties.h"

@@ -11,7 +11,7 @@
 #import "TPCFurniture.h"
 #import "TPCDimensionsViewController.h"
 #import <Masonry/Masonry.h>
-
+#import "TPCModels.h"
 #import "TPCFurnitureButton.h"
 #import "TPCEnterRoomDimensionViewController.h"
 #import "TPCItemsMenuViewController.h"
@@ -47,6 +47,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self constrainForFloorPlan]; // move
+    [self barButtonItem]; // move
+    
     self.furnitureButtonArray = [NSMutableArray new];
     [self constrainForFloorPlan];
     [self barButtonItem]; // move
@@ -57,14 +60,11 @@
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
     self.dataStore.room = self.currentRoom;
-    
-    self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.l;
-    self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.w;
+
+    self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.length;
+    self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.width;
     
     self.view.backgroundColor = [UIColor colorWithRed:175.0f/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
-
-    
-    
 }
 
 -(void) barButtonItem {
@@ -102,7 +102,7 @@
 -(void) saveButtonPressed{
  
     if (!self.dataStore.savedRooms) {
-        self.dataStore.savedRooms = [NSMutableArray new];
+        self.dataStore.savedRooms = [NSArray new];
     }
     
     NSLog(@"save tapped");
@@ -113,8 +113,12 @@
         
         
         self.currentRoom.name = saveButtonAlert.textFields[0].text;
-        [self.dataStore.savedRooms addObject:self.currentRoom];
         
+        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
+        [rooms addObject:self.currentRoom];
+        self.dataStore.savedRooms = rooms;
+        
+       
         NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
     }];
     
@@ -146,8 +150,6 @@
     self.roomLayoutView = [[UIView alloc] init];
     [self.view addSubview:self.roomLayoutView];
     
-    NSLog(@"width entered %lu", self.currentRoom.w);
-    NSLog(@"length entered %lu", self.currentRoom.l);
     
     CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -155,8 +157,8 @@
     CGFloat viewWidth = self.view.bounds.size.width;
     CGFloat viewHeight = self.view.bounds.size.height - (navHeight + statusBarHeight);
     
-    CGFloat enteredWidth = self.currentRoom.w;
-    CGFloat enteredHeight = self.currentRoom.l;
+    CGFloat enteredWidth = self.currentRoom.width;
+    CGFloat enteredHeight = self.currentRoom.length;
     
     CGFloat widthScaleFactor = (viewWidth-(roomLayoutPadding*2))/enteredWidth;
     CGFloat heightScaleFactor = (viewHeight-(roomLayoutPadding*2))/enteredHeight;
@@ -190,8 +192,7 @@
     
     self.roomLayoutView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
-    self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;
-    
+    self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;    
 }
 
 -(void)constraintsForItemsMenu {
@@ -277,28 +278,43 @@
     } completion:nil];
     
 }
-
--(void)checkIfItemTooBig {
-//    for (TPCFurniture *furniture in self.dataStore.arrangedFurniture) {
-//        if ((furniture.widthscaled>self.roomLayoutView.bounds.size.width)||(furniture.lengthscaled>self.roomLayoutView.bounds.size.height)) {
+//
+//<<<<<<< HEAD
+//-(void)checkIfItemsTooBig {
+//
+//    for (TPCFurniture *furniture in self.dataStore.room.savedFurniture) {
+//        furniture.widthScale=furniture.width*self.dataStore.room.scaleForFurnitureW;
+//        furniture.lengthScale=furniture.length*self.dataStore.room.scaleForFurnitureL;
+//        if ((furniture.widthScale>self.dataStore.room.scaledWidth)||(furniture.lengthScale>self.dataStore.room.scaledLength)) {
+//            NSLog(@"%flalalala%f", furniture.widthScale, furniture.lengthScale);
+//            
+//            NSMutableArray *mutableArray = [self.dataStore.room.savedFurniture mutableCopy];
+//            [mutableArray removeObject:furniture];
+//            self.dataStore.room.savedFurniture = mutableArray;
+//            
+//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
+//                                                         handler:^(UIAlertAction * _Nonnull action) {
+//                                                             
+//                                                         }];
+//            [alert addAction:okay];
+//            [self presentViewController:alert animated:YES completion:nil];
+//            
 //        }
 //        
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"You have an item that is too large, all offending items have been deleted" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
-//                                                     handler:^(UIAlertAction * _Nonnull action) {
-//                                                         [self.dataStore.arrangedFurniture removeObject:furniture];
-//
-//                                                     }];
-//        [alert addAction:okay];
-//        [self presentViewController:alert animated:YES completion:nil];
 //    }
-}
+//
 
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
     
+//<<<<<<< HEAD
+    [self.deleteButton removeFromSuperview];
+    [self.view layoutSubviews];
+//=======
+//>>>>>>> master
     [self refreshRoomScene];
 
 }
@@ -327,17 +343,38 @@
 
 -(void)setButton {
     
-    [self checkIfItemTooBig];
+//<<<<<<< HEAD
+    for (TPCFurniture *furniture in self.dataStore.room.savedFurniture) {
+        if (!self.localFurnitureArray){
+//=======
+//    [self checkIfItemTooBig];
     
-    NSLog(@"set button furniture in saved furniture: %@", self.currentRoom.savedFurniture);
-    
-    for (TPCFurniture *furniture in self.currentRoom.savedFurniture) {
-        if (!self.localFurnitureArray) {
+//    
+//    for (TPCFurniture *furniture in self.currentRoom.savedFurniture) {
+//        if (!self.localFurnitureArray) {
+//>>>>>>> master
             self.localFurnitureArray=[NSMutableArray new];
         }
         if (![self.localFurnitureArray containsObject:furniture]) {
             [self.localFurnitureArray addObject:furniture];
-        
+//        
+//<<<<<<< HEAD
+//            TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
+//            
+//            furnitureButton.furnitureItem = furniture;
+//            
+//            
+//            
+//            [furnitureButton setBackgroundImage:furniture.image forState:normal];
+//            furnitureButton.imageView.image = furniture.image;
+//            furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
+//            furnitureButton.backgroundColor = [UIColor darkGrayColor];
+//            furnitureButton.tintColor = [UIColor blackColor];
+//            
+//            
+//            furniture.widthScale=furniture.width*self.dataStore.room.scaleForFurnitureW;
+//            furniture.lengthScale=furniture.length*self.dataStore.room.scaleForFurnitureL;
+//=======
         TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
         
         furnitureButton.furnitureItem = furniture;
@@ -349,8 +386,8 @@
         furnitureButton.tintColor = [UIColor blackColor];
         
         
-            furniture.widthscaled=furniture.width*self.dataStore.room.scaleForFurnitureW;
-            furniture.lengthscaled=furniture.length*self.dataStore.room.scaleForFurnitureL;
+            furniture.widthscaled=furniture.width*self.currentRoom.scaleForFurnitureW;
+            furniture.lengthscaled=furniture.length*self.currentRoom.scaleForFurnitureL;
         
         [self.roomLayoutView addSubview:furnitureButton];
         NSLog(@"subviews: %@", self.roomLayoutView.subviews);
@@ -370,13 +407,14 @@
         [furnitureButton addGestureRecognizer: tapGestureRecognizer];
         
         if (!furniture.hasMoved) {
+//>>>>>>> master
             
             [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                 
                 make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                 make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                make.width.equalTo(@(furniture.widthscaled));
-                make.height.equalTo(@(furniture.lengthscaled));
+                make.width.equalTo(@(furniture.widthScale));
+                make.height.equalTo(@(furniture.lengthScale));
                 
             }];
             furnitureButton.furnitureItem.angle = 0;
@@ -398,24 +436,49 @@
             
             
             [UIView animateWithDuration:.1 animations:^{
-                NSLog(@"furniture button furniture item angle: %f", furnitureButton.furnitureItem.angle);
+//                NSLog(@"furniture button furniture item angle: %f", furnitureButton.furnitureItem.angle);
                 
                 [furnitureButton setTransform:CGAffineTransformMakeRotation(furnitureButton.furnitureItem.angle)];
                 
             }];
         }
-            else {
+            else{
                 
                 [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
                     
                     make.centerX.equalTo(self.roomLayoutView.mas_centerX);
                     make.centerY.equalTo(self.roomLayoutView.mas_centerY);
-                    make.width.equalTo(@(furniture.widthscaled));
-                    make.height.equalTo(@(furniture.lengthscaled));
+                    make.width.equalTo(@(furniture.widthScale));
+                    make.height.equalTo(@(furniture.lengthScale));
                     
                 }];
             }
-        }
+//<<<<<<< HEAD
+//            else{
+//                
+//                
+//                [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                    
+//                    
+//                    make.left.equalTo(@(furniture.centerValues.x));
+//                    make.top.equalTo(@(furniture.centerValues.y));
+//                    make.width.equalTo(@(furniture.widthScale));
+//                    make.height.equalTo(@(furniture.lengthScale));
+            
+//                    if (![self isInBounds:furnitureButton]) {
+//                        make.centerX.equalTo(self.roomLayoutView.mas_centerX);
+//                        make.centerY.equalTo(self.roomLayoutView.mas_centerY);
+//                        make.width.equalTo(@(furniture.widthScale));
+//                        make.height.equalTo(@(furniture.lengthScale));
+//                    }
+                    
+//                }];
+            }
+            
+            
+//=======
+//>>>>>>> master
+//        }
     }
     }
     [self furnitureTouching];
@@ -430,11 +493,17 @@
 
 -(void) didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
-    self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
-    self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
+    self.tappedFurnitureButton.furnitureItem.widthScale=self.tappedFurnitureButton.furnitureItem.width*self.dataStore.room.scaleForFurnitureW;
+    self.tappedFurnitureButton.furnitureItem.lengthScale=self.tappedFurnitureButton.furnitureItem.length*self.dataStore.room.scaleForFurnitureL;
     
-    if ((self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||(self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
-        
+//<<<<<<< HEAD
+    
+    
+    if (( self.tappedFurnitureButton.furnitureItem.widthScale>self.dataStore.room.scaledWidth)||( self.tappedFurnitureButton.furnitureItem.lengthScale>self.dataStore.room.scaledLength)) {
+//=======
+//    if ((self.tappedFurnitureButton.furnitureItem.widthscaled>self.dataStore.room.scaledWidth)||(self.tappedFurnitureButton.furnitureItem.lengthscaled>self.dataStore.room.scaledLength)) {
+//        
+//>>>>>>> master
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your changes have made the item too large for the room. Reverted to previous size." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction*okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -446,19 +515,33 @@
     
     else {
         
-        
+        self.tappedFurnitureButton.furnitureItem.widthscaled=self.tappedFurnitureButton.furnitureItem.width*self.currentRoom.scaleForFurnitureW;
+        self.tappedFurnitureButton.furnitureItem.lengthscaled=self.tappedFurnitureButton.furnitureItem.length*self.currentRoom.scaleForFurnitureL;
         
         [self.tappedFurnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+//<<<<<<< HEAD
+//            self.tappedFurnitureButton.widthConstraint = make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthScale));
+//            self.tappedFurnitureButton.lengthConstraint = make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthScale));
+//=======
+//>>>>>>> master
             make.centerX.equalTo(self.roomLayoutView.mas_centerX);
             make.centerY.equalTo(self.roomLayoutView.mas_centerY);
             make.width.equalTo(@(self.tappedFurnitureButton.furnitureItem.widthscaled));
             make.height.equalTo(@(self.tappedFurnitureButton.furnitureItem.lengthscaled));
         }];
         
-        
+        [self.roomLayoutView layoutIfNeeded];
     }
-    [self.view layoutIfNeeded];
+//<<<<<<< HEAD
+    
 }
+
+//-(BOOL)isInBounds:(TPCFurnitureButton*)furnitureButton {
+//    return CGRectContainsRect(self.roomLayoutView.bounds, furnitureButton.frame);
+////=======
+//    [self.view layoutIfNeeded];
+////>>>>>>> master
+//}
 
 -(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController*)controller {
     
@@ -536,7 +619,10 @@
             
             selectedFurniture.furnitureItem.centerValues=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
         }
+        
     }
+    
+   
     
     [self furnitureTouching];
 }
@@ -556,6 +642,8 @@
     NSLog(@"furniture button furniture item angle: %f", selectedFurniture.angle);
 
     }
+    
+    
     
     rotateGestureRecognizer.rotation = 0;
     
@@ -592,9 +680,18 @@
     
     [self.deleteButton removeFromSuperview];
     
-    [self.currentRoom.savedFurniture removeObject:self.itemToDelete];
+//<<<<<<< HEAD
+    NSMutableArray *mutableArray = [self.dataStore.room.savedFurniture mutableCopy];
+    [mutableArray removeObject:self.itemToDelete];
+    self.dataStore.room.savedFurniture = mutableArray;
+    
+
+//    [self.dataStore.arrangedButtons removeObject:self.furnitureButtonToDelete];
+//=======
+//    [self.currentRoom.savedFurniture removeObject:self.itemToDelete];
     
 //    [self.dataStore.arrangedButtons removeObject:self.furnitureButtonToDelete];
+//>>>>>>> master
     [self.furnitureButtonToDelete removeFromSuperview];
 }
 
@@ -612,6 +709,7 @@
             if(buttonButtonAgainTouching){
                 shouldBeRed = YES;
                 break;
+                
             }
         }
         button.tintColor = shouldBeRed ? [UIColor redColor] : [UIColor blackColor];

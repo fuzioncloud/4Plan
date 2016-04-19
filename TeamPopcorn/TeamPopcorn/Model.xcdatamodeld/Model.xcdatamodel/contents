@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="TPCBed" representedClassName="TPCBed" parentEntity="TPCFurniture" syncable="YES">
+        <attribute name="bedSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCChair" representedClassName="TPCChair" parentEntity="TPCFurniture" syncable="YES">
+        <attribute name="chairStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCFurniture" representedClassName="TPCFurniture" syncable="YES">
+        <attribute name="angle" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="centerValuesX" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="centerValuesY" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="hasMoved" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasScaled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="horizontalDistanceFromOrigin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lengthScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="verticalDistanceFromOrigin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="widthScale" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TPCRoom" inverseName="placedFurniturePieces" inverseEntity="TPCRoom" syncable="YES"/>
+    </entity>
+    <entity name="TPCMisc" representedClassName="TPCMisc" parentEntity="TPCFurniture" syncable="YES">
+        <attribute name="miscStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCRoom" representedClassName="TPCRoom" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scaledLength" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaledWidth" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaleForFurnitureL" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scaleForFurnitureW" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="placedFurniturePieces" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TPCFurniture" inverseName="room" inverseEntity="TPCFurniture" syncable="YES"/>
+    </entity>
+    <entity name="TPCSofa" representedClassName="TPCSofa" parentEntity="TPCFurniture" syncable="YES">
+        <attribute name="sofaStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TPCTable" representedClassName="TPCTable" parentEntity="TPCFurniture" syncable="YES">
+        <attribute name="tableStyle" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TPCBed" positionX="-90" positionY="-81" width="128" height="58"/>
+        <element name="TPCChair" positionX="9" positionY="5" width="128" height="58"/>
+        <element name="TPCFurniture" positionX="-218" positionY="53" width="128" height="300"/>
+        <element name="TPCMisc" positionX="9" positionY="135" width="128" height="58"/>
+        <element name="TPCRoom" positionX="-405" positionY="297" width="128" height="195"/>
+        <element name="TPCSofa" positionX="7" positionY="248" width="128" height="58"/>
+        <element name="TPCTable" positionX="-83" positionY="338" width="128" height="58"/>
+    </elements>
+</model>

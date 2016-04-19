@@ -2,32 +2,45 @@
 //  TPCFurniture.h
 //  TeamPopcorn
 //
-//  Created by Janet Lustgarten on 3/29/16.
+//  Created by Flatiron School on 4/12/16.
 //  Copyright © 2016 Popcorn. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@interface TPCFurniture : NSObject
 
-@property (strong, nonatomic) NSString* name;
+@class TPCFurnitureButton;
 
-@property (nonatomic) NSUInteger width, length, height, weight;
+//<<<<<<< HEAD
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic) NSUInteger horizontalDistanceFromOrigin;
-@property (nonatomic) NSUInteger verticalDistanceFromOrigin;
+@interface TPCFurniture : NSManagedObject
 
-@property (nonatomic) CGFloat angle;
+// Insert code here to declare functionality of your managed object subclass
+//=======
+//@property (nonatomic) NSUInteger width, length, height, weight;
 
-@property (nonatomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
+//@property (nonatomic) NSUInteger horizontalDistanceFromOrigin;
+//@property (nonatomic) NSUInteger verticalDistanceFromOrigin;
 
-@property (strong, nonatomic) UIImage *image;
-@property (nonatomic) BOOL hasScaled;
+//@property (nonatomic) CGFloat angle;
+
+//@property (nonatomic) CGFloat scale, widthscaled, lengthscaled, widthscale, lengthscale;
+@property (nonatomic) CGFloat lengthscaled, widthscaled;
+//>>>>>>> master
+
 @property (nonatomic) CGPoint centerValues;
-@property (nonatomic) BOOL hasMoved;
 
+//@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) UIImage *image;
 
+//<<<<<<< HEAD
+//@property (nullable, nonatomic, retain) TPCFurnitureButton *placedFurniture;
+
+//=======
+//>>>>>>> master
 -(instancetype)init;
 
 -(instancetype)initWithWidth:(NSUInteger)width
@@ -36,5 +49,8 @@
                        image:(UIImage*)image
                       weight:(NSUInteger)weight;
 
-
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "TPCFurniture+CoreDataProperties.h"
