@@ -45,7 +45,7 @@
     
 
     
-    self.itemsTableView.sectionIndexColor = [UIColor whiteColor];
+    self.itemsTableView.sectionIndexColor = [UIColor blackColor];
     
     self.itemsTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:175.0/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f]; //blue-teal color
     self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor colorWithRed:250.0f/255.0f green:242.0f/255.0f blue:198.0f/255.0f alpha:1.0]; //off white color

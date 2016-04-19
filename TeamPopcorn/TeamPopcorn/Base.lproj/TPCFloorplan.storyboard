@@ -20,8 +20,8 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.40000000000000002" contentMode="scaleAspectFill" image="Mc8kW4x9Q3aRR3RkP5Im_IMG_4417" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-9n-03h">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalCentering" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-uZ-6kb">
-                                <rect key="frame" x="107" y="343" width="202" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-uZ-6kb">
+                                <rect key="frame" x="106" y="343" width="202" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1m6-W8-lyk">
                                         <rect key="frame" x="0.0" y="0.0" width="76" height="50"/>
@@ -50,7 +50,7 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create your room size below! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-fV-AlX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your room size below! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-fV-AlX">
                                 <rect key="frame" x="9" y="174" width="397" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="k11-IO-LYS"/>
@@ -59,7 +59,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-SO-uJ6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-SO-uJ6">
                                 <rect key="frame" x="121" y="452" width="173" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="9Ox-oW-T8v"/>

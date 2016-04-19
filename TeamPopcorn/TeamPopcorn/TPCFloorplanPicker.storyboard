@@ -199,53 +199,78 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-mB-pqb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-H3-8Gb">
-                                <rect key="frame" x="69" y="283" width="277" height="64"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                <state key="normal" title="Go to your saved rooms">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
-                                <rect key="frame" x="69" y="184" width="277" height="69"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                <state key="normal" title="Create a new room">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
-                                    <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLANit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-O3-VhW">
-                                <rect key="frame" x="85" y="72" width="224" height="56"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create your ideal room layout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-IJ-J7X">
-                                <rect key="frame" x="47" y="109" width="320" height="67"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKj-Lu-h9c">
-                                <rect key="frame" x="181" y="261" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TBy-J7-V6t">
+                                <rect key="frame" x="0.0" y="187" width="414" height="133"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
+                                        <rect key="frame" x="127" y="0.0" width="160" height="38"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <state key="normal" title="Create a new room">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
+                                            <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKj-Lu-h9c">
+                                        <rect key="frame" x="195" y="58" width="24" height="20"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-H3-8Gb">
+                                        <rect key="frame" x="107" y="98" width="200" height="35"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <state key="normal" title="Go to your saved rooms">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1oQ-EA-iLT">
+                                <rect key="frame" x="0.0" y="64" width="414" height="93"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4Plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-O3-VhW">
+                                        <rect key="frame" x="154" y="0.0" width="106" height="57"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your ideal room layout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ga-IJ-J7X">
+                                        <rect key="frame" x="64" y="65" width="286" height="28"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1oQ-EA-iLT" firstAttribute="top" secondItem="izs-Rw-CeG" secondAttribute="bottom" id="AZr-er-Zo4"/>
                             <constraint firstAttribute="trailing" secondItem="Eze-mB-pqb" secondAttribute="trailing" id="Blg-d7-RzF"/>
+                            <constraint firstItem="TBy-J7-V6t" firstAttribute="top" secondItem="1oQ-EA-iLT" secondAttribute="bottom" constant="30" id="EeC-iP-lKc"/>
+                            <constraint firstItem="1oQ-EA-iLT" firstAttribute="leading" secondItem="WuA-vW-8l2" secondAttribute="leading" id="G53-Z9-dIE"/>
                             <constraint firstAttribute="bottom" secondItem="Eze-mB-pqb" secondAttribute="bottom" id="GKY-9S-9IM"/>
                             <constraint firstItem="Eze-mB-pqb" firstAttribute="top" secondItem="WuA-vW-8l2" secondAttribute="top" id="H78-q3-QOL"/>
                             <constraint firstItem="Eze-mB-pqb" firstAttribute="leading" secondItem="WuA-vW-8l2" secondAttribute="leading" id="KLH-8G-TlW"/>
+                            <constraint firstItem="Lhn-ez-Olu" firstAttribute="top" secondItem="TBy-J7-V6t" secondAttribute="bottom" constant="416" id="PCD-Ur-vcc"/>
+                            <constraint firstItem="TBy-J7-V6t" firstAttribute="leading" secondItem="WuA-vW-8l2" secondAttribute="leading" id="S5F-Us-kkR"/>
+                            <constraint firstItem="1oQ-EA-iLT" firstAttribute="leading" secondItem="WuA-vW-8l2" secondAttribute="leading" id="Wst-Nc-8sT"/>
+                            <constraint firstAttribute="trailing" secondItem="1oQ-EA-iLT" secondAttribute="trailing" id="gEg-Gb-4HE"/>
+                            <constraint firstItem="1oQ-EA-iLT" firstAttribute="top" secondItem="izs-Rw-CeG" secondAttribute="bottom" constant="10" id="l4M-W2-v09"/>
+                            <constraint firstAttribute="trailing" secondItem="TBy-J7-V6t" secondAttribute="trailing" id="nFE-Sh-5Dc"/>
+                            <constraint firstAttribute="trailing" secondItem="1oQ-EA-iLT" secondAttribute="trailing" id="vmC-SZ-GVz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="l4M-W2-v09"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="yaZ-cT-sH5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
