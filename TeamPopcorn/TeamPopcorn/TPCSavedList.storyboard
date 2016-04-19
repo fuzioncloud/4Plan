@@ -45,6 +45,14 @@
             </objects>
             <point key="canvasLocation" x="1164" y="159"/>
         </scene>
+        <!--TPCAcknowledgements-->
+        <scene sceneID="dIM-tE-0Zb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TPCAcknowledgements" id="IMC-T9-eKx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyE-fs-R3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948.5" y="544"/>
+        </scene>
         <!--4Plan 4now-->
         <scene sceneID="QaP-Nk-ol5">
             <objects>
@@ -91,6 +99,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="4Plan 4now" id="VmF-tQ-BaW">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="pTH-OS-f7r">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7KY-jP-7DA">
+                                <rect key="frame" x="20" y="7" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Acknowledgements"/>
+                                <connections>
+                                    <segue destination="IMC-T9-eKx" kind="show" id="z9N-M0-2uJ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vLR-YK-VbY">
                             <connections>
                                 <segue destination="HXn-kU-QRz" kind="show" identifier="Show Floorplan Picker" id="do8-f6-3Kd"/>
