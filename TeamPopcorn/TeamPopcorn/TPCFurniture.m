@@ -12,21 +12,12 @@
 
 @implementation TPCFurniture
 
-// Insert code here to add functionality to your managed object subclass
 
-//@synthesize name = _name;
 @synthesize image = _image;
 @synthesize centerValues = _centerValues;
 @synthesize lengthscaled = _lengthscaled;
 @synthesize widthscaled = _widthscaled;
 
-//-(NSString*)name {
-//    return _name;
-//}
-//
-//-(void)setName:(NSString *)name {
-//    _name = name;
-//}
 
 -(UIImage *)image {
     if(!_image) {

@@ -57,7 +57,7 @@
     }
 }
 
-// NSCopying protocol
+
 
 -(id)copyWithZone:(NSZone *)zone {
     return [[self.class alloc]initWithName:self.catalogName atIndex:self.catalogIndex];
