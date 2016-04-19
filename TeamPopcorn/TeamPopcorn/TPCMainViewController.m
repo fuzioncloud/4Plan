@@ -36,6 +36,7 @@
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
 @property (strong, nonatomic) NSMutableArray *localFurnitureArray;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 
 
@@ -66,6 +67,10 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:175.0f/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
 }
+
+
+    
+   
 
 -(void) barButtonItem {
     
@@ -123,6 +128,9 @@
         make.height.equalTo(@35);
         
     }];
+}
+- (IBAction)homeButtonTapped:(id)sender {
+    
 }
 
 -(void) saveButtonPressed{

@@ -48,7 +48,7 @@
         <!--4Plan 4now-->
         <scene sceneID="QaP-Nk-ol5">
             <objects>
-                <viewController id="54k-ni-7Yr" customClass="TPCSavedListTableViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TPCSavedListTableViewController" id="54k-ni-7Yr" customClass="TPCSavedListTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rhP-Oa-X9q"/>
                         <viewControllerLayoutGuide type="bottom" id="cLG-0U-CbY"/>
