@@ -11,7 +11,8 @@
 #import "TPCModels.h"
 #import "TPCMainViewController.h"
 
-@interface TPCSavedListTableViewController ()
+@interface TPCSavedListTableViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) TPCStateManager *dataStore;
 
 @end
@@ -22,6 +23,8 @@
     [super viewDidLoad];
     
     self.dataStore = [TPCStateManager currentState];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 
 }
 

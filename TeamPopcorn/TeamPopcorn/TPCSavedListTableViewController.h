@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPCSavedListTableViewController : UITableViewController
+@interface TPCSavedListTableViewController : UIViewController
 
 @end
