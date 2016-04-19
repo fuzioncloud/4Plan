@@ -285,6 +285,44 @@
             </objects>
             <point key="canvasLocation" x="315" y="-2"/>
         </scene>
+        <!--Rename Room View Controller-->
+        <scene sceneID="xq9-cj-GrK">
+            <objects>
+                <viewController storyboardIdentifier="renameVC" id="B5J-vW-fWj" customClass="TPCRenameRoomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6lg-pW-jT2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mjb-51-3wE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fdu-PD-0RK">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQe-ff-aX7">
+                                <rect key="frame" x="16" y="35" width="268" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameDidEndEditing:" destination="B5J-vW-fWj" eventType="editingDidEnd" id="eM3-ng-Evv"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PQe-ff-aX7" firstAttribute="centerY" secondItem="fdu-PD-0RK" secondAttribute="centerY" id="5uZ-xg-q6Q"/>
+                            <constraint firstItem="PQe-ff-aX7" firstAttribute="leading" secondItem="fdu-PD-0RK" secondAttribute="leadingMargin" id="Z2f-T0-lG5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PQe-ff-aX7" secondAttribute="trailing" id="tak-S0-3gN"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="100"/>
+                    <connections>
+                        <outlet property="name" destination="PQe-ff-aX7" id="Iig-LR-rj0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJp-2x-rBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315" y="-427"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="h1v-86-dHj">
             <objects>

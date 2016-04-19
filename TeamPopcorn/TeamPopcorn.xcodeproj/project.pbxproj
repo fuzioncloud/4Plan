@@ -12,6 +12,7 @@
 		087D35F71CBEC12700C144CC /* TPCSavedList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087D35F61CBEC12700C144CC /* TPCSavedList.storyboard */; };
 		087D35FA1CBEC1A100C144CC /* TPCSavedListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087D35F91CBEC1A100C144CC /* TPCSavedListTableViewController.m */; };
 		08DC6D691CAC7DD90084CF1D /* TPCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */; };
+		1B160F591CC6EE65002F266E /* TPCRenameRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B160F581CC6EE65002F266E /* TPCRenameRoomViewController.m */; };
 		1B632DFA1CB8435900223CF4 /* TPCSecrets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632DF91CB8435900223CF4 /* TPCSecrets.m */; };
 		1B632E0A1CBD705000223CF4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E081CBD705000223CF4 /* Model.xcdatamodeld */; };
 		1B632E2B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B632E0C1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m */; };
@@ -57,6 +58,8 @@
 		087D35F91CBEC1A100C144CC /* TPCSavedListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSavedListTableViewController.m; sourceTree = "<group>"; };
 		08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCMainViewController.h; sourceTree = "<group>"; };
 		08DC6D681CAC7DD90084CF1D /* TPCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCMainViewController.m; sourceTree = "<group>"; };
+		1B160F571CC6EE65002F266E /* TPCRenameRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCRenameRoomViewController.h; sourceTree = "<group>"; };
+		1B160F581CC6EE65002F266E /* TPCRenameRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCRenameRoomViewController.m; sourceTree = "<group>"; };
 		1B632DF91CB8435900223CF4 /* TPCSecrets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCSecrets.m; sourceTree = "<group>"; };
 		1B632E091CBD705000223CF4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1B632E0B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCSofa+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 		1BA169CD1CAC1E0C00A4436A /* C */ = {
 			isa = PBXGroup;
 			children = (
+				1B160F571CC6EE65002F266E /* TPCRenameRoomViewController.h */,
+				1B160F581CC6EE65002F266E /* TPCRenameRoomViewController.m */,
 				44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */,
 				44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */,
 				08DC6D671CAC7DD90084CF1D /* TPCMainViewController.h */,
@@ -409,6 +414,7 @@
 				1B632E2B1CBD713100223CF4 /* TPCSofa+CoreDataProperties.m in Sources */,
 				085612FA1CADC2DB00452A49 /* TPCDimensionsViewController.m in Sources */,
 				1B632E351CBD713100223CF4 /* TPCTable+CoreDataProperties.m in Sources */,
+				1B160F591CC6EE65002F266E /* TPCRenameRoomViewController.m in Sources */,
 				1B9FCD9E1CAB1FA60041D2DB /* TPCItemCell.m in Sources */,
 				1B632E0A1CBD705000223CF4 /* Model.xcdatamodeld in Sources */,
 				1B632E361CBD713100223CF4 /* TPCTable.m in Sources */,

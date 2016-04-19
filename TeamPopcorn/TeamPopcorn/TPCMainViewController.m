@@ -15,6 +15,7 @@
 #import "TPCFurnitureButton.h"
 #import "TPCEnterRoomDimensionViewController.h"
 #import "TPCItemsMenuViewController.h"
+#import "TPCRenameRoomViewController.h"
 
 #import <Masonry/Masonry.h>
 
@@ -76,31 +77,52 @@
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
     
     // Setting the title view...
-    CGRect titleViewFrame = CGRectMake(0, 0, 120, 40);
+    CGRect titleViewFrame = CGRectMake(0, 0, 160, 40);
     UIView *titleView = [[UIView alloc]initWithFrame:titleViewFrame];
     
-    CGRect titleLabelFrame = CGRectMake(0, 0, 120, 30);
+    CGRect titleLabelFrame = CGRectMake(0, 0, 160, 30);
     UILabel *title = [[UILabel alloc]initWithFrame:titleLabelFrame];
+    
     NSString *name = self.currentRoom.name;
-    UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:20];
-    NSDictionary *attr = @{@"NSFontAttributeName": font};
+    
+    UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
+    NSDictionary *attr = @{NSFontAttributeName: font};
     NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
     title.attributedText = niceName;
     title.textAlignment = NSTextAlignmentCenter;
     
-    CGRect subTitleLabelFrame = CGRectMake(0, 30, 120, 10);
+    CGRect subTitleLabelFrame = CGRectMake(0, 28, 160, 10);
     UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
-    NSDictionary *subAttr = @{@"NSFontAttributeName": [UIFont systemFontOfSize:10]};
+    NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
     NSAttributedString *niceSub = [[NSAttributedString alloc]initWithString:@"tap to rename..." attributes:subAttr];
     subTitle.attributedText = niceSub;
     subTitle.textAlignment = NSTextAlignmentCenter;
-    
 
     [titleView addSubview:title];
     [titleView addSubview:subTitle];
 
-    titleView.backgroundColor = [UIColor redColor];
+    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showRenamePopover)];
+    [titleView addGestureRecognizer:tapper];
+    
     self.navigationItem.titleView = titleView;
+    
+}
+
+-(void)showRenamePopover {
+//    self.navigationItem.titleView.backgroundColor = [UIColor redColor];
+    TPCRenameRoomViewController *renameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"renameVC"];
+    
+    renameVC.nameStr = self.currentRoom.name;
+    
+    renameVC.modalPresentationStyle = UIModalPresentationPopover;
+    renameVC.preferredContentSize = CGSizeMake(260, 40);
+    UIPopoverPresentationController *popov = renameVC.popoverPresentationController;
+    popov.delegate = self;
+    popov.sourceView = self.navigationItem.titleView;
+    popov.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    
+    [self presentViewController:renameVC animated:YES completion:nil];
+
     
 }
 
@@ -127,37 +149,40 @@
 
 -(void) saveButtonPressed{
     
-    if (!self.dataStore.savedRooms) {
-        self.dataStore.savedRooms = [NSArray new];
-    }
+    // temp disabling the save button...
+    return;
     
-    NSLog(@"save tapped");
-    
-    UIAlertController *saveButtonAlert = [UIAlertController alertControllerWithTitle:@"Save" message:@"Enter name of room" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        
-        self.currentRoom.name = saveButtonAlert.textFields[0].text;
-        
-        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
-        [rooms addObject:self.currentRoom];
-        self.dataStore.savedRooms = rooms;
-        
-        
-        NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    
-    [saveButtonAlert addTextFieldWithConfigurationHandler:^(UITextField * textField) {
-        textField.placeholder = NSLocalizedString(@"Enter room name", @"Enter room name");
-    }];
-    
-    [saveButtonAlert addAction:cancel];
-    [saveButtonAlert addAction:save];
-    
-    [self presentViewController:saveButtonAlert animated:YES completion:nil];
+//    if (!self.dataStore.savedRooms) {
+//        self.dataStore.savedRooms = [NSArray new];
+//    }
+//    
+//    NSLog(@"save tapped");
+//    
+//    UIAlertController *saveButtonAlert = [UIAlertController alertControllerWithTitle:@"Save" message:@"Enter name of room" preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        
+//        
+//        self.currentRoom.name = saveButtonAlert.textFields[0].text;
+//        
+//        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
+//        [rooms addObject:self.currentRoom];
+//        self.dataStore.savedRooms = rooms;
+//        
+//        
+//        NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
+//    }];
+//    
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+//    
+//    [saveButtonAlert addTextFieldWithConfigurationHandler:^(UITextField * textField) {
+//        textField.placeholder = NSLocalizedString(@"Enter room name", @"Enter room name");
+//    }];
+//    
+//    [saveButtonAlert addAction:cancel];
+//    [saveButtonAlert addAction:save];
+//    
+//    [self presentViewController:saveButtonAlert animated:YES completion:nil];
 }
 
 -(void) buttonAction: (id) sender {
