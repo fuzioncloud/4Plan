@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Eb-gz-x6Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kic-mr-Kfq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -159,70 +159,13 @@
             </objects>
             <point key="canvasLocation" x="1558" y="285"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QBJ-Rq-nLf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Eb-gz-x6Y" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vrT-mK-ZOD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="pGH-Td-mO8" kind="relationship" relationship="rootViewController" id="5yP-5l-pe8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tGW-nR-lfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-395" y="244"/>
-        </scene>
-        <!--Entry View Controller-->
-        <scene sceneID="eR3-6F-HwS">
-            <objects>
-                <viewController id="pGH-Td-mO8" customClass="TPCEntryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="izs-Rw-CeG"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lhn-ez-Olu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WuA-vW-8l2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-H3-8Gb">
-                                <rect key="frame" x="45" y="255" width="41" height="30"/>
-                                <state key="normal" title="saved"/>
-                                <connections>
-                                    <segue destination="dpl-ug-4se" kind="show" id="p0A-IS-uAU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGQ-fE-5Hj">
-                                <rect key="frame" x="169" y="255" width="68" height="30"/>
-                                <state key="normal" title="new room"/>
-                                <connections>
-                                    <action selector="tappedNewRoom:" destination="pGH-Td-mO8" eventType="touchUpInside" id="QMe-BF-CQq"/>
-                                    <segue destination="kic-mr-Kfq" kind="show" id="BxZ-pz-fnv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="yaZ-cT-sH5"/>
-                    <connections>
-                        <outlet property="roomButton" destination="fGQ-fE-5Hj" id="8jg-Oy-cT6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yfV-dL-hqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="386" y="244"/>
-        </scene>
         <!--TPCSavedList-->
         <scene sceneID="svh-6j-bPe">
             <objects>
                 <viewControllerPlaceholder storyboardName="TPCSavedList" referencedIdentifier="savedListStoryBoard" id="dpl-ug-4se" userLabel="TPCSavedList" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ci-Dm-6Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386" y="714"/>
+            <point key="canvasLocation" x="377" y="360"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

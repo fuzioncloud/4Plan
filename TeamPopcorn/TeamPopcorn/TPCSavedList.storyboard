@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eiV-1f-b6O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NkE-AX-fXo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Saved List Table View Controller-->
+        <!--Rooms-->
         <scene sceneID="vMr-0s-QGK">
             <objects>
                 <tableViewController storyboardIdentifier="savedListStoryBoard" id="eiV-1f-b6O" customClass="TPCSavedListTableViewController" sceneMemberID="viewController">
@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedCell" textLabel="r7a-nK-UEI" style="IBUITableViewCellStyleDefault" id="H4n-av-sN7">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H4n-av-sN7" id="7wk-gp-eEn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -31,7 +31,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="sVO-LR-WVX" kind="show" id="txl-l3-ptz"/>
+                                    <segue destination="sVO-LR-WVX" kind="show" identifier="Show Main" id="txl-l3-ptz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -40,10 +40,27 @@
                             <outlet property="delegate" destination="eiV-1f-b6O" id="cvf-fI-HDO"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Rooms" id="sQ0-eP-upS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vLR-YK-VbY">
+                            <connections>
+                                <segue destination="HXn-kU-QRz" kind="show" identifier="Show Floorplan Picker" id="do8-f6-3Kd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M5-uJ-bfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="315"/>
+            <point key="canvasLocation" x="1318" y="267"/>
+        </scene>
+        <!--TPCFloorplanPicker-->
+        <scene sceneID="wxh-Li-VFe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TPCFloorplanPicker" id="HXn-kU-QRz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LK-Sg-2jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888.5" y="4"/>
         </scene>
         <!--TPCMain-->
         <scene sceneID="hYV-OX-3Fg">
@@ -51,7 +68,25 @@
                 <viewControllerPlaceholder storyboardName="TPCMain" id="sVO-LR-WVX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYW-Aj-DL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109" y="315"/>
+            <point key="canvasLocation" x="1921" y="315"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PNd-bx-CrR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NkE-AX-fXo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sM5-lp-ktg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eiV-1f-b6O" kind="relationship" relationship="rootViewController" id="l19-Xu-4D9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QcI-ps-8lV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="267"/>
         </scene>
     </scenes>
 </document>
