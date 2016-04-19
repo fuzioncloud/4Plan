@@ -17,75 +17,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.40000000000000002" contentMode="scaleAspectFill" image="Mc8kW4x9Q3aRR3RkP5Im_IMG_4417" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-9n-03h">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.40000000000000002" contentMode="scaleAspectFill" fixedFrame="YES" image="Mc8kW4x9Q3aRR3RkP5Im_IMG_4417" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-9n-03h">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-uZ-6kb">
-                                <rect key="frame" x="106" y="343" width="202" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cga-V1-RfC">
+                                <rect key="frame" x="45" y="284" width="325" height="168"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1m6-W8-lyk">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="50"/>
-                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                        <connections>
-                                            <action selector="widthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="emz-wN-ObP"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v9-zt-mSg">
-                                        <rect key="frame" x="92" y="0.0" width="16" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your room size below! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-fV-AlX">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="27"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-C1-lSi">
-                                        <rect key="frame" x="121" y="0.0" width="81" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-uZ-6kb">
+                                        <rect key="frame" x="62" y="61" width="201" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="width" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1m6-W8-lyk">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="30"/>
+                                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="widthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="emz-wN-ObP"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v9-zt-mSg">
+                                                <rect key="frame" x="91" y="0.0" width="16" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="length" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-C1-lSi">
+                                                <rect key="frame" x="120" y="0.0" width="81" height="30"/>
+                                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="lengthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="npR-zt-gte"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Zxh-v9-r0u"/>
+                                            <constraint firstItem="9v9-zt-mSg" firstAttribute="leading" secondItem="1m6-W8-lyk" secondAttribute="trailing" constant="15" id="bTK-6j-WRV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-SO-uJ6">
+                                        <rect key="frame" x="122" y="121" width="82" height="47"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="30"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <action selector="lengthTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="npR-zt-gte"/>
+                                            <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPB-RZ-Vi5"/>
                                         </connections>
-                                    </textField>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your room size below! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-fV-AlX">
-                                <rect key="frame" x="9" y="174" width="397" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="k11-IO-LYS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="33"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-SO-uJ6">
-                                <rect key="frame" x="121" y="452" width="173" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="173" id="9Ox-oW-T8v"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="40"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPB-RZ-Vi5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.64582407474517822" green="0.62325033805617036" blue="0.44277112356698756" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="IhC-SO-uJ6" firstAttribute="top" secondItem="9v9-zt-mSg" secondAttribute="bottom" constant="59" id="QeL-uQ-wie"/>
-                            <constraint firstItem="Z4W-uZ-6kb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R5r-m8-AkV"/>
-                            <constraint firstAttribute="bottom" secondItem="LBy-9n-03h" secondAttribute="bottom" id="Rwr-cH-JcV"/>
-                            <constraint firstItem="LBy-9n-03h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZjM-Ec-oTL"/>
-                            <constraint firstItem="IhC-SO-uJ6" firstAttribute="centerX" secondItem="Z4W-uZ-6kb" secondAttribute="centerX" id="b6l-9r-wQw"/>
-                            <constraint firstItem="LBy-9n-03h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="djV-IF-R6F"/>
-                            <constraint firstItem="Z4W-uZ-6kb" firstAttribute="top" secondItem="Ri8-fV-AlX" secondAttribute="bottom" constant="121" id="h6g-GN-fb7"/>
-                            <constraint firstItem="QgH-MB-qRK" firstAttribute="top" secondItem="IhC-SO-uJ6" secondAttribute="bottom" constant="230" id="iIc-dT-aBj"/>
-                            <constraint firstAttribute="trailing" secondItem="LBy-9n-03h" secondAttribute="trailing" id="kqD-Xl-KHn"/>
-                            <constraint firstItem="IhC-SO-uJ6" firstAttribute="centerX" secondItem="Ri8-fV-AlX" secondAttribute="centerX" id="opR-K3-U95"/>
-                            <constraint firstItem="Z4W-uZ-6kb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qQn-G9-J4r"/>
+                            <constraint firstItem="cga-V1-RfC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3x0-F0-WCH"/>
+                            <constraint firstItem="cga-V1-RfC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Idf-X3-ge2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eEF-fV-Ixv">
