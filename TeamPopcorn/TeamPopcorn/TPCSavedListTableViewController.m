@@ -56,8 +56,9 @@
     TPCRoom *currentRoom = self.dataStore.savedRooms[indexPath.row];
     
     cell.textLabel.text = currentRoom.name;
-    cell.detailTextLabel.text = @"wooooo";
-    // Configure the cell...
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     
     return cell;
 }

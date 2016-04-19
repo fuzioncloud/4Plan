@@ -305,6 +305,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Chairs" width="380" height="585"/>
+        <image name="Chairs" width="3500" height="2333"/>
     </resources>
 </document>
