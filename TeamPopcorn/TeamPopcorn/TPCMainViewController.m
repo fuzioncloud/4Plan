@@ -36,6 +36,7 @@
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
 @property (strong, nonatomic) NSMutableArray *localFurnitureArray;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 
 
@@ -68,6 +69,10 @@
     
 }
 
+
+    
+   
+
 -(void) barButtonItem {
     
     UIImage *addSymbol = [UIImage imageNamed:@"addFurnitureButtonSmall"];
@@ -75,7 +80,33 @@
     self.navigationItem.rightBarButtonItem = furnitureBarButton;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
-    [self.navigationItem setRightBarButtonItem:furnitureBarButton];
+    
+    // Setting the title view...
+    CGRect titleViewFrame = CGRectMake(0, 0, 120, 40);
+    UIView *titleView = [[UIView alloc]initWithFrame:titleViewFrame];
+    
+    CGRect titleLabelFrame = CGRectMake(0, 0, 120, 30);
+    UILabel *title = [[UILabel alloc]initWithFrame:titleLabelFrame];
+    NSString *name = self.currentRoom.name;
+    UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:20];
+    NSDictionary *attr = @{@"NSFontAttributeName": font};
+    NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
+    title.attributedText = niceName;
+    title.textAlignment = NSTextAlignmentCenter;
+    
+    CGRect subTitleLabelFrame = CGRectMake(0, 30, 120, 10);
+    UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
+    NSDictionary *subAttr = @{@"NSFontAttributeName": [UIFont systemFontOfSize:10]};
+    NSAttributedString *niceSub = [[NSAttributedString alloc]initWithString:@"tap to rename..." attributes:subAttr];
+    subTitle.attributedText = niceSub;
+    subTitle.textAlignment = NSTextAlignmentCenter;
+    
+
+    [titleView addSubview:title];
+    [titleView addSubview:subTitle];
+
+    titleView.backgroundColor = [UIColor redColor];
+    self.navigationItem.titleView = titleView;
     
 }
 
@@ -98,6 +129,9 @@
         make.height.equalTo(@35);
         
     }];
+}
+- (IBAction)homeButtonTapped:(id)sender {
+    
 }
 
 -(void) saveButtonPressed{
@@ -284,7 +318,12 @@
     [self.view layoutSubviews];
     
     [self refreshRoomScene];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self furnitureTouching];
+
 }
 
 -(void)refreshRoomScene {
@@ -396,7 +435,9 @@
 
                 }
             }
-            
+
+            furnitureButton.backgroundColor = [UIColor darkGrayColor];
+
         }
         
     }
@@ -407,6 +448,7 @@
     
     [self furnitureTouching];
     
+
 }
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     

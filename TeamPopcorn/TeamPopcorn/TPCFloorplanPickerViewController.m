@@ -37,22 +37,27 @@
     
     if ([[segue identifier] isEqualToString:@"2x2"]) {
         destinationVC.currentRoom = [self.datastore setRoomOfWidth:2 height:0 length:2];
+        destinationVC.currentRoom.name = @"2x2 Room";
     }
     
     if ([[segue identifier] isEqualToString:@"2x4"]) {
          destinationVC.currentRoom = [self.datastore setRoomOfWidth:2 height:0 length:4];
+        destinationVC.currentRoom.name = @"2x4 Room";
         
     }
     if ([[segue identifier] isEqualToString:@"5x5"]) {
          destinationVC.currentRoom = [self.datastore setRoomOfWidth:5 height:0 length:5];
+        destinationVC.currentRoom.name = @"5x5 Room";
         
     }
     if ([[segue identifier] isEqualToString:@"5x10"]) {
          destinationVC.currentRoom = [self.datastore setRoomOfWidth:5 height:0 length:10];
+        destinationVC.currentRoom.name = @"5x10 Room";
         
     }
     if ([[segue identifier] isEqualToString:@"10x10"]) {
          destinationVC.currentRoom = [self.datastore setRoomOfWidth:10 height:0 length:10];
+        destinationVC.currentRoom.name = @"10x10 Room";
         
     }
 }
