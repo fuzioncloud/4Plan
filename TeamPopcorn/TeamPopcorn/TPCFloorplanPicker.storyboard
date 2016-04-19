@@ -159,14 +159,6 @@
             </objects>
             <point key="canvasLocation" x="1558" y="285"/>
         </scene>
-        <!--TPCSavedList-->
-        <scene sceneID="svh-6j-bPe">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TPCSavedList" referencedIdentifier="savedListStoryBoard" id="dpl-ug-4se" userLabel="TPCSavedList" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ci-Dm-6Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="377" y="360"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ywi-fw-ebf"/>
