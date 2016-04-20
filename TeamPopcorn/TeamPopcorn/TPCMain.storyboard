@@ -305,17 +305,40 @@
                                     <constraint firstAttribute="height" constant="25" id="2gx-Eq-Nmi"/>
                                     <constraint firstAttribute="width" constant="25" id="gWo-Zb-OlA"/>
                                 </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button" image="home"/>
                                 <connections>
                                     <action selector="homeButtonTapped:" destination="3H7-w6-z11" eventType="touchUpInside" id="Ydl-Wi-p3M"/>
                                     <segue destination="4nz-G0-EUR" kind="show" identifier="homeButtonSegue" id="agh-PH-J7L"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKh-Fx-fyE" userLabel="Save Button">
+                                <rect key="frame" x="321" y="543" width="25" height="25"/>
+                                <state key="normal" backgroundImage="saveicon"/>
+                                <connections>
+                                    <action selector="saveButtonPressed" destination="3H7-w6-z11" eventType="touchUpInside" id="TfR-TS-Sm6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkD-Eg-T8w" userLabel="Image Save Button">
+                                <rect key="frame" x="255" y="543" width="25" height="25"/>
+                                <state key="normal" backgroundImage="savepic"/>
+                                <connections>
+                                    <action selector="saveAsImageTapped:" destination="3H7-w6-z11" eventType="touchUpInside" id="Zbe-HX-5O3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZKh-Fx-fyE" firstAttribute="leading" secondItem="o9i-a3-y4N" secondAttribute="trailing" constant="8" id="3Pw-wy-HdN"/>
+                            <constraint firstItem="ZKh-Fx-fyE" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="AEy-td-hLI"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerX" secondItem="yzG-zX-HxO" secondAttribute="centerX" id="Bje-uk-Wij"/>
+                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="HCC-jI-Bep"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="T2x-Qk-THk"/>
+                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="b8o-Te-zVo"/>
+                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="trailing" secondItem="o9i-a3-y4N" secondAttribute="leading" constant="-8" id="ikW-PW-CJK"/>
+                            <constraint firstItem="ZKh-Fx-fyE" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="ktN-dd-tSO"/>
+                            <constraint firstItem="ZKh-Fx-fyE" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="m2P-O0-bej"/>
+                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="nd7-KV-UPi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -346,7 +369,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Chairs" width="3500" height="2333"/>
+        <image name="Chairs" width="5760" height="3840"/>
         <image name="home" width="604" height="601"/>
+        <image name="saveicon" width="155" height="150"/>
+        <image name="savepic" width="166" height="136"/>
     </resources>
 </document>

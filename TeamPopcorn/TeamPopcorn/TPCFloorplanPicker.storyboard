@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="et3-xd-zzP">
                                 <rect key="frame" x="0.0" y="64" width="414" height="274"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SF-Rb-3Qf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SF-Rb-3Qf">
                                         <rect key="frame" x="0.0" y="22" width="207" height="230"/>
                                         <color key="backgroundColor" red="0.68627450980392157" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.14999999999999999" y="0.25" width="1" height="1"/>
@@ -35,7 +35,7 @@
                                             <segue destination="SqT-ky-Hp9" kind="show" identifier="Custom" id="wjY-3V-j59"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skw-DR-gOV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skw-DR-gOV">
                                         <rect key="frame" x="207" y="22" width="207" height="230"/>
                                         <color key="backgroundColor" red="0.93725490196078431" green="0.84705882352941175" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>

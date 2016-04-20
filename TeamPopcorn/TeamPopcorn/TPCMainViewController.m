@@ -54,7 +54,6 @@
     self.furnitureButtonArray = [NSMutableArray new];
     [self constrainForFloorPlan];
     [self barButtonItem]; // move
-    [self createSaveButton];
     [self constraintsForItemsMenu];
     [self furnitureTouching];
     [self refreshRoomScene];
@@ -69,9 +68,6 @@
     
 }
 
-
-    
-   
 
 -(void) barButtonItem {
     
@@ -109,32 +105,23 @@
     self.navigationItem.titleView = titleView;
     
 }
-
--(void) createSaveButton {
-    
-    UIButton *saveButton = [[UIButton alloc]init];
-    
-    [saveButton addTarget:self action:@selector(saveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    
-    [saveButton setTitle:@"save" forState:UIControlStateNormal];
-    [saveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [self.view addSubview:saveButton];
-    
-    [saveButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.trailing.equalTo(self.view.mas_trailingMargin);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.width.equalTo(@70);
-        make.height.equalTo(@35);
-        
-    }];
-}
 - (IBAction)homeButtonTapped:(id)sender {
     
 }
+- (IBAction)saveAsImageTapped:(id)sender {
 
--(void) saveButtonPressed{
+    UIView *roomToSave = self.roomLayoutView;
+    UIGraphicsBeginImageContextWithOptions(roomToSave.bounds.size, roomToSave.opaque, 0.0);
+    [roomToSave.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screengrab = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(screengrab, nil, nil, nil);
+}
+
+
+
+-(IBAction) saveButtonPressed{
     
     if (!self.dataStore.savedRooms) {
         self.dataStore.savedRooms = [NSArray new];
