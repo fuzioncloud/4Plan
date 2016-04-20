@@ -404,7 +404,7 @@
             [furnitureButton setBackgroundImage:furniture.image forState:normal];
             furnitureButton.imageView.image = furniture.image;
             furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
-            furnitureButton.backgroundColor = [UIColor darkGrayColor];
+            furnitureButton.backgroundColor = [UIColor clearColor];
             furnitureButton.tintColor = [UIColor blackColor];
             
             furniture.widthscaled=furniture.width*self.currentRoom.scaleForFurnitureW;
@@ -485,7 +485,7 @@
                 }
             }
 
-            furnitureButton.backgroundColor = [UIColor darkGrayColor];
+            furnitureButton.backgroundColor = [UIColor clearColor];
 
         }
         
