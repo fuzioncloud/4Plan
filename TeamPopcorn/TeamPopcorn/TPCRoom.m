@@ -13,12 +13,10 @@
 @implementation TPCRoom
 
 @synthesize savedFurniture = _savedFurniture;
-
 @synthesize scaledWidth = _scaledWidth;
 @synthesize scaledLength = _scaledLength;
 @synthesize scaleForFurnitureW = _scaleForFurnitureW;
 @synthesize scaleForFurnitureL = _scaleForFurnitureL;
-
 
 -(NSArray<TPCFurniture *> *)savedFurniture {
     return [self.placedFurniturePieces array];
@@ -53,4 +51,9 @@
     
     return newRoom;
 }
+
+//-(void)setName:(NSString *)name {
+////    self.name = name;
+//    [[TPCStateManager currentState] saveContext];
+//}
 @end

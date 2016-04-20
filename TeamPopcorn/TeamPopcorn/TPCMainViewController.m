@@ -37,6 +37,7 @@
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
 @property (strong, nonatomic) NSMutableArray *localFurnitureArray;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 
 
@@ -57,7 +58,7 @@
     [self createSaveButton];
     [self constraintsForItemsMenu];
     [self furnitureTouching];
-    
+    [self refreshRoomScene];
     self.dimensionsvc.delegate=self;
     self.dataStore.delegate=self;
     self.dataStore.room = self.currentRoom;
@@ -66,7 +67,12 @@
     self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.width;
     
     self.view.backgroundColor = [UIColor colorWithRed:175.0f/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
+    
 }
+
+
+    
+   
 
 -(void) barButtonItem {
     
@@ -84,13 +90,13 @@
     UILabel *title = [[UILabel alloc]initWithFrame:titleLabelFrame];
     
     NSString *name = self.currentRoom.name;
-    
-    UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
-    NSDictionary *attr = @{NSFontAttributeName: font};
-    NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
-    title.attributedText = niceName;
-    title.textAlignment = NSTextAlignmentCenter;
-    
+    if (name) {
+        UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
+        NSDictionary *attr = @{NSFontAttributeName: font};
+        NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
+        title.attributedText = niceName;
+        title.textAlignment = NSTextAlignmentCenter;
+    }
     CGRect subTitleLabelFrame = CGRectMake(0, 28, 160, 10);
     UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
     NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
@@ -146,6 +152,9 @@
         
     }];
 }
+- (IBAction)homeButtonTapped:(id)sender {
+    
+}
 
 -(void) saveButtonPressed{
     
@@ -183,6 +192,7 @@
 //    [saveButtonAlert addAction:save];
 //    
 //    [self presentViewController:saveButtonAlert animated:YES completion:nil];
+
 }
 
 -(void) buttonAction: (id) sender {
@@ -227,7 +237,7 @@
     
     self.currentRoom.scaledWidth=floorWidth;
     self.currentRoom.scaledLength=floorHeight;
-    NSLog(@"%f",self.currentRoom.scaledWidth);
+
     self.roomLayoutView.translatesAutoresizingMaskIntoConstraints = NO;
     
     CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
@@ -354,7 +364,6 @@
     
     [self setButton];
     
-//    [self furnitureTouching];
     [self.view layoutIfNeeded];
     
 }
@@ -383,10 +392,10 @@
             furniture.lengthscaled=furniture.length*self.currentRoom.scaleForFurnitureL;
             
             [self.roomLayoutView addSubview:furnitureButton];
-            NSLog(@"subviews: %@", self.roomLayoutView.subviews);
             
             UIPanGestureRecognizer *panGestureRecognizerSofa = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveFurniture:)];
             [furnitureButton addGestureRecognizer:panGestureRecognizerSofa];
+            
             
             UIRotationGestureRecognizer *rotationGestureRecognizerSofa = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotateFurniture:)];
             [furnitureButton addGestureRecognizer:rotationGestureRecognizerSofa];
@@ -397,7 +406,7 @@
             
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDimensionsPopOver:)];
             [furnitureButton addGestureRecognizer: tapGestureRecognizer];
-            
+
             if (!furniture.hasMoved) {
                 
                 [furnitureButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -409,6 +418,7 @@
                     
                 }];
                 furnitureButton.furnitureItem.angle = 0;
+                
             }
             else{
                 
@@ -416,13 +426,25 @@
                 CGRect roomRect = CGRectMake(0, 0, self.dataStore.room.scaledWidth, self.dataStore.room.scaledLength);
                 
                 if (CGRectContainsRect(roomRect, furnitureRect)) {
+                    
+                    
+                    
+                    
                     [furnitureButton mas_remakeConstraints:^(MASConstraintMaker *make) {
                         
                         make.left.equalTo(@(furniture.centerValues.x));
                         make.top.equalTo(@(furniture.centerValues.y));
                         make.width.equalTo(@(furniture.widthscaled));
                         make.height.equalTo(@(furniture.lengthscaled));
+
                     }];
+                    
+                    
+                    
+                    
+                    [furnitureButton layoutIfNeeded];
+                    
+                    
                     
                     [UIView animateWithDuration:.1 animations:^{
                         
@@ -437,24 +459,31 @@
                         make.centerY.equalTo(self.roomLayoutView.mas_centerY);
                         make.width.equalTo(@(furniture.widthScale));
                         make.height.equalTo(@(furniture.lengthScale));
-                        
                     }];
+                    
+                    [furnitureButton layoutIfNeeded];
+
                 }
             }
+
             furnitureButton.backgroundColor = [UIColor darkGrayColor];
 
         }
+        
     }
+    
+    
+    [self.view layoutIfNeeded];
+    [self.roomLayoutView layoutIfNeeded];
     
     [self furnitureTouching];
     
-    
+
 }
 -(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     
     
 }
-
 
 -(void) didUpdateFurnitureSize:(TPCDimensionsViewController *)dimvc {
     
@@ -560,6 +589,10 @@
                 make.size.equalTo([NSValue valueWithCGSize:selectedFurniture.bounds.size]);
             }];
             
+            [selectedFurniture layoutIfNeeded];
+            
+        
+            
             selectedFurniture.furnitureItem.centerValues=CGPointMake((touchLocation.x-xOffset), (touchLocation.y-yOffset));
         }
     }
@@ -631,6 +664,8 @@
     self.dataStore.room.savedFurniture = mutableArray;
     
     [self.furnitureButtonToDelete removeFromSuperview];
+    
+    [self furnitureTouching];
 }
 
 -(BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
@@ -640,12 +675,20 @@
 -(void)furnitureTouching{
     
     for (TPCFurnitureButton *button in self.roomLayoutView.subviews) {
+        
+        
         BOOL shouldBeRed = NO;
+        
         for (TPCFurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
-            if (button == buttonAgain) { continue; }
+            
+            if (button == buttonAgain) { NSLog(@"about to call continue, button is the same."); continue; }
+            
             BOOL buttonButtonAgainTouching = [self view:button intersectsWith:buttonAgain];
+            
             if(buttonButtonAgainTouching){
+                
                 shouldBeRed = YES;
+                
                 break;
             }
         }
@@ -671,6 +714,7 @@
 
 -(BOOL)convexPolygon:(CGPoint *)poly1 count:(int)count1 intersectsWith:(CGPoint *)poly2 count:(int)count2
 {
+
     for (int i = 0; i < count1; i++) {
         // Perpendicular vector for one edge of poly1:
         CGPoint p1 = poly1[i];
@@ -681,6 +725,9 @@
         CGFloat minp1, maxp1, minp2, maxp2;
         [self projectionOfPolygon:poly1 count:count1 onto:perp min:&minp1 max:&maxp1];
         [self projectionOfPolygon:poly2 count:count1 onto:perp min:&minp2 max:&maxp2];
+        
+        
+        
         
         // If projections do not overlap then we have a "separating axis"
         // which means that the polygons do not intersect:
@@ -708,19 +755,22 @@
 
 - (BOOL)view:(UIView *)view1 intersectsWith:(UIView *)view2
 {
-    CGPoint poly1[4];
+     CGPoint poly1[4];
     CGRect bounds1 = view1.bounds;
-    poly1[0] = [view1 convertPoint:bounds1.origin toView:nil];
-    poly1[1] = [view1 convertPoint:CGPointMake(bounds1.origin.x + bounds1.size.width, bounds1.origin.y) toView:nil];
-    poly1[2] = [view1 convertPoint:CGPointMake(bounds1.origin.x + bounds1.size.width, bounds1.origin.y + bounds1.size.height) toView:nil];
-    poly1[3] = [view1 convertPoint:CGPointMake(bounds1.origin.x, bounds1.origin.y + bounds1.size.height) toView:nil];
+    
+    
+    
+    poly1[0] = [view1 convertPoint:bounds1.origin toView:self.roomLayoutView];
+    poly1[1] = [view1 convertPoint:CGPointMake(bounds1.origin.x + bounds1.size.width, bounds1.origin.y) toView:self.roomLayoutView];
+    poly1[2] = [view1 convertPoint:CGPointMake(bounds1.origin.x + bounds1.size.width, bounds1.origin.y + bounds1.size.height) toView:self.roomLayoutView];
+    poly1[3] = [view1 convertPoint:CGPointMake(bounds1.origin.x, bounds1.origin.y + bounds1.size.height) toView:self.roomLayoutView];
     
     CGPoint poly2[4];
     CGRect bounds2 = view2.bounds;
-    poly2[0] = [view2 convertPoint:bounds2.origin toView:nil];
-    poly2[1] = [view2 convertPoint:CGPointMake(bounds2.origin.x + bounds2.size.width, bounds2.origin.y) toView:nil];
-    poly2[2] = [view2 convertPoint:CGPointMake(bounds2.origin.x + bounds2.size.width, bounds2.origin.y + bounds2.size.height) toView:nil];
-    poly2[3] = [view2 convertPoint:CGPointMake(bounds2.origin.x, bounds2.origin.y + bounds2.size.height) toView:nil];
+    poly2[0] = [view2 convertPoint:bounds2.origin toView:self.roomLayoutView];
+    poly2[1] = [view2 convertPoint:CGPointMake(bounds2.origin.x + bounds2.size.width, bounds2.origin.y) toView:self.roomLayoutView];
+    poly2[2] = [view2 convertPoint:CGPointMake(bounds2.origin.x + bounds2.size.width, bounds2.origin.y + bounds2.size.height) toView:self.roomLayoutView];
+    poly2[3] = [view2 convertPoint:CGPointMake(bounds2.origin.x, bounds2.origin.y + bounds2.size.height) toView:self.roomLayoutView];
     
     return [self convexPolygon:poly1 count:4 intersectsWith:poly2 count:4];
 }

@@ -42,6 +42,7 @@
 		44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* TPCMain.storyboard */; };
 		44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */; };
 		44E86A651CC1783E005FE526 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E86A641CC1783E005FE526 /* Launch Screen.storyboard */; };
+		7B51EF381CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B51EF371CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard */; };
 		7BB860BC1CB2D4F600294763 /* TPCFloorplanPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */; };
 		7BD92E681CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */; };
 		7BE73A5F1CAC39C6007BA5A1 /* TPCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */; };
@@ -113,6 +114,7 @@
 		44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCEnterRoomDimensionViewController.m; sourceTree = "<group>"; };
 		44E86A641CC1783E005FE526 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamPopcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamPopcorn/Pods-TeamPopcorn.debug.xcconfig"; sourceTree = "<group>"; };
+		7B51EF371CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCAcknowledgements.storyboard; sourceTree = "<group>"; };
 		7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCFloorplanPicker.storyboard; sourceTree = "<group>"; };
 		7BD92E661CB2E0B200E28D97 /* TPCFloorplanPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCFloorplanPickerViewController.h; sourceTree = "<group>"; };
 		7BD92E671CB2E0B200E28D97 /* TPCFloorplanPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCFloorplanPickerViewController.m; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */,
 				7BB860BB1CB2D4F600294763 /* TPCFloorplanPicker.storyboard */,
 				087D35F61CBEC12700C144CC /* TPCSavedList.storyboard */,
+				7B51EF371CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard */,
 				44E86A641CC1783E005FE526 /* Launch Screen.storyboard */,
 				1B9FCD9C1CAB1FA60041D2DB /* TPCItemCell.h */,
 				1B9FCD9D1CAB1FA60041D2DB /* TPCItemCell.m */,
@@ -346,6 +349,7 @@
 				1B9FCD8F1CAAF3B40041D2DB /* Assets.xcassets in Resources */,
 				1B9FCD8D1CAAF3B40041D2DB /* TPCFloorplan.storyboard in Resources */,
 				44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */,
+				7B51EF381CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
