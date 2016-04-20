@@ -177,47 +177,30 @@
     UIGraphicsEndImageContext();
     
     UIImageWriteToSavedPhotosAlbum(screengrab, nil, nil, nil);
+    
+    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved image!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [UIView animateWithDuration:3 animations:^{
+        [self presentViewController:savedAlert animated:YES completion:nil];
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:3 animations:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+
+        }];
+        
+    }];
 }
-
-
 
 -(IBAction) saveButtonPressed{
     
-    // temp disabling the save button...
-    return;
+    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved Layout!" preferredStyle:UIAlertControllerStyleAlert];
     
-//    if (!self.dataStore.savedRooms) {
-//        self.dataStore.savedRooms = [NSArray new];
-//    }
-//    
-//    NSLog(@"save tapped");
-//    
-//    UIAlertController *saveButtonAlert = [UIAlertController alertControllerWithTitle:@"Save" message:@"Enter name of room" preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        
-//        
-//        self.currentRoom.name = saveButtonAlert.textFields[0].text;
-//        
-//        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
-//        [rooms addObject:self.currentRoom];
-//        self.dataStore.savedRooms = rooms;
-//        
-//        
-//        NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
-//    }];
-//    
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-//    
-//    [saveButtonAlert addTextFieldWithConfigurationHandler:^(UITextField * textField) {
-//        textField.placeholder = NSLocalizedString(@"Enter room name", @"Enter room name");
-//    }];
-//    
-//    [saveButtonAlert addAction:cancel];
-//    [saveButtonAlert addAction:save];
-//    
-//    [self presentViewController:saveButtonAlert animated:YES completion:nil];
-
+    [UIView animateWithDuration:5 animations:^{
+        [self presentViewController:savedAlert animated:YES completion:nil];
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 -(void) buttonAction: (id) sender {
