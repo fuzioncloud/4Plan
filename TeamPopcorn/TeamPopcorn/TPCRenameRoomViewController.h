@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPCRoom.h"
+
+@class TPCRenameRoomViewController;
+
+@protocol TPCRenameRoomViewControllerDelegate <NSObject>
+
+@required
+-(void)renameRoomViewControllerDidFinish:(TPCRenameRoomViewController *)renameRoomViewController;
+
+@end
+
 
 @interface TPCRenameRoomViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *name;
-@property (strong, nonatomic) NSString *nameStr;
+
+@property (nonatomic, weak) id<TPCRenameRoomViewControllerDelegate> delegate;
+@property (strong, nonatomic) TPCRoom *room;
 
 @end

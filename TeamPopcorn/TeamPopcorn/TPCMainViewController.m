@@ -19,8 +19,9 @@
 
 #import <Masonry/Masonry.h>
 
-@interface TPCMainViewController () <UIPopoverPresentationControllerDelegate, TPCDimensionViewControllerDelegate, TPCStateManagerDelegate>
+@interface TPCMainViewController () <UIPopoverPresentationControllerDelegate, TPCDimensionViewControllerDelegate, TPCStateManagerDelegate, TPCRenameRoomViewControllerDelegate>
 
+@property (nonatomic, strong) UILabel *roomTitleLabel;
 
 @property (strong, nonatomic) UIView *roomLayoutView;
 @property (strong, nonatomic) UIButton *deleteButton;
@@ -49,10 +50,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self constrainForFloorPlan]; // move
-    [self barButtonItem]; // move
-    
     self.furnitureButtonArray = [NSMutableArray new];
+    
+    self.dataStore = [TPCStateManager currentState];
+    self.dataStore.delegate=self;
+    self.dataStore.room = self.currentRoom;
+
     [self constrainForFloorPlan];
     [self barButtonItem]; // move
     [self createSaveButton];
@@ -60,8 +63,6 @@
     [self furnitureTouching];
     [self refreshRoomScene];
     self.dimensionsvc.delegate=self;
-    self.dataStore.delegate=self;
-    self.dataStore.room = self.currentRoom;
     
     self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.length;
     self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.width;
@@ -70,9 +71,25 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.dataStore saveContext];
+}
 
+-(void)updateTitleLabel
+{
+    NSString *name = self.currentRoom.name;
+    UILabel *titleLabel = self.roomTitleLabel;
     
-   
+    if(name) {
+        UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
+        NSDictionary *attr = @{NSFontAttributeName: font};
+        NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
+        titleLabel.attributedText = niceName;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
+}
+
 
 -(void) barButtonItem {
     
@@ -89,14 +106,9 @@
     CGRect titleLabelFrame = CGRectMake(0, 0, 160, 30);
     UILabel *title = [[UILabel alloc]initWithFrame:titleLabelFrame];
     
-    NSString *name = self.currentRoom.name;
-    if (name) {
-        UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
-        NSDictionary *attr = @{NSFontAttributeName: font};
-        NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
-        title.attributedText = niceName;
-        title.textAlignment = NSTextAlignmentCenter;
-    }
+    self.roomTitleLabel = title;
+    [self updateTitleLabel];
+    
     CGRect subTitleLabelFrame = CGRectMake(0, 28, 160, 10);
     UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
     NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
@@ -118,7 +130,8 @@
 //    self.navigationItem.titleView.backgroundColor = [UIColor redColor];
     TPCRenameRoomViewController *renameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"renameVC"];
     
-    renameVC.nameStr = self.currentRoom.name;
+    renameVC.room = self.currentRoom;
+    renameVC.delegate = self;
     
     renameVC.modalPresentationStyle = UIModalPresentationPopover;
     renameVC.preferredContentSize = CGSizeMake(260, 40);
@@ -130,6 +143,12 @@
     [self presentViewController:renameVC animated:YES completion:nil];
 
     
+}
+
+-(void)renameRoomViewControllerDidFinish:(TPCRenameRoomViewController *)renameRoomViewController
+{
+    [self.dataStore saveContext];
+    [self updateTitleLabel];
 }
 
 -(void) createSaveButton {
@@ -359,11 +378,7 @@
 -(void)refreshRoomScene {
     
     [self.deleteButton removeFromSuperview];
-    
-    self.dataStore = [TPCStateManager currentState];
-    
     [self setButton];
-    
     [self.view layoutIfNeeded];
     
 }

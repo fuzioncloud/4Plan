@@ -9,22 +9,27 @@
 #import "TPCRenameRoomViewController.h"
 #import "TPCMainViewController.h"
 
+@interface TPCRenameRoomViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *name;
+
+@end
+
 
 @implementation TPCRenameRoomViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.name.text = self.nameStr;
+    self.name.text = self.room.name;
 }
 
 - (IBAction)nameDidEndEditing:(UITextField *)sender {
+    if(sender.text.length > 0) {
+        self.room.name = sender.text;
+    }
     
-    UINavigationController *nav = (UINavigationController *)self.presentingViewController;
-    TPCMainViewController *parentVC = nav.childViewControllers.lastObject;
-    parentVC.currentRoom.name = sender.text;
-    UILabel *titleLable = parentVC.navigationItem.titleView.subviews.firstObject;
-    titleLable.text = sender.text;
+    [self.delegate renameRoomViewControllerDidFinish:self];
 }
 
 @end

@@ -60,6 +60,8 @@
         destinationVC.currentRoom.name = @"10x10 Room";
         
     }
+    
+    [self.datastore saveContext];
 }
 
 
