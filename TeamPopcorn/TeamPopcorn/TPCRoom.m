@@ -48,7 +48,6 @@
     }
     
     [[TPCStateManager currentState] saveContext];
-    
     return newRoom;
 }
 
