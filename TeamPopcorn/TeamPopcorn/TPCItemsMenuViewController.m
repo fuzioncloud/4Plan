@@ -45,10 +45,8 @@
     
     self.itemsTableView.sectionIndexColor = [UIColor blackColor];
     
-    self.itemsTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:175.0/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f]; //blue-teal color
-    self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor colorWithRed:250.0f/255.0f green:242.0f/255.0f blue:198.0f/255.0f alpha:1.0]; //off white color
-    
-    
+    self.itemsTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:175.0/255.0f green:117.0/255.0f blue:117.0f/255.0f alpha:1.0f]; //reddish color
+    self.itemsTableView.sectionIndexTrackingBackgroundColor = [UIColor colorWithRed:250.0f/255.0f green:242.0f/255.0f blue:198.0f/255.0f alpha:1.0]; // white color
     
 }
 
@@ -74,7 +72,7 @@
     itemCell.itemName.text = piece.name;
     itemCell.itemDimensions.text =
 
-        [NSString stringWithFormat:@"W: %lldcm  H:%lldcm  L: %lldcm",
+        [NSString stringWithFormat:@"W: %lldin  H:%lldin  L: %lldin",
 
                             piece.width, piece.height, piece.length];
     return itemCell;
@@ -100,7 +98,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *v = (UITableViewHeaderFooterView *)view;
-    v.backgroundView.backgroundColor = [UIColor colorWithRed:175.0/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f]; 
+    v.backgroundView.backgroundColor = [UIColor colorWithRed:175.0/255.0f green:117.0f/255.0f blue:117.0f/255.0f alpha:1.0f];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

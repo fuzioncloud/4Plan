@@ -27,7 +27,8 @@
 @property (strong, nonatomic) TPCFurnitureButton *furnitureButtonToDelete;
 @property (strong, nonatomic) TPCDimensionsViewController *dimensionsvc;
 @property (strong, nonatomic) TPCItemsMenuViewController *itemsvc;
-
+@property (weak, nonatomic) IBOutlet UIImageView *floorBackground;
+@property (strong, nonatomic) UIColor *furnitureColor;
 
 @property (strong, nonatomic) TPCFurnitureButton *tappedFurnitureButton;
 @property (strong, nonatomic) UIView *itemsMenuContainerView;
@@ -47,25 +48,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self constrainForFloorPlan]; // move
-    [self barButtonItem]; // move
+    self.furnitureColor = [UIColor colorWithRed:102.0/255.0f green:102.0/255.0f blue:102.0/255.0f alpha:.90];
+    self.dataStore = [TPCStateManager currentState];
+    self.dataStore.delegate=self;
+    self.dataStore.room = self.currentRoom;
+
     
     self.furnitureButtonArray = [NSMutableArray new];
     [self constrainForFloorPlan];
     [self barButtonItem]; // move
     [self constraintsForItemsMenu];
-    [self furnitureTouching];
     [self refreshRoomScene];
     self.dimensionsvc.delegate=self;
-    self.dataStore.delegate=self;
-    self.dataStore.room = self.currentRoom;
+    
+    
+    NSLog(@"subviews: %@", self.roomLayoutView.subviews);
     
     self.currentRoom.scaleForFurnitureL=self.roomLayoutView.bounds.size.height/self.currentRoom.length;
     self.currentRoom.scaleForFurnitureW=self.roomLayoutView.bounds.size.width/self.currentRoom.width;
     
-    self.view.backgroundColor = [UIColor colorWithRed:175.0f/255.0f green:215.0f/255.0f blue:219.0f/255.0f alpha:1.0f];
-    
+    self.floorBackground.alpha = 0.3;
 }
 
 
@@ -76,6 +78,8 @@
     self.navigationItem.rightBarButtonItem = furnitureBarButton;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     furnitureBarButton.imageInsets = UIEdgeInsetsMake(1, 1, 1, 1);
+    furnitureBarButton.width = 20;
+    
     
     // Setting the title view...
     CGRect titleViewFrame = CGRectMake(0, 0, 120, 40);
@@ -108,6 +112,7 @@
 - (IBAction)homeButtonTapped:(id)sender {
     
 }
+
 - (IBAction)saveAsImageTapped:(id)sender {
 
     UIView *roomToSave = self.roomLayoutView;
@@ -161,7 +166,7 @@
     
     self.dataStore = [TPCStateManager currentState];
     
-    CGFloat roomLayoutBorder = 1.0;
+//    CGFloat roomLayoutBorder = 1.0;
     CGFloat roomLayoutPadding = 20.0;
     
     
@@ -207,16 +212,17 @@
     
     [self.roomLayoutView layoutIfNeeded];
     
-    self.roomLayoutView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
+//    self.roomLayoutView.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
     self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;
+    [self.view bringSubviewToFront:self.roomLayoutView];
 }
 
 -(void)constraintsForItemsMenu {
     
     self.isMenuOut = NO;
     self.recognizerLayerView = [[UIView alloc] init];
-    self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
+//    self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
     self.recognizerLayerView.alpha = 0;
     UITapGestureRecognizer *quitTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDismissMenu)];
     [self.recognizerLayerView addGestureRecognizer:quitTap];
@@ -317,8 +323,6 @@
     
     [self.deleteButton removeFromSuperview];
     
-    self.dataStore = [TPCStateManager currentState];
-    
     [self setButton];
     
     [self.view layoutIfNeeded];
@@ -332,18 +336,20 @@
             
             self.localFurnitureArray=[NSMutableArray new];
         }
+        
         if (![self.localFurnitureArray containsObject:furniture]) {
             [self.localFurnitureArray addObject:furniture];
             
-            TPCFurnitureButton *furnitureButton = [[TPCFurnitureButton alloc]init];
+            TPCFurnitureButton *furnitureButton = [TPCFurnitureButton buttonWithType:UIButtonTypeCustom];
             
             furnitureButton.furnitureItem = furniture;
             
-            [furnitureButton setBackgroundImage:furniture.image forState:normal];
+            [furnitureButton setBackgroundImage:furniture.image forState:UIControlStateNormal];
             furnitureButton.imageView.image = furniture.image;
             furnitureButton.imageView.contentMode = UIViewContentModeScaleToFill;
-            furnitureButton.backgroundColor = [UIColor darkGrayColor];
-            furnitureButton.tintColor = [UIColor blackColor];
+            furnitureButton.tintColor = self.furnitureColor;
+            furnitureButton.layer.cornerRadius = 12;
+            furnitureButton.layer.masksToBounds = YES;
             
             furniture.widthscaled=furniture.width*self.currentRoom.scaleForFurnitureW;
             furniture.lengthscaled=furniture.length*self.currentRoom.scaleForFurnitureL;
@@ -423,7 +429,6 @@
                 }
             }
 
-            furnitureButton.backgroundColor = [UIColor darkGrayColor];
 
         }
         
@@ -432,7 +437,6 @@
     
     [self.view layoutIfNeeded];
     [self.roomLayoutView layoutIfNeeded];
-    
     [self furnitureTouching];
     
 
@@ -592,10 +596,10 @@
     self.deleteButton = [[UIButton alloc]init];
     [self.deleteButton setImage:image forState:UIControlStateNormal];
     
-    if ([self.furnitureButtonToDelete.tintColor isEqual:[UIColor blackColor]]) {
+    if ([self.furnitureButtonToDelete.tintColor isEqual:self.furnitureColor]) {
         self.deleteButton.tintColor = [UIColor redColor];
     }else if ([self.furnitureButtonToDelete.tintColor isEqual:[UIColor redColor]]){
-        self.deleteButton.tintColor = [UIColor blackColor];
+        self.deleteButton.tintColor = self.furnitureColor;
     }
     [self.view bringSubviewToFront:self.deleteButton];
     [self.furnitureButtonToDelete addSubview:self.deleteButton];
@@ -638,7 +642,7 @@
         
         for (TPCFurnitureButton *buttonAgain in self.roomLayoutView.subviews) {
             
-            if (button == buttonAgain) { NSLog(@"about to call continue, button is the same."); continue; }
+            if (button == buttonAgain) { continue; }
             
             BOOL buttonButtonAgainTouching = [self view:button intersectsWith:buttonAgain];
             
@@ -649,7 +653,9 @@
                 break;
             }
         }
-        button.tintColor = shouldBeRed ? [UIColor redColor] : [UIColor blackColor];
+        button.tintColor = shouldBeRed ? [UIColor redColor] : self.furnitureColor;
+        
+//
     }
 }
 

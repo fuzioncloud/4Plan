@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2L-nS-ouX">
-                                <rect key="frame" x="75" y="120" width="450" height="360"/>
+                                <rect key="frame" x="75" y="45" width="450" height="510"/>
                                 <color key="backgroundColor" red="0.36875033610000002" green="0.84281301890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Image Acknowledgements
  
@@ -45,15 +45,18 @@
  Stefan Parnarov
  Andrew Fortnum
  useiconic.com
- Rafael Farias Leao</string>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+ Rafael Farias Leao
+ Michal Beno
+ Lero
+ Lepretre</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.36875033610000002" green="0.84281301890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="S2L-nS-ouX" firstAttribute="height" secondItem="SoC-gR-oXX" secondAttribute="height" multiplier="0.6" id="Hzx-WZ-kl7"/>
+                            <constraint firstItem="S2L-nS-ouX" firstAttribute="height" secondItem="SoC-gR-oXX" secondAttribute="height" multiplier="0.85" id="Hzx-WZ-kl7"/>
                             <constraint firstItem="S2L-nS-ouX" firstAttribute="centerY" secondItem="SoC-gR-oXX" secondAttribute="centerY" id="QIu-gD-M0w"/>
                             <constraint firstItem="S2L-nS-ouX" firstAttribute="centerX" secondItem="SoC-gR-oXX" secondAttribute="centerX" id="T51-Dx-FJI"/>
                             <constraint firstItem="S2L-nS-ouX" firstAttribute="width" secondItem="SoC-gR-oXX" secondAttribute="width" multiplier="0.75" id="fv0-YK-L5O"/>

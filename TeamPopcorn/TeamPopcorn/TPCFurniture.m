@@ -21,14 +21,14 @@
 
 -(UIImage *)image {
     if(!_image) {
-        _image = [UIImage imageWithData:self.imageData];
+        _image = [[UIImage imageWithData:self.imageData] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
     return _image;
 }
 
 -(void)setImage:(UIImage *)image {
-    self.imageData = UIImageJPEGRepresentation(image, 1);
+    self.imageData = UIImagePNGRepresentation(image);
     _image = image;
 }
 

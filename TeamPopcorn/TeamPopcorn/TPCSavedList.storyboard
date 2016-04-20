@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="948.5" y="544"/>
         </scene>
-        <!--4Plan 4now-->
+        <!--4Plan-->
         <scene sceneID="QaP-Nk-ol5">
             <objects>
                 <viewController storyboardIdentifier="TPCSavedListTableViewController" id="54k-ni-7Yr" customClass="TPCSavedListTableViewController" sceneMemberID="viewController">
@@ -98,19 +98,22 @@
                             <constraint firstItem="rO9-3F-7ml" firstAttribute="top" secondItem="rhP-Oa-X9q" secondAttribute="bottom" id="ynw-mn-0JU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="4Plan 4now" id="VmF-tQ-BaW">
+                    <navigationItem key="navigationItem" title="4Plan" id="VmF-tQ-BaW">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="pTH-OS-f7r">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7KY-jP-7DA">
                                 <rect key="frame" x="20" y="7" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Acknowledgements"/>
+                                <state key="normal" title="Acknowledgements">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="IMC-T9-eKx" kind="show" id="z9N-M0-2uJ"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vLR-YK-VbY">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="HXn-kU-QRz" kind="show" identifier="Show Floorplan Picker" id="do8-f6-3Kd"/>
                             </connections>

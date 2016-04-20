@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.40000000000000002" contentMode="scaleAspectFill" image="Mc8kW4x9Q3aRR3RkP5Im_IMG_4417" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-9n-03h">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="floor" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-9n-03h">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z4W-uZ-6kb">
@@ -148,6 +148,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mc8kW4x9Q3aRR3RkP5Im_IMG_4417" width="5760" height="3840"/>
+        <image name="floor" width="5760" height="3840"/>
     </resources>
 </document>
