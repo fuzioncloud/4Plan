@@ -22,6 +22,7 @@
 @interface TPCMainViewController () <UIPopoverPresentationControllerDelegate, TPCDimensionViewControllerDelegate, TPCStateManagerDelegate, TPCRenameRoomViewControllerDelegate>
 
 @property (nonatomic, strong) UILabel *roomTitleLabel;
+@property (nonatomic,strong) UIView *pinView;
 
 @property (strong, nonatomic) UIView *roomLayoutView;
 @property (strong, nonatomic) UIButton *deleteButton;
@@ -116,8 +117,12 @@
     subTitle.attributedText = niceSub;
     subTitle.textAlignment = NSTextAlignmentCenter;
 
+    CGRect pinFrame = CGRectMake(80, 40, 1, 1);
+    self.pinView = [[UIView alloc]initWithFrame:pinFrame];
+    self.pinView.backgroundColor = [UIColor clearColor];
     [titleView addSubview:title];
     [titleView addSubview:subTitle];
+    [titleView addSubview:self.pinView];
 
     UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showRenamePopover)];
     [titleView addGestureRecognizer:tapper];
@@ -137,8 +142,8 @@
     renameVC.preferredContentSize = CGSizeMake(260, 40);
     UIPopoverPresentationController *popov = renameVC.popoverPresentationController;
     popov.delegate = self;
-    popov.sourceView = self.navigationItem.titleView;
-    popov.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    popov.sourceView = self.pinView;
+    popov.permittedArrowDirections = UIPopoverArrowDirectionUp;
     
     [self presentViewController:renameVC animated:YES completion:nil];
 
