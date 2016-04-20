@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [UINavigationBar appearance].tintColor = [UIColor blackColor];
-//    [UIView appearance].tintColor = [UIColor blackColor];
+    self.window.tintColor = [UIColor blackColor];
     return YES;
 }
 

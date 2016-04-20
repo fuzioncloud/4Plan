@@ -106,7 +106,6 @@
     
     TPCCatalogDescriber *sectionKey = [TPCCatalogDescriber describerForIndex:indexPath.section];
     TPCFurniture *selectedFurniture = self.itemsMenu[sectionKey][indexPath.row];
-//<<<<<<< HEAD
     TPCFurniture *itemToUse;
     
     
@@ -157,50 +156,37 @@
     if ((itemToUse.widthScale > self.dataStore.room.scaledWidth)||(itemToUse.lengthScale > self.dataStore.room.scaledLength)) {
         NSLog(@"helloooo");
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                             
-                                                         }];
-            [alert addAction:okay];
-            [self presentViewController:alert animated:YES completion:nil];
-
-
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
         
-            }
-    
+        [alert addAction:okay];
 
-        else {
-            
-            [self.dataStore placeFuriniture:itemToUse];
-            [self dismissViewControllerAnimated:YES completion:nil];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else {
+        [self.dataStore placeFuriniture:itemToUse];
+        [self dismissViewControllerAnimated:YES completion:nil];
 
-    itemToUse.widthScale=itemToUse.width*self.dataStore.room.scaleForFurnitureW;
-    itemToUse.lengthScale=itemToUse.length*self.dataStore.room.scaleForFurnitureL;
+        itemToUse.widthScale=itemToUse.width*self.dataStore.room.   scaleForFurnitureW;
+        itemToUse.lengthScale=itemToUse.length*self.dataStore.room.scaleForFurnitureL;
     
   
     
     
-    if ((itemToUse.widthScale>self.dataStore.room.scaledWidth)||(itemToUse.lengthScale>self.dataStore.room.scaledLength)) {
-        
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
-            
-        }];
+        if ((itemToUse.widthScale>self.dataStore.room.scaledWidth)||(itemToUse.lengthScale>self.dataStore.room.scaledLength)) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Your item is too large for the room." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"okay" style:UIAlertActionStyleDefault handler:nil];
         
         [alert addAction:okay];
         [self presentViewController:alert animated:YES completion:nil];
-        
-    }
+        }
     
 
-    TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
-    if (papa) {
-        [papa viewWillAppear:NO];
-        [papa showDismissMenu];
-    }
+        TPCMainViewController *papa = (TPCMainViewController *)self.navigationController.parentViewController;
+        if (papa) {
+            [papa viewWillAppear:NO];
+            [papa showDismissMenu];
         }
+    }
 }
 
 
