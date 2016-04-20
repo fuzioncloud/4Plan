@@ -71,7 +71,7 @@
     self.datastore=[TPCStateManager currentState];
    TPCMainViewController *destinationVC = segue.destinationViewController;
     destinationVC.currentRoom=[self.datastore setRoomOfWidth:self.widthText.text.integerValue height:0 length:self.lengthText.text.integerValue];
-
+    destinationVC.currentRoom.name=[NSString stringWithFormat:@"%@x%@ Room",self.widthText.text,self.lengthText.text];
 
 }
 
