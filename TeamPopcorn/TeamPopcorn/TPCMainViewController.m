@@ -22,8 +22,7 @@
 @interface TPCMainViewController () <UIPopoverPresentationControllerDelegate, TPCDimensionViewControllerDelegate, TPCStateManagerDelegate, TPCRenameRoomViewControllerDelegate>
 
 @property (nonatomic, strong) UILabel *roomTitleLabel;
-@property (nonatomic,strong) UIView *pinView;
-
+@property (nonatomic, strong) UIView *pinView;
 @property (strong, nonatomic) UIView *roomLayoutView;
 @property (strong, nonatomic) UIButton *deleteButton;
 @property (strong, nonatomic) TPCFurniture *itemToDelete;
