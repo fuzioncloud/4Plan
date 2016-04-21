@@ -316,7 +316,7 @@
 				TargetAttributes = {
 					1B9FCD7E1CAAF3B30041D2DB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KXY9EDFTF5;
+						DevelopmentTeam = 972392M658;
 					};
 				};
 			};
@@ -553,7 +553,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5995AE3C99F7B75E1C0E90E0 /* Pods-TeamPopcorn.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
@@ -569,7 +568,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DBCD10CA7A0BCA1BBE2B8673 /* Pods-TeamPopcorn.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;

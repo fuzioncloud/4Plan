@@ -20,7 +20,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2L-nS-ouX">
                                 <rect key="frame" x="75" y="45" width="450" height="510"/>
-                                <color key="backgroundColor" red="0.36875033610000002" green="0.84281301890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Image Acknowledgements
  
  Nick Kinling
@@ -54,7 +53,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.36875033610000002" green="0.84281301890000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.45490196078431372" green="0.72941176470588232" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="S2L-nS-ouX" firstAttribute="height" secondItem="SoC-gR-oXX" secondAttribute="height" multiplier="0.85" id="Hzx-WZ-kl7"/>
                             <constraint firstItem="S2L-nS-ouX" firstAttribute="centerY" secondItem="SoC-gR-oXX" secondAttribute="centerY" id="QIu-gD-M0w"/>

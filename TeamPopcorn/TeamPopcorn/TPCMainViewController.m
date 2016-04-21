@@ -79,7 +79,7 @@
     UILabel *titleLabel = self.roomTitleLabel;
     
     if(name) {
-        UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
+        UIFont *font = [UIFont fontWithName:@"Gill Sans" size:24];
         NSDictionary *attr = @{NSFontAttributeName: font};
         NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
         titleLabel.attributedText = niceName;
@@ -109,7 +109,7 @@
     
     CGRect subTitleLabelFrame = CGRectMake(0, 28, 160, 10);
     UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
-    NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
+    NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:10]};
     NSAttributedString *niceSub = [[NSAttributedString alloc]initWithString:@"tap to rename..." attributes:subAttr];
     subTitle.attributedText = niceSub;
     subTitle.textAlignment = NSTextAlignmentCenter;

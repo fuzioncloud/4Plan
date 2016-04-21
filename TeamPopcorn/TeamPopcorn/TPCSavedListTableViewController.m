@@ -25,6 +25,7 @@
     self.dataStore = [TPCStateManager currentState];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
 
 }
 
