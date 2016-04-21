@@ -11,8 +11,8 @@
 
 @interface TPCStateManager ()
 
-@property (nonatomic) NSUInteger originalRoomW;
-@property (nonatomic) NSUInteger originalRoomL;
+@property (nonatomic) NSInteger originalRoomW;
+@property (nonatomic) NSInteger originalRoomL;
 
 
 @end

@@ -79,7 +79,7 @@
     UILabel *titleLabel = self.roomTitleLabel;
     
     if(name) {
-        UIFont *font = [UIFont fontWithName:@"CourierNewPS-ItalicMT" size:24];
+        UIFont *font = [UIFont fontWithName:@"Gill Sans" size:24];
         NSDictionary *attr = @{NSFontAttributeName: font};
         NSAttributedString *niceName = [[NSAttributedString alloc]initWithString:name attributes:attr];
         titleLabel.attributedText = niceName;
@@ -109,7 +109,7 @@
     
     CGRect subTitleLabelFrame = CGRectMake(0, 28, 160, 10);
     UILabel *subTitle = [[UILabel alloc]initWithFrame:subTitleLabelFrame];
-    NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
+    NSDictionary *subAttr = @{NSFontAttributeName: [UIFont systemFontOfSize:10]};
     NSAttributedString *niceSub = [[NSAttributedString alloc]initWithString:@"tap to rename..." attributes:subAttr];
     subTitle.attributedText = niceSub;
     subTitle.textAlignment = NSTextAlignmentCenter;
@@ -178,48 +178,28 @@
     UIGraphicsEndImageContext();
     
     UIImageWriteToSavedPhotosAlbum(screengrab, nil, nil, nil);
+    
+    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved Image!" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:savedAlert animated:YES completion:nil];
+    
+    [self performSelector:@selector(dismissSaveAlert) withObject:nil afterDelay:1.0];
 }
-
-
 
 -(IBAction) saveButtonPressed{
     
-    // temp disabling the save button...
-    return;
+    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved Layout!" preferredStyle:UIAlertControllerStyleAlert];
     
-//    if (!self.dataStore.savedRooms) {
-//        self.dataStore.savedRooms = [NSArray new];
-//    }
-//    
-//    NSLog(@"save tapped");
-//    
-//    UIAlertController *saveButtonAlert = [UIAlertController alertControllerWithTitle:@"Save" message:@"Enter name of room" preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction *save = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        
-//        
-//        self.currentRoom.name = saveButtonAlert.textFields[0].text;
-//        
-//        NSMutableArray *rooms = [self.dataStore.savedRooms mutableCopy];
-//        [rooms addObject:self.currentRoom];
-//        self.dataStore.savedRooms = rooms;
-//        
-//        
-//        NSLog(@"furniture in saved room:%@", self.currentRoom.savedFurniture);
-//    }];
-//    
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-//    
-//    [saveButtonAlert addTextFieldWithConfigurationHandler:^(UITextField * textField) {
-//        textField.placeholder = NSLocalizedString(@"Enter room name", @"Enter room name");
-//    }];
-//    
-//    [saveButtonAlert addAction:cancel];
-//    [saveButtonAlert addAction:save];
-//    
-//    [self presentViewController:saveButtonAlert animated:YES completion:nil];
+    [self presentViewController:savedAlert animated:YES completion:nil];
+    
+    [self performSelector:@selector(dismissSaveAlert) withObject:nil afterDelay:1.0];
 
 }
+
+-(void)dismissSaveAlert {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void) buttonAction: (id) sender {
     
@@ -268,16 +248,15 @@
     
     CGFloat topAnchorConstant = navHeight + statusBarHeight + roomLayoutPadding;
     [self.roomLayoutView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [self.roomLayoutView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active =YES;
-    [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES;
+    [self.roomLayoutView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active =YES; /// 1
+    [self.roomLayoutView.topAnchor constraintGreaterThanOrEqualToAnchor:self.view.topAnchor constant:topAnchorConstant].active = YES; /// 2
     [self.roomLayoutView.widthAnchor constraintEqualToConstant:floorWidth].active = YES;
     [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
     
     
-    [self.roomLayoutView layoutIfNeeded];
+//    [self.roomLayoutView layoutIfNeeded];
     
-//    self.roomLayoutView.layer.borderColor = [UIColor whiteColor].CGColor;
-//    self.roomLayoutView.layer.borderWidth = roomLayoutBorder;
+
     self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;
     [self.view bringSubviewToFront:self.roomLayoutView];
 }
@@ -372,7 +351,7 @@
     
     [self.deleteButton removeFromSuperview];
     
-    [self.view layoutSubviews];
+//    [self.view layoutSubviews];
     
     [self refreshRoomScene];
 }
@@ -380,16 +359,12 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self furnitureTouching];
-
+    [self.view layoutIfNeeded];
 }
 
 -(void)refreshRoomScene {
-    
     [self.deleteButton removeFromSuperview];
-
     [self setButton];
-    [self.view layoutIfNeeded];
-    
 }
 
 -(void)setButton {
@@ -469,7 +444,7 @@
                     
                     
                     
-                    [furnitureButton layoutIfNeeded];
+//                    [furnitureButton layoutIfNeeded];
                     
                     
                     
@@ -488,7 +463,7 @@
                         make.height.equalTo(@(furniture.lengthScale));
                     }];
                     
-                    [furnitureButton layoutIfNeeded];
+//                    [furnitureButton layoutIfNeeded];
 
                 }
             }
@@ -500,8 +475,8 @@
     }
     
     
-    [self.view layoutIfNeeded];
-    [self.roomLayoutView layoutIfNeeded];
+//    [self.view layoutIfNeeded];
+//    [self.roomLayoutView layoutIfNeeded];
     [self furnitureTouching];
     
 

@@ -23,6 +23,7 @@
     
     self.name.delegate = self;
     self.name.text = self.room.name;
+    [self.name becomeFirstResponder];
 }
 
 - (IBAction)nameDidEndEditing:(UITextField *)sender {
@@ -35,6 +36,8 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+//    [self nameDidEndEditing:textField];
+    [self.popoverPresentationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     return NO;
 }
 

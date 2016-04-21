@@ -233,18 +233,21 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZY-Du-b6H">
                                 <rect key="frame" x="201" y="504" width="198" height="72"/>
-                                <state key="normal" title="Save"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="YLX-7c-BHf" eventType="touchUpInside" id="piQ-B1-Klw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimensions In Inches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-rK-xdQ">
-                                <rect key="frame" x="150" y="13" width="300" height="35"/>
+                                <rect key="frame" x="150" y="28" width="300" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="CKB-WW-dC8"/>
                                     <constraint firstAttribute="width" constant="300" id="Lz1-bZ-4J5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -260,7 +263,7 @@
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="centerX" secondItem="DDA-TD-rTv" secondAttribute="centerX" id="Pij-Q9-HuJ"/>
                             <constraint firstItem="fZY-Du-b6H" firstAttribute="height" secondItem="DDA-TD-rTv" secondAttribute="height" multiplier="0.12" id="S6h-2D-0iy"/>
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="leading" secondItem="DDA-TD-rTv" secondAttribute="leadingMargin" constant="-20" id="eDL-fV-LRq"/>
-                            <constraint firstItem="iLM-rK-xdQ" firstAttribute="centerY" secondItem="DDA-TD-rTv" secondAttribute="centerY" multiplier="0.1" id="ekm-eb-wfQ"/>
+                            <constraint firstItem="iLM-rK-xdQ" firstAttribute="centerY" secondItem="DDA-TD-rTv" secondAttribute="centerY" multiplier="0.15" id="ekm-eb-wfQ"/>
                             <constraint firstItem="oDO-Z1-yPy" firstAttribute="height" secondItem="DDA-TD-rTv" secondAttribute="height" multiplier="0.7" id="hVY-er-y5z"/>
                         </constraints>
                         <variation key="default">
@@ -315,7 +318,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkD-Eg-T8w" userLabel="Image Save Button">
-                                <rect key="frame" x="209" y="530" width="50" height="50"/>
+                                <rect key="frame" x="204" y="529" width="55" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="m6A-bE-3OO"/>
+                                    <constraint firstAttribute="height" constant="52" id="pVD-PF-ey5"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="savepic"/>
                                 <connections>
@@ -329,7 +336,6 @@
                             <constraint firstItem="G5b-Tz-gGo" firstAttribute="top" secondItem="fpb-FE-uGX" secondAttribute="bottom" id="93r-Nk-SEE"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="AEy-td-hLI"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerX" secondItem="yzG-zX-HxO" secondAttribute="centerX" id="Bje-uk-Wij"/>
-                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="HCC-jI-Bep"/>
                             <constraint firstItem="fpb-FE-uGX" firstAttribute="leading" secondItem="yzG-zX-HxO" secondAttribute="leading" id="MlL-TV-PAP"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="T2x-Qk-THk"/>
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="b8o-Te-zVo"/>
@@ -337,7 +343,6 @@
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="trailing" secondItem="o9i-a3-y4N" secondAttribute="leading" constant="-16" id="ikW-PW-CJK"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="ktN-dd-tSO"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="m2P-O0-bej"/>
-                            <constraint firstItem="GkD-Eg-T8w" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="nd7-KV-UPi"/>
                             <constraint firstAttribute="trailing" secondItem="fpb-FE-uGX" secondAttribute="trailing" id="uBa-xU-0B8"/>
                         </constraints>
                     </view>

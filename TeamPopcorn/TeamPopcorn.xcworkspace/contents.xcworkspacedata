@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TeamPopcorn.xcodeproj">
+      location = "group:/Users/flatironschool/Desktop/ProjectMode/ios-0216-team-popcorn/TeamPopcorn/4Plan.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -25,11 +25,13 @@
     self.dataStore = [TPCStateManager currentState];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor clearColor];
 
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 

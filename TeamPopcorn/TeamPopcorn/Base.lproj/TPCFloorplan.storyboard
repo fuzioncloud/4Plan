@@ -51,20 +51,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your room size below! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="21" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ri8-fV-AlX">
-                                <rect key="frame" x="9" y="174" width="397" height="48"/>
+                                <rect key="frame" x="45" y="260" width="326" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="k11-IO-LYS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="33"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhC-SO-uJ6">
-                                <rect key="frame" x="121" y="452" width="173" height="54"/>
+                                <rect key="frame" x="121" y="398" width="173" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="9Ox-oW-T8v"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="30"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -75,14 +75,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.64582407474517822" green="0.62325033805617036" blue="0.44277112356698756" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="IhC-SO-uJ6" firstAttribute="top" secondItem="9v9-zt-mSg" secondAttribute="bottom" constant="59" id="QeL-uQ-wie"/>
+                            <constraint firstItem="IhC-SO-uJ6" firstAttribute="top" secondItem="9v9-zt-mSg" secondAttribute="bottom" constant="5" id="QeL-uQ-wie"/>
                             <constraint firstItem="Z4W-uZ-6kb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R5r-m8-AkV"/>
                             <constraint firstAttribute="bottom" secondItem="LBy-9n-03h" secondAttribute="bottom" id="Rwr-cH-JcV"/>
                             <constraint firstItem="LBy-9n-03h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZjM-Ec-oTL"/>
                             <constraint firstItem="IhC-SO-uJ6" firstAttribute="centerX" secondItem="Z4W-uZ-6kb" secondAttribute="centerX" id="b6l-9r-wQw"/>
                             <constraint firstItem="LBy-9n-03h" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="djV-IF-R6F"/>
-                            <constraint firstItem="Z4W-uZ-6kb" firstAttribute="top" secondItem="Ri8-fV-AlX" secondAttribute="bottom" constant="121" id="h6g-GN-fb7"/>
-                            <constraint firstItem="QgH-MB-qRK" firstAttribute="top" secondItem="IhC-SO-uJ6" secondAttribute="bottom" constant="230" id="iIc-dT-aBj"/>
+                            <constraint firstItem="Z4W-uZ-6kb" firstAttribute="top" secondItem="Ri8-fV-AlX" secondAttribute="bottom" constant="35" id="h6g-GN-fb7"/>
+                            <constraint firstItem="QgH-MB-qRK" firstAttribute="top" secondItem="IhC-SO-uJ6" secondAttribute="bottom" constant="260" id="iIc-dT-aBj"/>
                             <constraint firstAttribute="trailing" secondItem="LBy-9n-03h" secondAttribute="trailing" id="kqD-Xl-KHn"/>
                             <constraint firstItem="IhC-SO-uJ6" firstAttribute="centerX" secondItem="Ri8-fV-AlX" secondAttribute="centerX" id="opR-K3-U95"/>
                             <constraint firstItem="Z4W-uZ-6kb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qQn-G9-J4r"/>

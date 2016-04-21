@@ -52,8 +52,5 @@
     return newRoom;
 }
 
-//-(void)setName:(NSString *)name {
-////    self.name = name;
-//    [[TPCStateManager currentState] saveContext];
-//}
+
 @end
