@@ -180,28 +180,25 @@
     
     UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved image!" preferredStyle:UIAlertControllerStyleAlert];
     
-    [UIView animateWithDuration:3 animations:^{
-        [self presentViewController:savedAlert animated:YES completion:nil];
-    } completion:^(BOOL finished) {
-        
-        [UIView animateWithDuration:3 animations:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
-
-        }];
-        
-    }];
+    [self presentViewController:savedAlert animated:YES completion:nil];
+    
+    [self performSelector:@selector(dismissSaveAlert) withObject:nil afterDelay:1.0];
 }
 
 -(IBAction) saveButtonPressed{
     
     UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved Layout!" preferredStyle:UIAlertControllerStyleAlert];
     
-    [UIView animateWithDuration:5 animations:^{
-        [self presentViewController:savedAlert animated:YES completion:nil];
-    } completion:^(BOOL finished) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
+    [self presentViewController:savedAlert animated:YES completion:nil];
+    
+    [self performSelector:@selector(dismissSaveAlert) withObject:nil afterDelay:1.0];
+
 }
+
+-(void)dismissSaveAlert {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void) buttonAction: (id) sender {
     
