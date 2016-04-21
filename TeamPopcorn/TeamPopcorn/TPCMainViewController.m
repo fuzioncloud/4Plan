@@ -35,6 +35,7 @@
 @property (strong, nonatomic) TPCFurnitureButton *tappedFurnitureButton;
 @property (strong, nonatomic) UIView *itemsMenuContainerView;
 @property (strong, nonatomic) UIView *recognizerLayerView;
+@property (strong, nonatomic) UIView *menuTrailingBackgroundView;
 @property (strong, nonatomic) NSLayoutConstraint *itemsMenuTrailing;
 @property (assign, nonatomic) BOOL isMenuOut;
 @property (strong, nonatomic) NSMutableArray *furnitureButtonArray;
@@ -254,7 +255,7 @@
     [self.roomLayoutView.heightAnchor constraintEqualToConstant:floorHeight].active = YES;
     
     
-//    [self.roomLayoutView layoutIfNeeded];
+    [self.roomLayoutView layoutIfNeeded];
     
 
     self.roomLayoutView.layer.backgroundColor = [UIColor colorWithRed:0.98 green:0.95 blue:0.89 alpha:1.0].CGColor;
@@ -265,32 +266,45 @@
     
     self.isMenuOut = NO;
     self.recognizerLayerView = [[UIView alloc] init];
-//    self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
+    self.recognizerLayerView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.8];
     self.recognizerLayerView.alpha = 0;
     UITapGestureRecognizer *quitTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDismissMenu)];
     [self.recognizerLayerView addGestureRecognizer:quitTap];
     
+    self.menuTrailingBackgroundView = [[UIView alloc] init];
+    self.menuTrailingBackgroundView.backgroundColor = [UIColor colorWithHue:359/360 saturation:0.33 brightness:0.69 alpha:1];
     self.itemsMenuContainerView = [[UIView alloc] init];
     UINavigationController *menuNavC = [self.storyboard instantiateViewControllerWithIdentifier:@"Items Menu Navigation Controller"];
     
     // Adding to [subviews]
     [self.view addSubview:self.recognizerLayerView];
+    [self.view addSubview:self.menuTrailingBackgroundView];
     [self.view addSubview:self.itemsMenuContainerView];
     
     // Giving constraints
     [self.recognizerLayerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
     [self.itemsMenuContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width).multipliedBy(0.75);
         make.top.and.bottom.equalTo(self.view);
     }];
+    
+    [self.menuTrailingBackgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.right.bottom.equalTo(self.view);
+        make.left.equalTo(self.itemsMenuContainerView);
+    }];
+    
     CGFloat offset = self.view.frame.size.width * 0.75;
     self.itemsMenuTrailing = [self.itemsMenuContainerView.trailingAnchor
                               constraintEqualToAnchor:self.view.trailingAnchor
                               constant:offset - 8];
     self.itemsMenuTrailing.active = YES;
     
+     [self.view layoutIfNeeded];
+
     // Setting the embedded TPCItemsMenuViewController
     [self setEmbeddedViewController:menuNavC];
 }
@@ -444,7 +458,7 @@
                     
                     
                     
-//                    [furnitureButton layoutIfNeeded];
+                    [furnitureButton layoutIfNeeded];
                     
                     
                     
@@ -463,7 +477,7 @@
                         make.height.equalTo(@(furniture.lengthScale));
                     }];
                     
-//                    [furnitureButton layoutIfNeeded];
+                    [furnitureButton layoutIfNeeded];
 
                 }
             }
@@ -475,8 +489,7 @@
     }
     
     
-//    [self.view layoutIfNeeded];
-//    [self.roomLayoutView layoutIfNeeded];
+    [self.roomLayoutView layoutIfNeeded];
     [self furnitureTouching];
     
 

@@ -41,6 +41,7 @@
     self.itemsTableView.dataSource = self;
     self.itemsTableView.delegate = self;
     
+    self.itemsTableView.backgroundColor = [UIColor clearColor];
 
     
     self.itemsTableView.sectionIndexColor = [UIColor blackColor];
