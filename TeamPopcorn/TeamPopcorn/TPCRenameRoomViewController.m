@@ -9,7 +9,7 @@
 #import "TPCRenameRoomViewController.h"
 #import "TPCMainViewController.h"
 
-@interface TPCRenameRoomViewController ()
+@interface TPCRenameRoomViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
 
@@ -21,6 +21,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    self.name.delegate = self;
     self.name.text = self.room.name;
 }
 
@@ -30,6 +31,11 @@
     }
     
     [self.delegate renameRoomViewControllerDidFinish:self];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 @end

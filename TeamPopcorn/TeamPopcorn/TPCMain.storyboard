@@ -291,9 +291,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.29999999999999999" contentMode="scaleAspectFill" image="floor" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-m7-dX2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floor" translatesAutoresizingMaskIntoConstraints="NO" id="fpb-FE-uGX">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
@@ -329,42 +326,22 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="leading" secondItem="o9i-a3-y4N" secondAttribute="trailing" constant="16" id="3Pw-wy-HdN"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="top" secondItem="yzG-zX-HxO" secondAttribute="top" id="8A3-sy-zH4"/>
                             <constraint firstItem="G5b-Tz-gGo" firstAttribute="top" secondItem="fpb-FE-uGX" secondAttribute="bottom" id="93r-Nk-SEE"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="AEy-td-hLI"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerX" secondItem="yzG-zX-HxO" secondAttribute="centerX" id="Bje-uk-Wij"/>
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="HCC-jI-Bep"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="leading" secondItem="yzG-zX-HxO" secondAttribute="leading" id="HiF-Vl-Xa8"/>
                             <constraint firstItem="fpb-FE-uGX" firstAttribute="leading" secondItem="yzG-zX-HxO" secondAttribute="leading" id="MlL-TV-PAP"/>
-                            <constraint firstAttribute="trailing" secondItem="YhR-m7-dX2" secondAttribute="trailing" id="Ngz-lb-2xP"/>
                             <constraint firstItem="o9i-a3-y4N" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="T2x-Qk-THk"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="width" secondItem="yzG-zX-HxO" secondAttribute="width" id="WvL-Ah-Niy"/>
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" multiplier="1.85" id="b8o-Te-zVo"/>
                             <constraint firstItem="fpb-FE-uGX" firstAttribute="top" secondItem="vzM-oX-qSg" secondAttribute="bottom" id="bpQ-nc-2Ec"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="centerX" secondItem="yzG-zX-HxO" secondAttribute="centerX" id="gJ3-lJ-f3F"/>
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="trailing" secondItem="o9i-a3-y4N" secondAttribute="leading" constant="-16" id="ikW-PW-CJK"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="ktN-dd-tSO"/>
                             <constraint firstItem="ZKh-Fx-fyE" firstAttribute="height" secondItem="o9i-a3-y4N" secondAttribute="height" id="m2P-O0-bej"/>
                             <constraint firstItem="GkD-Eg-T8w" firstAttribute="width" secondItem="o9i-a3-y4N" secondAttribute="width" id="nd7-KV-UPi"/>
-                            <constraint firstItem="G5b-Tz-gGo" firstAttribute="top" secondItem="YhR-m7-dX2" secondAttribute="bottom" id="sYZ-Hg-E1O"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="height" secondItem="yzG-zX-HxO" secondAttribute="height" id="tm1-jl-vVi"/>
                             <constraint firstAttribute="trailing" secondItem="fpb-FE-uGX" secondAttribute="trailing" id="uBa-xU-0B8"/>
-                            <constraint firstItem="YhR-m7-dX2" firstAttribute="centerY" secondItem="yzG-zX-HxO" secondAttribute="centerY" id="yTo-u5-c9s"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="YhR-m7-dX2"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="WvL-Ah-Niy"/>
-                                <exclude reference="gJ3-lJ-f3F"/>
-                                <exclude reference="tm1-jl-vVi"/>
-                                <exclude reference="yTo-u5-c9s"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="floorBackground" destination="YhR-m7-dX2" id="8iM-89-cxI"/>
                         <outlet property="homeButton" destination="o9i-a3-y4N" id="XsZ-bP-O5I"/>
                     </connections>
                 </viewController>
@@ -387,7 +364,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQe-ff-aX7">
                                 <rect key="frame" x="16" y="35" width="268" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="nameDidEndEditing:" destination="B5J-vW-fWj" eventType="editingDidEnd" id="eM3-ng-Evv"/>
                                 </connections>
