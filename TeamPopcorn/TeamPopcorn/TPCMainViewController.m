@@ -128,10 +128,11 @@
     
 }
 - (IBAction)homeButtonTapped:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)showRenamePopover {
-//    self.navigationItem.titleView.backgroundColor = [UIColor redColor];
+
     TPCRenameRoomViewController *renameVC = [self.storyboard instantiateViewControllerWithIdentifier:@"renameVC"];
     
     renameVC.room = self.currentRoom;
