@@ -178,7 +178,7 @@
     
     UIImageWriteToSavedPhotosAlbum(screengrab, nil, nil, nil);
     
-    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved image!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *savedAlert = [UIAlertController alertControllerWithTitle:@"" message:@"Saved Image!" preferredStyle:UIAlertControllerStyleAlert];
     
     [self presentViewController:savedAlert animated:YES completion:nil];
     
