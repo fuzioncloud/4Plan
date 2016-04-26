@@ -38,6 +38,8 @@
 		1BA169D11CAC22C500A4436A /* TPCCatalogDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D01CAC22C500A4436A /* TPCCatalogDescriber.m */; };
 		1BA169D41CAC25B200A4436A /* TPCModelsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */; };
 		1BA169D71CAD708E00A4436A /* TPCStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA169D61CAD708E00A4436A /* TPCStateManager.m */; };
+		1BF74DAA1CCEB0F300D4B82D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF74DA91CCEB0F300D4B82D /* SnapshotHelper.swift */; };
+		1BF74DAC1CCEB31100D4B82D /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF74DAB1CCEB31100D4B82D /* SnapshotTests.swift */; };
 		24F6EC5CBA1B4BB45D99CB71 /* libPods-TeamPopcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69358BB76E1C7D3F279A62B /* libPods-TeamPopcorn.a */; };
 		44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44200D281CAEEA3D00479D0D /* TPCMain.storyboard */; };
 		44C6C8091CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C6C8081CAB354F00F21662 /* TPCEnterRoomDimensionViewController.m */; };
@@ -48,6 +50,16 @@
 		7BE73A5F1CAC39C6007BA5A1 /* TPCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE73A5E1CAC39C6007BA5A1 /* TPCConstants.m */; };
 		7BEAFEC21CC5546500824131 /* TPCRoom+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEAFEC11CC5546500824131 /* TPCRoom+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BD898181CCE9ED20064B48C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B9FCD771CAAF3B30041D2DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B9FCD7E1CAAF3B30041D2DB;
+			remoteInfo = 4Plan;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		085612F81CADC2DB00452A49 /* TPCDimensionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCDimensionsViewController.h; sourceTree = "<group>"; };
@@ -107,6 +119,11 @@
 		1BA169D31CAC25B200A4436A /* TPCModelsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCModelsGenerator.m; sourceTree = "<group>"; };
 		1BA169D51CAD708E00A4436A /* TPCStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCStateManager.h; sourceTree = "<group>"; };
 		1BA169D61CAD708E00A4436A /* TPCStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCStateManager.m; sourceTree = "<group>"; };
+		1BD898131CCE9ED20064B48C /* 4PlanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 4PlanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD898151CCE9ED20064B48C /* _PlanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _PlanUITests.m; sourceTree = "<group>"; };
+		1BD898171CCE9ED20064B48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BF74DA91CCEB0F300D4B82D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		1BF74DAB1CCEB31100D4B82D /* SnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		44200D251CAEE8D000479D0D /* TPCItemsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCItemsMenuViewController.h; sourceTree = "<group>"; };
 		44200D261CAEE8D000479D0D /* TPCItemsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCItemsMenuViewController.m; sourceTree = "<group>"; };
 		44200D281CAEEA3D00479D0D /* TPCMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TPCMain.storyboard; sourceTree = "<group>"; };
@@ -135,6 +152,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BD898101CCE9ED20064B48C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1B9FCD811CAAF3B40041D2DB /* TeamPopcorn */,
+				1BD898141CCE9ED20064B48C /* 4PlanUITests */,
 				1B9FCD801CAAF3B30041D2DB /* Products */,
 				2DD32ADFCB25FB1CB5BB4C56 /* Pods */,
 				9B62C5A1E4A6A664923F4D56 /* Frameworks */,
@@ -152,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				1B9FCD7F1CAAF3B30041D2DB /* 4Plan.app */,
+				1BD898131CCE9ED20064B48C /* 4PlanUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +291,17 @@
 			name = C;
 			sourceTree = "<group>";
 		};
+		1BD898141CCE9ED20064B48C /* 4PlanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1BF74DA91CCEB0F300D4B82D /* SnapshotHelper.swift */,
+				1BD898151CCE9ED20064B48C /* _PlanUITests.m */,
+				1BD898171CCE9ED20064B48C /* Info.plist */,
+				1BF74DAB1CCEB31100D4B82D /* SnapshotTests.swift */,
+			);
+			path = 4PlanUITests;
+			sourceTree = "<group>";
+		};
 		2DD32ADFCB25FB1CB5BB4C56 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +342,24 @@
 			productReference = 1B9FCD7F1CAAF3B30041D2DB /* 4Plan.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1BD898121CCE9ED20064B48C /* 4PlanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD8981C1CCE9ED20064B48C /* Build configuration list for PBXNativeTarget "4PlanUITests" */;
+			buildPhases = (
+				1BD8980F1CCE9ED20064B48C /* Sources */,
+				1BD898101CCE9ED20064B48C /* Frameworks */,
+				1BD898111CCE9ED20064B48C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BD898191CCE9ED20064B48C /* PBXTargetDependency */,
+			);
+			name = 4PlanUITests;
+			productName = 4PlanUITests;
+			productReference = 1BD898131CCE9ED20064B48C /* 4PlanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -317,6 +372,10 @@
 					1B9FCD7E1CAAF3B30041D2DB = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = KXY9EDFTF5;
+					};
+					1BD898121CCE9ED20064B48C = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 1B9FCD7E1CAAF3B30041D2DB;
 					};
 				};
 			};
@@ -334,6 +393,7 @@
 			projectRoot = "";
 			targets = (
 				1B9FCD7E1CAAF3B30041D2DB /* 4Plan */,
+				1BD898121CCE9ED20064B48C /* 4PlanUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +411,13 @@
 				1B9FCD8D1CAAF3B40041D2DB /* TPCFloorplan.storyboard in Resources */,
 				44200D291CAEEA3D00479D0D /* TPCMain.storyboard in Resources */,
 				7B51EF381CC6D2DD00B39EC4 /* TPCAcknowledgements.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD898111CCE9ED20064B48C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +510,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BD8980F1CCE9ED20064B48C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BF74DAC1CCEB31100D4B82D /* SnapshotTests.swift in Sources */,
+				1BF74DAA1CCEB0F300D4B82D /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1BD898191CCE9ED20064B48C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B9FCD7E1CAAF3B30041D2DB /* 4Plan */;
+			targetProxy = 1BD898181CCE9ED20064B48C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B9FCD8B1CAAF3B40041D2DB /* TPCFloorplan.storyboard */ = {
@@ -560,7 +644,7 @@
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-popcorn";
 				PRODUCT_NAME = 4Plan;
 				PROVISIONING_PROFILE = "";
 			};
@@ -577,9 +661,36 @@
 				INFOPLIST_FILE = TeamPopcorn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flatironschool.popcorn.TeamPopcorn;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-popcorn";
 				PRODUCT_NAME = 4Plan;
 				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		1BD8981A1CCE9ED20064B48C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = 4PlanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.popcorn.-PlanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = 4Plan;
+			};
+			name = Debug;
+		};
+		1BD8981B1CCE9ED20064B48C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = 4PlanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.popcorn.-PlanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = 4Plan;
 			};
 			name = Release;
 		};
@@ -600,6 +711,15 @@
 			buildConfigurations = (
 				1B9FCD971CAAF3B40041D2DB /* Debug */,
 				1B9FCD981CAAF3B40041D2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD8981C1CCE9ED20064B48C /* Build configuration list for PBXNativeTarget "4PlanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD8981A1CCE9ED20064B48C /* Debug */,
+				1BD8981B1CCE9ED20064B48C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
